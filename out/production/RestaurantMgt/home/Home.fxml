@@ -15,21 +15,24 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="676.0" prefWidth="1200.0" style="-fx-background-color: #02030A;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="676.0"
+            prefWidth="1200.0" style="-fx-background-color: #02030A;" xmlns="http://javafx.com/javafx/11.0.1"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.Controller">
     <children>
-        <VBox alignment="TOP_CENTER" prefHeight="576.0" prefWidth="256.0" style="-fx-background-color: #05071F;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <VBox alignment="TOP_CENTER" prefHeight="576.0" prefWidth="256.0" style="-fx-background-color: #05071F;"
+              AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
                 <ImageView fitHeight="73.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../images/jimmy-fallon.png" />
+                        <Image url="@../images/jimmy-fallon.png"/>
                     </image>
                     <VBox.margin>
-                        <Insets bottom="10.0" top="50.0" />
+                        <Insets bottom="10.0" top="50.0"/>
                     </VBox.margin>
                 </ImageView>
                 <Label text="Nom User Connecté" textFill="#e7e5e5">
                     <VBox.margin>
-                        <Insets bottom="100.0" />
+                        <Insets bottom="100.0"/>
                     </VBox.margin>
                 </Label>
                 <Button fx:id="btnAccueil" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false"
@@ -38,15 +41,15 @@
                     <graphic>
                         <ImageView fitHeight="40.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../images/SideBarIcons/Accueil.png" />
+                                <Image url="@../images/SideBarIcons/Accueil.png"/>
                             </image>
                         </ImageView>
                     </graphic>
                     <padding>
-                        <Insets left="50.0" />
+                        <Insets left="50.0"/>
                     </padding>
                     <font>
-                        <Font name="Montserrat-Regular" size="14.0" />
+                        <Font name="Montserrat-Regular" size="14.0"/>
                     </font>
                 </Button>
                 <Button fx:id="btnListes" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false"
@@ -56,21 +59,21 @@
                     <graphic>
                         <ImageView fitHeight="40.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../images/SideBarIcons/Listes.png" />
+                                <Image url="@../images/SideBarIcons/Listes.png"/>
                             </image>
                         </ImageView>
                     </graphic>
                     <opaqueInsets>
-                        <Insets />
+                        <Insets/>
                     </opaqueInsets>
                     <VBox.margin>
-                        <Insets />
+                        <Insets/>
                     </VBox.margin>
                     <padding>
-                        <Insets left="50.0" />
+                        <Insets left="50.0"/>
                     </padding>
                     <font>
-                        <Font name="Montserrat-Regular" size="14.0" />
+                        <Font name="Montserrat-Regular" size="14.0"/>
                     </font>
                 </Button>
                 <Button fx:id="btnStatistiques" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false"
@@ -79,15 +82,15 @@
                     <graphic>
                         <ImageView fitHeight="40.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../images/SideBarIcons/chart.png" />
+                                <Image url="@../images/SideBarIcons/chart.png"/>
                             </image>
                         </ImageView>
                     </graphic>
                     <padding>
-                        <Insets left="50.0" />
+                        <Insets left="50.0"/>
                     </padding>
                     <font>
-                        <Font name="Montserrat-Regular" size="14.0" />
+                        <Font name="Montserrat-Regular" size="14.0"/>
                     </font>
                 </Button>
                 <Button fx:id="btnGestion" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false"
@@ -96,15 +99,15 @@
                     <graphic>
                         <ImageView fitHeight="40.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../images/SideBarIcons/Etudiants.png" />
+                                <Image url="@../images/SideBarIcons/Etudiants.png"/>
                             </image>
                         </ImageView>
                     </graphic>
                     <padding>
-                        <Insets left="50.0" />
+                        <Insets left="50.0"/>
                     </padding>
                     <font>
-                        <Font name="Montserrat-Regular" size="14.0" />
+                        <Font name="Montserrat-Regular" size="14.0"/>
                     </font>
                 </Button>
                 <Button fx:id="btnNotes" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false"
@@ -114,44 +117,52 @@
                     <graphic>
                         <ImageView fitHeight="40.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../images/SideBarIcons/Notes.png" />
+                                <Image url="@../images/SideBarIcons/Notes.png"/>
                             </image>
                         </ImageView>
                     </graphic>
                     <padding>
-                        <Insets left="50.0" />
+                        <Insets left="50.0"/>
                     </padding>
                     <font>
-                        <Font name="Montserrat-Regular" size="14.0" />
+                        <Font name="Montserrat-Regular" size="14.0"/>
                     </font>
                 </Button>
-                <Region VBox.vgrow="ALWAYS" />
-                <Button fx:id="btnLogOut" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="259.0" stylesheets="@style.css" text="Se déconnécter">
+                <Region VBox.vgrow="ALWAYS"/>
+                <Button fx:id="btnLogOut" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false"
+                        prefHeight="42.0" prefWidth="259.0" stylesheets="@style.css" text="Se déconnécter">
                     <graphic>
                         <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../images/SideBarIcons/deconnecter.png" />
+                                <Image url="@../images/SideBarIcons/deconnecter.png"/>
                             </image>
                         </ImageView>
                     </graphic>
                     <padding>
-                        <Insets left="50.0" />
+                        <Insets left="50.0"/>
                     </padding>
                 </Button>
             </children>
         </VBox>
-        <Button fx:id="btnClose" alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="1168.0" layoutY="2.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#btnClose_Click" prefHeight="25.0" prefWidth="29.0" style="-fx-background-color: transparent; -fx-padding: 0;" stylesheets="@style.css">
+        <Button fx:id="btnClose" alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="1168.0" layoutY="2.0"
+                maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+                mnemonicParsing="false" onAction="#btnClose_Click" prefHeight="25.0" prefWidth="29.0"
+                style="-fx-background-color: transparent; -fx-padding: 0;" stylesheets="@style.css">
             <graphic>
                 <ImageView fitHeight="29.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
-                    <Image backgroundLoading="true" url="@../images/HboxIcons/close.png" />
+                    <Image backgroundLoading="true" url="@../images/HboxIcons/close.png"/>
                 </ImageView>
             </graphic>
         </Button>
-        <Button fx:id="btnMinimize" alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="1133.0" layoutY="2.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#btnMinimize_Click" prefHeight="25.0" prefWidth="29.0" style="-fx-background-color: transparent; -fx-padding: 0;" stylesheets="@style.css">
+        <Button fx:id="btnMinimize" alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="1133.0" layoutY="2.0"
+                maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+                mnemonicParsing="false" onAction="#btnMinimize_Click" prefHeight="25.0" prefWidth="29.0"
+                style="-fx-background-color: transparent; -fx-padding: 0;" stylesheets="@style.css">
             <graphic>
-                <ImageView fx:id="imgViewMinimize" fitHeight="29.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fx:id="imgViewMinimize" fitHeight="29.0" fitWidth="28.0" pickOnBounds="true"
+                           preserveRatio="true">
                     <image>
-                        <Image url="@../images/HboxIcons/minimize.png" />
+                        <Image url="@../images/HboxIcons/minimize.png"/>
                     </image>
                 </ImageView>
             </graphic>
@@ -188,6 +199,6 @@
 
     </children>
     <effect>
-        <DropShadow color="#1b1eeb" />
+        <DropShadow color="#1b1eeb"/>
     </effect>
 </AnchorPane>
