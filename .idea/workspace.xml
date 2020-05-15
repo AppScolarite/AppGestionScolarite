@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/home/Home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/home/Home.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataBase/UseCase.eap" beforeDir="false" afterPath="$PROJECT_DIR$/DataBase/UseCase.eap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataBase/UseCase.ldb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RestaurantMgt/home/Home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RestaurantMgt/home/Home.fxml" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -63,26 +66,24 @@
     <favorites_list name="JavaFxApplication" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/home/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="507">
-              <caret line="61" column="4" selection-start-line="61" selection-start-column="4" selection-end-line="61" selection-end-column="4" />
+            <state relative-caret-position="-307">
+              <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1361#1362#0" expanded="true" />
-                <element signature="e#1395#1396#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/home/Home.fxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="111">
-              <caret line="134" column="18" selection-start-line="134" selection-start-column="18" selection-end-line="134" selection-end-column="18" />
+            <state relative-caret-position="2210">
+              <caret line="130" column="91" lean-forward="true" selection-start-line="130" selection-start-column="91" selection-end-line="130" selection-end-column="91" />
             </state>
           </provider>
           <provider editor-type-id="JavaFX-Scene-Builder" />
@@ -129,8 +130,8 @@
         <option value="$PROJECT_DIR$/src/home/Item.fxml" />
         <option value="$PROJECT_DIR$/src/home/style.css" />
         <option value="$PROJECT_DIR$/src/home/Main.java" />
-        <option value="$PROJECT_DIR$/src/home/Controller.java" />
         <option value="$PROJECT_DIR$/src/home/Home.fxml" />
+        <option value="$PROJECT_DIR$/src/home/Controller.java" />
       </list>
     </option>
   </component>
@@ -151,50 +152,29 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="RestaurantMgtSampleUI-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RestaurantMgtSampleUI-master" type="462c0819:PsiDirectoryNode" />
+              <item name="AppGestionScolarite" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AppGestionScolarite" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="RestaurantMgtSampleUI-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RestaurantMgtSampleUI-master" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="AppGestionScolarite" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AppGestionScolarite" type="462c0819:PsiDirectoryNode" />
+              <item name="imgs" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="RestaurantMgtSampleUI-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RestaurantMgtSampleUI-master" type="462c0819:PsiDirectoryNode" />
+              <item name="AppGestionScolarite" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AppGestionScolarite" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="home" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RestaurantMgtSampleUI-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RestaurantMgtSampleUI-master" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RestaurantMgtSampleUI-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RestaurantMgtSampleUI-master" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
-              <item name="HboxIcons" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RestaurantMgtSampleUI-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RestaurantMgtSampleUI-master" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
-              <item name="SideBarIcons" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -210,7 +190,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539694134488" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="C:/javafx-sdk-11.0.2/lib" />
+    <property name="last_opened_file_path" value="C:/Program Files/JetBrains/javafx-sdk-11.0.2/lib" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
@@ -261,11 +241,11 @@
       </method>
     </configuration>
     <configuration name="Main" type="Application" factoryName="Application">
-      <option name="ALTERNATIVE_JRE_PATH" value="11" />
+      <option name="ALTERNATIVE_JRE_PATH" value="12" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="home.Main" />
       <module name="RestaurantMgt" />
-      <option name="VM_PARAMETERS" value="--module-path &quot;C:\javafx-sdk-11.0.2\lib&quot; --add-modules javafx.controls,javafx.fxml" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Program Files\JetBrains\javafx-sdk-11.0.2\lib&quot; --add-modules javafx.controls,javafx.fxml" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="home.*" />
@@ -331,17 +311,17 @@
       <workItem from="1589479360178" duration="3176000" />
       <workItem from="1589560956822" duration="882000" />
       <workItem from="1589562204841" duration="607000" />
+      <workItem from="1589566288179" duration="2267000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20345000" />
+    <option name="totallyTimeSpent" value="22612000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.19858612" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.20115681" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -351,7 +331,7 @@
       <window_info id="Learn" order="7" />
       <window_info anchor="bottom" id="Terminal" order="0" />
       <window_info anchor="bottom" id="Message" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3526912" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.1359354" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39943343" />
       <window_info anchor="bottom" id="Find" order="4" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
@@ -456,30 +436,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/home/Home.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="111">
-          <caret line="134" column="18" selection-start-line="134" selection-start-column="18" selection-end-line="134" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/home/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="507">
-          <caret line="61" column="4" selection-start-line="61" selection-start-column="4" selection-end-line="61" selection-end-column="4" />
+        <state relative-caret-position="-307">
+          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1361#1362#0" expanded="true" />
-            <element signature="e#1395#1396#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/home/Home.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2720">
-          <caret line="160" column="41" selection-start-line="160" selection-start-column="41" selection-end-line="160" selection-end-column="41" />
+        <state relative-caret-position="2210">
+          <caret line="130" column="91" lean-forward="true" selection-start-line="130" selection-start-column="91" selection-end-line="130" selection-end-column="91" />
         </state>
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder" />

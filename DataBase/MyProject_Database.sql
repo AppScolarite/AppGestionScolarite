@@ -33,7 +33,6 @@ create table personnel
 	Telephone_personnel varchar(15),
 	Sexe# int foreign key references SEXE,
 	Adresse varchar(100)
-
 )
 
 
