@@ -12,8 +12,8 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0"
-            prefWidth="1500.0" style="-fx-background-color: #02030A;" xmlns="http://javafx.com/javafx/11.0.1"
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="676.0"
+            prefWidth="1200.0" style="-fx-background-color: #02030A;" xmlns="http://javafx.com/javafx/11.0.1"
             xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.Controller">
     <children>
         <VBox alignment="TOP_CENTER" prefHeight="576.0" prefWidth="256.0" style="-fx-background-color: #05071F;"
@@ -135,23 +135,26 @@
                 </Button>
             </children>
         </VBox>
-        <Button fx:id="btnClose" alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="1447.0" layoutY="2.0"
+        <Button fx:id="btnClose" alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="1168.0" layoutY="2.0"
                 maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-                mnemonicParsing="false" onAction="#btnClose_Click" prefHeight="40.0" prefWidth="50.0"
-                stylesheets="@style.css">
+                mnemonicParsing="false" onAction="#btnClose_Click" prefHeight="25.0" prefWidth="29.0"
+                style="-fx-background-color: transparent; -fx-padding: 0;" stylesheets="@style.css">
             <graphic>
-                <ImageView fitHeight="40.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="29.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
                     <Image backgroundLoading="true" url="@../images/HboxIcons/close.png"/>
                 </ImageView>
             </graphic>
         </Button>
-
-        <Button alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="1396.0" layoutY="3.0" maxHeight="-Infinity"
-                maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false"
-                onAction="#btnMinimize_Click" prefHeight="40.0" prefWidth="50.0" stylesheets="@style.css">
+        <Button fx:id="btnClose1" alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="1133.0" layoutY="2.0"
+                maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+                mnemonicParsing="false" onAction="#btnClose_Click" prefHeight="25.0" prefWidth="29.0"
+                style="-fx-background-color: transparent; -fx-padding: 0;" stylesheets="@style.css">
             <graphic>
-                <ImageView fitHeight="40.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true">
-                    <Image url="file:/C:/Users/pc/Desktop/RestaurantMgtSampleUI-master/src/images/HboxIcons/minimize.png"/>
+                <ImageView fx:id="imgViewMinimize" fitHeight="29.0" fitWidth="28.0" pickOnBounds="true"
+                           preserveRatio="true">
+                    <image>
+                        <Image url="@../images/HboxIcons/minimize.png"/>
+                    </image>
                 </ImageView>
             </graphic>
         </Button>
@@ -169,6 +172,7 @@
                         text="Button"/>
             </children>
         </Pane>
+
 
     </children>
     <effect>
