@@ -16,7 +16,8 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(root));
         //set stage borderless
         primaryStage.initStyle(StageStyle.UNDECORATED);
-
+//        primaryStage.setHeight(800);
+//        primaryStage.setWidth(1500);
         //drag it here
         root.setOnMousePressed(event -> {
             x = event.getSceneX();
