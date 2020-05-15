@@ -6,9 +6,14 @@
 .button:hover{
 -fx-background-color : #10165F;
 }
+/*.button:pressed*/
+/*{*/
+/*-fx-background-color : #1620A1;*/
+/*}*/
 .button:pressed
 {
--fx-background-color : #1620A1;
+    -fx-background-color : #2F2B43 ;
+    -fx-background-radius :  30 0 0 30;
 }
 
 .scroll-pane {
