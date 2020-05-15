@@ -64,6 +64,7 @@ public class Controller implements Initializable {
     @FXML
     private void btn_blue(ActionEvent e) {
         panel_blue.toFront();
+
     }
 
     @FXML
