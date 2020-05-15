@@ -7,6 +7,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -31,6 +32,22 @@
                         <Insets bottom="100.0"/>
                     </VBox.margin>
                 </Label>
+                <Button fx:id="btnAccueil" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false"
+                        prefHeight="60.0" prefWidth="259.0" stylesheets="@style.css" text="Accueil">
+                    <graphic>
+                        <ImageView fitHeight="40.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/SideBarIcons/Accueil.png"/>
+                            </image>
+                        </ImageView>
+                    </graphic>
+                    <padding>
+                        <Insets left="50.0"/>
+                    </padding>
+                    <font>
+                        <Font name="Montserrat-Regular" size="14.0"/>
+                    </font>
+                </Button>
                 <Button fx:id="btnListes" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false"
                         prefHeight="60.0" prefWidth="259.0" stylesheets="@style.css" text="Mes listes"
                         textFill="#e7e5e5">
@@ -60,22 +77,6 @@
                         <ImageView fitHeight="40.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="@../images/SideBarIcons/chart.png"/>
-                            </image>
-                        </ImageView>
-                    </graphic>
-                    <padding>
-                        <Insets left="50.0"/>
-                    </padding>
-                    <font>
-                        <Font name="Montserrat-Regular" size="14.0"/>
-                    </font>
-                </Button>
-                <Button fx:id="btnAccueil" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false"
-                        prefHeight="60.0" prefWidth="259.0" stylesheets="@style.css" text="Accueil">
-                    <graphic>
-                        <ImageView fitHeight="40.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../images/SideBarIcons/Accueil.png"/>
                             </image>
                         </ImageView>
                     </graphic>
@@ -154,6 +155,20 @@
                 </ImageView>
             </graphic>
         </Button>
+        <Pane fx:id="panel_blue" layoutX="437.0" layoutY="189.0" prefHeight="336.0" prefWidth="435.0"
+              style="-fx-background-color: blue;">
+            <children>
+                <Button fx:id="bbtn_blue" layoutX="67.0" layoutY="41.0" mnemonicParsing="false" onAction="#btn_blue"
+                        text="Button"/>
+            </children>
+        </Pane>
+        <Pane fx:id="panel_red" layoutX="717.0" layoutY="300.0" prefHeight="336.0" prefWidth="435.0"
+              style="-fx-background-color: red;">
+            <children>
+                <Button fx:id="bbtn_red" layoutX="310.0" layoutY="260.0" mnemonicParsing="false" onAction="#btn_red"
+                        text="Button"/>
+            </children>
+        </Pane>
 
     </children>
     <effect>

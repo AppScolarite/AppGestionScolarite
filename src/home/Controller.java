@@ -32,6 +32,18 @@ public class Controller implements Initializable {
     private Button btnClose;
 
     @FXML
+    private Pane panel_blue;
+
+    @FXML
+    private Pane panel_red;
+
+    @FXML
+    private Pane btn_blue;
+
+    @FXML
+    private Pane btn_red;
+
+    @FXML
     private void btnClose_Click(ActionEvent e) {
         stage = (Stage) ((Button) e.getSource()).getScene().getWindow();
         stage.close();
@@ -43,37 +55,29 @@ public class Controller implements Initializable {
         stage.setIconified(true);
     }
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-
+    @FXML
+    private void btn_blue(ActionEvent e) {
+        panel_blue.toFront();
     }
 
-//    @FXML
-//    private Button btnOrders;
-//
-//    @FXML
-//    private Button btnCustomers;
-//
-//    @FXML
-//    private Button btnMenus;
-//
-//    @Override
+    @FXML
+    private void btn_red(ActionEvent e) {
+        panel_red.toFront();
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        //todo !
+        // remplir imageView depuis le controller *minimize*
+    }
+
+
+    //    @Override
 //    public void initialize(URL location, ResourceBundle resources) {
 //
 //    }
 
-//    @FXML
-//    private Button btnPackages;
-//
-//    @FXML
-//    private Button btnSettings;
-//
-//    @FXML
-//    private Button btnSignout;
-//
-//    @FXML
-//    private Pane pnlCustomer;
-//
+
 //    @FXML
 //    private Pane pnlOrders;
 //
