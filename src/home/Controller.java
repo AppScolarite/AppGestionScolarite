@@ -23,31 +23,27 @@ import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
 
-    //    @FXML
-//    private VBox pnItems = null;
-
-
     @FXML
     private AnchorPane anchorPane;
     Stage stage;
 
     @FXML
-    private Button btnClose;
+    private Pane panelNotes;
 
     @FXML
-    private Pane panel_blue;
+    private Button btnAccueil;
 
     @FXML
-    private Pane panel_red;
+    private Button btnListes;
 
     @FXML
-    private Pane btn_blue;
+    private Button btnStatistiques;
 
     @FXML
-    private Pane btn_red;
+    private Button btnGestion;
 
     @FXML
-    private ImageView imgViewMinimize;
+    private Button btnNotes;
 
     @FXML
     private void btnClose_Click(ActionEvent e) {
@@ -62,14 +58,12 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    private void btn_blue(ActionEvent e) {
-        panel_blue.toFront();
-
-    }
-
-    @FXML
-    private void btn_red(ActionEvent e) {
-        panel_red.toFront();
+    private void btnNotes_click(ActionEvent e) {
+        //todo
+        //regler TAB design 
+        btnNotes.setStyle("-fx-background-color : #02030A");
+        btnNotes.setStyle("-fx-background-radius :  30 0 0 30;");
+        panelNotes.toFront();
     }
 
     @Override
