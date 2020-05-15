@@ -7,6 +7,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
@@ -14,6 +16,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -44,6 +47,9 @@ public class Controller implements Initializable {
     private Pane btn_red;
 
     @FXML
+    private ImageView imgViewMinimize;
+
+    @FXML
     private void btnClose_Click(ActionEvent e) {
         stage = (Stage) ((Button) e.getSource()).getScene().getWindow();
         stage.close();
@@ -68,25 +74,8 @@ public class Controller implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        //todo !
-        // remplir imageView depuis le controller *minimize*
+
     }
-
-
-    //    @Override
-//    public void initialize(URL location, ResourceBundle resources) {
-//
-//    }
-
-
-//    @FXML
-//    private Pane pnlOrders;
-//
-//    @FXML
-//    private Pane pnlOverview;
-//
-//    @FXML
-//    private Pane pnlMenus;
 
 //    @Override
 //    public void initialize(URL location, ResourceBundle resources) {
