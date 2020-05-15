@@ -145,9 +145,9 @@
                 </ImageView>
             </graphic>
         </Button>
-        <Button fx:id="btnClose1" alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="1133.0" layoutY="2.0"
+        <Button fx:id="btnMinimize" alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="1133.0" layoutY="2.0"
                 maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-                mnemonicParsing="false" onAction="#btnClose_Click" prefHeight="25.0" prefWidth="29.0"
+                mnemonicParsing="false" onAction="#btnMinimize_Click" prefHeight="25.0" prefWidth="29.0"
                 style="-fx-background-color: transparent; -fx-padding: 0;" stylesheets="@style.css">
             <graphic>
                 <ImageView fx:id="imgViewMinimize" fitHeight="29.0" fitWidth="28.0" pickOnBounds="true"
