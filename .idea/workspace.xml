@@ -89,12 +89,12 @@
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/home/Home.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder" />
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="175">
               <caret line="113" column="67" selection-start-line="113" selection-start-column="67" selection-end-line="113" selection-end-column="67" />
             </state>
           </provider>
+          <provider editor-type-id="JavaFX-Scene-Builder" />
         </entry>
       </file>
     </leaf>
@@ -165,7 +165,6 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -208,6 +207,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -343,6 +343,7 @@
       <workItem from="1589476819089" duration="452000" />
       <workItem from="1589479360178" duration="3176000" />
       <workItem from="1589560956822" duration="882000" />
+      <workItem from="1589562204841" duration="607000" />
     </task>
     <servers />
   </component>
@@ -350,10 +351,10 @@
     <option name="totallyTimeSpent" value="27999000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.1932886" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.19858612" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -442,12 +443,12 @@
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/home/Item.fxml">
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
       <provider editor-type-id="text-editor">
         <state relative-caret-position="-102">
           <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/home/Main.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -486,6 +487,14 @@
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/home/Home.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2720">
+          <caret line="160" column="41" selection-start-line="160" selection-start-column="41" selection-end-line="160" selection-end-column="41" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
   </component>
   <component name="masterDetails">
