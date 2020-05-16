@@ -7,13 +7,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
 import java.io.File;
@@ -46,6 +44,12 @@ public class Controller implements Initializable {
     private Button btnNotes;
 
     @FXML
+    private TableView tblView;
+
+    @FXML
+    private BorderPane panelGestion;
+
+    @FXML
     private void btnClose_Click(ActionEvent e) {
         stage = (Stage) ((Button) e.getSource()).getScene().getWindow();
         stage.close();
@@ -60,10 +64,18 @@ public class Controller implements Initializable {
     @FXML
     private void btnNotes_click(ActionEvent e) {
         //todo
-        //regler TAB design 
+        //regler TAB design
+
         btnNotes.setStyle("-fx-background-color : #02030A");
         btnNotes.setStyle("-fx-background-radius :  30 0 0 30;");
+
+//        tblView.getItems().add(0, "Doe");
         panelNotes.toFront();
+    }
+
+    @FXML
+    private void btnGestion_click(ActionEvent e) {
+        panelGestion.toFront();
     }
 
     @Override
