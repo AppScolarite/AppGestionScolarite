@@ -346,9 +346,7 @@
                 <VBox alignment="TOP_RIGHT" prefHeight="571.0" prefWidth="692.0" BorderPane.alignment="CENTER">
                     <children>
                         <HBox alignment="TOP_RIGHT" prefHeight="41.0" prefWidth="640.0">
-                            <children>
-
-                            </children>
+                            
                         </HBox>
                         <TableView fx:id="userTable" prefHeight="300.0" prefWidth="679.0" tableMenuButtonVisible="true">
                             <columns>
