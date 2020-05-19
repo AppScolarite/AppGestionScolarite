@@ -67,7 +67,6 @@ public class Controller implements Initializable {
         btnNotes.setStyle("-fx-background-color : #02030A");
         btnNotes.setStyle("-fx-background-radius :  30 0 0 30;");
 
-//        tblView.getItems().add(0, "Doe");
         panelNotes.toFront();
     }
 
@@ -83,22 +82,17 @@ public class Controller implements Initializable {
         Gestionnaire_De_Connection connectionClass = new Gestionnaire_De_Connection();
         Connection connection = connectionClass.getConnection();
         try {
-            Statement statement = connection.createStatement();
-//            String sql="SELECT * FROM userauth WHERE username = '"+userName.getText()+"' AND password = '"+userPassword.getText()+"';";
-            ResultSet resultSet = statement.executeQuery("select * from branche");
+            Statement sqlCommand = connection.createStatement();
+            ResultSet dataReader = sqlCommand.executeQuery("select * from branche");
 
-            if (resultSet.next()) {
+            if (dataReader.next()) { // ze3ma if (exist())
                 System.out.println("cool");
-                resultSet.getRow();
-                String test = resultSet.getString("libelle_branche");
+                dataReader.getRow();
+                String test = dataReader.getString("libelle_branche");
                 System.out.println(test);
-//            findColumn("libelle_branche")
             } else {
                 System.out.println("not cool");
-
             }
-
-
         } catch (SQLException e) {
             e.printStackTrace();
         }

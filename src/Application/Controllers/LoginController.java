@@ -55,7 +55,7 @@ public class LoginController implements Initializable {
 
     @FXML
     public void Inscrire_Click() throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("inscrire.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("@../../Application/Views/inscrire.fxml"));
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.initStyle(StageStyle.UNDECORATED);
