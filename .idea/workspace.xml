@@ -2,11 +2,75 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Application/Controllers/LoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Application/Controllers/TestFileController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Application/Data/Gestionnaire_De_Connection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Application/Views/Login.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Application/Views/TestFile.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Application/Views/inscrire.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/Styles/LoginStyling.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/images/LoginIcons/icons8_Facebook_F_48px.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/images/LoginIcons/icons8_Google_Wallet_50px.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/images/LoginIcons/icons8_XING_100px.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RestaurantMgt.iml" beforeDir="false" afterPath="$PROJECT_DIR$/RestaurantMgt.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RestaurantMgt/home/Home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RestaurantMgt/home/Home.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RestaurantMgt/HboxIcons/close.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RestaurantMgt/HboxIcons/minimize.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RestaurantMgt/SideBarIcons/Accueil.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RestaurantMgt/SideBarIcons/Etudiants.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RestaurantMgt/SideBarIcons/Listes.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RestaurantMgt/SideBarIcons/Notes.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RestaurantMgt/SideBarIcons/chart.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RestaurantMgt/SideBarIcons/deconnecter.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RestaurantMgt/home/Controller.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RestaurantMgt/home/Home.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RestaurantMgt/home/Item.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RestaurantMgt/home/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RestaurantMgt/home/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RestaurantMgt/icons8_Box_32px.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RestaurantMgt/icons8_GPS_Antenna_64px_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RestaurantMgt/icons8_Home_32px.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RestaurantMgt/icons8_Meanpath_64px_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RestaurantMgt/icons8_Open_Envelope_32px.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RestaurantMgt/icons8_Person_32px.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RestaurantMgt/icons8_Search_52px.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RestaurantMgt/icons8_Sign_Out_32px.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RestaurantMgt/icons8_Slider__32px.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RestaurantMgt/icons8_Xbox_Menu_32px.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RestaurantMgt/images/icons8_Box_32px.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RestaurantMgt/images/icons8_Home_32px.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RestaurantMgt/images/icons8_Open_Envelope_32px.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RestaurantMgt/images/icons8_Person_32px.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RestaurantMgt/images/icons8_Sign_Out_32px.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RestaurantMgt/images/icons8_Slider__32px.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RestaurantMgt/images/icons8_Xbox_Menu_32px.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RestaurantMgt/images/jimmy-fallon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RestaurantMgt/jimmy-fallon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Styles/GestionStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/Styles/GestionStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/home/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Controllers/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/home/Home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Views/Home.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/home/Item.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/home/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/home/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/Styles/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/Styles/images/HboxIcons/close.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/Styles/images/HboxIcons/minimize.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/Styles/images/SideBarIcons/Accueil.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/Styles/images/SideBarIcons/Etudiants.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/Styles/images/SideBarIcons/Listes.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/Styles/images/SideBarIcons/Notes.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/Styles/images/SideBarIcons/chart.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/Styles/images/SideBarIcons/deconnecter.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/Styles/images/icons8_Box_32px.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/Styles/images/icons8_GPS_Antenna_64px_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/Styles/images/icons8_Home_32px.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/Styles/images/icons8_Meanpath_64px_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/Styles/images/icons8_Open_Envelope_32px.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/Styles/images/icons8_Person_32px.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/Styles/images/icons8_Search_52px.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/Styles/images/icons8_Sign_Out_32px.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/Styles/images/icons8_Slider__32px.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/Styles/images/icons8_Xbox_Menu_32px.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/Styles/images/jimmy-fallon.png" beforeDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -65,45 +129,83 @@
     <favorites_list name="JavaFxApplication" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/home/Main.java">
+        <entry file="file://$PROJECT_DIR$/src/Application/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-13">
-              <caret line="10" column="11" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
+            <state relative-caret-position="208">
+              <caret line="15" column="81" lean-forward="true" selection-start-line="15" selection-start-column="81" selection-end-line="15" selection-end-column="81" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#946#947#0" expanded="true" />
-                <element signature="e#974#975#0" expanded="true" />
               </folding>
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Application/Views/Home.fxml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="283">
+              <caret line="37" column="36" lean-forward="true" selection-start-line="37" selection-start-column="36" selection-end-line="37" selection-end-column="60" />
+            </state>
+          </provider>
+          <provider editor-type-id="JavaFX-Scene-Builder" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Application/Controllers/Controller.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-800">
+              <caret line="19" column="40" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="40" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Application/Views/TestFile.fxml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" selection-start-line="11" selection-end-line="11" />
+            </state>
+          </provider>
+          <provider editor-type-id="JavaFX-Scene-Builder" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/home/Controller.java">
+        <entry file="file://$PROJECT_DIR$/src/Application/Views/Login.fxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="78">
-              <caret line="72" column="29" lean-forward="true" selection-start-line="72" selection-start-column="29" selection-end-line="72" selection-end-column="29" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#733#866#0" />
-                <element signature="e#1709#1710#0" expanded="true" />
-                <element signature="e#1747#1748#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="248">
+              <caret line="78" column="20" selection-start-line="78" selection-start-column="20" selection-end-line="78" selection-end-column="20" />
+            </state>
+          </provider>
+          <provider editor-type-id="JavaFX-Scene-Builder" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/resources/Styles/LoginStyling.css">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Application/Controllers/LoginController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="14" column="28" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="28" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/home/Home.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder" />
+        <entry file="file://$PROJECT_DIR$/src/Application/Controllers/TestFileController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="18" column="39" lean-forward="true" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
+            <state relative-caret-position="119">
+              <caret line="7" column="9" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
               <folding>
-                <element signature="n#top#0;n#BorderPane#0;n#children#0;n#AnchorPane#0;n#!!top" />
-                <element signature="n#left#0;n#BorderPane#0;n#children#0;n#AnchorPane#0;n#!!top" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#233#234#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -114,18 +216,15 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="FxmlFile" />
         <option value="Gradle Kotlin DSL Build Script" />
         <option value="CSS File" />
+        <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>pn</find>
-      <find>butto</find>
-      <find>overvie</find>
-      <find>fitHeight=&quot;23.0&quot; fitWidth=&quot;27.0&quot;</find>
       <find>se de</find>
       <find>handleClicks</find>
       <find>min</find>
@@ -137,7 +236,6 @@
       <find>minimi</find>
       <find>butt</find>
       <find>#btn</find>
-      <find>acc</find>
       <find>notes</find>
       <find>TableView</find>
       <find>tblView</find>
@@ -151,7 +249,12 @@
       <find>primaryStage</find>
       <find>btnGestion</find>
       <find>btnGestion_click</find>
+      <find>ini</find>
       <find>panelGestion</find>
+      <find>png</find>
+      <find>acc</find>
+      <find>resources</find>
+      <find>resou</find>
     </findStrings>
   </component>
   <component name="FindManager">
@@ -166,17 +269,27 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/home/Item.fxml" />
-        <option value="$PROJECT_DIR$/src/home/Main.java" />
         <option value="$PROJECT_DIR$/src/home/style.css" />
         <option value="$PROJECT_DIR$/src/Styles/GestionStyle.css" />
         <option value="$PROJECT_DIR$/src/home/Home.fxml" />
+        <option value="$PROJECT_DIR$/src/home/Main.java" />
+        <option value="$PROJECT_DIR$/src/home/Data/Gestionnaire_De_Connection.java" />
         <option value="$PROJECT_DIR$/src/home/Controller.java" />
+        <option value="$PROJECT_DIR$/src/Application/Controller.java" />
+        <option value="$PROJECT_DIR$/src/Application/Controllers/Controller.java" />
+        <option value="$PROJECT_DIR$/src/Application/Views/Home.fxml" />
+        <option value="$PROJECT_DIR$/src/Application/Views/TestFile.fxml" />
+        <option value="$PROJECT_DIR$/src/Application/Controllers/TestFileController.java" />
+        <option value="$PROJECT_DIR$/src/Application/Main.java" />
+        <option value="$PROJECT_DIR$/src/Application/Controllers/ControllerLogin.java" />
+        <option value="$PROJECT_DIR$/src/Application/Controllers/LoginController.java" />
+        <option value="$PROJECT_DIR$/src/Application/Views/Login.fxml" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-9" />
+    <option name="x" value="-10" />
     <option name="width" value="1380" />
     <option name="height" value="745" />
   </component>
@@ -191,7 +304,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -209,12 +321,59 @@
               <item name="RestaurantMgtSampleUI-master" type="b2602c69:ProjectViewProjectNode" />
               <item name="RestaurantMgtSampleUI-master" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="home" type="462c0819:PsiDirectoryNode" />
+              <item name="Application" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="RestaurantMgtSampleUI-master" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RestaurantMgtSampleUI-master" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Application" type="462c0819:PsiDirectoryNode" />
+              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="RestaurantMgtSampleUI-master" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RestaurantMgtSampleUI-master" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Application" type="462c0819:PsiDirectoryNode" />
+              <item name="Views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="RestaurantMgtSampleUI-master" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RestaurantMgtSampleUI-master" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="RestaurantMgtSampleUI-master" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RestaurantMgtSampleUI-master" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="RestaurantMgtSampleUI-master" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RestaurantMgtSampleUI-master" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
+              <item name="LoginIcons" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="RestaurantMgtSampleUI-master" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RestaurantMgtSampleUI-master" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="Styles" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="RestaurantMgtSampleUI-master" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -230,10 +389,10 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539694134488" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="C:/javafx-sdk-11.0.2/lib" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/resources/Styles" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
@@ -241,13 +400,20 @@
     <property name="settings.editor.selected.configurable" value="preferences.JavaFX" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\pc\Desktop\RestaurantMgtSampleUI-master\src\images\HboxIcons" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\pc\Desktop\RestaurantMgtSampleUI-master\src\resources\Styles" />
+      <recent name="C:\Users\pc\Desktop\RestaurantMgtSampleUI-master\src\resources\images\LoginIcons" />
+      <recent name="C:\Users\pc\Desktop\RestaurantMgtSampleUI-master\src\Application\Views" />
       <recent name="C:\Users\pc\Desktop\RestaurantMgtSampleUI-master\src\images\HboxIcons" />
       <recent name="C:\Users\pc\Desktop\RestaurantMgtSampleUI-master\src\images\SideBarIcons" />
-      <recent name="F:\Dev\JavaFX\Projects\RestaurantMgt\src\images" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="Application.Controllers" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\pc\Desktop\RestaurantMgtSampleUI-master\src\Application\Views" />
+      <recent name="C:\Users\pc\Desktop\RestaurantMgtSampleUI-master\src\resources\Styles" />
+      <recent name="C:\Users\pc\Desktop\RestaurantMgtSampleUI-master\src\images\HboxIcons" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -284,12 +450,12 @@
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="11" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="MAIN_CLASS_NAME" value="home.Main" />
+      <option name="MAIN_CLASS_NAME" value="Application.Main" />
       <module name="RestaurantMgt" />
       <option name="VM_PARAMETERS" value="--module-path &quot;C:\javafx-sdk-11.0.2\lib&quot; --add-modules javafx.controls,javafx.fxml" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="home.*" />
+          <option name="PATTERN" value="Application.Controllers.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -353,17 +519,18 @@
       <workItem from="1589560956822" duration="882000" />
       <workItem from="1589562204841" duration="607000" />
       <workItem from="1589566288179" duration="2267000" />
+      <workItem from="1589861726563" duration="5975000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40695000" />
+    <option name="totallyTimeSpent" value="46670000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.1932886" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.19597316" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -373,7 +540,7 @@
       <window_info id="Learn" order="7" />
       <window_info anchor="bottom" id="Terminal" order="0" />
       <window_info anchor="bottom" id="Message" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3385269" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.28470254" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39943343" />
       <window_info anchor="bottom" id="Find" order="4" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
@@ -451,15 +618,15 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/home/Item.fxml">
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+    <entry file="file://$PROJECT_DIR$/src/Application/Item.fxml">
       <provider editor-type-id="text-editor">
         <state relative-caret-position="-102">
           <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Styles/GestionStyle.css">
+    <entry file="file://$PROJECT_DIR$/src/resources/Styles/GestionStyle.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="jar://C:/javafx-sdk-11.0.2/lib/javafx.graphics.jar!/javafx/application/Application.class">
@@ -469,49 +636,97 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/home/style.css">
+    <entry file="file://$PROJECT_DIR$/src/resources/Styles/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="19" lean-forward="true" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/home/Home.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
+    <entry file="file://$PROJECT_DIR$/src/home/Views.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="18" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/Data/Gestionnaire_De_Connection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RestaurantMgt.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/Controllers/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-800">
+          <caret line="19" column="40" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/Controllers/TestFileController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="9" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#233#234#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="15" column="81" lean-forward="true" selection-start-line="15" selection-start-column="81" selection-end-line="15" selection-end-column="81" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/Views/TestFile.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
-          <caret line="18" column="39" lean-forward="true" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
-          <folding>
-            <element signature="n#top#0;n#BorderPane#0;n#children#0;n#AnchorPane#0;n#!!top" />
-            <element signature="n#left#0;n#BorderPane#0;n#children#0;n#AnchorPane#0;n#!!top" />
-          </folding>
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/Controllers/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="14" column="28" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="28" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/home/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/Application/Views/Home.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-13">
-          <caret line="10" column="11" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#946#947#0" expanded="true" />
-            <element signature="e#974#975#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="283">
+          <caret line="37" column="36" lean-forward="true" selection-start-line="37" selection-start-column="36" selection-end-line="37" selection-end-column="60" />
         </state>
       </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/home/Controller.java">
+    <entry file="file://$PROJECT_DIR$/src/resources/Styles/LoginStyling.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/Views/Login.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="78">
-          <caret line="72" column="29" lean-forward="true" selection-start-line="72" selection-start-column="29" selection-end-line="72" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#733#866#0" />
-            <element signature="e#1709#1710#0" expanded="true" />
-            <element signature="e#1747#1748#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="248">
+          <caret line="78" column="20" selection-start-line="78" selection-start-column="20" selection-end-line="78" selection-end-column="20" />
         </state>
       </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
   </component>
   <component name="masterDetails">
