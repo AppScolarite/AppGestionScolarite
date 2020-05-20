@@ -9,27 +9,30 @@ import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class LoginController implements Initializable {
 
     @FXML
-        private Button btnClose;
+    private Button btnClose;
     @FXML
-        private Button btnSignup;
+    private Button btnSignup;
 
 
     @FXML
-    public void CLose_Login_CLick(){
-        Stage stage =(Stage) btnClose.getScene().getWindow();
+    public void CLose_Login_CLick() {
+        Stage stage = (Stage) btnClose.getScene().getWindow();
         stage.close();
     }
 
     @FXML
-    public void GoBackSignIn_click(){
+    public void GoBackSignIn_click() {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+            URL url = new File("src/Application/Views/Login.fxml").toURI().toURL();
+            Parent root = FXMLLoader.load(url);
+//            Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
             stage.initStyle(StageStyle.UNDECORATED);
@@ -37,14 +40,16 @@ public class LoginController implements Initializable {
             stage2.close();
             stage.toBack();
 
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     @FXML
-    public void signIn_CLick() throws  Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("Home.fxml"));
+    public void signIn_CLick() throws Exception {
+        URL url = new File("src/Application/Views/Home.fxml").toURI().toURL();
+        Parent root = FXMLLoader.load(url);
+//        Parent root = FXMLLoader.load(getClass().getResource("Home.fxml"));
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.initStyle(StageStyle.UNDECORATED);
@@ -54,8 +59,10 @@ public class LoginController implements Initializable {
     }
 
     @FXML
-    public void Inscrire_Click() throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("@../../Application/Views/inscrire.fxml"));
+    public void Inscrire_Click() throws Exception {
+        URL url = new File("src/Application/Views/inscrire.fxml").toURI().toURL();
+//        Parent root = FXMLLoader.load(getClass().getResource("@../Application/Views/inscrire.fxml"));
+        Parent root = FXMLLoader.load(url);
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.initStyle(StageStyle.UNDECORATED);
@@ -66,7 +73,7 @@ public class LoginController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-     }
+    }
 
 
 }

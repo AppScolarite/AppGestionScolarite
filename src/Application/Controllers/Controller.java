@@ -1,9 +1,12 @@
 package Application.Controllers;
 
 import Application.Data.Gestionnaire_De_Connection;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.*;
@@ -48,6 +51,9 @@ public class Controller implements Initializable {
     private BorderPane panelGestion;
 
     @FXML
+    private PieChart pieChart;
+
+    @FXML
     private void btnClose_Click(ActionEvent e) {
         stage = (Stage) ((Button) e.getSource()).getScene().getWindow();
         stage.close();
@@ -77,24 +83,45 @@ public class Controller implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        System.out.println("testing inialise");
-//        panelNotes.toFront();
-        Gestionnaire_De_Connection connectionClass = new Gestionnaire_De_Connection();
-        Connection connection = connectionClass.getConnection();
-        try {
-            Statement sqlCommand = connection.createStatement();
-            ResultSet dataReader = sqlCommand.executeQuery("select * from branche");
+//        System.out.println("testing inialise");
+////        panelNotes.toFront();
+//        Gestionnaire_De_Connection connectionClass = new Gestionnaire_De_Connection();
+//        Connection connection = connectionClass.getConnection();
+//        try {
+//            Statement sqlCommand = connection.createStatement();
+//            ResultSet dataReader = sqlCommand.executeQuery("select * from branche");
+//
+//            if (dataReader.next()) { // ze3ma if (exist())
+//                System.out.println("cool");
+//                dataReader.getRow();
+//                String test = dataReader.getString("libelle_branche");
+//                System.out.println(test);
+//            } else {
+//                System.out.println("not cool");
+//            }
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+        ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList(
+                new PieChart.Data("Titizz drari", 20),
+                new PieChart.Data("Titizz bnat", 80));
+        pieChart.setData(pieChartData);
+        pieChart.setTitle("titiz SupMti");
+        pieChart.setClockwise(true);
+        pieChart.setLabelsVisible(true);
+        pieChart.setLabelLineLength(50);
+        pieChart.setStartAngle(180);
+        this.ChangerCouleur(
+                pieChartData,
+                "red", "blue"
+        );
+    }
 
-            if (dataReader.next()) { // ze3ma if (exist())
-                System.out.println("cool");
-                dataReader.getRow();
-                String test = dataReader.getString("libelle_branche");
-                System.out.println(test);
-            } else {
-                System.out.println("not cool");
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
+    private void ChangerCouleur(ObservableList<PieChart.Data> pieChartData, String... pieColors) {
+        int i = 0;
+        for (PieChart.Data data : pieChartData) {
+            data.getNode().setStyle("-fx-pie-color: " + pieColors[i % pieColors.length] + ";");
+            i++;
         }
     }
 

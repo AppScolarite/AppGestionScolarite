@@ -1,5 +1,5 @@
-﻿create database system_scolarite;
-use system_scolarite;
+﻿--create database system_scolarite;
+--use system_scolarite;
 
 create table PERSONNEL
 (
@@ -12,7 +12,9 @@ create table PERSONNEL
 	telephone_personnel varchar(15),
 	sexe varchar(10) not null,
 	check(sexe in ('Homme','Femme')),
-	adresse varchar(100)
+	adresse varchar(100),
+	username varchar(20),
+	mot_de_passe varchar(20),
 );
 
 create table ACTUALITE
@@ -61,6 +63,8 @@ create table ETUDIANT
 	adresse varchar(100),
 	inscrit_par_personnel# int foreign key references PERSONNEL,
 	groupe# int foreign key references GROUPE,
+	username varchar(20),
+	mot_de_passe varchar(20),
 )
 
 create table PROFESSEUR
@@ -80,6 +84,8 @@ create table PROFESSEUR
 	Adresse varchar(100),
 	Situation_Familliale varchar(20),
 	Check(Situation_Familliale in ('Celibataire','divorcé(e)','Marié(e)')),
+	username varchar(20),
+	mot_de_passe varchar(20),
 )
 
 create table MATIERE
