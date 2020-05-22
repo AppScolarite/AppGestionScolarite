@@ -30,6 +30,9 @@ public class Controller implements Initializable {
     private Pane panelNotes;
 
     @FXML
+    private Pane panelStatistiques;
+
+    @FXML
     private Button btnAccueil;
 
     @FXML
@@ -48,7 +51,7 @@ public class Controller implements Initializable {
     private TableView tblView;
 
     @FXML
-    private BorderPane panelGestion;
+    private Pane panelEtudiant;
 
     @FXML
     private PieChart pieChart;
@@ -66,7 +69,7 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    private void btnNotes_click(ActionEvent e) {
+    public void btnNotes_click(ActionEvent e) {
         //todo
         //regler TAB design
 
@@ -77,8 +80,13 @@ public class Controller implements Initializable {
     }
 
     @FXML
+    private void statistique_Click(ActionEvent event){
+        panelStatistiques.toFront();
+    }
+
+    @FXML
     private void btnGestion_click(ActionEvent e) {
-        panelGestion.toFront();
+        panelEtudiant.toFront();
     }
 
     @Override
