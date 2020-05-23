@@ -5,12 +5,17 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableView;
+import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -48,6 +53,9 @@ public class Controller implements Initializable {
     private Button btnNotes;
 
     @FXML
+    private Button btnLogOut;
+
+    @FXML
     private TableView tblView;
 
     @FXML
@@ -55,6 +63,19 @@ public class Controller implements Initializable {
 
     @FXML
     private PieChart pieChart;
+
+    @FXML
+    public void logOut_Click() throws Exception{
+        Parent root = FXMLLoader.load(getClass().getResource("../Views/Login.fxml"));
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("../../resources/images/LoginIcons/icons8_Google_Wallet_50px.png")));
+        stage.initStyle(StageStyle.UNDECORATED);
+        Stage stage2 = (Stage) btnLogOut.getScene().getWindow();
+        stage2.close();
+        stage.show();
+
+    }
 
     @FXML
     private void btnClose_Click(ActionEvent e) {
@@ -74,7 +95,6 @@ public class Controller implements Initializable {
         //regler TAB design
 
         btnNotes.setStyle("-fx-background-color : #02030A");
-        btnNotes.setStyle("-fx-background-radius :  30 0 0 30;");
 
         panelNotes.toFront();
     }

@@ -6,6 +6,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -19,7 +24,12 @@ public class LoginController implements Initializable {
     private Button btnClose;
     @FXML
     private Button btnSignup;
-
+    @FXML
+    private TextField txtUsername;
+    @FXML
+    private PasswordField txtPassword;
+    @FXML
+    private Label wrongLbl;
 
     @FXML
     public void CLose_Login_CLick() {
@@ -47,15 +57,21 @@ public class LoginController implements Initializable {
 
     @FXML
     public void signIn_CLick() throws Exception {
-        URL url = new File("src/Application/Views/Home.fxml").toURI().toURL();
-        Parent root = FXMLLoader.load(url);
-//        Parent root = FXMLLoader.load(getClass().getResource("Home.fxml"));
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.initStyle(StageStyle.UNDECORATED);
-        Stage stage2 = (Stage) btnSignup.getScene().getWindow();
-        stage2.close();
-        stage.show();
+        if(txtUsername.getText().equals("Noureddine") && txtPassword.getText().equals("1234")){
+
+            URL url = new File("src/Application/Views/Home.fxml").toURI().toURL();
+            Parent root = FXMLLoader.load(url);
+    //        Parent root = FXMLLoader.load(getClass().getResource("Home.fxml"));
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.getIcons().add(new Image(getClass().getResourceAsStream("../../resources/images/LoginIcons/icons8_Google_Wallet_50px.png")));
+            stage.initStyle(StageStyle.UNDECORATED);
+            Stage stage2 = (Stage) btnSignup.getScene().getWindow();
+            stage2.close();
+            stage.show();
+        }
+
+
     }
 
     @FXML
