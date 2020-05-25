@@ -32,6 +32,12 @@ public class Controller implements Initializable {
     Stage stage;
 
     @FXML
+    private Pane panelStatistiquesPersonnel;
+
+    @FXML
+    private Pane panelNotesProf;
+
+    @FXML
     private Pane panelNotes;
 
     @FXML
@@ -56,6 +62,12 @@ public class Controller implements Initializable {
     private Button btnLogOut;
 
     @FXML
+    private Button btnClose;
+
+    @FXML
+    private Button btnMinimize;
+
+    @FXML
     private TableView tblView;
 
     @FXML
@@ -64,6 +76,8 @@ public class Controller implements Initializable {
     @FXML
     private PieChart pieChart;
 
+    @FXML
+    private PieChart pieChartPersonnel;
     @FXML
     public void logOut_Click() throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("../Views/Login.fxml"));
@@ -90,46 +104,66 @@ public class Controller implements Initializable {
     }
 
     @FXML
+    public void GestionNote_Click(ActionEvent event){
+        panelNotesProf.toFront();
+        btnClose.toFront();
+        btnMinimize.toFront();
+    }
+
+    @FXML
     public void btnNotes_click(ActionEvent e) {
         //todo
         //regler TAB design
 
-        btnNotes.setStyle("-fx-background-color : #02030A");
 
         panelNotes.toFront();
+        btnClose.toFront();
+        btnMinimize.toFront();
+    }
+
+
+    @FXML
+    public void statistiquePersonnel_Click(ActionEvent event){
+        panelStatistiquesPersonnel.toFront();
+        btnClose.toFront();
+        btnMinimize.toFront();
     }
 
     @FXML
     private void statistique_Click(ActionEvent event){
         panelStatistiques.toFront();
+        btnClose.toFront();
+        btnMinimize.toFront();
     }
 
     @FXML
     private void btnGestion_click(ActionEvent e) {
         panelEtudiant.toFront();
+        btnClose.toFront();
+        btnMinimize.toFront();
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-//        System.out.println("testing inialise");
-////        panelNotes.toFront();
-//        Gestionnaire_De_Connection connectionClass = new Gestionnaire_De_Connection();
-//        Connection connection = connectionClass.getConnection();
-//        try {
-//            Statement sqlCommand = connection.createStatement();
-//            ResultSet dataReader = sqlCommand.executeQuery("select * from branche");
-//
-//            if (dataReader.next()) { // ze3ma if (exist())
-//                System.out.println("cool");
-//                dataReader.getRow();
-//                String test = dataReader.getString("libelle_branche");
-//                System.out.println(test);
-//            } else {
-//                System.out.println("not cool");
-//            }
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
+        System.out.println("testing inialise");
+        panelNotes.toFront();
+        Gestionnaire_De_Connection connectionClass = new Gestionnaire_De_Connection();
+        Connection connection = connectionClass.getConnection();
+        try {
+            Statement sqlCommand = connection.createStatement();
+            ResultSet dataReader = sqlCommand.executeQuery("select * from branche");
+
+            if (dataReader.next()) { // ze3ma if (exist())
+                System.out.println("cool");
+                dataReader.getRow();
+               String test = dataReader.getString("libelle_branche");
+                System.out.println(test);
+            } else {
+                System.out.println("not cool");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList(
                 new PieChart.Data("Titizz drari", 20),
                 new PieChart.Data("Titizz bnat", 80));
@@ -141,6 +175,19 @@ public class Controller implements Initializable {
         pieChart.setStartAngle(180);
         this.ChangerCouleur(
                 pieChartData,
+                "red", "blue"
+        );
+        ObservableList<PieChart.Data> pieChartDataP = FXCollections.observableArrayList(
+                new PieChart.Data("Titizz drari", 30),
+                new PieChart.Data("Titizz bnat", 70));
+        pieChartPersonnel.setData(pieChartDataP);
+        pieChartPersonnel.setTitle("titiz SupMti");
+        pieChartPersonnel.setClockwise(true);
+        pieChartPersonnel.setLabelsVisible(true);
+        pieChartPersonnel.setLabelLineLength(50);
+        pieChartPersonnel.setStartAngle(180);
+        this.ChangerCouleur(
+                pieChartDataP,
                 "red", "blue"
         );
     }

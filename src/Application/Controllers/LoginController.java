@@ -70,6 +70,7 @@ public class LoginController implements Initializable {
             stage2.close();
             stage.show();
         }
+        else wrongLbl.setVisible(true);
 
 
     }
