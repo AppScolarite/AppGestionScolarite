@@ -16,7 +16,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 //        Parent root = FXMLLoader.load(getClass().getResource("Views/TestFile.fxml"));
-        Parent root = FXMLLoader.load(getClass().getResource("Views/Home.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("Views/Login.fxml"));
         primaryStage.setScene(new Scene(root));
         primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("../resources/images/LoginIcons/icons8_Google_Wallet_50px.png")));
         primaryStage.initStyle(StageStyle.UNDECORATED);

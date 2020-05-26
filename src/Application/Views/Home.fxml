@@ -35,6 +35,9 @@
                     <VBox.margin>
                         <Insets bottom="100.0" />
                     </VBox.margin>
+               <font>
+                  <Font name="Cambria Bold Italic" size="14.0" />
+               </font>
                 </Label>
                 <Button fx:id="btnAccueil" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="297.0" stylesheets="@../../resources/Styles/style.css" text="Accueil">
                     <graphic>
@@ -48,7 +51,7 @@
                         <Insets left="50.0" />
                     </padding>
                     <font>
-                        <Font name="Montserrat-Regular" size="14.0" />
+                        <Font name="Cambria Bold Italic" size="16.0" />
                     </font>
                 </Button>
                 <Button fx:id="btnListes" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#GestionNote_Click" prefHeight="60.0" prefWidth="297.0" stylesheets="@../../resources/Styles/style.css" text="Gerer Notes" textFill="#e7e5e5">
@@ -69,7 +72,7 @@
                         <Insets left="50.0" />
                     </padding>
                     <font>
-                        <Font name="Montserrat-Regular" size="14.0" />
+                        <Font name="Cambria Bold Italic" size="16.0" />
                     </font>
                 </Button>
                 <Button fx:id="btnStatistiques" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#statistiquePersonnel_Click" prefHeight="60.0" prefWidth="297.0" stylesheets="@../../resources/Styles/style.css" text="Statistiques (personnel)">
@@ -84,7 +87,7 @@
                         <Insets left="50.0" />
                     </padding>
                     <font>
-                        <Font name="Montserrat-Regular" size="14.0" />
+                        <Font name="Cambria Bold Italic" size="16.0" />
                     </font>
                 </Button>
                 <Button fx:id="btnStatistiquesetudiant" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#statistique_Click" prefHeight="60.0" prefWidth="297.0" stylesheets="@../../resources/Styles/style.css" text="Statistiques (etudiant)">
@@ -99,7 +102,7 @@
                         <Insets left="50.0" />
                     </padding>
                     <font>
-                        <Font name="Montserrat-Regular" size="14.0" />
+                        <Font name="Cambria Bold Italic" size="16.0" />
                     </font>
                 </Button>
                 <Button fx:id="btnGestion" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#btnGestion_click" prefHeight="60.0" prefWidth="297.0" stylesheets="@../../resources/Styles/style.css" text="Gérer les étudiants(personnel)">
@@ -114,7 +117,7 @@
                         <Insets left="50.0" />
                     </padding>
                     <font>
-                        <Font name="Montserrat-Regular" size="14.0" />
+                        <Font name="Cambria Bold Italic" size="16.0" />
                     </font>
                 </Button>
                 <Button fx:id="btnNotes" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#btnNotes_click" prefHeight="60.0" prefWidth="297.0" stylesheets="@../../resources/Styles/style.css" text="Mes notes">
@@ -129,7 +132,7 @@
                         <Insets left="50.0" />
                     </padding>
                     <font>
-                        <Font name="Montserrat-Regular" size="14.0" />
+                        <Font name="Cambria Bold Italic" size="16.0" />
                     </font>
                 </Button>
                 <Region VBox.vgrow="ALWAYS" />
@@ -329,9 +332,9 @@
                         <Font size="22.0" />
                     </font>
                 </Label>
-                <Label layoutX="26.0" layoutY="474.0" text="Nombre total des étudiants">
+                <Label layoutX="26.0" layoutY="474.0" text="Nombre total des étudiants" textFill="#464646">
                     <font>
-                        <Font size="18.0" />
+                        <Font name="System Italic" size="18.0" />
                     </font>
                 </Label>
                 <Label layoutX="282.0" layoutY="474.0" text="15">
@@ -339,9 +342,9 @@
                         <Font size="18.0" />
                     </font>
                 </Label>
-                <Label layoutX="26.0" layoutY="517.0" text="Nombre total des professeurs">
+                <Label layoutX="26.0" layoutY="517.0" text="Nombre total des professeurs" textFill="#464646">
                     <font>
-                        <Font size="18.0" />
+                        <Font name="System Italic" size="18.0" />
                     </font>
                 </Label>
                 <Label layoutX="282.0" layoutY="517.0" text="15">
@@ -349,9 +352,9 @@
                         <Font size="18.0" />
                     </font>
                 </Label>
-                <Label layoutX="26.0" layoutY="560.0" text="Nombre total des groupes">
+                <Label layoutX="26.0" layoutY="560.0" text="Nombre total des groupes" textFill="#464646">
                     <font>
-                        <Font size="18.0" />
+                        <Font name="System Italic" size="18.0" />
                     </font>
                 </Label>
                 <Label layoutX="287.0" layoutY="560.0" text="3">
@@ -359,9 +362,9 @@
                         <Font size="18.0" />
                     </font>
                 </Label>
-                <Label layoutX="608.0" layoutY="496.0" text="Groupe ayant leurs notes">
+                <Label layoutX="608.0" layoutY="496.0" text="Groupe ayant leurs notes" textFill="#464646">
                     <font>
-                        <Font size="18.0" />
+                        <Font name="System Italic" size="18.0" />
                     </font>
                 </Label>
                 <Label layoutX="864.0" layoutY="496.0" text="15">
@@ -369,9 +372,9 @@
                         <Font size="18.0" />
                     </font>
                 </Label>
-                <Label layoutX="608.0" layoutY="539.0" text="Groupe ayant pas leurs notes ">
+                <Label layoutX="608.0" layoutY="539.0" text="Groupe ayant pas leurs notes " textFill="#464646">
                     <font>
-                        <Font size="18.0" />
+                        <Font name="System Italic" size="18.0" />
                     </font>
                 </Label>
                 <Label layoutX="869.0" layoutY="539.0" text="3">
