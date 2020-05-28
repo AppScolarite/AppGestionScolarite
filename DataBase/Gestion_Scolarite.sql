@@ -96,6 +96,7 @@ create table MATIERE
 	Coeff int,
 )
 
+
 create table ENSEIGNEMENT
 (
 	professeur# varchar(20) foreign key references PROFESSEUR,
@@ -129,3 +130,29 @@ values
 (1,1,'Groupe 2'),
 (1,1,'Groupe 3'),
 (1,1,'Groupe 4')
+
+insert into ETUDIANT (code_massar,nom,prenom ,date_naissance, date_inscription , email , telephone , a_deja_redouble , sexe , adresse ,groupe# ,username ,mot_de_passe )
+values 
+('H1','Yaagoubi','Noureddine','16/01/1998','20/09/2019','noureddine@gmail.com','0642833827',0,'Homme','adresse1',1,'noureddine','noureddine123')
+
+insert into PROFESSEUR 
+values
+('P1','F123','Ziane','Mohammed','01/01/1995','28/02/2020','CDI','ziane@gmail.com','0606060606','Homme','adresse1','Celibataire','ziane','ziane123')
+
+insert into MATIERE(LBL_Matiere,Date_Ajout,Coeff)
+values
+('Français','28/05/2020',5)
+
+insert into NOTE (matiere#, Valeur_Note)
+values 
+(1,15.5),
+(1,10),
+(1,17.5)
+
+insert into ENSEIGNEMENT
+values
+('P1',1,1)
+
+insert into PROFESSEUR 
+values
+('P1','F123','Ziane','Mohammed','01/01/1995','28/02/2020','CDI','ziane@gmail.com','0606060606','Homme','adresse1','Celibataire','ziane','ziane123')
