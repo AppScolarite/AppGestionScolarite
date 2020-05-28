@@ -3,11 +3,13 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -38,13 +40,19 @@
                 <PasswordField fx:id="txtPassword12" layoutX="407.0" layoutY="225.0" prefHeight="40.0" prefWidth="230.0" promptText="password" stylesheets="@../../resources/Styles/LoginStyling.css" />
                 <TextField fx:id="txtMassar" layoutX="28.0" layoutY="24.0" prefHeight="40.0" prefWidth="230.0" promptText="Code Massar" />
                 <TextField fx:id="txtNomComplet" layoutX="28.0" layoutY="94.0" prefHeight="40.0" prefWidth="230.0" promptText="Nom + Prenom" stylesheets="@../../resources/Styles/LoginStyling.css" />
-                <TextField fx:id="txtnaissance" layoutX="28.0" layoutY="159.0" prefHeight="40.0" prefWidth="230.0" promptText="Date Naissance" stylesheets="@../../resources/Styles/LoginStyling.css" />
                 <TextField fx:id="txtMail" layoutX="28.0" layoutY="225.0" prefHeight="40.0" prefWidth="230.0" promptText="Email" stylesheets="@../../resources/Styles/LoginStyling.css" />
-            <CheckBox layoutX="409.0" layoutY="275.0" mnemonicParsing="false" text="Doublant" />
-            <RadioButton fx:id="HommeRadio" layoutX="409.0" layoutY="309.0" mnemonicParsing="false" text="Homme" />
-            <RadioButton fx:id="FemmeRadio" layoutX="503.0" layoutY="309.0" mnemonicParsing="false" text="Femme" />
-            <ComboBox fx:id="CBGroupe" layoutX="407.0" layoutY="94.0" prefHeight="40.0" prefWidth="230.0" promptText="Groupes" />
-            <TextField fx:id="txtUsername" layoutX="407.0" layoutY="159.0" prefHeight="40.0" prefWidth="230.0" promptText="Email" stylesheets="@../../resources/Styles/LoginStyling.css" />
+                <CheckBox fx:id="doublanCB" layoutX="409.0" layoutY="275.0" mnemonicParsing="false" text="Doublant" />
+                <fx:define>
+                    <ToggleGroup fx:id="sexe" />
+                </fx:define>
+                <RadioButton fx:id="HommeRadio" layoutX="409.0" layoutY="309.0" mnemonicParsing="false" text="Homme">
+               <toggleGroup>
+                  <ToggleGroup fx:id="sexe" />
+               </toggleGroup></RadioButton>
+                <RadioButton fx:id="FemmeRadio" layoutX="503.0" layoutY="309.0" mnemonicParsing="false" text="Femme" toggleGroup="$sexe" />
+                <ComboBox fx:id="CBGroupe" layoutX="407.0" layoutY="94.0" prefHeight="40.0" prefWidth="230.0" promptText="Groupes" />
+                <TextField fx:id="txtUsername" layoutX="407.0" layoutY="159.0" prefHeight="40.0" prefWidth="230.0" promptText="Email" stylesheets="@../../resources/Styles/LoginStyling.css" />
+            <DatePicker fx:id="DateNaissance" layoutX="31.0" layoutY="159.0" prefHeight="40.0" prefWidth="230.0" promptText="Date Naissance" />
             </children>
         </Pane>
         <ImageView fitHeight="41.0" fitWidth="34.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">

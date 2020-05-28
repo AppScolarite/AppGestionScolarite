@@ -63,7 +63,7 @@ public class LoginController implements Initializable {
         String username = txtUsername.getText().toString();
         String password = txtPassword.getText().toString();
 
-        String query = "select username, mot_de_passe from Personnel where username = ? and mot_de_passe = ?";
+        String query = "select username, mot_de_passe from Etudiant where username = ? and mot_de_passe = ?";
         try {
 
             PreparedStatement preparedStatement = connection.prepareStatement(query);

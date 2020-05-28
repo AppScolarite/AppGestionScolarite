@@ -145,29 +145,41 @@ public class Controller implements Initializable {
                     "join PROFESSEUR on PROFESSEUR.Code_Pro_Nationnal = ENSEIGNEMENT.professeur#\n" +
                     "join NOTE on MATIERE.id_matiere = NOTE.matiere#\n" +
                     "where ETUDIANT.code_massar = 'H1'";
-//            String queryNotes = "select NOTE.Valeur_Note\n" +
-//                    "from ETUDIANT join groupe on ETUDIANT.groupe# = groupe.id_groupe\n" +
-//                    "join ENSEIGNEMENT on GROUPE.id_groupe = ENSEIGNEMENT.groupe#\n" +
-//                    "join MATIERE on ENSEIGNEMENT.matiere# = MATIERE.id_matiere\n" +
-//                    "join PROFESSEUR on PROFESSEUR.Code_Pro_Nationnal = ENSEIGNEMENT.professeur#\n" +
-//                    "join NOTE on MATIERE.id_matiere = NOTE.matiere#\n" +
-//                    "where ETUDIANT.code_massar = 'H1'";
+
+            String queryNotes = "select NOTE.Valeur_Note as notes\n" +
+                    "from ETUDIANT join groupe on ETUDIANT.groupe# = groupe.id_groupe\n" +
+                    "join ENSEIGNEMENT on GROUPE.id_groupe = ENSEIGNEMENT.groupe#\n" +
+                    "join MATIERE on ENSEIGNEMENT.matiere# = MATIERE.id_matiere\n" +
+                    "join PROFESSEUR on PROFESSEUR.Code_Pro_Nationnal = ENSEIGNEMENT.professeur#\n" +
+                    "join NOTE on MATIERE.id_matiere = NOTE.matiere#\n" +
+                    "where ETUDIANT.code_massar = 'H1'";
+
+
+            Statement statement1 = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(query);
-//            ResultSet rs = statement.executeQuery(queryNotes);
-            ArrayList<Double> Notes = new ArrayList();
-            while(resultSet.next() ){
+            ResultSet rs = statement1.executeQuery(queryNotes);
+            ObservableList<String> data = FXCollections.observableArrayList();
+            while(resultSet.next() && rs.next()){
                 System.out.println("etudiant has rows");
 
                 matiereLbl.setText(resultSet.getString(1));
                 CoeffLbl.setText(String.valueOf(resultSet.getInt(2)));
                 ProfLbl.setText(resultSet.getString(3));
-//                Notes.addAll(rs.getDouble(0));
+
+                rs.getRow();
+                String notes = String.valueOf(rs.getDouble("notes"));
+                data.add(notes);
             }
+            Cntrol1.setText(data.get(0));
+            Cntrol2.setText(data.get(1));
+            Cntrol3.setText(data.get(2));
+
+            Double moyenne = ((Double.valueOf(Cntrol1.getText()) + Double.valueOf(Cntrol2.getText()) + Double.valueOf(Cntrol3.getText())) / 3);
+            MyenneLbl.setText(String.valueOf(moyenne));
 
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-
         panelNotes.toFront();
         btnClose.toFront();
         btnMinimize.toFront();
