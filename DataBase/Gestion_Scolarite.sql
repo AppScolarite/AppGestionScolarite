@@ -48,6 +48,7 @@ create table GROUPE
 	libelle_grp varchar(10),
 )
 
+
 create table ETUDIANT
 (
 	code_massar varchar(20) primary key,
@@ -61,7 +62,6 @@ create table ETUDIANT
 	sexe varchar(10) not null,
 	check(sexe in ('Homme','Femme')),
 	adresse varchar(100),
-	inscrit_par_personnel# int foreign key references PERSONNEL,
 	groupe# int foreign key references GROUPE,
 	username varchar(20),
 	mot_de_passe varchar(20),
@@ -111,3 +111,21 @@ create table NOTE
 	Valeur_Note float,
 )
 
+insert into PERSONNEL (nom_personnel, prenom_personnel, date_naissance_personnel,email_personnel,telephone_personnel, sexe, adresse , username, mot_de_passe)
+values
+('Hicham','Oussama', '01/01/1997','hichal@gmail.com','0612345768','Homme','adresse1','hicham','hicham123')
+
+insert into BRANCHE ( libelle_branche,prerequis_note,description_branche)
+values 
+('branche 1',15,'Descprtion 1')
+
+insert into NIVEAU (libelle_niveau,description_niveau)
+values 
+('Niveau 1','Description1')
+
+insert into GROUPE(branche#, niveau#,libelle_grp)
+values
+(1,1,'Groupe 1'),
+(1,1,'Groupe 2'),
+(1,1,'Groupe 3'),
+(1,1,'Groupe 4')

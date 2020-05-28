@@ -250,32 +250,32 @@
                         <Font size="18.0" />
                     </font>
                 </Label>
-                <Label layoutX="241.0" layoutY="232.0" prefHeight="27.0" prefWidth="228.0" text="Français" textFill="#6f6f6f">
+                <Label fx:id="matiereLbl" layoutX="241.0" text="Arabe" layoutY="232.0" prefHeight="27.0" prefWidth="228.0"  textFill="#6f6f6f">
                     <font>
                         <Font size="18.0" />
                     </font>
                 </Label>
-                <Label layoutX="241.0" layoutY="297.0" prefHeight="27.0" prefWidth="86.0" text="2" textFill="#6f6f6f">
+                <Label fx:id="CoeffLbl" layoutX="241.0" layoutY="297.0" prefHeight="27.0" prefWidth="86.0" text="2" textFill="#6f6f6f">
                     <font>
                         <Font size="18.0" />
                     </font>
                 </Label>
-                <Label layoutX="241.0" layoutY="371.0" prefHeight="27.0" prefWidth="228.0" text="hichame Oussama" textFill="#6f6f6f">
+                <Label fx:id="ProfLbl" layoutX="241.0" layoutY="371.0" prefHeight="27.0" prefWidth="228.0" textFill="#6f6f6f">
                     <font>
                         <Font size="18.0" />
                     </font>
                 </Label>
-                <Label layoutX="707.0" layoutY="228.0" prefHeight="27.0" prefWidth="86.0" text="15.5" textFill="#6f6f6f">
+                <Label fx:id="Cntrol1" layoutX="707.0" layoutY="228.0" prefHeight="27.0" prefWidth="86.0" text="15.5" textFill="#6f6f6f">
                     <font>
                         <Font size="18.0" />
                     </font>
                 </Label>
-                <Label layoutX="707.0" layoutY="293.0" prefHeight="27.0" prefWidth="86.0" text="10" textFill="#6f6f6f">
+                <Label fx:id="Cntrol2" layoutX="707.0" layoutY="293.0" prefHeight="27.0" prefWidth="86.0" text="10" textFill="#6f6f6f">
                     <font>
                         <Font size="18.0" />
                     </font>
                 </Label>
-                <Label layoutX="707.0" layoutY="367.0" prefHeight="27.0" prefWidth="86.0" text="18" textFill="#6f6f6f">
+                <Label fx:id="Cntrol3" layoutX="707.0" layoutY="367.0" prefHeight="27.0" prefWidth="86.0" text="18" textFill="#6f6f6f">
                     <font>
                         <Font size="18.0" />
                     </font>
@@ -285,7 +285,7 @@
                         <Font size="21.0" />
                     </font>
                 </Label>
-                <Label alignment="CENTER" layoutX="413.0" layoutY="489.0" prefHeight="27.0" prefWidth="86.0" text="18" textAlignment="CENTER" textFill="#6f6f6f">
+                <Label fx:id="MyenneLbl" alignment="CENTER" layoutX="413.0" layoutY="489.0" prefHeight="27.0" prefWidth="86.0" text="18" textAlignment="CENTER" textFill="#6f6f6f">
                     <font>
                         <Font size="18.0" />
                     </font>

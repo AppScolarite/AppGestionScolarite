@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="503.0" prefWidth="854.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.Controllers.LoginController">
+<AnchorPane id="AnchorPane" prefHeight="503.0" prefWidth="854.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.Controllers.InscrireController">
     <children>
         <Pane layoutX="84.0" layoutY="48.0" prefHeight="432.0" prefWidth="687.0">
             <children>
@@ -28,6 +28,8 @@
                 </Label>
                 <Label fx:id="lblErrors" alignment="CENTER" layoutX="8.0" layoutY="95.0" prefHeight="23.0" prefWidth="275.0" textFill="#ff0000">
                     <font>
+
+
                         <Font name="Segoe UI" size="10.0" />
                     </font>
                 </Label>
@@ -41,7 +43,7 @@
             <CheckBox layoutX="409.0" layoutY="275.0" mnemonicParsing="false" text="Doublant" />
             <RadioButton fx:id="HommeRadio" layoutX="409.0" layoutY="309.0" mnemonicParsing="false" text="Homme" />
             <RadioButton fx:id="FemmeRadio" layoutX="503.0" layoutY="309.0" mnemonicParsing="false" text="Femme" />
-            <ComboBox fx:id="CBGroupe" layoutX="407.0" layoutY="94.0" prefHeight="40.0" prefWidth="230.0" />
+            <ComboBox fx:id="CBGroupe" layoutX="407.0" layoutY="94.0" prefHeight="40.0" prefWidth="230.0" promptText="Groupes" />
             <TextField fx:id="txtUsername" layoutX="407.0" layoutY="159.0" prefHeight="40.0" prefWidth="230.0" promptText="Email" stylesheets="@../../resources/Styles/LoginStyling.css" />
             </children>
         </Pane>
