@@ -104,7 +104,7 @@ public class Controller implements Initializable {
 
 
     @FXML
-    public void logOut_Click() throws Exception{
+    public void logOut_Click() throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("../Views/Login.fxml"));
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
@@ -129,7 +129,7 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    public void GestionNote_Click(ActionEvent event){
+    public void GestionNote_Click(ActionEvent event) {
         panelNotesProf.toFront();
         btnClose.toFront();
         btnMinimize.toFront();
@@ -138,13 +138,13 @@ public class Controller implements Initializable {
     @FXML
     public void btnNotes_click() {
         //todo
-        Gestionnaire_De_Connection gestionnaire_de_connection =  new Gestionnaire_De_Connection();
+        Gestionnaire_De_Connection gestionnaire_de_connection = new Gestionnaire_De_Connection();
         try {
-        Connection connection = gestionnaire_de_connection.getConnection();
+            Connection connection = gestionnaire_de_connection.getConnection();
             Statement stmMatiere = connection.createStatement();
             ResultSet rss = stmMatiere.executeQuery("select * from matiere");
             ObservableList mat = FXCollections.observableArrayList();
-            while(rss.next()){
+            while (rss.next()) {
                 rss.getRow();
                 String matieres = rss.getString(2);
                 mat.add(matieres);
@@ -174,7 +174,7 @@ public class Controller implements Initializable {
             ResultSet resultSet = statement.executeQuery(query);
             ResultSet rs = statement1.executeQuery(queryNotes);
             ObservableList<String> data = FXCollections.observableArrayList();
-            while(resultSet.next() && rs.next()){
+            while (resultSet.next() && rs.next()) {
                 System.out.println("etudiant has rows");
 
                 matiereLbl.setText(resultSet.getString(1));
@@ -202,17 +202,81 @@ public class Controller implements Initializable {
 
 
     @FXML
-    public void statistiquePersonnel_Click(ActionEvent event){
+    public void statistiquePersonnel_Click(ActionEvent event) {
+        ObservableList<PieChart.Data> pieChartDataP = FXCollections.observableArrayList(
+                new PieChart.Data("Titizz drari", 30),
+                new PieChart.Data("Titizz bnat", 70));
+        pieChartPersonnel.setData(pieChartDataP);
+        pieChartPersonnel.setTitle("titiz SupMti");
+        pieChartPersonnel.setClockwise(true);
+        pieChartPersonnel.setLabelsVisible(true);
+        pieChartPersonnel.setLabelLineLength(50);
+        pieChartPersonnel.setStartAngle(180);
+        this.ChangerCouleur(
+                pieChartDataP,
+                "red", "blue"
+        );
         panelStatistiquesPersonnel.toFront();
         btnClose.toFront();
         btnMinimize.toFront();
     }
 
     @FXML
-    private void statistique_Click(ActionEvent event){
+    private void statistique_Click(ActionEvent event) {
+
+        Gestionnaire_De_Connection connectionClass = new Gestionnaire_De_Connection();
+        Connection connection = connectionClass.getConnection();
+        ResultSet dataReader;
+        try {
+            Statement sqlCommand = connection.createStatement();
+            dataReader = sqlCommand.executeQuery("select count(n.Valeur_Note) as notePositive\n" +
+                    "from ETUDIANT et inner join GROUPE grp on et.groupe# = grp.id_groupe \n" +
+                    "\t\t\t\tinner join ENSEIGNEMENT en on en.groupe# = grp.id_groupe\n" +
+                    "\t\t\t\tinner join MATIERE ma on ma.id_matiere = en.matiere#\n" +
+                    "\t\t\t\tinner join NOTE n on n.matiere# = ma.id_matiere\n" +
+                    "where n.Valeur_Note >= 10");
+            dataReader.next();
+            int notePositive = dataReader.getInt("notePositive");
+
+            dataReader = sqlCommand.executeQuery("select count(n.Valeur_Note) as noteNegative\n" +
+                    "from ETUDIANT et inner join GROUPE grp on et.groupe# = grp.id_groupe \n" +
+                    "\t\t\t\tinner join ENSEIGNEMENT en on en.groupe# = grp.id_groupe\n" +
+                    "\t\t\t\tinner join MATIERE ma on ma.id_matiere = en.matiere#\n" +
+                    "\t\t\t\tinner join NOTE n on n.matiere# = ma.id_matiere\n" +
+                    "where n.Valeur_Note < 10");
+            dataReader.next();
+            int noteNegative = dataReader.getInt("noteNegative");
+
+
+            ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList(
+                    new PieChart.Data("Notes négatives", noteNegative),
+                    new PieChart.Data("Notes positives", notePositive)
+            );
+            pieChart.setData(pieChartData);
+            pieChart.setTitle("Valeurs des mes notes");
+            pieChart.setClockwise(true);
+            pieChart.setLabelsVisible(true);
+            pieChart.setLabelLineLength(50);
+            pieChart.setStartAngle(180);
+            this.ChangerCouleur(
+                    pieChartData,
+                    "#CB5B5A", "#EABD5D"
+            );
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
         panelStatistiques.toFront();
         btnClose.toFront();
         btnMinimize.toFront();
+    }
+
+    private void ChangerCouleur(ObservableList<PieChart.Data> pieChartData, String... pieColors) {
+        int i = 0;
+        for (PieChart.Data data : pieChartData) {
+            data.getNode().setStyle("-fx-pie-color: " + pieColors[i % pieColors.length] + ";");
+            i++;
+        }
     }
 
     @FXML
@@ -227,57 +291,24 @@ public class Controller implements Initializable {
         System.out.println("testing inialise");
         panelNotes.toFront();
         btnNotes_click();
-        Gestionnaire_De_Connection connectionClass = new Gestionnaire_De_Connection();
-        Connection connection = connectionClass.getConnection();
-        try {
-            Statement sqlCommand = connection.createStatement();
-            ResultSet dataReader = sqlCommand.executeQuery("select * from branche");
+//        Gestionnaire_De_Connection connectionClass = new Gestionnaire_De_Connection();
+//        Connection connection = connectionClass.getConnection();
+//        try {
+//            Statement sqlCommand = connection.createStatement();
+//            ResultSet dataReader = sqlCommand.executeQuery("select * from branche");
+//
+//            if (dataReader.next()) { // ze3ma if (exist())
+//                System.out.println("cool");
+//                dataReader.getRow();
+//                String test = dataReader.getString("libelle_branche");
+//                System.out.println(test);
+//            } else {
+//                System.out.println("not cool");
+//            }
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
 
-            if (dataReader.next()) { // ze3ma if (exist())
-                System.out.println("cool");
-                dataReader.getRow();
-               String test = dataReader.getString("libelle_branche");
-                System.out.println(test);
-            } else {
-                System.out.println("not cool");
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList(
-                new PieChart.Data("Titizz drari", 20),
-                new PieChart.Data("Titizz bnat", 80));
-        pieChart.setData(pieChartData);
-        pieChart.setTitle("titiz SupMti");
-        pieChart.setClockwise(true);
-        pieChart.setLabelsVisible(true);
-        pieChart.setLabelLineLength(50);
-        pieChart.setStartAngle(180);
-        this.ChangerCouleur(
-                pieChartData,
-                "red", "blue"
-        );
-        ObservableList<PieChart.Data> pieChartDataP = FXCollections.observableArrayList(
-                new PieChart.Data("Titizz drari", 30),
-                new PieChart.Data("Titizz bnat", 70));
-        pieChartPersonnel.setData(pieChartDataP);
-        pieChartPersonnel.setTitle("titiz SupMti");
-        pieChartPersonnel.setClockwise(true);
-        pieChartPersonnel.setLabelsVisible(true);
-        pieChartPersonnel.setLabelLineLength(50);
-        pieChartPersonnel.setStartAngle(180);
-        this.ChangerCouleur(
-                pieChartDataP,
-                "red", "blue"
-        );
-    }
-
-    private void ChangerCouleur(ObservableList<PieChart.Data> pieChartData, String... pieColors) {
-        int i = 0;
-        for (PieChart.Data data : pieChartData) {
-            data.getNode().setStyle("-fx-pie-color: " + pieColors[i % pieColors.length] + ";");
-            i++;
-        }
     }
 
 //    @Override

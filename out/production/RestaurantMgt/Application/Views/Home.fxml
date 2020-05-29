@@ -19,7 +19,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="676.0" prefWidth="1212.0" style="-fx-background-color: blue;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.Controllers.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="676.0" prefWidth="1212.0" style="-fx-background-color: blue;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.Controllers.Controller">
     <children>
         <VBox alignment="TOP_CENTER" prefHeight="676.0" prefWidth="290.0" style="-fx-background-color: blue;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
@@ -250,7 +250,7 @@
                         <Font size="18.0" />
                     </font>
                 </Label>
-                <Label fx:id="matiereLbl" layoutX="241.0" text="Arabe" layoutY="232.0" prefHeight="27.0" prefWidth="228.0"  textFill="#6f6f6f">
+                <Label fx:id="matiereLbl" layoutX="241.0" layoutY="232.0" prefHeight="27.0" prefWidth="228.0" text="Arabe" textFill="#6f6f6f">
                     <font>
                         <Font size="18.0" />
                     </font>
@@ -294,7 +294,7 @@
         </Pane>
         <Pane fx:id="panelStatistiques" layoutX="289.0" layoutY="-4.0" prefHeight="680.0" prefWidth="922.0" style="-fx-background-color: WHITE;">
             <children>
-                <PieChart fx:id="pieChart" layoutX="508.0" layoutY="357.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="304.0" prefWidth="341.0" />
+                <PieChart fx:id="pieChart" layoutX="468.0" layoutY="308.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="353.0" prefWidth="435.0" />
                 <BarChart fx:id="barChart" layoutX="440.0" layoutY="55.0" prefHeight="317.0" prefWidth="435.0">
                     <xAxis>
                         <CategoryAxis side="BOTTOM" />

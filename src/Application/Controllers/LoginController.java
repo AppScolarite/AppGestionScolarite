@@ -54,8 +54,6 @@ public class LoginController implements Initializable {
         stage.close();
     }
 
-
-
     @FXML
     public void signIn_CLick() throws Exception {
         Gestionnaire_De_Connection connectionClass = new Gestionnaire_De_Connection();
@@ -97,22 +95,19 @@ public class LoginController implements Initializable {
     public void Inscrire_Click() throws Exception {
 //
         URL url = new File("src/Application/Views/inscrire.fxml").toURI().toURL();
-        //        Parent root = FXMLLoader.load(getClass().getResource("@../Application/Views/inscrire.fxml"));
         Parent root = FXMLLoader.load(url);
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.initStyle(StageStyle.UNDECORATED);
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.initStyle(StageStyle.UNDECORATED);
 
-            stage.show();
+        stage.show();
 
 
     }
 
 
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
 
 
     }
