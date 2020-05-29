@@ -10,7 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.chart.PieChart;
+import javafx.scene.chart.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -24,6 +24,7 @@ import java.sql.*;
 
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -33,18 +34,33 @@ public class Controller implements Initializable {
     private AnchorPane anchorPane;
     Stage stage;
 
+    //*********************statistiques du personnel*******
     @FXML
     private Pane panelStatistiquesPersonnel;
 
+    @FXML
+    private PieChart pieChartPersonnel;
+
+    //*****************************************************
+
+    //*********************statistiques de l'etudiant******
+    @FXML
+    private Pane panelStatistiques;
+
+    @FXML
+    private PieChart pieChartEtudiant;
+
+    @FXML
+    private BarChart barchartEtudiant;
+
+    //*****************************************************
     @FXML
     private Pane panelNotesProf;
 
     @FXML
     private Pane panelNotes;
 
-    @FXML
-    private Pane panelStatistiques;
-
+    //****************** Menu ************************
     @FXML
     private Button btnAccueil;
 
@@ -68,18 +84,13 @@ public class Controller implements Initializable {
 
     @FXML
     private Button btnMinimize;
+    //*****************************************************
 
     @FXML
     private TableView tblView;
 
     @FXML
-    private Pane panelEtudiant;
-
-    @FXML
-    private PieChart pieChart;
-
-    @FXML
-    private PieChart pieChartPersonnel;
+    private Pane panelGestionEtudiant;
 
     @FXML
     private Label matiereLbl;
@@ -101,7 +112,6 @@ public class Controller implements Initializable {
 
     @FXML
     private ComboBox CB_Matiere;
-
 
     @FXML
     public void logOut_Click() throws Exception {
@@ -229,12 +239,15 @@ public class Controller implements Initializable {
         ResultSet dataReader;
         try {
             Statement sqlCommand = connection.createStatement();
+            /// **************** Remplissage pieChartEtudiant ******************************************************
+
             dataReader = sqlCommand.executeQuery("select count(n.Valeur_Note) as notePositive\n" +
                     "from ETUDIANT et inner join GROUPE grp on et.groupe# = grp.id_groupe \n" +
                     "\t\t\t\tinner join ENSEIGNEMENT en on en.groupe# = grp.id_groupe\n" +
                     "\t\t\t\tinner join MATIERE ma on ma.id_matiere = en.matiere#\n" +
                     "\t\t\t\tinner join NOTE n on n.matiere# = ma.id_matiere\n" +
-                    "where n.Valeur_Note >= 10");
+                    "where n.Valeur_Note >= 10" +
+                    "and n.etudiant_ = '" + Gestionnaire_De_Connection.user_connecte + "'");
             dataReader.next();
             int notePositive = dataReader.getInt("notePositive");
 
@@ -243,7 +256,8 @@ public class Controller implements Initializable {
                     "\t\t\t\tinner join ENSEIGNEMENT en on en.groupe# = grp.id_groupe\n" +
                     "\t\t\t\tinner join MATIERE ma on ma.id_matiere = en.matiere#\n" +
                     "\t\t\t\tinner join NOTE n on n.matiere# = ma.id_matiere\n" +
-                    "where n.Valeur_Note < 10");
+                    "where n.Valeur_Note < 10" +
+                    "and n.etudiant_ = '" + Gestionnaire_De_Connection.user_connecte + "'");
             dataReader.next();
             int noteNegative = dataReader.getInt("noteNegative");
 
@@ -252,16 +266,69 @@ public class Controller implements Initializable {
                     new PieChart.Data("Notes négatives", noteNegative),
                     new PieChart.Data("Notes positives", notePositive)
             );
-            pieChart.setData(pieChartData);
-            pieChart.setTitle("Valeurs des mes notes");
-            pieChart.setClockwise(true);
-            pieChart.setLabelsVisible(true);
-            pieChart.setLabelLineLength(50);
-            pieChart.setStartAngle(180);
+            pieChartEtudiant.setData(pieChartData);
+            pieChartEtudiant.setTitle("Mes notes");
+            pieChartEtudiant.setClockwise(true);
+            pieChartEtudiant.setLabelsVisible(true);
+            pieChartEtudiant.setLabelLineLength(50);
+            pieChartEtudiant.setStartAngle(180);
             this.ChangerCouleur(
                     pieChartData,
                     "#CB5B5A", "#EABD5D"
             );
+            //********************************************************************************************
+
+            //************remplissage barChart************************************************************
+            //Defining the axes
+            CategoryAxis xAxis = new CategoryAxis();
+            xAxis.setLabel("Matiére");
+
+            NumberAxis yAxis = new NumberAxis();
+            yAxis.setLabel("Moyenne");
+
+            barchartEtudiant.setTitle("Mes matiéres & moyennes");
+            barchartEtudiant.setCategoryGap(3);
+
+            dataReader = sqlCommand.executeQuery("select ma.LBL_Matiere as matiere, sum(n.Valeur_Note) / count(*) as moyenne\n" +
+                    "from NOTE n inner join MATIERE ma on n.matiere# = ma.id_matiere\n" +
+                    "where n.etudiant_ = '" + Gestionnaire_De_Connection.user_connecte + "'" +
+                    "group by ma.LBL_Matiere");
+            while (dataReader.next()) {
+                String matiere = dataReader.getString("matiere");
+                double moyenne = dataReader.getDouble("moyenne");
+                XYChart.Series<String, Number> serie = new XYChart.Series<>();
+                serie.setName(matiere);
+                serie.getData().add(new XYChart.Data<>("", moyenne));
+                barchartEtudiant.getData().add(serie);
+            }
+
+            //******************Dummy Data*******************************************
+            XYChart.Series<String, Number> series2 = new XYChart.Series<>();
+            series2.setName("Java");
+            series2.getData().add(new XYChart.Data<>("", 4.0));
+            barchartEtudiant.getData().add(series2);
+
+            XYChart.Series<String, Number> series3 = new XYChart.Series<>();
+            series3.setName("Administration System");
+            series3.getData().add(new XYChart.Data<>("", 6.0));
+            barchartEtudiant.getData().add(series3);
+
+            XYChart.Series<String, Number> series4 = new XYChart.Series<>();
+            series4.setName("Docker");
+            series4.getData().add(new XYChart.Data<>("", 6.0));
+            barchartEtudiant.getData().add(series4);
+
+            XYChart.Series<String, Number> series5 = new XYChart.Series<>();
+            series5.setName("WPF");
+            series5.getData().add(new XYChart.Data<>("", 6.0));
+            barchartEtudiant.getData().add(series5);
+
+            XYChart.Series<String, Number> series6 = new XYChart.Series<>();
+            series6.setName("Art of speaking");
+            series6.getData().add(new XYChart.Data<>("", 6.0));
+            barchartEtudiant.getData().add(series6);
+            //********************************************************************************************
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -281,7 +348,7 @@ public class Controller implements Initializable {
 
     @FXML
     private void btnGestion_click(ActionEvent e) {
-        panelEtudiant.toFront();
+        panelGestionEtudiant.toFront();
         btnClose.toFront();
         btnMinimize.toFront();
     }
@@ -310,50 +377,4 @@ public class Controller implements Initializable {
 //        }
 
     }
-
-//    @Override
-//    public void initialize(URL location, ResourceBundle resources) {
-//        Node[] nodes = new Node[10];
-//        for (int i = 0; i < nodes.length; i++) {
-//            try {
-//
-//                final int j = i;
-//                nodes[i] = FXMLLoader.load(getClass().getResource("Item.fxml"));
-//
-//                //give the items some effect
-//
-//                nodes[i].setOnMouseEntered(event -> {
-//                    nodes[j].setStyle("-fx-background-color : #0A0E3F");
-//                });
-//                nodes[i].setOnMouseExited(event -> {
-//                    nodes[j].setStyle("-fx-background-color : #02030A");
-//                });
-//                pnItems.getChildren().add(nodes[i]);
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//        }
-//
-//    }
-
-
-//    public void handleClicks(ActionEvent actionEvent) {
-//        if (actionEvent.getSource() == btnCustomers) {
-//            pnlCustomer.setStyle("-fx-background-color : #1620A1");
-//            pnlCustomer.toFront();
-//        }
-//        if (actionEvent.getSource() == btnMenus) {
-//            pnlMenus.setStyle("-fx-background-color : #53639F");
-//            pnlMenus.toFront();
-//        }
-//        if (actionEvent.getSource() == btnOverview) {
-//            pnlOverview.setStyle("-fx-background-color : #02030A");
-//            pnlOverview.toFront();
-//        }
-//        if(actionEvent.getSource()==btnOrders)
-//        {
-//            pnlOrders.setStyle("-fx-background-color : #464F67");
-//            pnlOrders.toFront();
-//        }
-//    }
 }

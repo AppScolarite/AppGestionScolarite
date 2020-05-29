@@ -74,16 +74,15 @@ public class LoginController implements Initializable {
             } else {
                 URL url = new File("src/Application/Views/Home.fxml").toURI().toURL();
                 Parent root = FXMLLoader.load(url);
-                //        Parent root = FXMLLoader.load(getClass().getResource("Home.fxml"));
                 Stage stage = new Stage();
                 stage.setScene(new Scene(root));
                 stage.getIcons().add(new Image(getClass().getResourceAsStream("../../resources/images/LoginIcons/icons8_Google_Wallet_50px.png")));
                 stage.initStyle(StageStyle.UNDECORATED);
 
+
                 Stage stage2 = (Stage) btnSignup.getScene().getWindow();
                 stage2.close();
                 stage.show();
-
             }
         } catch (IOException e) {
             e.printStackTrace();

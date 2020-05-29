@@ -7,7 +7,7 @@ public class Gestionnaire_De_Connection {
 
     private Connection connection;
     public static int personnel_connecte;
-    public static String user_connecte;
+    public static String user_connecte = "h2";
 
     public Connection getConnection() {
 
