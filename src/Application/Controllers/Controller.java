@@ -1,6 +1,7 @@
 package Application.Controllers;
 
 import Application.Data.Gestionnaire_De_Connection;
+import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -11,6 +12,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.scene.image.Image;
@@ -97,6 +99,9 @@ public class Controller implements Initializable {
     @FXML
     private Label MyenneLbl;
 
+    @FXML
+    private ComboBox CB_Matiere;
+
 
     @FXML
     public void logOut_Click() throws Exception{
@@ -136,6 +141,16 @@ public class Controller implements Initializable {
         Gestionnaire_De_Connection gestionnaire_de_connection =  new Gestionnaire_De_Connection();
         try {
         Connection connection = gestionnaire_de_connection.getConnection();
+            Statement stmMatiere = connection.createStatement();
+            ResultSet rss = stmMatiere.executeQuery("select * from matiere");
+            ObservableList mat = FXCollections.observableArrayList();
+            while(rss.next()){
+                rss.getRow();
+                String matieres = rss.getString(2);
+                mat.add(matieres);
+            }
+            CB_Matiere.setItems(mat);
+
             Statement statement = connection.createStatement();
             String query = "select MATIERE.LBL_Matiere, MATIERE.Coeff," +
                     " concat(PROFESSEUR.Nom, ' ' ,PROFESSEUR.Prenom ) as Nom_Professeur, NOTE.Valeur_Note\n" +
