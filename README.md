@@ -4,7 +4,7 @@ This project is purely JavaFX - it gives you a basis of what to do regarding you
 
 Dark Mode
 
-![](https://github.com/k33ptoo/RestaurantMgtSampleUI/blob/master/imgs/sc2.PNG)
+![](https://github.com/AppScolarite/AppGestionScolarite/imgs/sc2.PNG)
 
 Light Mode
 
