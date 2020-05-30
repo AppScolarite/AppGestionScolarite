@@ -1,5 +1,10 @@
-﻿--create database system_scolarite;
---use system_scolarite;
+﻿create database system_scolarite;
+use system_scolarite;
+
+
+--use master;
+--drop database system_scolarite;
+-- si la supression de la BD persiste .. veuillez supprimer toutes les connexion entrantes/sortantes , puis réessayer ...
 
 create table PERSONNEL
 (
@@ -167,10 +172,11 @@ values
 (1,15.5,'h1'),
 (1,9,'h1'),
 (1,17.5,'h1'),
+(2,17.5,'h1'),
 
 (1,13,'h2'),
 (1,7.5,'h2'),
-(1,2,'h2'),
+(1,18,'h2'),
 (2,15,'h2')
 
 

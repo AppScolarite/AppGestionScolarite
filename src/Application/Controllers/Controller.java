@@ -1,6 +1,7 @@
 package Application.Controllers;
 
 import Application.Data.Gestionnaire_De_Connection;
+import Application.Models.ClassementViewModel;
 import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -11,10 +12,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.*;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
@@ -53,6 +52,8 @@ public class Controller implements Initializable {
     @FXML
     private BarChart barchartEtudiant;
 
+    private List<ClassementViewModel> persons;
+
     //*****************************************************
     @FXML
     private Pane panelNotesProf;
@@ -87,7 +88,7 @@ public class Controller implements Initializable {
     //*****************************************************
 
     @FXML
-    private TableView tblView;
+    private TableView tblViewCLassement;
 
     @FXML
     private Pane panelGestionEtudiant;
@@ -232,7 +233,7 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    private void statistique_Click(ActionEvent event) {
+    private void statistique_Etudiant_Click(ActionEvent event) {
 
         Gestionnaire_De_Connection connectionClass = new Gestionnaire_De_Connection();
         Connection connection = connectionClass.getConnection();
@@ -247,7 +248,7 @@ public class Controller implements Initializable {
                     "\t\t\t\tinner join MATIERE ma on ma.id_matiere = en.matiere#\n" +
                     "\t\t\t\tinner join NOTE n on n.matiere# = ma.id_matiere\n" +
                     "where n.Valeur_Note >= 10" +
-                    "and n.etudiant_ = '" + Gestionnaire_De_Connection.user_connecte + "'");
+                    "and n.etudiant_ = '" + Gestionnaire_De_Connection.etudiant_connecte + "'");
             dataReader.next();
             int notePositive = dataReader.getInt("notePositive");
 
@@ -257,10 +258,9 @@ public class Controller implements Initializable {
                     "\t\t\t\tinner join MATIERE ma on ma.id_matiere = en.matiere#\n" +
                     "\t\t\t\tinner join NOTE n on n.matiere# = ma.id_matiere\n" +
                     "where n.Valeur_Note < 10" +
-                    "and n.etudiant_ = '" + Gestionnaire_De_Connection.user_connecte + "'");
+                    "and n.etudiant_ = '" + Gestionnaire_De_Connection.etudiant_connecte + "'");
             dataReader.next();
             int noteNegative = dataReader.getInt("noteNegative");
-
 
             ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList(
                     new PieChart.Data("Notes négatives", noteNegative),
@@ -291,7 +291,7 @@ public class Controller implements Initializable {
 
             dataReader = sqlCommand.executeQuery("select ma.LBL_Matiere as matiere, sum(n.Valeur_Note) / count(*) as moyenne\n" +
                     "from NOTE n inner join MATIERE ma on n.matiere# = ma.id_matiere\n" +
-                    "where n.etudiant_ = '" + Gestionnaire_De_Connection.user_connecte + "'" +
+                    "where n.etudiant_ = '" + Gestionnaire_De_Connection.etudiant_connecte + "'" +
                     "group by ma.LBL_Matiere");
             while (dataReader.next()) {
                 String matiere = dataReader.getString("matiere");
@@ -305,30 +305,46 @@ public class Controller implements Initializable {
             //******************Dummy Data*******************************************
             XYChart.Series<String, Number> series2 = new XYChart.Series<>();
             series2.setName("Java");
-            series2.getData().add(new XYChart.Data<>("", 4.0));
+            series2.getData().add(new XYChart.Data<>("", 10.0));
             barchartEtudiant.getData().add(series2);
 
             XYChart.Series<String, Number> series3 = new XYChart.Series<>();
             series3.setName("Administration System");
-            series3.getData().add(new XYChart.Data<>("", 6.0));
+            series3.getData().add(new XYChart.Data<>("", 11.0));
             barchartEtudiant.getData().add(series3);
 
             XYChart.Series<String, Number> series4 = new XYChart.Series<>();
             series4.setName("Docker");
-            series4.getData().add(new XYChart.Data<>("", 6.0));
+            series4.getData().add(new XYChart.Data<>("", 15.0));
             barchartEtudiant.getData().add(series4);
 
             XYChart.Series<String, Number> series5 = new XYChart.Series<>();
             series5.setName("WPF");
-            series5.getData().add(new XYChart.Data<>("", 6.0));
+            series5.getData().add(new XYChart.Data<>("", 18.0));
             barchartEtudiant.getData().add(series5);
 
             XYChart.Series<String, Number> series6 = new XYChart.Series<>();
             series6.setName("Art of speaking");
-            series6.getData().add(new XYChart.Data<>("", 6.0));
+            series6.getData().add(new XYChart.Data<>("", 11.0));
             barchartEtudiant.getData().add(series6);
-            //********************************************************************************************
-
+            //****************************************************************************
+            //*************** Remplissage du tableau**************************
+            dataReader = sqlCommand.executeQuery("select etd.nom as nom_complet , sum(n.Valeur_Note) / count(*) as moyenne_etudiant\n" +
+                    "from NOTE n inner join MATIERE ma on n.matiere# = ma.id_matiere\n" +
+                    "\t\t\t--inner join ENSEIGNEMENT en on en.matiere# = ma.id_matiere\n" +
+                    "\t\t\t--inner join GROUPE grp on grp.id_groupe = en.groupe#\n" +
+                    "\t\t\t--inner join ETUDIANT etd on etd.groupe# = grp.id_groupe\n" +
+                    "\t\t\tinner join ETUDIANT etd  on etd.code_massar = n.etudiant_ \n" +
+                    "group by etd.nom, ma.LBL_Matiere\n");
+            int classement = 1;
+            while (dataReader.next()) {
+                ClassementViewModel person = new ClassementViewModel(dataReader.getString("nom_complet"), dataReader.getDouble("moyenne_etudiant"), classement);
+                this.FillData();
+                tblViewCLassement.getItems().addAll(persons);
+                classement++;
+                break;
+            }
+            //****************************************************************************
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -336,6 +352,25 @@ public class Controller implements Initializable {
         panelStatistiques.toFront();
         btnClose.toFront();
         btnMinimize.toFront();
+    }
+
+    private void FillData() {
+        // Pour le test/prototypage
+        persons = new ArrayList<>();
+        persons.add(new ClassementViewModel("Nourredine Yagoubi", 16.75, 1));
+        persons.add(new ClassementViewModel("Hicham Oussama Saffih", 15.9, 2));
+        persons.add(new ClassementViewModel("Amina Essirioui", 15.82, 3));
+        persons.add(new ClassementViewModel("Nisrine Hadiwi", 15.70, 4));
+        persons.add(new ClassementViewModel("Ahmed tizniti", 14.20, 5));
+        persons.add(new ClassementViewModel("Nihal Bkkay", 14.00, 6));
+        persons.add(new ClassementViewModel("Mustafa nourawi", 13.95, 7));
+        persons.add(new ClassementViewModel("Roqaya Aamari", 13.93, 8));
+        persons.add(new ClassementViewModel("Adam abdlawi", 13.00, 9));
+        persons.add(new ClassementViewModel("Ilyass Bekkal", 12.77, 10));
+        persons.add(new ClassementViewModel("Imane LLhlo", 11.37, 11));
+        persons.add(new ClassementViewModel("Noura Blkhir", 11.28, 12));
+        persons.add(new ClassementViewModel("Anass Boukhari", 10.9, 13));
+        persons.add(new ClassementViewModel("Mouslim saadani", 9.50, 14));
     }
 
     private void ChangerCouleur(ObservableList<PieChart.Data> pieChartData, String... pieColors) {
@@ -347,7 +382,7 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    private void btnGestion_click(ActionEvent e) {
+    private void btnMenuGestion_click(ActionEvent e) {
         panelGestionEtudiant.toFront();
         btnClose.toFront();
         btnMinimize.toFront();
@@ -358,6 +393,9 @@ public class Controller implements Initializable {
         System.out.println("testing inialise");
         panelNotes.toFront();
         btnNotes_click();
+
+        //todo : ne pas supprimer ce code hhhh
+        //connection avec BD (MSSQL JDBC)
 //        Gestionnaire_De_Connection connectionClass = new Gestionnaire_De_Connection();
 //        Connection connection = connectionClass.getConnection();
 //        try {
