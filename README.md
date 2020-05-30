@@ -1,11 +1,11 @@
-# RestaurantMgt Sample UI JavaFX
+# Gestion de scolarité en JavaFX
 
-This project is purely JavaFX - it gives you a basis of what to do regarding your projects, **Note:** it is not a fully fledged system.
+Lorem ipsum ...
 
-Dark Mode
+Statistiques & chart graphiques pour les étudiants
 
 ![](https://github.com/AppScolarite/AppGestionScolarite/blob/master/imgs/sc2.PNG)
 
-Light Mode
+System d'authentification
 
 ![](https://github.com/AppScolarite/AppGestionScolarite/blob/master/imgs/sc.PNG)
