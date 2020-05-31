@@ -10,14 +10,6 @@ public class Gestionnaire_De_Connection {
     public static String etudiant_connecte = "h2";
     public static String prof_connecte = "null";
 
-//    public static String getNomConnecte() {
-//        return NomConnecte;
-//    }
-//
-//    public static void setNomConnecte(String nomConnecte) {
-//        NomConnecte = nomConnecte;
-//    }
-
     public static String nom_connecte = "null";
 
     public Connection getConnection() {

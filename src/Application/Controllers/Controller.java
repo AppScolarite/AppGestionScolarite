@@ -2,6 +2,7 @@ package Application.Controllers;
 
 import Application.Data.Gestionnaire_De_Connection;
 import Application.Models.ClassementViewModel;
+import Application.Models.GestionEtudiantsViewModel;
 import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -25,6 +26,7 @@ import java.sql.*;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -72,10 +74,14 @@ public class Controller implements Initializable {
 
     //**************** Gestion des étudiants **************
     @FXML
-    private ComboBox CB_grp_gestionEtudiant;
+    private Pane panelEtudiant;
 
     @FXML
-    private Pane panelEtudiant;
+    private TableView tableView_GestionEtudiant;
+
+    @FXML
+    private ComboBox CB_grp_gestionEtudiant;
+
     //*****************************************************
 
     //****************** Menu ************************
@@ -325,9 +331,7 @@ public class Controller implements Initializable {
     }
 
     private void statistiqueEtudiant_Load() {
-
-        Gestionnaire_De_Connection connectionClass = new Gestionnaire_De_Connection();
-        Connection connection = connectionClass.getConnection();
+        Connection connection = gestionnaire_de_connection.getConnection();
         ResultSet dataReader;
         try {
             Statement sqlCommand = connection.createStatement();
@@ -479,14 +483,13 @@ public class Controller implements Initializable {
 
     private void PanelGestionEtudiant_Load() {
         try {
-
             Connection connection = gestionnaire_de_connection.getConnection();
             Statement stmGrp = connection.createStatement();
             ResultSet reader = stmGrp.executeQuery("select * from GROUPE");
             ObservableList groupes = FXCollections.observableArrayList();
             while (reader.next()) {
-                String matieres = reader.getString("libelle_grp");
-                groupes.add(matieres);
+                String groupe = reader.getString("libelle_grp");
+                groupes.add(groupe);
             }
             CB_grp_gestionEtudiant.setItems(groupes);
         } catch (SQLException sqlE) {
@@ -536,7 +539,6 @@ public class Controller implements Initializable {
 //
 //            if (dataReader.next()) { // ze3ma if (exist())
 //                System.out.println("cool");
-//                dataReader.getRow();
 //                String test = dataReader.getString("libelle_branche");
 //                System.out.println(test);
 //            } else {
@@ -546,5 +548,43 @@ public class Controller implements Initializable {
 //            e.printStackTrace();
 //        }
 
+    }
+
+    public void CB_grp_gestionEtudiant_selected(ActionEvent actionEvent) {
+        tableView_GestionEtudiant.getItems().clear();
+        int id_grp = CB_grp_gestionEtudiant.getSelectionModel().getSelectedIndex() + 1;
+
+        Connection connection = gestionnaire_de_connection.getConnection();
+        try {
+            Statement sqlCommand = connection.createStatement();
+            ResultSet dataReader = sqlCommand.executeQuery("select et.code_massar , CONCAT(et.prenom , ' ' , et.nom) as nom_complet, et.date_inscription, et.email, et.telephone, et.a_deja_redouble, et.sexe, et.adresse\n" +
+                    "from etudiant et inner join groupe grp on et.groupe# = grp.id_groupe\n" +
+                    "where grp.id_groupe = " + id_grp);
+
+            while (dataReader.next()) {
+                String code_massar = dataReader.getString("code_massar");
+                String nom_complet = dataReader.getString("nom_complet");
+                Date date_inscription = dataReader.getDate("date_inscription");
+                String email = dataReader.getString("email");
+                String telephone = dataReader.getString("telephone");
+                String a_deja_redouble = dataReader.getBoolean("a_deja_redouble") ? "oui" : "non";
+                String sexe = dataReader.getString("sexe");
+                String adresse = dataReader.getString("adresse");
+                GestionEtudiantsViewModel etudiant = new GestionEtudiantsViewModel(
+                        code_massar,
+                        nom_complet,
+                        date_inscription,
+                        email,
+                        telephone,
+                        a_deja_redouble,
+                        adresse,
+                        sexe
+                );
+                tableView_GestionEtudiant.getItems().add(etudiant);
+                System.out.println(nom_complet);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }
