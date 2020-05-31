@@ -152,10 +152,11 @@ public class Controller implements Initializable {
         btnMinimize.toFront();
     }
 
+    Integer Id_Mat = 1;
     @FXML
     public void btnNotes_click() {
-        //todo
         Gestionnaire_De_Connection gestionnaire_de_connection = new Gestionnaire_De_Connection();
+        //todo
         try {
             Connection connection = gestionnaire_de_connection.getConnection();
             Statement stmMatiere = connection.createStatement();
@@ -184,8 +185,7 @@ public class Controller implements Initializable {
                     "join MATIERE on ENSEIGNEMENT.matiere# = MATIERE.id_matiere\n" +
                     "join PROFESSEUR on PROFESSEUR.Code_Pro_Nationnal = ENSEIGNEMENT.professeur#\n" +
                     "join NOTE on MATIERE.id_matiere = NOTE.matiere#\n" +
-                    "where ETUDIANT.code_massar = 'H1'";
-
+                    "where ETUDIANT.code_massar = 'H1' ";
 
             Statement statement1 = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(query);
@@ -201,13 +201,13 @@ public class Controller implements Initializable {
                 rs.getRow();
                 String notes = String.valueOf(rs.getDouble("notes"));
                 data.add(notes);
-            }
-            Cntrol1.setText(data.get(0));
-            Cntrol2.setText(data.get(1));
-            Cntrol3.setText(data.get(2));
+                Cntrol1.setText(data.get(0));
+                Cntrol2.setText(data.get(1));
+                Cntrol3.setText(data.get(2));
 
-            Double moyenne = ((Double.valueOf(Cntrol1.getText()) + Double.valueOf(Cntrol2.getText()) + Double.valueOf(Cntrol3.getText())) / 3);
-            MyenneLbl.setText(String.valueOf(moyenne));
+                Double moyenne = ((Double.valueOf(Cntrol1.getText()) + Double.valueOf(Cntrol2.getText()) + Double.valueOf(Cntrol3.getText())) / 3);
+                MyenneLbl.setText(String.valueOf(moyenne));
+            }
 
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -217,6 +217,66 @@ public class Controller implements Initializable {
         btnMinimize.toFront();
     }
 
+    @FXML
+    public void selectedItem(ActionEvent event){
+        Integer Id_Mat = Integer.valueOf(CB_Matiere.getSelectionModel().getSelectedIndex() + 1);
+        System.out.println(Id_Mat);
+        Gestionnaire_De_Connection gestionnaire_de_connection = new Gestionnaire_De_Connection();
+        //todo
+        try {
+            Connection connection = gestionnaire_de_connection.getConnection();
+            Statement statement = connection.createStatement();
+            String queryM = "select MATIERE.LBL_Matiere, MATIERE.Coeff," +
+                    " concat(PROFESSEUR.Nom, ' ' ,PROFESSEUR.Prenom ) as Nom_Professeur, NOTE.Valeur_Note\n" +
+                    "from ETUDIANT join groupe on ETUDIANT.groupe# = groupe.id_groupe\n" +
+                    "join ENSEIGNEMENT on GROUPE.id_groupe = ENSEIGNEMENT.groupe#\n" +
+                    "join MATIERE on ENSEIGNEMENT.matiere# = MATIERE.id_matiere\n" +
+                    "join PROFESSEUR on PROFESSEUR.Code_Pro_Nationnal = ENSEIGNEMENT.professeur#\n" +
+                    "join NOTE on MATIERE.id_matiere = NOTE.matiere#\n" +
+                    "where ETUDIANT.code_massar = '" + Gestionnaire_De_Connection.etudiant_connecte + "' and MATIERE.id_matiere = " + Id_Mat;
+
+            String queryNotesN = "select NOTE.Valeur_Note as notes\n" +
+                    "from ETUDIANT join groupe on ETUDIANT.groupe# = groupe.id_groupe\n" +
+                    "join ENSEIGNEMENT on GROUPE.id_groupe = ENSEIGNEMENT.groupe#\n" +
+                    "join MATIERE on ENSEIGNEMENT.matiere# = MATIERE.id_matiere\n" +
+                    "join PROFESSEUR on PROFESSEUR.Code_Pro_Nationnal = ENSEIGNEMENT.professeur#\n" +
+                    "join NOTE on MATIERE.id_matiere = NOTE.matiere#\n" +
+                    "where ETUDIANT.code_massar = ' " + Gestionnaire_De_Connection.etudiant_connecte + "' and MATIERE.id_matiere = " + Id_Mat;
+
+
+            ResultSet resultSet = statement.executeQuery(queryM);
+
+            Statement statementM = connection.createStatement();
+            ResultSet rs = statementM.executeQuery(queryNotesN);
+            ObservableList<String> data = FXCollections.observableArrayList();
+            if (resultSet.next() && rs.next()) {
+//                System.out.println("etudiant has rows");
+
+                matiereLbl.setText(resultSet.getString(1));
+                CoeffLbl.setText(String.valueOf(resultSet.getInt(2)));
+                ProfLbl.setText(resultSet.getString(3));
+
+                rs.getRow();
+                String notes = String.valueOf(rs.getDouble("notes"));
+                data.add(notes);
+                Cntrol1.setText(data.get(0));
+                Cntrol2.setText(data.get(1));
+                Cntrol3.setText(data.get(2));
+
+                Double moyenne = ((Double.valueOf(Cntrol1.getText()) + Double.valueOf(Cntrol2.getText()) + Double.valueOf(Cntrol3.getText())) / 3);
+                MyenneLbl.setText(String.valueOf(moyenne));
+            }
+            else {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Informations Notes");
+                alert.setContentText("La matière selectionnée ne contient aucune information !! ");
+                Id_Mat = 1;
+            }
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
 
     @FXML
     public void statistiquePersonnel_Click(ActionEvent event) {
@@ -402,11 +462,11 @@ public class Controller implements Initializable {
         System.out.println(Gestionnaire_De_Connection.etudiant_connecte);
         System.out.println(Gestionnaire_De_Connection.personnel_connecte);
         System.out.println(Gestionnaire_De_Connection.prof_connecte);
-        System.out.println(Gestionnaire_De_Connection.NomConnecte);
-        userLBL.setText(Gestionnaire_De_Connection.NomConnecte);
+        System.out.println(Gestionnaire_De_Connection.nom_connecte);
+        userLBL.setText(Gestionnaire_De_Connection.nom_connecte);
         Gestionnaire_De_Connection gestionnaire_de_connection = new Gestionnaire_De_Connection();
         Connection connection = gestionnaire_de_connection.getConnection();
-        String NomComplet[] = Gestionnaire_De_Connection.NomConnecte.split(" ");
+        String NomComplet[] = Gestionnaire_De_Connection.nom_connecte.split(" ");
         String Nom = NomComplet[0];
         String Prenom = NomComplet[1];
         try {
