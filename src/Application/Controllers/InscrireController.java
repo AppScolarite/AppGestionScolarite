@@ -22,7 +22,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.ResourceBundle;
 
-public class InscrireController  implements Initializable {
+public class InscrireController implements Initializable {
 
     @FXML
     private Button btnSignin;
@@ -55,8 +55,6 @@ public class InscrireController  implements Initializable {
     private PasswordField txtPassword12;
 
 
-
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -75,8 +73,7 @@ public class InscrireController  implements Initializable {
                 dataVal.add(valuGroups);
 
             }
-        }catch (SQLException e)
-        {
+        } catch (SQLException e) {
             e.getErrorCode();
         }
 //                CBGroupe.setValue(dataVal);
@@ -101,40 +98,38 @@ public class InscrireController  implements Initializable {
             Calendar calendar = Calendar.getInstance();
             java.util.Date currentDate = calendar.getTime();
             java.sql.Date date = new java.sql.Date(currentDate.getTime());
-    //        Date date = new Date(currentDate.getTime());
+            //        Date date = new Date(currentDate.getTime());
             PreparedStatement preparedStatement = connection.prepareStatement("insert into ETUDIANT(code_massar,nom, prenom, date_naissance,date_inscription,email,telephone,a_deja_redouble, " +
                     "sexe, adresse,groupe#, username, mot_de_passe)values(?,?,?,?,?,?,?,?,?,?,?,?,?)");
 //            ajouter dessus champs groupe hakka bla groupe raha khdama mais fach nzidou makatkhdemch !!
 
 
-            preparedStatement.setString(1,txtMassar.getText().toString());
-            preparedStatement.setString(2,nom);
-            preparedStatement.setString(3,prenom);
+            preparedStatement.setString(1, txtMassar.getText().toString());
+            preparedStatement.setString(2, nom);
+            preparedStatement.setString(3, prenom);
             preparedStatement.setDate(4, java.sql.Date.valueOf(DateNaissance.getValue()));
-            preparedStatement.setDate(5,date);
-            preparedStatement.setString(6,txtMail.getText().toString());
-            preparedStatement.setString(7,txtTelephone.getText().toString());
-            preparedStatement.setString(10,txtAdresse.getText().toString());
-            if(doublanCB.isSelected()){
+            preparedStatement.setDate(5, date);
+            preparedStatement.setString(6, txtMail.getText().toString());
+            preparedStatement.setString(7, txtTelephone.getText().toString());
+            preparedStatement.setString(10, txtAdresse.getText().toString());
+            if (doublanCB.isSelected()) {
                 doublanCB.setText("1");
-                preparedStatement.setInt(8,Integer.valueOf(doublanCB.getText()));
+                preparedStatement.setInt(8, Integer.valueOf(doublanCB.getText()));
                 doublanCB.setText("doublant");
-            }
-            else {
+            } else {
                 doublanCB.setText("0");
-                preparedStatement.setInt(8,Integer.valueOf(doublanCB.getText()));
+                preparedStatement.setInt(8, Integer.valueOf(doublanCB.getText()));
                 doublanCB.setText("doublant");
             }
-            if(HommeRadio.isSelected()){
-                preparedStatement.setString(9,HommeRadio.getText());
+            if (HommeRadio.isSelected()) {
+                preparedStatement.setString(9, HommeRadio.getText());
             }
-            if(FemmeRadio.isSelected()){
-                preparedStatement.setString(9,FemmeRadio.getText());
+            if (FemmeRadio.isSelected()) {
+                preparedStatement.setString(9, FemmeRadio.getText());
             }
-//            System.out.println(CBGroupe.getSelectionModel().selectedItemProperty());
-            preparedStatement.setInt(11,CBGroupe.getSelectionModel().getSelectedIndex() +1 );
-            preparedStatement.setString(12,txtUsername.getText());
-            preparedStatement.setString(13,txtPassword12.getText());
+            preparedStatement.setInt(11, CBGroupe.getSelectionModel().getSelectedIndex() + 1);
+            preparedStatement.setString(12, txtUsername.getText());
+            preparedStatement.setString(13, txtPassword12.getText());
             preparedStatement.executeUpdate();
 
 

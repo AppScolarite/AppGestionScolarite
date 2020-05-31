@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="503.0" prefWidth="854.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.Controllers.LoginController">
+<AnchorPane id="AnchorPane" prefHeight="503.0" prefWidth="854.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.Controllers.LoginController">
     <children>
         <AnchorPane prefHeight="503.0" prefWidth="382.0" style="-fx-background-color: #0C39FF;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
@@ -20,12 +20,12 @@
                         <Image url="@../../resources/images/LoginIcons/icons8_Google_Wallet_50px.png" />
                     </image>
                 </ImageView>
-                <Label alignment="CENTER" layoutX="105.0" layoutY="262.0" prefHeight="23.0" prefWidth="173.0" text="Easy Wallet Control" textFill="WHITE">
+                <Label alignment="CENTER" layoutX="110.0" layoutY="252.0" prefHeight="23.0" prefWidth="173.0" text="Gestion de scolarité" textFill="WHITE">
                     <font>
                         <Font name="Segoe UI" size="18.0" />
                     </font>
                 </Label>
-                <Label alignment="CENTER" layoutX="89.0" layoutY="295.0" prefHeight="23.0" prefWidth="205.0" text="Create manage your wallets easily" textFill="WHITE">
+                <Label alignment="CENTER" layoutX="79.0" layoutY="448.0" prefHeight="34.0" prefWidth="238.0" text="Moyen rapide et souple facilitant plusieur fonctionalités scolaire !" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                     <font>
                         <Font name="Segoe UI" size="12.0" />
                     </font>
@@ -34,17 +34,17 @@
         </AnchorPane>
         <Pane layoutX="488.0" layoutY="100.0" AnchorPane.bottomAnchor="73.0" AnchorPane.topAnchor="100.0">
             <children>
-                <TextField fx:id="txtUsername" layoutX="8.0" layoutY="71.0" prefHeight="34.0" prefWidth="275.0" promptText="username or email" />
-                <PasswordField fx:id="txtPassword" layoutX="8.0" layoutY="132.0" prefHeight="34.0" prefWidth="275.0" promptText="password" stylesheets="@../../resources/Styles/LoginStyling.css" />
-                <Button fx:id="btnSignin" layoutX="146.0" layoutY="206.0" mnemonicParsing="false" onAction="#signIn_CLick" prefHeight="34.0" prefWidth="137.0" stylesheets="@../../resources/Styles/LoginStyling.css" text="Sign in" />
-                <Label fx:id="btnForgot" alignment="CENTER" layoutX="8.0" layoutY="212.0" prefHeight="23.0" prefWidth="93.0" text="Forgot Password" textFill="#5383ff">
+                <TextField fx:id="txtUsername" layoutX="8.0" layoutY="71.0" prefHeight="34.0" prefWidth="275.0" promptText="Pseudo" text="noureddine" />
+                <PasswordField fx:id="txtPassword" layoutX="8.0" layoutY="132.0" prefHeight="34.0" prefWidth="275.0" promptText="Mot de passe" stylesheets="@../../resources/Styles/LoginStyling.css" text="noureddine123" />
+                <Button fx:id="btnSignin" layoutX="75.0" layoutY="187.0" mnemonicParsing="false" onAction="#signIn_CLick" prefHeight="34.0" prefWidth="137.0" stylesheets="@../../resources/Styles/LoginStyling.css" text="Log in !" />
+                <Label fx:id="btnForgot" alignment="CENTER" layoutX="74.0" layoutY="227.0" prefHeight="15.0" prefWidth="137.0" text="Mot de passe oublié ??" textFill="#5383ff">
                     <font>
                         <Font name="Segoe UI" size="12.0" />
                     </font>
                 </Label>
-                <Button fx:id="btnSignup" layoutX="4.0" layoutY="296.0" mnemonicParsing="false" onAction="#Inscrire_Click" prefHeight="34.0" prefWidth="275.0" stylesheets="@../../resources/Styles/LoginStyling.css" text="Sign up" />
+                <Button fx:id="btnSignup" layoutX="4.0" layoutY="296.0" mnemonicParsing="false" onAction="#Inscrire_Click" prefHeight="34.0" prefWidth="275.0" stylesheets="@../../resources/Styles/LoginStyling.css" text="S'inscrire" />
                 <Separator layoutY="270.0" prefHeight="7.0" prefWidth="275.0" />
-                <Label alignment="CENTER" layoutX="122.0" layoutY="262.0" prefHeight="23.0" prefWidth="31.0" style="-fx-background-color: #fff;" text="Or" textFill="#5b5a5a">
+                <Label alignment="CENTER" layoutX="122.0" layoutY="262.0" prefHeight="23.0" prefWidth="31.0" style="-fx-background-color: #fff;" text="Ou" textFill="#5b5a5a">
                     <font>
                         <Font name="Segoe UI" size="12.0" />
                     </font>
@@ -54,12 +54,12 @@
                         <Font name="Segoe UI" size="10.0" />
                     </font>
                 </Label>
-            <Label fx:id="wrongLbl" layoutX="54.0" layoutY="166.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="27.0" prefWidth="190.0" text="username/password incorrect" textFill="RED" visible="false" />
+                <Label fx:id="wrongLbl" layoutX="54.0" layoutY="166.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="27.0" prefWidth="190.0" text="username/password incorrect" textFill="RED" visible="false" />
             </children>
         </Pane>
-        <ImageView fitHeight="70.0" fitWidth="78.0" layoutX="595.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="86.0" fitWidth="106.0" layoutX="578.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../resources/images/LoginIcons/icons8_XING_100px.png" />
+                <Image url="@../../resources/images/securite.png" />
             </image>
         </ImageView>
         <Button fx:id="btnClose" layoutX="828.0" mnemonicParsing="false" onAction="#CLose_Login_CLick" stylesheets="@../../resources/Styles/LoginStyling.css" text="X" />

@@ -16,14 +16,17 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="503.0" prefWidth="854.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.Controllers.InscrireController">
+<AnchorPane id="AnchorPane" prefHeight="503.0" prefWidth="854.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.Controllers.InscrireController">
     <children>
         <Pane layoutX="84.0" layoutY="48.0" prefHeight="432.0" prefWidth="687.0">
             <children>
-                <Button fx:id="btnSignin" layoutX="255.0" layoutY="368.0" mnemonicParsing="false" onAction="#sinscrire_Click" prefHeight="43.0" prefWidth="192.0" stylesheets="@../../resources/Styles/LoginStyling.css" text="Sign up" />
-                <Button fx:id="btnSignup" layoutX="599.0" layoutY="385.0" mnemonicParsing="false" onAction="#GoBackSignIn_click" prefHeight="34.0" prefWidth="74.0" stylesheets="@../../resources/Styles/LoginStyling.css" text="Sign in" />
-                <Separator layoutX="568.0" layoutY="364.0" orientation="VERTICAL" prefHeight="55.0" prefWidth="31.0" />
-                <Label alignment="CENTER" layoutX="545.0" layoutY="391.0" prefHeight="23.0" prefWidth="31.0" style="-fx-background-color: #fff;" text="Or" textFill="#5b5a5a">
+                <Button fx:id="btnSignin" layoutX="255.0" layoutY="368.0" mnemonicParsing="false" onAction="#sinscrire_Click" prefHeight="43.0" prefWidth="192.0" stylesheets="@../../resources/Styles/LoginStyling.css" text="S'inscrire">
+               <font>
+                  <Font name="Ravie" size="14.0" />
+               </font></Button>
+                <Button fx:id="btnSignup" layoutX="586.0" layoutY="385.0" mnemonicParsing="false" onAction="#GoBackSignIn_click" prefHeight="34.0" prefWidth="99.0" stylesheets="@../../resources/Styles/LoginStyling.css" text="S'authentifier" />
+                <Separator layoutX="562.0" layoutY="364.0" orientation="VERTICAL" prefHeight="55.0" prefWidth="31.0" />
+                <Label alignment="CENTER" layoutX="545.0" layoutY="391.0" prefHeight="23.0" prefWidth="31.0" style="-fx-background-color: #fff;" text="Ou" textFill="#5b5a5a">
                     <font>
                         <Font name="Segoe UI" size="12.0" />
                     </font>
@@ -37,11 +40,11 @@
                 </Label>
                 <TextField fx:id="txtTelephone" layoutX="28.0" layoutY="289.0" prefHeight="40.0" prefWidth="230.0" promptText="Telephone" />
                 <TextField fx:id="txtAdresse" layoutX="407.0" layoutY="24.0" prefHeight="40.0" prefWidth="230.0" promptText="Adresse" stylesheets="@../../resources/Styles/LoginStyling.css" />
-                <PasswordField fx:id="txtPassword12" layoutX="407.0" layoutY="225.0" prefHeight="40.0" prefWidth="230.0" promptText="password" stylesheets="@../../resources/Styles/LoginStyling.css" />
+                <PasswordField fx:id="txtPassword12" layoutX="407.0" layoutY="225.0" prefHeight="40.0" prefWidth="230.0" promptText="Mot de passe" stylesheets="@../../resources/Styles/LoginStyling.css" />
                 <TextField fx:id="txtMassar" layoutX="28.0" layoutY="24.0" prefHeight="40.0" prefWidth="230.0" promptText="Code Massar" />
                 <TextField fx:id="txtNomComplet" layoutX="28.0" layoutY="94.0" prefHeight="40.0" prefWidth="230.0" promptText="Nom + Prenom" stylesheets="@../../resources/Styles/LoginStyling.css" />
                 <TextField fx:id="txtMail" layoutX="28.0" layoutY="225.0" prefHeight="40.0" prefWidth="230.0" promptText="Email" stylesheets="@../../resources/Styles/LoginStyling.css" />
-                <CheckBox fx:id="doublanCB" layoutX="409.0" layoutY="275.0" mnemonicParsing="false" text="Doublant" />
+                <CheckBox fx:id="doublanCB" layoutX="409.0" layoutY="275.0" mnemonicParsing="false" text="Doublant." />
                 <fx:define>
                     <ToggleGroup fx:id="sexe" />
                 </fx:define>
@@ -50,8 +53,8 @@
                   <ToggleGroup fx:id="sexe" />
                </toggleGroup></RadioButton>
                 <RadioButton fx:id="FemmeRadio" layoutX="503.0" layoutY="309.0" mnemonicParsing="false" text="Femme" toggleGroup="$sexe" />
-                <ComboBox fx:id="CBGroupe" layoutX="407.0" layoutY="94.0" prefHeight="40.0" prefWidth="230.0" promptText="Groupes" />
-                <TextField fx:id="txtUsername" layoutX="407.0" layoutY="159.0" prefHeight="40.0" prefWidth="230.0" promptText="Email" stylesheets="@../../resources/Styles/LoginStyling.css" />
+                <ComboBox fx:id="CBGroupe" layoutX="407.0" layoutY="94.0" prefHeight="40.0" prefWidth="230.0" promptText="Groupe" />
+                <TextField fx:id="txtUsername" layoutX="407.0" layoutY="159.0" prefHeight="40.0" prefWidth="230.0" promptText="Pseudo" stylesheets="@../../resources/Styles/LoginStyling.css" />
             <DatePicker fx:id="DateNaissance" layoutX="31.0" layoutY="159.0" prefHeight="40.0" prefWidth="230.0" promptText="Date Naissance" />
             </children>
         </Pane>

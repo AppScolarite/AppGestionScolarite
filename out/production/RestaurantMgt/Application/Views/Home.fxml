@@ -10,6 +10,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -19,8 +20,76 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="676.0" prefWidth="1212.0" style="-fx-background-color: blue;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.Controllers.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="676.0" prefWidth="1212.0" style="-fx-background-color: blue;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.Controllers.Controller">
     <children>
+        <Pane fx:id="panelStatistiquesPersonnel" layoutX="289.0" layoutY="-4.0" prefHeight="680.0" prefWidth="922.0" style="-fx-background-color: WHITE;">
+            <children>
+                <PieChart fx:id="pieChartPersonnel" layoutX="496.0" layoutY="70.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="317.0" prefWidth="348.0" />
+                <BarChart fx:id="barChartPersonnel" layoutX="27.0" layoutY="95.0" prefHeight="317.0" prefWidth="435.0">
+                    <xAxis>
+                        <CategoryAxis side="BOTTOM" />
+                    </xAxis>
+                    <yAxis>
+                        <NumberAxis side="LEFT" />
+                    </yAxis>
+                </BarChart>
+                <Label layoutX="220.0" layoutY="14.0" prefHeight="34.0" prefWidth="124.0" text="Statistiques">
+                    <font>
+                        <Font size="22.0" />
+                    </font>
+                </Label>
+                <Label layoutX="26.0" layoutY="474.0" text="Nombre total des étudiants" textFill="#464646">
+                    <font>
+                        <Font name="System Italic" size="18.0" />
+                    </font>
+                </Label>
+                <Label layoutX="282.0" layoutY="474.0" text="15">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <Label layoutX="26.0" layoutY="517.0" text="Nombre total des professeurs" textFill="#464646">
+                    <font>
+                        <Font name="System Italic" size="18.0" />
+                    </font>
+                </Label>
+                <Label layoutX="282.0" layoutY="517.0" text="15">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <Label layoutX="26.0" layoutY="560.0" text="Nombre total des groupes" textFill="#464646">
+                    <font>
+                        <Font name="System Italic" size="18.0" />
+                    </font>
+                </Label>
+                <Label layoutX="287.0" layoutY="560.0" text="3">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <Label layoutX="608.0" layoutY="496.0" text="Groupe ayant leurs notes" textFill="#464646">
+                    <font>
+                        <Font name="System Italic" size="18.0" />
+                    </font>
+                </Label>
+                <Label layoutX="864.0" layoutY="496.0" text="15">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <Label layoutX="608.0" layoutY="539.0" text="Groupe ayant pas leurs notes " textFill="#464646">
+                    <font>
+                        <Font name="System Italic" size="18.0" />
+                    </font>
+                </Label>
+                <Label layoutX="869.0" layoutY="539.0" text="3">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+            </children>
+        </Pane>
         <VBox alignment="TOP_CENTER" prefHeight="676.0" prefWidth="290.0" style="-fx-background-color: blue;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
                 <ImageView fitHeight="73.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
@@ -31,13 +100,13 @@
                         <Insets bottom="10.0" top="50.0" />
                     </VBox.margin>
                 </ImageView>
-                <Label text="Nom User Connecté" textFill="#e7e5e5">
+                <Label text="Nourredine Yaggoubi" textFill="#e7e5e5">
                     <VBox.margin>
                         <Insets bottom="100.0" />
                     </VBox.margin>
-               <font>
-                  <Font name="Cambria Bold Italic" size="14.0" />
-               </font>
+                    <font>
+                        <Font name="Cambria Bold Italic" size="14.0" />
+                    </font>
                 </Label>
                 <Button fx:id="btnAccueil" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="297.0" stylesheets="@../../resources/Styles/style.css" text="Accueil">
                     <graphic>
@@ -75,7 +144,7 @@
                         <Font name="Cambria Bold Italic" size="16.0" />
                     </font>
                 </Button>
-                <Button fx:id="btnStatistiques" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#statistiquePersonnel_Click" prefHeight="60.0" prefWidth="297.0" stylesheets="@../../resources/Styles/style.css" text="Statistiques (personnel)">
+                <Button fx:id="btnStatistiques" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#statistiquePersonnel_Click" prefHeight="60.0" prefWidth="297.0" stylesheets="@../../resources/Styles/style.css" text="Statistiques ">
                     <graphic>
                         <ImageView fitHeight="40.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -90,7 +159,7 @@
                         <Font name="Cambria Bold Italic" size="16.0" />
                     </font>
                 </Button>
-                <Button fx:id="btnStatistiquesetudiant" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#statistique_Click" prefHeight="60.0" prefWidth="297.0" stylesheets="@../../resources/Styles/style.css" text="Statistiques (etudiant)">
+                <Button fx:id="btnStatistiquesetudiant" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#statistique_Etudiant_Click" prefHeight="60.0" prefWidth="297.0" stylesheets="@../../resources/Styles/style.css" text="Statistiques ">
                     <graphic>
                         <ImageView fitHeight="40.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -105,7 +174,7 @@
                         <Font name="Cambria Bold Italic" size="16.0" />
                     </font>
                 </Button>
-                <Button fx:id="btnGestion" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#btnGestion_click" prefHeight="60.0" prefWidth="297.0" stylesheets="@../../resources/Styles/style.css" text="Gérer les étudiants(personnel)">
+                <Button fx:id="btnGestion" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#btnMenuGestion_click" prefHeight="60.0" prefWidth="297.0" stylesheets="@../../resources/Styles/style.css" text="Gérer les étudiants">
                     <graphic>
                         <ImageView fitHeight="40.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -250,7 +319,7 @@
                         <Font size="18.0" />
                     </font>
                 </Label>
-                <Label fx:id="matiereLbl" layoutX="241.0" text="Arabe" layoutY="232.0" prefHeight="27.0" prefWidth="228.0"  textFill="#6f6f6f">
+                <Label fx:id="matiereLbl" layoutX="241.0" layoutY="232.0" prefHeight="27.0" prefWidth="228.0" text="Arabe" textFill="#6f6f6f">
                     <font>
                         <Font size="18.0" />
                     </font>
@@ -294,32 +363,8 @@
         </Pane>
         <Pane fx:id="panelStatistiques" layoutX="289.0" layoutY="-4.0" prefHeight="680.0" prefWidth="922.0" style="-fx-background-color: WHITE;">
             <children>
-                <PieChart fx:id="pieChart" layoutX="508.0" layoutY="357.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="304.0" prefWidth="341.0" />
-                <BarChart fx:id="barChart" layoutX="440.0" layoutY="55.0" prefHeight="317.0" prefWidth="435.0">
-                    <xAxis>
-                        <CategoryAxis side="BOTTOM" />
-                    </xAxis>
-                    <yAxis>
-                        <NumberAxis side="LEFT" />
-                    </yAxis>
-                </BarChart>                <TableView layoutX="23.0" layoutY="106.0" prefHeight="545.0" prefWidth="365.0">
-                <columns>
-                    <TableColumn prefWidth="189.0" text="Nom" />
-                    <TableColumn prefWidth="88.0" text="Moyenne" />
-                    <TableColumn prefWidth="87.0" text="Classement" />
-                </columns>
-            </TableView>
-                <Label layoutX="220.0" layoutY="14.0" prefHeight="34.0" prefWidth="124.0" text="Statistiques">
-                    <font>
-                        <Font size="22.0" />
-                    </font>
-                </Label>
-            </children>
-        </Pane>
-        <Pane fx:id="panelStatistiquesPersonnel" layoutX="289.0" layoutY="-4.0" prefHeight="680.0" prefWidth="922.0" style="-fx-background-color: WHITE;">
-            <children>
-                <PieChart fx:id="pieChartPersonnel" layoutX="496.0" layoutY="70.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="317.0" prefWidth="348.0" />
-                <BarChart fx:id="barChartPersonnel" layoutX="27.0" layoutY="95.0" prefHeight="317.0" prefWidth="435.0">
+                <PieChart fx:id="pieChartEtudiant" layoutX="468.0" layoutY="308.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="353.0" prefWidth="435.0" />
+                <BarChart fx:id="barchartEtudiant" layoutX="440.0" layoutY="55.0" prefHeight="304.0" prefWidth="435.0">
                     <xAxis>
                         <CategoryAxis side="BOTTOM" />
                     </xAxis>
@@ -327,59 +372,30 @@
                         <NumberAxis side="LEFT" />
                     </yAxis>
                 </BarChart>
+                <TableView fx:id="tblViewCLassement" layoutX="23.0" layoutY="106.0" prefHeight="545.0" prefWidth="365.0">
+                    <columns>
+                        <TableColumn prefWidth="165.60000610351562" text="Les étudiants">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="nom_complet_etudiant" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn prefWidth="93.5999755859375" text="Moyenne">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="moyenne_generale" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn prefWidth="104.20001220703125" text="Classement">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="classement" />
+                            </cellValueFactory>
+                        </TableColumn>
+                    </columns>
+
+
+                </TableView>
                 <Label layoutX="220.0" layoutY="14.0" prefHeight="34.0" prefWidth="124.0" text="Statistiques">
                     <font>
                         <Font size="22.0" />
-                    </font>
-                </Label>
-                <Label layoutX="26.0" layoutY="474.0" text="Nombre total des étudiants" textFill="#464646">
-                    <font>
-                        <Font name="System Italic" size="18.0" />
-                    </font>
-                </Label>
-                <Label layoutX="282.0" layoutY="474.0" text="15">
-                    <font>
-                        <Font size="18.0" />
-                    </font>
-                </Label>
-                <Label layoutX="26.0" layoutY="517.0" text="Nombre total des professeurs" textFill="#464646">
-                    <font>
-                        <Font name="System Italic" size="18.0" />
-                    </font>
-                </Label>
-                <Label layoutX="282.0" layoutY="517.0" text="15">
-                    <font>
-                        <Font size="18.0" />
-                    </font>
-                </Label>
-                <Label layoutX="26.0" layoutY="560.0" text="Nombre total des groupes" textFill="#464646">
-                    <font>
-                        <Font name="System Italic" size="18.0" />
-                    </font>
-                </Label>
-                <Label layoutX="287.0" layoutY="560.0" text="3">
-                    <font>
-                        <Font size="18.0" />
-                    </font>
-                </Label>
-                <Label layoutX="608.0" layoutY="496.0" text="Groupe ayant leurs notes" textFill="#464646">
-                    <font>
-                        <Font name="System Italic" size="18.0" />
-                    </font>
-                </Label>
-                <Label layoutX="864.0" layoutY="496.0" text="15">
-                    <font>
-                        <Font size="18.0" />
-                    </font>
-                </Label>
-                <Label layoutX="608.0" layoutY="539.0" text="Groupe ayant pas leurs notes " textFill="#464646">
-                    <font>
-                        <Font name="System Italic" size="18.0" />
-                    </font>
-                </Label>
-                <Label layoutX="869.0" layoutY="539.0" text="3">
-                    <font>
-                        <Font size="18.0" />
                     </font>
                 </Label>
             </children>
