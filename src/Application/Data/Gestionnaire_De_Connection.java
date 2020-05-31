@@ -18,7 +18,7 @@ public class Gestionnaire_De_Connection {
 //        NomConnecte = nomConnecte;
 //    }
 
-    public static String NomConnecte = "null";
+    public static String nom_connecte = "null";
 
     public Connection getConnection() {
 

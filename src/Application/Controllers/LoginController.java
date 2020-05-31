@@ -76,7 +76,8 @@ public class LoginController implements Initializable {
                 Gestionnaire_De_Connection.prof_connecte = "null";
                 Gestionnaire_De_Connection.personnel_connecte = -1;
                 Gestionnaire_De_Connection.etudiant_connecte = Reader.getString("code_massar");
-                Gestionnaire_De_Connection.NomConnecte  =  Reader.getString("nomEtudiant");
+                Gestionnaire_De_Connection.nom_connecte = Reader.getString("nomEtudiant");
+                System.out.println("personne : " + Gestionnaire_De_Connection.nom_connecte);
                 URL url = new File("src/Application/Views/Home.fxml").toURI().toURL();
                 Parent root = FXMLLoader.load(url);
                 Stage stage = new Stage();
@@ -101,14 +102,13 @@ public class LoginController implements Initializable {
             preparedStatementP.setString(2, password);
 
             ResultSet resultSetP = preparedStatementP.executeQuery();
-            if (!resultSetP.next()){
+            if (!resultSetP.next()) {
                 wrongLbl.setVisible(true);
-            }else
-            {
+            } else {
                 Gestionnaire_De_Connection.prof_connecte = "null";
                 Gestionnaire_De_Connection.etudiant_connecte = "h2";
                 Gestionnaire_De_Connection.personnel_connecte = Integer.valueOf(resultSetP.getString("id_personnel"));
-                Gestionnaire_De_Connection.NomConnecte = resultSetP.getString("NomPersonnel");
+                Gestionnaire_De_Connection.nom_connecte = resultSetP.getString("NomPersonnel");
                 URL url = new File("src/Application/Views/Home.fxml").toURI().toURL();
                 Parent root = FXMLLoader.load(url);
                 Stage stage = new Stage();
@@ -133,14 +133,13 @@ public class LoginController implements Initializable {
             preparedStatementPr.setString(2, password);
 
             ResultSet resultSetPr = preparedStatementPr.executeQuery();
-            if (!resultSetPr.next()){
+            if (!resultSetPr.next()) {
                 wrongLbl.setVisible(true);
-            }else
-            {
+            } else {
                 Gestionnaire_De_Connection.etudiant_connecte = "h2";
                 Gestionnaire_De_Connection.personnel_connecte = -1;
                 Gestionnaire_De_Connection.prof_connecte = resultSetPr.getString("Code_Pro_Nationnal");
-                Gestionnaire_De_Connection.NomConnecte = resultSetPr.getString("NomProf");
+                Gestionnaire_De_Connection.nom_connecte = resultSetPr.getString("NomProf");
                 URL url = new File("src/Application/Views/Home.fxml").toURI().toURL();
                 Parent root = FXMLLoader.load(url);
                 Stage stage = new Stage();
