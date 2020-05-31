@@ -73,11 +73,8 @@ public class LoginController implements Initializable {
             if (!Reader.next()) {
                 wrongLbl.setVisible(true);
             } else {
-                Gestionnaire_De_Connection.prof_connecte = "null";
-                Gestionnaire_De_Connection.personnel_connecte = -1;
                 Gestionnaire_De_Connection.etudiant_connecte = Reader.getString("code_massar");
                 Gestionnaire_De_Connection.nom_connecte = Reader.getString("nomEtudiant");
-                System.out.println("personne : " + Gestionnaire_De_Connection.nom_connecte);
                 URL url = new File("src/Application/Views/Home.fxml").toURI().toURL();
                 Parent root = FXMLLoader.load(url);
                 Stage stage = new Stage();

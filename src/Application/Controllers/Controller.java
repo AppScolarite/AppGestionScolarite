@@ -53,14 +53,30 @@ public class Controller implements Initializable {
     @FXML
     private BarChart barchartEtudiant;
 
+    @FXML
+    private TableView tblViewCLassement;
+
     private List<ClassementViewModel> persons;
 
     //*****************************************************
+
+    //************* Panels ********************************
+
     @FXML
     private Pane panelNotesProf;
 
     @FXML
     private Pane panelNotes;
+
+    //*****************************************************
+
+    //**************** Gestion des étudiants **************
+    @FXML
+    private ComboBox CB_grp_gestionEtudiant;
+
+    @FXML
+    private Pane panelEtudiant;
+    //*****************************************************
 
     //****************** Menu ************************
     @FXML
@@ -86,19 +102,15 @@ public class Controller implements Initializable {
 
     @FXML
     private Button btnMinimize;
-    //*****************************************************
-
-    @FXML
-    private TableView tblViewCLassement;
-
-    @FXML
-    private Pane panelGestionEtudiant;
-
-    @FXML
-    private Label matiereLbl;
 
     @FXML
     private Label userLBL;
+
+    @FXML
+    private ImageView imgUser;
+    //*****************************************************
+    @FXML
+    private Label matiereLbl;
 
     @FXML
     private Label CoeffLbl;
@@ -117,9 +129,11 @@ public class Controller implements Initializable {
 
     @FXML
     private ComboBox CB_Matiere;
-    @FXML
-    private ImageView imgUser;
 
+    //******************** util ******************
+    private Gestionnaire_De_Connection gestionnaire_de_connection = new Gestionnaire_De_Connection();
+
+    //************************
     @FXML
     public void logOut_Click() throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("../Views/Login.fxml"));
@@ -153,9 +167,9 @@ public class Controller implements Initializable {
     }
 
     Integer Id_Mat = 1;
+
     @FXML
     public void btnNotes_click() {
-        Gestionnaire_De_Connection gestionnaire_de_connection = new Gestionnaire_De_Connection();
         //todo
         try {
             Connection connection = gestionnaire_de_connection.getConnection();
@@ -218,10 +232,16 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    public void selectedItem(ActionEvent event){
+    public void panelGestionEtudiant_click(ActionEvent e) {
+        panelEtudiant.toFront();
+        btnClose.toFront();
+        btnMinimize.toFront();
+    }
+
+    @FXML
+    public void selectedItem(ActionEvent event) {
         Integer Id_Mat = Integer.valueOf(CB_Matiere.getSelectionModel().getSelectedIndex() + 1);
         System.out.println(Id_Mat);
-        Gestionnaire_De_Connection gestionnaire_de_connection = new Gestionnaire_De_Connection();
         //todo
         try {
             Connection connection = gestionnaire_de_connection.getConnection();
@@ -265,8 +285,7 @@ public class Controller implements Initializable {
 
                 Double moyenne = ((Double.valueOf(Cntrol1.getText()) + Double.valueOf(Cntrol2.getText()) + Double.valueOf(Cntrol3.getText())) / 3);
                 MyenneLbl.setText(String.valueOf(moyenne));
-            }
-            else {
+            } else {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Informations Notes");
                 alert.setContentText("La matière selectionnée ne contient aucune information !! ");
@@ -299,7 +318,13 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    private void statistique_Etudiant_Click(ActionEvent event) {
+    private void btnStatistiquesetudiant_click(ActionEvent e) {
+        panelStatistiques.toFront();
+        btnClose.toFront();
+        btnMinimize.toFront();
+    }
+
+    private void statistiqueEtudiant_Load() {
 
         Gestionnaire_De_Connection connectionClass = new Gestionnaire_De_Connection();
         Connection connection = connectionClass.getConnection();
@@ -415,10 +440,6 @@ public class Controller implements Initializable {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-        panelStatistiques.toFront();
-        btnClose.toFront();
-        btnMinimize.toFront();
     }
 
     private void FillData() {
@@ -448,21 +469,32 @@ public class Controller implements Initializable {
         }
     }
 
-    @FXML
-    private void btnMenuGestion_click(ActionEvent e) {
-        panelGestionEtudiant.toFront();
-        btnClose.toFront();
-        btnMinimize.toFront();
+    //todo --sert à rien : à supprimer
+//    @FXML
+//    private void btnMenuGestion_click(ActionEvent e) {
+//        panelGestionEtudiant.toFront();
+//        btnClose.toFront();
+//        btnMinimize.toFront();
+//    }
+
+    private void PanelGestionEtudiant_Load() {
+        try {
+
+            Connection connection = gestionnaire_de_connection.getConnection();
+            Statement stmGrp = connection.createStatement();
+            ResultSet reader = stmGrp.executeQuery("select * from GROUPE");
+            ObservableList groupes = FXCollections.observableArrayList();
+            while (reader.next()) {
+                String matieres = reader.getString("libelle_grp");
+                groupes.add(matieres);
+            }
+            CB_grp_gestionEtudiant.setItems(groupes);
+        } catch (SQLException sqlE) {
+            sqlE.printStackTrace();
+        }
     }
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        panelNotes.toFront();
-        btnNotes_click();
-        System.out.println(Gestionnaire_De_Connection.etudiant_connecte);
-        System.out.println(Gestionnaire_De_Connection.personnel_connecte);
-        System.out.println(Gestionnaire_De_Connection.prof_connecte);
-        System.out.println(Gestionnaire_De_Connection.nom_connecte);
+    private void Home_Load() {
         userLBL.setText(Gestionnaire_De_Connection.nom_connecte);
         Gestionnaire_De_Connection gestionnaire_de_connection = new Gestionnaire_De_Connection();
         Connection connection = gestionnaire_de_connection.getConnection();
@@ -470,15 +502,30 @@ public class Controller implements Initializable {
         String Nom = NomComplet[0];
         String Prenom = NomComplet[1];
         try {
-            Statement statement =  connection.createStatement();
+            Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("SELECT * from Personnel WHERE nom_personnel = '" + Nom + "' and prenom_personnel = '" + Prenom + "'");
-            if(resultSet.next()){
+            if (resultSet.next()) {
                 imgUser.setVisible(true);
-            }
-            else imgUser.setVisible(false);
+            } else imgUser.setVisible(false);
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        Home_Load();
+        PanelGestionEtudiant_Load();
+        statistiqueEtudiant_Load();
+        panelNotes.toFront();
+        //btnNotes_click();
+
+        //todo : just testing
+//        System.out.println(Gestionnaire_De_Connection.etudiant_connecte);
+//        System.out.println(Gestionnaire_De_Connection.personnel_connecte);
+//        System.out.println(Gestionnaire_De_Connection.prof_connecte);
+//        System.out.println(Gestionnaire_De_Connection.nom_connecte);
+
         //todo : ne pas supprimer ce code hhhh
         //connection avec BD (MSSQL JDBC)
 //        Gestionnaire_De_Connection connectionClass = new Gestionnaire_De_Connection();
