@@ -15,6 +15,7 @@ import javafx.scene.chart.*;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -97,7 +98,7 @@ public class Controller implements Initializable {
     private Label matiereLbl;
 
     @FXML
-    private Label UserLBL;
+    private Label userLBL;
 
     @FXML
     private Label CoeffLbl;
@@ -116,6 +117,8 @@ public class Controller implements Initializable {
 
     @FXML
     private ComboBox CB_Matiere;
+    @FXML
+    private ImageView imgUser;
 
     @FXML
     public void logOut_Click() throws Exception {
@@ -251,7 +254,8 @@ public class Controller implements Initializable {
                     "\t\t\t\tinner join MATIERE ma on ma.id_matiere = en.matiere#\n" +
                     "\t\t\t\tinner join NOTE n on n.matiere# = ma.id_matiere\n" +
                     "where n.Valeur_Note >= 10" +
-                    "and n.etudiant_ = '" + Gestionnaire_De_Connection.etudiant_connecte + "'");
+                    "and n.etud" +
+                    "iant_ = '" + Gestionnaire_De_Connection.etudiant_connecte + "'");
             dataReader.next();
             int notePositive = dataReader.getInt("notePositive");
 
@@ -400,7 +404,22 @@ public class Controller implements Initializable {
         System.out.println(Gestionnaire_De_Connection.personnel_connecte);
         System.out.println(Gestionnaire_De_Connection.prof_connecte);
         System.out.println(Gestionnaire_De_Connection.NomConnecte);
-//        UserLBL.setText(Gestionnaire_De_Connection.getNomConnecte());
+        userLBL.setText(Gestionnaire_De_Connection.NomConnecte);
+        Gestionnaire_De_Connection gestionnaire_de_connection = new Gestionnaire_De_Connection();
+        Connection connection = gestionnaire_de_connection.getConnection();
+        String NomComplet[] = Gestionnaire_De_Connection.NomConnecte.split(" ");
+        String Nom = NomComplet[0];
+        String Prenom = NomComplet[1];
+        try {
+            Statement statement =  connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT * from Personnel WHERE nom_personnel = '" + Nom + "' and prenom_personnel = '" + Prenom + "'");
+            if(resultSet.next()){
+                imgUser.setVisible(true);
+            }
+            else imgUser.setVisible(false);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         //todo : ne pas supprimer ce code hhhh
         //connection avec BD (MSSQL JDBC)
 //        Gestionnaire_De_Connection connectionClass = new Gestionnaire_De_Connection();

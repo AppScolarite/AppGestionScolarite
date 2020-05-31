@@ -20,7 +20,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="676.0" prefWidth="1212.0" style="-fx-background-color: blue;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.Controllers.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="676.0" prefWidth="1212.0" style="-fx-background-color: blue;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.Controllers.Controller">
     <children>
         <Pane fx:id="panelStatistiquesPersonnel" layoutX="289.0" layoutY="-4.0" prefHeight="680.0" prefWidth="922.0" style="-fx-background-color: WHITE;">
             <children>
@@ -92,7 +92,7 @@
         </Pane>
         <VBox alignment="TOP_CENTER" prefHeight="676.0" prefWidth="290.0" style="-fx-background-color: blue;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
-                <ImageView fitHeight="73.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fx:id="imgUser" fitHeight="73.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../../resources/images/Personne.png" />
                     </image>
@@ -100,7 +100,7 @@
                         <Insets bottom="10.0" top="50.0" />
                     </VBox.margin>
                 </ImageView>
-                <Label text="Nourredine Yaggoubi" textFill="#e7e5e5">
+                <Label fx:id="userLBL" text="Nourredine Yaggoubi" textFill="#e7e5e5">
                     <VBox.margin>
                         <Insets bottom="100.0" />
                     </VBox.margin>
