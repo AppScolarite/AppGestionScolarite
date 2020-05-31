@@ -16,13 +16,13 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="503.0" prefWidth="854.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.Controllers.InscrireController">
+<AnchorPane id="AnchorPane" prefHeight="503.0" prefWidth="854.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.Controllers.InscrireController">
     <children>
         <Pane layoutX="84.0" layoutY="48.0" prefHeight="432.0" prefWidth="687.0">
             <children>
                 <Button fx:id="btnSignin" layoutX="255.0" layoutY="368.0" mnemonicParsing="false" onAction="#sinscrire_Click" prefHeight="43.0" prefWidth="192.0" stylesheets="@../../resources/Styles/LoginStyling.css" text="S'inscrire">
                <font>
-                  <Font name="Ravie" size="14.0" />
+                  <Font size="19.0" />
                </font></Button>
                 <Button fx:id="btnSignup" layoutX="586.0" layoutY="385.0" mnemonicParsing="false" onAction="#GoBackSignIn_click" prefHeight="34.0" prefWidth="99.0" stylesheets="@../../resources/Styles/LoginStyling.css" text="S'authentifier" />
                 <Separator layoutX="562.0" layoutY="364.0" orientation="VERTICAL" prefHeight="55.0" prefWidth="31.0" />

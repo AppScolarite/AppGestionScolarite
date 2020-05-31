@@ -4,7 +4,7 @@ Lorem ipsum ...
 
 Statistiques & chart graphiques pour les étudiants
 
-![](https://github.com/AppScolarite/AppGestionScolarite/blob/master/imgs/sc2.PNG)
+![](https://github.com/AppScolarite/AppGestionScolarite/blob/master/imgs/Capture d’écran (79).png)
 
 System d'authentification
 

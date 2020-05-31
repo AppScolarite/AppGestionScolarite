@@ -97,6 +97,9 @@ public class Controller implements Initializable {
     private Label matiereLbl;
 
     @FXML
+    private Label UserLBL;
+
+    @FXML
     private Label CoeffLbl;
 
     @FXML
@@ -393,7 +396,11 @@ public class Controller implements Initializable {
         System.out.println("testing inialise");
         panelNotes.toFront();
         btnNotes_click();
-
+        System.out.println(Gestionnaire_De_Connection.etudiant_connecte);
+        System.out.println(Gestionnaire_De_Connection.personnel_connecte);
+        System.out.println(Gestionnaire_De_Connection.prof_connecte);
+        System.out.println(Gestionnaire_De_Connection.NomConnecte);
+//        UserLBL.setText(Gestionnaire_De_Connection.getNomConnecte());
         //todo : ne pas supprimer ce code hhhh
         //connection avec BD (MSSQL JDBC)
 //        Gestionnaire_De_Connection connectionClass = new Gestionnaire_De_Connection();

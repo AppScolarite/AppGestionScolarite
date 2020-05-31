@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="503.0" prefWidth="854.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.Controllers.LoginController">
+<AnchorPane id="AnchorPane" prefHeight="503.0" prefWidth="854.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.Controllers.LoginController">
     <children>
         <AnchorPane prefHeight="503.0" prefWidth="382.0" style="-fx-background-color: #0C39FF;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
@@ -57,9 +57,9 @@
                 <Label fx:id="wrongLbl" layoutX="54.0" layoutY="166.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="27.0" prefWidth="190.0" text="username/password incorrect" textFill="RED" visible="false" />
             </children>
         </Pane>
-        <ImageView fitHeight="86.0" fitWidth="106.0" layoutX="578.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="63.0" fitWidth="77.0" layoutX="587.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../resources/images/securite.png" />
+                <Image url="@../../resources/images/LoginIcons/icons8_XING_100px.png" />
             </image>
         </ImageView>
         <Button fx:id="btnClose" layoutX="828.0" mnemonicParsing="false" onAction="#CLose_Login_CLick" stylesheets="@../../resources/Styles/LoginStyling.css" text="X" />

@@ -58,10 +58,11 @@ public class LoginController implements Initializable {
     public void signIn_CLick() throws Exception {
         Gestionnaire_De_Connection connectionClass = new Gestionnaire_De_Connection();
         Connection connection = connectionClass.getConnection();
-        String username = txtUsername.getText().toString();
-        String password = txtPassword.getText().toString();
+        String username = txtUsername.getText();
+        String password = txtPassword.getText();
 
-        String query = "select username, mot_de_passe from Etudiant where username = ? and mot_de_passe = ?";
+//      Test Pour Etudiant
+        String query = "select code_massar,concat(nom, ' ' , prenom) as nomEtudiant, username, mot_de_passe from Etudiant where username = ? and mot_de_passe = ?";
         try {
 
             PreparedStatement preparedStatement = connection.prepareStatement(query);
@@ -72,6 +73,10 @@ public class LoginController implements Initializable {
             if (!Reader.next()) {
                 wrongLbl.setVisible(true);
             } else {
+                Gestionnaire_De_Connection.prof_connecte = "null";
+                Gestionnaire_De_Connection.personnel_connecte = -1;
+                Gestionnaire_De_Connection.etudiant_connecte = Reader.getString("code_massar");
+                Gestionnaire_De_Connection.NomConnecte  =  Reader.getString("nomEtudiant");
                 URL url = new File("src/Application/Views/Home.fxml").toURI().toURL();
                 Parent root = FXMLLoader.load(url);
                 Stage stage = new Stage();
@@ -87,6 +92,71 @@ public class LoginController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+//        Test Pour Personnel
+        String queryPersonnel = "  select id_personnel,concat(nom_personnel,' ',prenom_personnel) as NomPersonnel, username, mot_de_passe from personnel where username = ? and mot_de_passe = ?";
+        try {
+            PreparedStatement preparedStatementP = connection.prepareStatement(queryPersonnel);
+            preparedStatementP.setString(1, username);
+            preparedStatementP.setString(2, password);
+
+            ResultSet resultSetP = preparedStatementP.executeQuery();
+            if (!resultSetP.next()){
+                wrongLbl.setVisible(true);
+            }else
+            {
+                Gestionnaire_De_Connection.prof_connecte = "null";
+                Gestionnaire_De_Connection.etudiant_connecte = "h2";
+                Gestionnaire_De_Connection.personnel_connecte = Integer.valueOf(resultSetP.getString("id_personnel"));
+                Gestionnaire_De_Connection.NomConnecte = resultSetP.getString("NomPersonnel");
+                URL url = new File("src/Application/Views/Home.fxml").toURI().toURL();
+                Parent root = FXMLLoader.load(url);
+                Stage stage = new Stage();
+                stage.setScene(new Scene(root));
+                stage.getIcons().add(new Image(getClass().getResourceAsStream("../../resources/images/LoginIcons/icons8_Google_Wallet_50px.png")));
+                stage.initStyle(StageStyle.UNDECORATED);
+
+
+                Stage stage2 = (Stage) btnSignup.getScene().getWindow();
+                stage2.close();
+                stage.show();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+//        Test Pour Prof
+        String queryProf = "  select Code_Pro_Nationnal,concat(nom,' ',prenom) as NomProf, username, mot_de_passe from PROFESSEUR where username = ? and mot_de_passe = ?";
+        try {
+            PreparedStatement preparedStatementPr = connection.prepareStatement(queryProf);
+            preparedStatementPr.setString(1, username);
+            preparedStatementPr.setString(2, password);
+
+            ResultSet resultSetPr = preparedStatementPr.executeQuery();
+            if (!resultSetPr.next()){
+                wrongLbl.setVisible(true);
+            }else
+            {
+                Gestionnaire_De_Connection.etudiant_connecte = "h2";
+                Gestionnaire_De_Connection.personnel_connecte = -1;
+                Gestionnaire_De_Connection.prof_connecte = resultSetPr.getString("Code_Pro_Nationnal");
+                Gestionnaire_De_Connection.NomConnecte = resultSetPr.getString("NomProf");
+                URL url = new File("src/Application/Views/Home.fxml").toURI().toURL();
+                Parent root = FXMLLoader.load(url);
+                Stage stage = new Stage();
+                stage.setScene(new Scene(root));
+                stage.getIcons().add(new Image(getClass().getResourceAsStream("../../resources/images/LoginIcons/icons8_Google_Wallet_50px.png")));
+                stage.initStyle(StageStyle.UNDECORATED);
+
+
+                Stage stage2 = (Stage) btnSignup.getScene().getWindow();
+                stage2.close();
+                stage.show();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
 
     }
 
