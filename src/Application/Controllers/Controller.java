@@ -192,7 +192,7 @@ public class Controller implements Initializable {
             ResultSet rs = statement1.executeQuery(queryNotes);
             ObservableList<String> data = FXCollections.observableArrayList();
             while (resultSet.next() && rs.next()) {
-                System.out.println("etudiant has rows");
+//                System.out.println("etudiant has rows");
 
                 matiereLbl.setText(resultSet.getString(1));
                 CoeffLbl.setText(String.valueOf(resultSet.getInt(2)));
@@ -397,7 +397,6 @@ public class Controller implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        System.out.println("testing inialise");
         panelNotes.toFront();
         btnNotes_click();
         System.out.println(Gestionnaire_De_Connection.etudiant_connecte);
