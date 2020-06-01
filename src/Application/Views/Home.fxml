@@ -20,7 +20,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="676.0" prefWidth="1212.0" style="-fx-background-color: blue;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.Controllers.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="676.0" prefWidth="1212.0" style="-fx-background-color: blue;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.Controllers.Controller">
     <children>
         <Pane fx:id="panelStatistiquesPersonnel" layoutX="289.0" layoutY="-4.0" prefHeight="680.0" prefWidth="922.0" style="-fx-background-color: WHITE;">
             <children>
@@ -108,7 +108,7 @@
                         <Font name="Cambria Bold Italic" size="14.0" />
                     </font>
                 </Label>
-                <Button fx:id="btnAccueil" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="297.0" stylesheets="@../../resources/Styles/style.css" text="Accueil">
+                <Button fx:id="btnAccueil" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="297.0" stylesheets="@../../resources/Styles/style.css" text="Accueil" visible="false">
                     <graphic>
                         <ImageView fitHeight="40.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -123,7 +123,7 @@
                         <Font name="Cambria Bold Italic" size="16.0" />
                     </font>
                 </Button>
-                <Button fx:id="btnListes" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#GestionNote_Click" prefHeight="60.0" prefWidth="297.0" stylesheets="@../../resources/Styles/style.css" text="Gerer Notes" textFill="#e7e5e5">
+                <Button fx:id="btnListes" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#GestionNote_Click" prefHeight="60.0" prefWidth="297.0" stylesheets="@../../resources/Styles/style.css" text="Gerer Notes" textFill="#e7e5e5" visible="false">
                     <graphic>
                         <ImageView fitHeight="40.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -144,7 +144,7 @@
                         <Font name="Cambria Bold Italic" size="16.0" />
                     </font>
                 </Button>
-                <Button fx:id="btnStatistiques" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#statistiquePersonnel_Click" prefHeight="60.0" prefWidth="297.0" stylesheets="@../../resources/Styles/style.css" text="Statistiques ">
+                <Button fx:id="btnStatistiques" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#statistiquePersonnel_Click" prefHeight="60.0" prefWidth="297.0" stylesheets="@../../resources/Styles/style.css" text="Statistiques " visible="false">
                     <graphic>
                         <ImageView fitHeight="40.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -159,22 +159,7 @@
                         <Font name="Cambria Bold Italic" size="16.0" />
                     </font>
                 </Button>
-                <Button fx:id="btnStatistiquesetudiant" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#btnStatistiquesetudiant_click" prefHeight="60.0" prefWidth="297.0" stylesheets="@../../resources/Styles/style.css" text="Statistiques ">
-                    <graphic>
-                        <ImageView fitHeight="40.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../../resources/images/SideBarIcons/chart.png" />
-                            </image>
-                        </ImageView>
-                    </graphic>
-                    <padding>
-                        <Insets left="50.0" />
-                    </padding>
-                    <font>
-                        <Font name="Cambria Bold Italic" size="16.0" />
-                    </font>
-                </Button>
-                <Button fx:id="btnGestion" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#panelGestionEtudiant_click" prefHeight="60.0" prefWidth="297.0" stylesheets="@../../resources/Styles/style.css" text="Gérer les étudiants">
+                <Button fx:id="btnGestion" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#panelGestionEtudiant_click" prefHeight="60.0" prefWidth="297.0" stylesheets="@../../resources/Styles/style.css" text="Gérer les étudiants" visible="false">
                     <graphic>
                         <ImageView fitHeight="40.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -189,7 +174,22 @@
                         <Font name="Cambria Bold Italic" size="16.0" />
                     </font>
                 </Button>
-                <Button fx:id="btnNotes" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#btnNotes_click" prefHeight="60.0" prefWidth="297.0" stylesheets="@../../resources/Styles/style.css" text="Mes notes">
+                <Button fx:id="btnStatistiquesetudiant" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#btnStatistiquesetudiant_click" prefHeight="60.0" prefWidth="297.0" stylesheets="@../../resources/Styles/style.css" text="Statistiques " visible="false">
+                    <graphic>
+                        <ImageView fitHeight="40.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../resources/images/SideBarIcons/chart.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                    <padding>
+                        <Insets left="50.0" />
+                    </padding>
+                    <font>
+                        <Font name="Cambria Bold Italic" size="16.0" />
+                    </font>
+                </Button>
+                <Button fx:id="btnNotes" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#btnNotes_click" prefHeight="60.0" prefWidth="297.0" stylesheets="@../../resources/Styles/style.css" text="Mes notes" visible="false">
                     <graphic>
                         <ImageView fitHeight="40.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true">
                             <image>

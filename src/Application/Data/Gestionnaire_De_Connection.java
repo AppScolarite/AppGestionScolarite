@@ -6,9 +6,9 @@ import java.sql.DriverManager;
 public class Gestionnaire_De_Connection {
 
     private Connection connection;
-    public static int personnel_connecte = -1;
-    public static String etudiant_connecte = "h2";
-    public static String prof_connecte = "null";
+    public static int personnel_connecte;
+    public static String etudiant_connecte;
+    public static String prof_connecte;
 
     public static String nom_connecte = "null";
 

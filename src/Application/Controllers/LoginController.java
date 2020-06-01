@@ -56,6 +56,11 @@ public class LoginController implements Initializable {
 
     @FXML
     public void signIn_CLick() throws Exception {
+        Gestionnaire_De_Connection.etudiant_connecte = null;
+        Gestionnaire_De_Connection.nom_connecte = null;
+        Gestionnaire_De_Connection.personnel_connecte = 0;
+        Gestionnaire_De_Connection.prof_connecte = null;
+
         Gestionnaire_De_Connection connectionClass = new Gestionnaire_De_Connection();
         Connection connection = connectionClass.getConnection();
         String username = txtUsername.getText();
@@ -102,8 +107,8 @@ public class LoginController implements Initializable {
             if (!resultSetP.next()) {
                 wrongLbl.setVisible(true);
             } else {
-                Gestionnaire_De_Connection.prof_connecte = "null";
-                Gestionnaire_De_Connection.etudiant_connecte = "h2";
+                Gestionnaire_De_Connection.prof_connecte = null;
+                Gestionnaire_De_Connection.etudiant_connecte = null;
                 Gestionnaire_De_Connection.personnel_connecte = Integer.valueOf(resultSetP.getString("id_personnel"));
                 Gestionnaire_De_Connection.nom_connecte = resultSetP.getString("NomPersonnel");
                 URL url = new File("src/Application/Views/Home.fxml").toURI().toURL();
@@ -133,8 +138,8 @@ public class LoginController implements Initializable {
             if (!resultSetPr.next()) {
                 wrongLbl.setVisible(true);
             } else {
-                Gestionnaire_De_Connection.etudiant_connecte = "h2";
-                Gestionnaire_De_Connection.personnel_connecte = -1;
+                Gestionnaire_De_Connection.etudiant_connecte = null;
+                Gestionnaire_De_Connection.personnel_connecte = 0;
                 Gestionnaire_De_Connection.prof_connecte = resultSetPr.getString("Code_Pro_Nationnal");
                 Gestionnaire_De_Connection.nom_connecte = resultSetPr.getString("NomProf");
                 URL url = new File("src/Application/Views/Home.fxml").toURI().toURL();
