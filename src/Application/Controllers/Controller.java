@@ -15,8 +15,10 @@ import javafx.scene.Scene;
 import javafx.scene.chart.*;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.InputMethodEvent;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -81,6 +83,30 @@ public class Controller implements Initializable {
 
     @FXML
     private ComboBox CB_grp_gestionEtudiant;
+
+    @FXML
+    private TableColumn<GestionEtudiantsViewModel, String> col_nom;
+
+    @FXML
+    public TableColumn<GestionEtudiantsViewModel, String> col_prenom;
+
+    @FXML
+    public TableColumn col_date;
+
+    @FXML
+    public TableColumn<GestionEtudiantsViewModel, String> col_mail;
+
+    @FXML
+    public TableColumn<GestionEtudiantsViewModel, String> col_tlph;
+
+    @FXML
+    public TableColumn<GestionEtudiantsViewModel, String> col_doublant;
+
+    @FXML
+    public TableColumn<GestionEtudiantsViewModel, String> col_adrs;
+
+    @FXML
+    public TableColumn<GestionEtudiantsViewModel, String> col_sexe;
 
     //*****************************************************
 
@@ -489,11 +515,77 @@ public class Controller implements Initializable {
             ObservableList groupes = FXCollections.observableArrayList();
             while (reader.next()) {
                 String groupe = reader.getString("libelle_grp");
-                groupes.add(groupe);
+                groupes.add("Groupe " +groupe);
             }
             CB_grp_gestionEtudiant.setItems(groupes);
         } catch (SQLException sqlE) {
             sqlE.printStackTrace();
+        }
+        tableView_GestionEtudiant.setEditable(true);
+
+        col_nom.setCellFactory(TextFieldTableCell.forTableColumn());
+        col_nom.setOnEditCommit(e ->
+                this.Update_Data("nom",
+                        e.getNewValue(),
+                        e.getTableView().getItems().get(e.getTablePosition().getRow()).getCode_massar()));
+
+        col_prenom.setCellFactory(TextFieldTableCell.forTableColumn());
+        col_prenom.setOnEditCommit(e ->
+                this.Update_Data("prenom",
+                        e.getNewValue(),
+                        e.getTableView().getItems().get(e.getTablePosition().getRow()).getCode_massar()));
+
+        col_mail.setCellFactory(TextFieldTableCell.forTableColumn());
+        col_mail.setOnEditCommit(e ->
+                this.Update_Data("email",
+                        e.getNewValue(),
+                        e.getTableView().getItems().get(e.getTablePosition().getRow()).getCode_massar()));
+
+        col_tlph.setCellFactory(TextFieldTableCell.forTableColumn());
+        col_tlph.setOnEditCommit(e ->
+                this.Update_Data("telephone",
+                        e.getNewValue(),
+                        e.getTableView().getItems().get(e.getTablePosition().getRow()).getCode_massar()));
+
+        col_doublant.setCellFactory(TextFieldTableCell.forTableColumn());
+        col_doublant.setOnEditCommit(e ->
+                this.Update_Data("a_deja_redouble",
+                        e.getNewValue(),
+                        e.getTableView().getItems().get(e.getTablePosition().getRow()).getCode_massar()));
+
+        col_adrs.setCellFactory(TextFieldTableCell.forTableColumn());
+        col_adrs.setOnEditCommit(e ->
+                this.Update_Data("adresse",
+                        e.getNewValue(),
+                        e.getTableView().getItems().get(e.getTablePosition().getRow()).getCode_massar()));
+
+        col_sexe.setCellFactory(TextFieldTableCell.forTableColumn());
+        col_sexe.setOnEditCommit(e ->
+                this.Update_Data("sexe",
+                        e.getNewValue(),
+                        e.getTableView().getItems().get(e.getTablePosition().getRow()).getCode_massar()));
+    }
+
+    private void Update_Data(String champs, String data, String id) {
+        Object valeur = data;
+        if (champs.equals("a_deja_redouble")) {
+            valeur = data.equals("oui");
+        }
+        try {
+            Connection connection = gestionnaire_de_connection.getConnection();
+            Statement sqlCommand = connection.createStatement();
+            sqlCommand.executeUpdate
+                    (
+                            String.format
+                                    (
+                                            "update etudiant set %s = '%s' where code_massar = '%s'",
+                                            champs,
+                                            valeur,
+                                            id
+                                    )
+                    );
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 
@@ -557,13 +649,14 @@ public class Controller implements Initializable {
         Connection connection = gestionnaire_de_connection.getConnection();
         try {
             Statement sqlCommand = connection.createStatement();
-            ResultSet dataReader = sqlCommand.executeQuery("select et.code_massar , CONCAT(et.prenom , ' ' , et.nom) as nom_complet, et.date_inscription, et.email, et.telephone, et.a_deja_redouble, et.sexe, et.adresse\n" +
+            ResultSet dataReader = sqlCommand.executeQuery("select et.code_massar, et.prenom, et.nom, et.date_inscription, et.email, et.telephone, et.a_deja_redouble, et.sexe, et.adresse\n" +
                     "from etudiant et inner join groupe grp on et.groupe# = grp.id_groupe\n" +
                     "where grp.id_groupe = " + id_grp);
 
             while (dataReader.next()) {
                 String code_massar = dataReader.getString("code_massar");
-                String nom_complet = dataReader.getString("nom_complet");
+                String prenom = dataReader.getString("prenom");
+                String nom = dataReader.getString("nom");
                 Date date_inscription = dataReader.getDate("date_inscription");
                 String email = dataReader.getString("email");
                 String telephone = dataReader.getString("telephone");
@@ -572,7 +665,8 @@ public class Controller implements Initializable {
                 String adresse = dataReader.getString("adresse");
                 GestionEtudiantsViewModel etudiant = new GestionEtudiantsViewModel(
                         code_massar,
-                        nom_complet,
+                        nom,
+                        prenom,
                         date_inscription,
                         email,
                         telephone,
@@ -581,10 +675,13 @@ public class Controller implements Initializable {
                         sexe
                 );
                 tableView_GestionEtudiant.getItems().add(etudiant);
-                System.out.println(nom_complet);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public void testInput(InputMethodEvent inputMethodEvent) {
+        System.out.println("test input !");
     }
 }

@@ -4,25 +4,25 @@ import java.util.Date;
 
 public class GestionEtudiantsViewModel {
     private String code_massar;
-    private String nom_complet;
+    private String nom;
+    private String prenom;
     private Date date_inscription;
     private String email;
     private String telephone;
     private String a_deja_redouble;
     private String adresse;
     private String sexe;
-//    private Double moyenne;
 
-    public GestionEtudiantsViewModel(String code_massar, String nom_complet, Date date_inscription, String email, String telephone, String a_deja_redouble, String adresse, String sexe) {
+    public GestionEtudiantsViewModel(String code_massar, String nom, String prenom, Date date_inscription, String email, String telephone, String a_deja_redouble, String adresse, String sexe) {
         this.code_massar = code_massar;
-        this.nom_complet = nom_complet;
+        this.nom = nom;
+        this.prenom = prenom;
         this.date_inscription = date_inscription;
         this.email = email;
         this.telephone = telephone;
         this.a_deja_redouble = a_deja_redouble;
         this.adresse = adresse;
         this.sexe = sexe;
-//        this.moyenne = moyenne;
     }
 
 
@@ -34,12 +34,20 @@ public class GestionEtudiantsViewModel {
         this.code_massar = code_massar;
     }
 
-    public String getNom_complet() {
-        return nom_complet;
+    public String getNom() {
+        return nom;
     }
 
-    public void setNom_complet(String nom_complet) {
-        this.nom_complet = nom_complet;
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public String getPrenom() {
+        return prenom;
+    }
+
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
     }
 
     public Date getDate_inscription() {
@@ -90,11 +98,4 @@ public class GestionEtudiantsViewModel {
         this.sexe = sexe;
     }
 
-//    public Double getMoyenne() {
-//        return moyenne;
-//    }
-//
-//    public void setMoyenne(Double moyenne) {
-//        this.moyenne = moyenne;
-//    }
 }

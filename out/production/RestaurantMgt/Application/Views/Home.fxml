@@ -383,57 +383,63 @@
                         <Font name="Russo One" size="29.0" />
                     </font>
                 </Label>
-                <TableView fx:id="tableView_GestionEtudiant" layoutX="22.0" layoutY="161.0" prefHeight="509.0" prefWidth="881.0">
+                <TableView fx:id="tableView_GestionEtudiant" editable="true" layoutX="22.0" layoutY="161.0" onInputMethodTextChanged="#testInput" prefHeight="509.0" prefWidth="881.0">
                     <columns>
-                        <TableColumn prefWidth="90.0" text="Code Massar">
+                        <TableColumn editable="false" prefWidth="90.0" text="Code Massar">
                             <cellValueFactory>
                                 <PropertyValueFactory property="code_massar" />
                             </cellValueFactory>
                         </TableColumn>
-                        <TableColumn prefWidth="147.20001220703125" text="Nom Complet">
+                        <TableColumn fx:id="col_prenom" prefWidth="90.0" text="Prénom">
                             <cellValueFactory>
-                                <PropertyValueFactory property="nom_complet" />
+                                <PropertyValueFactory property="prenom" />
                             </cellValueFactory>
                         </TableColumn>
-                        <TableColumn prefWidth="115.20001220703125" text="Date Inscription">
+                        <TableColumn fx:id="col_nom" prefWidth="96.00003051757812" text="Nom">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="nom" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn fx:id="col_date" prefWidth="127.199951171875" text="Date Inscription">
                             <cellValueFactory>
                                 <PropertyValueFactory property="date_inscription" />
                             </cellValueFactory>
                         </TableColumn>
-                        <TableColumn prefWidth="109.5999755859375" text="Email">
+                        <TableColumn fx:id="col_mail" prefWidth="143.199951171875" text="Email">
                             <cellValueFactory>
                                 <PropertyValueFactory property="email" />
                             </cellValueFactory>
                         </TableColumn>
-                        <TableColumn prefWidth="102.4000244140625" text="Telephone">
+                        <TableColumn fx:id="col_tlph" prefWidth="112.0" text="Telephone">
                             <cellValueFactory>
                                 <PropertyValueFactory property="telephone" />
                             </cellValueFactory>
                         </TableColumn>
-                        <TableColumn prefWidth="71.199951171875" text="Doublant">
+                        <TableColumn fx:id="col_doublant" prefWidth="65.59991455078125" text="Doublant">
                             <cellValueFactory>
                                 <PropertyValueFactory property="a_deja_redouble" />
                             </cellValueFactory>
                         </TableColumn>
-                        <TableColumn prefWidth="144.00006103515625" text="Adresse">
+                        <TableColumn fx:id="col_adrs" prefWidth="151.2000732421875" text="Adresse">
                             <cellValueFactory>
                                 <PropertyValueFactory property="adresse" />
                             </cellValueFactory>
                         </TableColumn>
-                        <TableColumn prefWidth="99.9998779296875" text="Sexe">
+                        <TableColumn fx:id="col_sexe" prefWidth="99.9998779296875" text="Sexe">
                             <cellValueFactory>
                                 <PropertyValueFactory property="sexe" />
                             </cellValueFactory>
                         </TableColumn>
                     </columns>
-               <effect>
-                  <DropShadow />
-               </effect>
+                    <effect>
+                        <DropShadow />
+                    </effect>
                 </TableView>
                 <ComboBox fx:id="CB_grp_gestionEtudiant" layoutX="371.0" layoutY="114.0" onAction="#CB_grp_gestionEtudiant_selected" prefHeight="30.0" prefWidth="180.0" promptText="Groupes">
-               <effect>
-                  <DropShadow />
-               </effect></ComboBox>
+                    <effect>
+                        <DropShadow />
+                    </effect>
+                </ComboBox>
             </children>
         </Pane>
 
