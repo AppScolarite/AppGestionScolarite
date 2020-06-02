@@ -124,6 +124,9 @@ public class Controller implements Initializable {
     private Button btnGestion;
 
     @FXML
+    private Button btnStatistiquesetudiant;
+
+    @FXML
     private Button btnNotes;
 
     @FXML
@@ -738,12 +741,25 @@ public class Controller implements Initializable {
         PanelGestionNotes_Load();
         panelNotes.toFront();
         //btnNotes_click();
+        if(Gestionnaire_De_Connection.etudiant_connecte != null){
+            btnStatistiquesetudiant.setVisible(true);
+            btnNotes.setVisible(true);
+            panelNotes.toFront();
+        }else if(Gestionnaire_De_Connection.prof_connecte != null){
+            btnListes.setVisible(true);
+            panelNotesProf.toFront();
+        }
+        else {
+            btnGestion.setVisible(true);
+            btnStatistiques.setVisible(true);
+            panelEtudiant.toFront();
+        }
 
         //todo : just testing
-//        System.out.println(Gestionnaire_De_Connection.etudiant_connecte);
-//        System.out.println(Gestionnaire_De_Connection.personnel_connecte);
-//        System.out.println(Gestionnaire_De_Connection.prof_connecte);
-//        System.out.println(Gestionnaire_De_Connection.nom_connecte);
+        System.out.println(Gestionnaire_De_Connection.etudiant_connecte);
+        System.out.println(Gestionnaire_De_Connection.personnel_connecte);
+        System.out.println(Gestionnaire_De_Connection.prof_connecte);
+        System.out.println(Gestionnaire_De_Connection.nom_connecte);
 
         //todo : ne pas supprimer ce code hhhh
         //connection avec BD (MSSQL JDBC)
