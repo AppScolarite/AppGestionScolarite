@@ -6,11 +6,11 @@ import java.sql.DriverManager;
 public class Gestionnaire_De_Connection {
 
     private Connection connection;
-    public static int personnel_connecte = -1;
-    public static String etudiant_connecte = "H1897";
-    public static String prof_connecte = "P1";
+    public static int personnel_connecte;//= -1;
+    public static String etudiant_connecte;//= "H1897";
+    public static String prof_connecte;//= "P1";
 
-    public static String nom_connecte = "null";
+    public static String nom_connecte;//= "null";
 
     public Connection getConnection() {
 

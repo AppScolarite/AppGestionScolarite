@@ -176,10 +176,10 @@ INSERT [dbo].[GROUPE] ([id_groupe], [branche#], [niveau#], [libelle_grp]) VALUES
 GO
 SET IDENTITY_INSERT [dbo].[GROUPE] OFF
 
-INSERT [dbo].[ETUDIANT] ([code_massar], [nom], [prenom], [date_naissance], [date_inscription], [email], [telephone], [a_deja_redouble], [sexe], [adresse], [groupe#], [username], [mot_de_passe]) VALUES (N'H1258', N'Ahmed ', N'tizniti', CAST(N'1997-07-29' AS Date), CAST(N'2020-06-01' AS Date), N'Ahmed@gmail.com', N'0662149873', 1, N'Homme', N'adresse4', 1, N'Ahmed', N'moumou123')
+INSERT [dbo].[ETUDIANT] ([code_massar], [nom], [prenom], [date_naissance], [date_inscription], [email], [telephone], [a_deja_redouble], [sexe], [adresse], [groupe#], [username], [mot_de_passe]) VALUES (N'H1197', N'Yaagoubi', N'Noureddine', CAST(N'1998-01-16' AS Date), CAST(N'2019-09-20' AS Date), N'noureddine@gmail.com', N'0642833827', 0, N'Homme', N'adresse1', 1, N'noureddine', N'noureddine123')
+INSERT [dbo].[ETUDIANT] ([code_massar], [nom], [prenom], [date_naissance], [date_inscription], [email], [telephone], [a_deja_redouble], [sexe], [adresse], [groupe#], [username], [mot_de_passe]) VALUES (N'H1278', N'Saffihh', N'Hichamm', CAST(N'1997-08-25' AS Date), CAST(N'2019-09-20' AS Date), N'hicham@gmail.com', N'0666201747', 0, N'Homme', N'adresse2', 1, N'tony', N'tony123')
+INSERT [dbo].[ETUDIANT] ([code_massar], [nom], [prenom], [date_naissance], [date_inscription], [email], [telephone], [a_deja_redouble], [sexe], [adresse], [groupe#], [username], [mot_de_passe]) VALUES (N'H1958', N'Ahmed ', N'tizniti', CAST(N'1997-07-29' AS Date), CAST(N'2020-06-01' AS Date), N'Ahmed@gmail.com', N'0662149873', 1, N'Homme', N'adresse4', 1, N'Ahmed', N'moumou123')
 INSERT [dbo].[ETUDIANT] ([code_massar], [nom], [prenom], [date_naissance], [date_inscription], [email], [telephone], [a_deja_redouble], [sexe], [adresse], [groupe#], [username], [mot_de_passe]) VALUES (N'H1697', N'Mustafa', N'nourawi', CAST(N'1997-02-26' AS Date), CAST(N'2020-06-01' AS Date), N'Mustafa@gmail.com', N'0763851924', 0, N'Homme', N'adresse7', 1, N'Mustafa', N'Mustafa123')
-INSERT [dbo].[ETUDIANT] ([code_massar], [nom], [prenom], [date_naissance], [date_inscription], [email], [telephone], [a_deja_redouble], [sexe], [adresse], [groupe#], [username], [mot_de_passe]) VALUES (N'H1897', N'Yaagoubi', N'Noureddine', CAST(N'1998-01-16' AS Date), CAST(N'2019-09-20' AS Date), N'noureddine@gmail.com', N'0642833827', 0, N'Homme', N'adresse1', 1, N'noureddine', N'noureddine123')
-INSERT [dbo].[ETUDIANT] ([code_massar], [nom], [prenom], [date_naissance], [date_inscription], [email], [telephone], [a_deja_redouble], [sexe], [adresse], [groupe#], [username], [mot_de_passe]) VALUES (N'H2578', N'Saffihh', N'Hichamm', CAST(N'1997-08-25' AS Date), CAST(N'2019-09-20' AS Date), N'hicham@gmail.com', N'0666201747', 0, N'Homme', N'adresse2', 1, N'tony', N'tony123')
 INSERT [dbo].[ETUDIANT] ([code_massar], [nom], [prenom], [date_naissance], [date_inscription], [email], [telephone], [a_deja_redouble], [sexe], [adresse], [groupe#], [username], [mot_de_passe]) VALUES (N'H3987', N'Essirioui', N'Amina', CAST(N'1997-02-26' AS Date), CAST(N'2020-06-01' AS Date), N'Amina@gmail.com', N'0662148753', 0, N'Femme', N'adresse3', 1, N'moumou', N'moumou123')
 INSERT [dbo].[ETUDIANT] ([code_massar], [nom], [prenom], [date_naissance], [date_inscription], [email], [telephone], [a_deja_redouble], [sexe], [adresse], [groupe#], [username], [mot_de_passe]) VALUES (N'H4877', N'Nisrine', N'Hadiwi', CAST(N'1997-08-25' AS Date), CAST(N'2020-06-01' AS Date), N'Nisrine@gmail.com', N'0684793215', 0, N'Femme', N'adresse5', 1, N'Nisrine', N'Nisrine123')
 INSERT [dbo].[ETUDIANT] ([code_massar], [nom], [prenom], [date_naissance], [date_inscription], [email], [telephone], [a_deja_redouble], [sexe], [adresse], [groupe#], [username], [mot_de_passe]) VALUES (N'H55439', N'abdlawi', N'Adam', CAST(N'1995-05-02' AS Date), CAST(N'2020-06-01' AS Date), N'Adam@gmail.com', N'0598721674', 0, N'Homme', N'adresse9', 1, N'Adam', N'Adam123')
@@ -199,14 +199,14 @@ SET IDENTITY_INSERT [dbo].[MATIERE] OFF
 
 INSERT [dbo].[ENSEIGNEMENT] ([professeur#], [groupe#], [matiere#]) VALUES (N'P1', 1, 1)
 
-INSERT [dbo].[NOTE] ([matiere#], [Valeur_Note], [etudiant_]) VALUES (1, 15, N'H1897')
-INSERT [dbo].[NOTE] ([matiere#], [Valeur_Note], [etudiant_]) VALUES (1, 9, N'H1897')
-INSERT [dbo].[NOTE] ([matiere#], [Valeur_Note], [etudiant_]) VALUES (1, 17.5, N'H1897')
-INSERT [dbo].[NOTE] ([matiere#], [Valeur_Note], [etudiant_]) VALUES (2, 17.5, N'H1897')
-INSERT [dbo].[NOTE] ([matiere#], [Valeur_Note], [etudiant_]) VALUES (1, 13, N'H2578')
-INSERT [dbo].[NOTE] ([matiere#], [Valeur_Note], [etudiant_]) VALUES (1, 7.5, N'H2578')
-INSERT [dbo].[NOTE] ([matiere#], [Valeur_Note], [etudiant_]) VALUES (1, 18, N'H2578')
-INSERT [dbo].[NOTE] ([matiere#], [Valeur_Note], [etudiant_]) VALUES (2, 15, N'H2578')
+INSERT [dbo].[NOTE] ([matiere#], [Valeur_Note], [etudiant_]) VALUES (1, 15, N'H1197')
+INSERT [dbo].[NOTE] ([matiere#], [Valeur_Note], [etudiant_]) VALUES (1, 9, N'H1197')
+INSERT [dbo].[NOTE] ([matiere#], [Valeur_Note], [etudiant_]) VALUES (1, 17.5, N'H1197')
+INSERT [dbo].[NOTE] ([matiere#], [Valeur_Note], [etudiant_]) VALUES (2, 17.5, N'H1197')
+INSERT [dbo].[NOTE] ([matiere#], [Valeur_Note], [etudiant_]) VALUES (1, 13, N'H1278')
+INSERT [dbo].[NOTE] ([matiere#], [Valeur_Note], [etudiant_]) VALUES (1, 7.5, N'H1278')
+INSERT [dbo].[NOTE] ([matiere#], [Valeur_Note], [etudiant_]) VALUES (1, 18, N'H1278')
+INSERT [dbo].[NOTE] ([matiere#], [Valeur_Note], [etudiant_]) VALUES (2, 15, N'H1278')
 
 --utilitaire---------------------
 --delete from note

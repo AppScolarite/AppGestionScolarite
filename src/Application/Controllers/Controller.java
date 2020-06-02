@@ -741,15 +741,14 @@ public class Controller implements Initializable {
         PanelGestionNotes_Load();
         panelNotes.toFront();
         //btnNotes_click();
-        if(Gestionnaire_De_Connection.etudiant_connecte != null){
+        if (Gestionnaire_De_Connection.etudiant_connecte != null) {
             btnStatistiquesetudiant.setVisible(true);
             btnNotes.setVisible(true);
             panelNotes.toFront();
-        }else if(Gestionnaire_De_Connection.prof_connecte != null){
+        } else if (Gestionnaire_De_Connection.prof_connecte != null) {
             btnListes.setVisible(true);
             panelNotesProf.toFront();
-        }
-        else {
+        } else {
             btnGestion.setVisible(true);
             btnStatistiques.setVisible(true);
             panelEtudiant.toFront();
@@ -871,14 +870,14 @@ public class Controller implements Initializable {
                     String note_2 = dataReader2.getString("Valeur_Note");
                     dataReader2.next();
                     String note_3 = dataReader2.getString("Valeur_Note");
-
+                    String moyenne = this.Calculer_moyenne(Double.valueOf(note_1), Double.valueOf(note_2), Double.valueOf(note_3));
                     GestionNotesViewModel etudiant = new GestionNotesViewModel(
                             code_massar,
                             nom_complet,
                             note_1,
                             note_2,
                             note_3,
-                            "18.00"
+                            moyenne
                     );
                     tableView_GestionNotes.getItems().add(etudiant);
 
