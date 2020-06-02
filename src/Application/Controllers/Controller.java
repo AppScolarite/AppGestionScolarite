@@ -3,6 +3,7 @@ package Application.Controllers;
 import Application.Data.Gestionnaire_De_Connection;
 import Application.Models.ClassementViewModel;
 import Application.Models.GestionEtudiantsViewModel;
+import Application.Models.GestionNotesViewModel;
 import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -26,11 +27,9 @@ import javafx.stage.StageStyle;
 import java.sql.*;
 
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.text.DecimalFormat;
+import java.util.*;
 import java.util.Date;
-import java.util.List;
-import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
 
@@ -66,8 +65,6 @@ public class Controller implements Initializable {
 
     //************* Panels ********************************
 
-    @FXML
-    private Pane panelNotesProf;
 
     @FXML
     private Pane panelNotes;
@@ -107,6 +104,9 @@ public class Controller implements Initializable {
 
     @FXML
     public TableColumn<GestionEtudiantsViewModel, String> col_sexe;
+
+    @FXML
+    private MenuItem supprimer;
 
     //*****************************************************
 
@@ -166,6 +166,38 @@ public class Controller implements Initializable {
     private Gestionnaire_De_Connection gestionnaire_de_connection = new Gestionnaire_De_Connection();
 
     //************************
+
+    //***************** Gestion des notes *********
+
+    @FXML
+    private Pane panelNotesProf;
+
+    @FXML
+    public TableColumn<GestionNotesViewModel, String> col_codeMassar;
+
+    @FXML
+    public TableColumn<GestionNotesViewModel, String> col_nomComplet;
+
+    @FXML
+    public TableColumn<GestionNotesViewModel, String> col_cntrl1;
+
+    @FXML
+    public TableColumn<GestionNotesViewModel, String> col_cntrl2;
+
+    @FXML
+    public TableColumn<GestionNotesViewModel, String> col_cntrl3;
+
+    @FXML
+    public TableColumn<GestionNotesViewModel, String> col_moyenne;
+
+    @FXML
+    private TableView tableView_GestionNotes;
+
+    @FXML
+    private ComboBox CB_grp_gestionNotes;
+
+    //**********************************************
+
     @FXML
     public void logOut_Click() throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("../Views/Login.fxml"));
@@ -197,8 +229,6 @@ public class Controller implements Initializable {
         btnClose.toFront();
         btnMinimize.toFront();
     }
-
-    Integer Id_Mat = 1;
 
     @FXML
     public void btnNotes_click() {
@@ -499,13 +529,39 @@ public class Controller implements Initializable {
         }
     }
 
-    //todo --sert à rien : à supprimer
-//    @FXML
-//    private void btnMenuGestion_click(ActionEvent e) {
-//        panelGestionEtudiant.toFront();
-//        btnClose.toFront();
-//        btnMinimize.toFront();
-//    }
+    @FXML
+    private void supprimer_click() {
+        GestionEtudiantsViewModel etudiant = (GestionEtudiantsViewModel) tableView_GestionEtudiant.getSelectionModel().getSelectedItem();
+        if (etudiant == null) {
+            System.out.println("aucun etudiant a supprimer !");
+            return;
+        }
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Supression d'un étudiant !");
+        alert.setContentText("Etes vous totalement sur de vouloir supprimer l'étudiant <" + etudiant.getCode_massar() + "-" + etudiant.getNom() + " " + etudiant.getPrenom() + "> ??\n Toutes ses notes seront ainsi supprimer !!");
+        alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
+        alert.setHeight(400);
+        Optional<ButtonType> reponse = alert.showAndWait();
+        if (reponse.get().equals(ButtonType.OK)) {
+            try {
+                Connection connection = gestionnaire_de_connection.getConnection();
+                Statement sqlCommand = connection.createStatement();
+                sqlCommand.execute
+                        (
+                                String.format
+                                        (
+                                                "delete from note where etudiant_ = '%s' ;" +
+                                                        "delete from etudiant where code_massar = '%s';",
+                                                etudiant.getCode_massar(), etudiant.getCode_massar()
+                                        )
+                        );
+                tableView_GestionEtudiant.getItems().remove(tableView_GestionEtudiant.getSelectionModel().getSelectedItem());
+                tableView_GestionEtudiant.refresh();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
     private void PanelGestionEtudiant_Load() {
         try {
@@ -515,7 +571,7 @@ public class Controller implements Initializable {
             ObservableList groupes = FXCollections.observableArrayList();
             while (reader.next()) {
                 String groupe = reader.getString("libelle_grp");
-                groupes.add("Groupe " +groupe);
+                groupes.add("Groupe " + groupe);
             }
             CB_grp_gestionEtudiant.setItems(groupes);
         } catch (SQLException sqlE) {
@@ -589,7 +645,7 @@ public class Controller implements Initializable {
         }
     }
 
-    private void Home_Load() {
+    private void Form_Load() {
         userLBL.setText(Gestionnaire_De_Connection.nom_connecte);
         Gestionnaire_De_Connection gestionnaire_de_connection = new Gestionnaire_De_Connection();
         Connection connection = gestionnaire_de_connection.getConnection();
@@ -607,11 +663,79 @@ public class Controller implements Initializable {
         }
     }
 
+    private void PanelGestionNotes_Load() {
+        try {
+            Connection connection = gestionnaire_de_connection.getConnection();
+            Statement sqlCommand = connection.createStatement();
+            ResultSet dataReader = sqlCommand.executeQuery("select * from GROUPE");
+            ObservableList groupes = FXCollections.observableArrayList();
+            while (dataReader.next()) {
+                String groupe = dataReader.getString("libelle_grp");
+                groupes.add("Groupe " + groupe);
+            }
+            CB_grp_gestionNotes.setItems(groupes);
+
+            tableView_GestionNotes.setEditable(true);
+
+            col_cntrl1.setCellFactory(TextFieldTableCell.forTableColumn());
+            col_cntrl1.setOnEditCommit(e ->
+            {
+                e.getTableView().getItems().get(e.getTablePosition().getRow()).setControl_1(e.getNewValue());
+                e.getTableView().getItems().get(e.getTablePosition().getRow()).setMoyenne(
+                        this.Calculer_moyenne
+                                (
+                                        Double.parseDouble(e.getNewValue().toString()),
+                                        Double.parseDouble(e.getTableView().getItems().get(e.getTablePosition().getRow()).getControl_2().toString()),
+                                        Double.parseDouble(e.getTableView().getItems().get(e.getTablePosition().getRow()).getControl_3().toString())
+                                ));
+                tableView_GestionNotes.refresh();
+            });
+
+            col_cntrl2.setCellFactory(TextFieldTableCell.forTableColumn());
+            col_cntrl2.setOnEditCommit(e ->
+            {
+                e.getTableView().getItems().get(e.getTablePosition().getRow()).setControl_2(e.getNewValue());
+                e.getTableView().getItems().get(e.getTablePosition().getRow()).setMoyenne(
+                        this.Calculer_moyenne
+                                (
+                                        Double.parseDouble(e.getNewValue().toString()),
+                                        Double.parseDouble(e.getTableView().getItems().get(e.getTablePosition().getRow()).getControl_1().toString()),
+                                        Double.parseDouble(e.getTableView().getItems().get(e.getTablePosition().getRow()).getControl_3().toString())
+                                ));
+                tableView_GestionNotes.refresh();
+            });
+
+            col_cntrl3.setCellFactory(TextFieldTableCell.forTableColumn());
+            col_cntrl3.setOnEditCommit(e ->
+            {
+                e.getTableView().getItems().get(e.getTablePosition().getRow()).setControl_3(e.getNewValue());
+                e.getTableView().getItems().get(e.getTablePosition().getRow()).setMoyenne(
+                        this.Calculer_moyenne
+                                (
+                                        Double.parseDouble(e.getNewValue().toString()),
+                                        Double.parseDouble(e.getTableView().getItems().get(e.getTablePosition().getRow()).getControl_1().toString()),
+                                        Double.parseDouble(e.getTableView().getItems().get(e.getTablePosition().getRow()).getControl_2().toString())
+                                ));
+                tableView_GestionNotes.refresh();
+            });
+            tableView_GestionNotes.refresh();
+
+        } catch (SQLException sqlE) {
+            sqlE.printStackTrace();
+        }
+    }
+
+    private String Calculer_moyenne(Double note1, Double note2, Double note3) {
+        return (new DecimalFormat("###.##")).format((note1 + note2 + note3) / 3);
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        Home_Load();
+        Form_Load();
+
         PanelGestionEtudiant_Load();
         statistiqueEtudiant_Load();
+        PanelGestionNotes_Load();
         panelNotes.toFront();
         //btnNotes_click();
 
@@ -642,6 +766,7 @@ public class Controller implements Initializable {
 
     }
 
+    @FXML
     public void CB_grp_gestionEtudiant_selected(ActionEvent actionEvent) {
         tableView_GestionEtudiant.getItems().clear();
         int id_grp = CB_grp_gestionEtudiant.getSelectionModel().getSelectedIndex() + 1;
@@ -681,7 +806,80 @@ public class Controller implements Initializable {
         }
     }
 
-    public void testInput(InputMethodEvent inputMethodEvent) {
-        System.out.println("test input !");
+    @FXML
+    public void CB_grp_gestionNotes_selected(ActionEvent actionEvent) {
+
+        tableView_GestionNotes.getItems().clear();
+        int id_grp = CB_grp_gestionNotes.getSelectionModel().getSelectedIndex() + 1;
+
+        Connection connection = gestionnaire_de_connection.getConnection();
+        try {
+            Statement sqlCommand1 = connection.createStatement();
+            ResultSet dataReader1 = sqlCommand1.executeQuery
+                    (
+                            String.format
+                                    (
+                                            "select etd.code_massar, CONCAT(etd.prenom , ' ' , etd.nom) as nom_complet \n" +
+                                                    "from etudiant etd inner join groupe grp on etd.groupe# = grp.id_groupe\n" +
+                                                    "\t\t\t\t  inner join enseignement en on en.groupe# = grp.id_groupe\n" +
+                                                    "where grp.id_groupe = %d" +
+                                                    "\t  and en.professeur# = '%s'",
+                                            id_grp,
+                                            gestionnaire_de_connection.prof_connecte
+                                    )
+                    );
+
+            while (dataReader1.next()) {
+
+                String code_massar = dataReader1.getString("code_massar");
+                String nom_complet = dataReader1.getString("nom_complet");
+                Statement sqlCommand2 = connection.createStatement();
+                ResultSet dataReader2 = sqlCommand2.executeQuery
+                        (
+                                String.format
+                                        (
+                                                "select top 3 n.Valeur_Note \n" +
+                                                        "from note n\n" +
+                                                        "where n.etudiant_ = '%s'\n" +
+                                                        "and matiere# = (select en.matiere#\n" +
+                                                        "from professeur prof inner join ENSEIGNEMENT en on prof.Code_Pro_Nationnal = en.professeur#\n" +
+                                                        "where prof.Code_Pro_Nationnal = '%s')",
+                                                code_massar,
+                                                gestionnaire_de_connection.prof_connecte
+                                        )
+                        );
+                if (dataReader2.next()) {
+
+                    String note_1 = dataReader2.getString("Valeur_Note");
+                    dataReader2.next();
+                    String note_2 = dataReader2.getString("Valeur_Note");
+                    dataReader2.next();
+                    String note_3 = dataReader2.getString("Valeur_Note");
+
+                    GestionNotesViewModel etudiant = new GestionNotesViewModel(
+                            code_massar,
+                            nom_complet,
+                            note_1,
+                            note_2,
+                            note_3,
+                            "18.00"
+                    );
+                    tableView_GestionNotes.getItems().add(etudiant);
+
+                } else {
+                    GestionNotesViewModel etudiant = new GestionNotesViewModel(
+                            code_massar,
+                            nom_complet,
+                            "0.00",
+                            "0.00",
+                            "0.00",
+                            "0.00"
+                    );
+                    tableView_GestionNotes.getItems().add(etudiant);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }
