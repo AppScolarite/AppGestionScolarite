@@ -44,6 +44,8 @@ public class Controller implements Initializable {
     @FXML
     private PieChart pieChartPersonnel;
 
+    @FXML
+    public BarChart barChartPersonnel;
     //*****************************************************
 
     //*********************statistiques de l'etudiant******
@@ -364,22 +366,59 @@ public class Controller implements Initializable {
 
     @FXML
     public void statistiquePersonnel_Click(ActionEvent event) {
-        ObservableList<PieChart.Data> pieChartDataP = FXCollections.observableArrayList(
-                new PieChart.Data("Titizz drari", 30),
-                new PieChart.Data("Titizz bnat", 70));
-        pieChartPersonnel.setData(pieChartDataP);
-        pieChartPersonnel.setTitle("titiz SupMti");
-        pieChartPersonnel.setClockwise(true);
-        pieChartPersonnel.setLabelsVisible(true);
-        pieChartPersonnel.setLabelLineLength(50);
-        pieChartPersonnel.setStartAngle(180);
-        this.ChangerCouleur(
-                pieChartDataP,
-                "red", "blue"
-        );
-        panelStatistiquesPersonnel.toFront();
-        btnClose.toFront();
-        btnMinimize.toFront();
+        try {
+            int nbrFemme, nbrHomme;
+            nbrFemme = nbrHomme = 0;
+
+            Connection sqlConnection = gestionnaire_de_connection.getConnection();
+            Statement sqlCommand = sqlConnection.createStatement();
+            ResultSet dataReader = sqlCommand.executeQuery("select count(*) as nbrHomme\n" +
+                    "from etudiant \n" +
+                    "where sexe = 'Homme'");
+            if (dataReader.next())
+                nbrHomme = dataReader.getInt("nbrHomme");
+
+            sqlCommand = sqlConnection.createStatement();
+            dataReader = sqlCommand.executeQuery("select count(*) as nbrFemme\n" +
+                    "from etudiant etd \n" +
+                    "where etd.sexe = 'Femme'");
+            if (dataReader.next())
+                nbrFemme = dataReader.getInt("nbrFemme");
+            ObservableList<PieChart.Data> pieChartDataP = FXCollections.observableArrayList(
+                    new PieChart.Data("Femme", nbrFemme),
+                    new PieChart.Data("Homme", nbrHomme));
+            pieChartPersonnel.setData(pieChartDataP);
+//            this.ChangerCouleur(
+//                    pieChartDataP,
+//                    "#CB5ABD", "#0000FF"
+//            );
+            pieChartPersonnel.setTitle("Divirsité des genres");
+            pieChartPersonnel.setClockwise(true);
+            pieChartPersonnel.setLabelsVisible(true);
+            pieChartPersonnel.setLabelLineLength(50);
+            pieChartPersonnel.setStartAngle(180);
+
+            sqlCommand = sqlConnection.createStatement();
+            dataReader = sqlCommand.executeQuery("select grp.libelle_grp as Groupe , count(etd.code_massar) as nbrEffectif\n" +
+                    "from etudiant etd inner join groupe grp on etd.groupe# = grp.id_groupe\n" +
+                    "group by grp.libelle_grp");
+            String nomGroupe;
+            int nbrEffectif;
+            while (dataReader.next()) {
+                nomGroupe = dataReader.getString("Groupe");
+                nbrEffectif = dataReader.getInt("nbrEffectif");
+                XYChart.Series<String, Number> serie = new XYChart.Series<>();
+                serie.setName(nomGroupe);
+                serie.getData().add(new XYChart.Data<>("", nbrEffectif));
+                barChartPersonnel.getData().add(serie);
+            }
+
+            panelStatistiquesPersonnel.toFront();
+            btnClose.toFront();
+            btnMinimize.toFront();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
