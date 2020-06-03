@@ -386,12 +386,12 @@
                                 <PropertyValueFactory property="control_1" />
                             </cellValueFactory>
                         </TableColumn>
-                        <TableColumn fx:id="col_cntrl2" prefWidth="128.40008544921875" resizable="false" text="Controle 2">
+                        <TableColumn fx:id="col_cntrl2" minWidth="5.60003662109375" prefWidth="111.20001220703125" resizable="false" text="Controle 2">
                             <cellValueFactory>
                                 <PropertyValueFactory property="control_2" />
                             </cellValueFactory>
                         </TableColumn>
-                        <TableColumn fx:id="col_cntrl3" prefWidth="128.7999267578125" resizable="false" text="Controle 3">
+                        <TableColumn fx:id="col_cntrl3" minWidth="5.60003662109375" prefWidth="111.20001220703125" resizable="false" text="Controle 3">
                             <cellValueFactory>
                                 <PropertyValueFactory property="control_3" />
                             </cellValueFactory>
