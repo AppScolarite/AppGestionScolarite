@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -16,15 +17,19 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 //        Parent root = FXMLLoader.load(getClass().getResource("Views/TestFile.fxml"));
-        Parent root = FXMLLoader.load(getClass().getResource("Views/Login.fxml"));
-        primaryStage.setScene(new Scene(root));
-        primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("../resources/images/LoginIcons/icons8_Google_Wallet_50px.png")));
+        Parent root = FXMLLoader.load(getClass().getResource("Views/LandingPage.fxml"));
+
+        Scene scene = new Scene(root);
+        scene.setFill(Color.valueOf("transparent"));
+        primaryStage.initStyle(StageStyle.TRANSPARENT);
+
+        primaryStage.setScene(scene);
+        primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("../resources/images/LoginIcons/icons8_XING_100px.png")));
         primaryStage.initStyle(StageStyle.UNDECORATED);
         root.setOnMousePressed(event -> {
             x = event.getSceneX();
             y = event.getSceneY();
         });
-
         root.setOnMouseDragged(event -> {
             primaryStage.setX(event.getScreenX() - x);
             primaryStage.setY(event.getScreenY() - y);

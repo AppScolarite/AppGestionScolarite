@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="649.0" prefWidth="919.0" style="-fx-hgap: 20px; -fx-background-color: White; -fx-background-radius: 30; -fx-border-radius: 30; -fx-border-width: 5px;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.Controllers.LandingController">
+   <children>
+      <ImageView fitHeight="225.0" fitWidth="315.0" layoutX="603.0" layoutY="410.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resources/images/charts.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="250.0" fitWidth="476.0" layoutX="596.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resources/images/desktop.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="188.0" fitWidth="264.0" layoutX="27.0" layoutY="231.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resources/images/temps.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="431.0" layoutY="590.0" mnemonicParsing="false" text="rak tma" />
+      <Label layoutX="29.0" layoutY="77.0" prefHeight="138.0" prefWidth="577.0" text="Adaptée à la majorité des besoins de différent user.&#10;En étant étudiant, professeur ou méme administrateur/personnel de l'établissement !" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="Montserrat-Regular" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="307.0" layoutY="300.0" prefHeight="74.0" prefWidth="578.0" text="Gagnez énormement de temps grace aux simplifactions et à la souplesse de notres applications." textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="Montserrat-Regular" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="28.0" layoutY="456.0" prefHeight="95.0" prefWidth="578.0" text="Statistiques graphiques, calcule &amp; fonctionnalités avancées et grande vue sur toutes vos informations !" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="Montserrat-Regular" size="20.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="26.0" fitWidth="27.0" layoutX="886.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resources/images/HboxIcons/close.png" />
+         </image>
+      </ImageView>
+   </children>
+   <effect>
+      <DropShadow />
+   </effect>
+</AnchorPane>
