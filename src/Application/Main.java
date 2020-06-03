@@ -16,15 +16,15 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-//        Parent root = FXMLLoader.load(getClass().getResource("Views/LandingPage.fxml"));
-        Parent root = FXMLLoader.load(getClass().getResource("Views/Login.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("Views/LandingPage.fxml"));
+//        Parent root = FXMLLoader.load(getClass().getResource("Views/Login.fxml"));
 
         Scene scene = new Scene(root);
         scene.setFill(Color.valueOf("transparent"));
         primaryStage.initStyle(StageStyle.TRANSPARENT);
 
         primaryStage.setScene(scene);
-        primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("../resources/images/LoginIcons/icons8_XING_100px.png")));
+        primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("../resources/images/LoginIcons/icons8_Google_Wallet_50px.png")));
 //        primaryStage.initStyle(StageStyle.UNDECORATED);
         root.setOnMousePressed(event -> {
             x = event.getSceneX();

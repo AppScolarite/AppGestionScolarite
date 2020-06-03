@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Application/Controllers/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Controllers/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Controllers/LandingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Controllers/LandingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Main.java" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -76,11 +77,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Application/Controllers/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="349">
-              <caret line="342" column="16" selection-start-line="342" selection-start-column="16" selection-end-line="342" selection-end-column="16" />
+            <state relative-caret-position="353">
+              <caret line="960" lean-forward="true" selection-start-line="960" selection-end-line="960" />
             </state>
           </provider>
         </entry>
@@ -88,8 +89,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Application/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="156">
-              <caret line="19" column="33" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
+            <state relative-caret-position="264">
+              <caret line="25" column="21" lean-forward="true" selection-start-line="25" selection-end-line="26" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -99,12 +100,12 @@
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Application/Views/LandingPage.fxml">
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="408">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="460">
               <caret line="50" column="14" selection-start-line="50" selection-start-column="14" selection-end-line="50" selection-end-column="14" />
             </state>
           </provider>
-          <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+          <provider editor-type-id="JavaFX-Scene-Builder" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -117,11 +118,11 @@
           <provider editor-type-id="JavaFX-Scene-Builder" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Application/Controllers/LandingController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="384">
-              <caret line="31" column="30" selection-start-line="31" selection-start-column="30" selection-end-line="31" selection-end-column="30" />
+            <state relative-caret-position="129">
+              <caret line="24" selection-start-line="24" selection-end-line="24" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -167,7 +168,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Application/Controllers/LoginController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
+            <state relative-caret-position="-136">
               <caret line="66" column="20" selection-start-line="66" selection-start-column="20" selection-end-line="66" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -251,7 +252,6 @@
         <option value="$PROJECT_DIR$/src/Application/Controllers/TestFileController.java" />
         <option value="$PROJECT_DIR$/src/Application/Controllers/ControllerLogin.java" />
         <option value="$PROJECT_DIR$/src/resources/Styles/style.css" />
-        <option value="$PROJECT_DIR$/src/Application/Main.java" />
         <option value="$PROJECT_DIR$/src/Application/Controllers/InscrireController.java" />
         <option value="$PROJECT_DIR$/src/Application/Models/ClassementViewModel.java" />
         <option value="$PROJECT_DIR$/src/Application/Views/inscrire.fxml" />
@@ -262,8 +262,9 @@
         <option value="$PROJECT_DIR$/src/Application/Views/MesNotes.fxml" />
         <option value="$PROJECT_DIR$/src/Application/Views/Home.fxml" />
         <option value="$PROJECT_DIR$/src/Application/Views/LandingPage.fxml" />
-        <option value="$PROJECT_DIR$/src/Application/Controllers/LandingController.java" />
         <option value="$PROJECT_DIR$/src/Application/Controllers/Controller.java" />
+        <option value="$PROJECT_DIR$/src/Application/Main.java" />
+        <option value="$PROJECT_DIR$/src/Application/Controllers/LandingController.java" />
       </list>
     </option>
   </component>
@@ -501,7 +502,16 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="202911000" />
+    <option name="totallyTimeSpent" value="203470000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -521,7 +531,7 @@
       <window_info anchor="bottom" id="Debug" order="3" weight="0.17083333" />
       <window_info anchor="bottom" id="Find" order="4" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32916668" />
       <window_info anchor="bottom" id="Inspection" order="7" weight="0.4" />
       <window_info anchor="bottom" id="Application Servers" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50064266" side_tool="true" weight="0.21805556" />
@@ -695,23 +705,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Application/Views/MesNotes.fxml" />
-    <entry file="file://$PROJECT_DIR$/src/Application/Controllers/LoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="66" column="20" selection-start-line="66" selection-start-column="20" selection-end-line="66" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/Controllers/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="342" column="16" selection-start-line="342" selection-start-column="16" selection-end-line="342" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Application/Views/Login.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="277">
@@ -730,8 +723,33 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Application/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="19" column="33" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
+        <state relative-caret-position="264">
+          <caret line="25" column="21" lean-forward="true" selection-start-line="25" selection-end-line="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/Views/LandingPage.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="50" column="14" selection-start-line="50" selection-start-column="14" selection-end-line="50" selection-end-column="14" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/Controllers/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="960" lean-forward="true" selection-start-line="960" selection-end-line="960" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/Controllers/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-136">
+          <caret line="66" column="20" selection-start-line="66" selection-start-column="20" selection-end-line="66" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -740,21 +758,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Application/Controllers/LandingController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="31" column="30" selection-start-line="31" selection-start-column="30" selection-end-line="31" selection-end-column="30" />
+        <state relative-caret-position="129">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/Views/LandingPage.fxml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="50" column="14" selection-start-line="50" selection-start-column="14" selection-end-line="50" selection-end-column="14" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
     </entry>
   </component>
   <component name="masterDetails">
