@@ -16,8 +16,8 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-//        Parent root = FXMLLoader.load(getClass().getResource("Views/TestFile.fxml"));
-        Parent root = FXMLLoader.load(getClass().getResource("Views/LandingPage.fxml"));
+//        Parent root = FXMLLoader.load(getClass().getResource("Views/LandingPage.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("Views/Login.fxml"));
 
         Scene scene = new Scene(root);
         scene.setFill(Color.valueOf("transparent"));
@@ -25,7 +25,7 @@ public class Main extends Application {
 
         primaryStage.setScene(scene);
         primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("../resources/images/LoginIcons/icons8_XING_100px.png")));
-        primaryStage.initStyle(StageStyle.UNDECORATED);
+//        primaryStage.initStyle(StageStyle.UNDECORATED);
         root.setOnMousePressed(event -> {
             x = event.getSceneX();
             y = event.getSceneY();
