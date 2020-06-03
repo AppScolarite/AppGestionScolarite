@@ -254,46 +254,46 @@ public class Controller implements Initializable {
                 mat.add(matieres);
             }
             CB_Matiere.setItems(mat);
-
-            Statement statement = connection.createStatement();
-            String query = "select MATIERE.LBL_Matiere, MATIERE.Coeff," +
-                    " concat(PROFESSEUR.Nom, ' ' ,PROFESSEUR.Prenom ) as Nom_Professeur, NOTE.Valeur_Note\n" +
-                    "from ETUDIANT join groupe on ETUDIANT.groupe# = groupe.id_groupe\n" +
-                    "join ENSEIGNEMENT on GROUPE.id_groupe = ENSEIGNEMENT.groupe#\n" +
-                    "join MATIERE on ENSEIGNEMENT.matiere# = MATIERE.id_matiere\n" +
-                    "join PROFESSEUR on PROFESSEUR.Code_Pro_Nationnal = ENSEIGNEMENT.professeur#\n" +
-                    "join NOTE on MATIERE.id_matiere = NOTE.matiere#\n" +
-                    "where ETUDIANT.code_massar = 'H1'";
-
-            String queryNotes = "select NOTE.Valeur_Note as notes\n" +
-                    "from ETUDIANT join groupe on ETUDIANT.groupe# = groupe.id_groupe\n" +
-                    "join ENSEIGNEMENT on GROUPE.id_groupe = ENSEIGNEMENT.groupe#\n" +
-                    "join MATIERE on ENSEIGNEMENT.matiere# = MATIERE.id_matiere\n" +
-                    "join PROFESSEUR on PROFESSEUR.Code_Pro_Nationnal = ENSEIGNEMENT.professeur#\n" +
-                    "join NOTE on MATIERE.id_matiere = NOTE.matiere#\n" +
-                    "where ETUDIANT.code_massar = 'H1' ";
-
-            Statement statement1 = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery(query);
-            ResultSet rs = statement1.executeQuery(queryNotes);
-            ObservableList<String> data = FXCollections.observableArrayList();
-            while (resultSet.next() && rs.next()) {
-//                System.out.println("etudiant has rows");
-
-                matiereLbl.setText(resultSet.getString(1));
-                CoeffLbl.setText(String.valueOf(resultSet.getInt(2)));
-                ProfLbl.setText(resultSet.getString(3));
-
-                rs.getRow();
-                String notes = String.valueOf(rs.getDouble("notes"));
-                data.add(notes);
-                Cntrol1.setText(data.get(0));
-                Cntrol2.setText(data.get(1));
-                Cntrol3.setText(data.get(2));
-
-                Double moyenne = ((Double.valueOf(Cntrol1.getText()) + Double.valueOf(Cntrol2.getText()) + Double.valueOf(Cntrol3.getText())) / 3);
-                MyenneLbl.setText(String.valueOf(moyenne));
-            }
+//
+//            Statement statement = connection.createStatement();
+//            String query = "select MATIERE.LBL_Matiere, MATIERE.Coeff," +
+//                    " concat(PROFESSEUR.Nom, ' ' ,PROFESSEUR.Prenom ) as Nom_Professeur, NOTE.Valeur_Note\n" +
+//                    "from ETUDIANT join groupe on ETUDIANT.groupe# = groupe.id_groupe\n" +
+//                    "join ENSEIGNEMENT on GROUPE.id_groupe = ENSEIGNEMENT.groupe#\n" +
+//                    "join MATIERE on ENSEIGNEMENT.matiere# = MATIERE.id_matiere\n" +
+//                    "join PROFESSEUR on PROFESSEUR.Code_Pro_Nationnal = ENSEIGNEMENT.professeur#\n" +
+//                    "join NOTE on MATIERE.id_matiere = NOTE.matiere#\n" +
+//                    "where ETUDIANT.code_massar = 'H1'";
+//
+//            String queryNotes = "select NOTE.Valeur_Note as notes\n" +
+//                    "from ETUDIANT join groupe on ETUDIANT.groupe# = groupe.id_groupe\n" +
+//                    "join ENSEIGNEMENT on GROUPE.id_groupe = ENSEIGNEMENT.groupe#\n" +
+//                    "join MATIERE on ENSEIGNEMENT.matiere# = MATIERE.id_matiere\n" +
+//                    "join PROFESSEUR on PROFESSEUR.Code_Pro_Nationnal = ENSEIGNEMENT.professeur#\n" +
+//                    "join NOTE on MATIERE.id_matiere = NOTE.matiere#\n" +
+//                    "where ETUDIANT.code_massar = 'H1' ";
+//
+//            Statement statement1 = connection.createStatement();
+//            ResultSet resultSet = statement.executeQuery(query);
+//            ResultSet rs = statement1.executeQuery(queryNotes);
+//            ObservableList<String> data = FXCollections.observableArrayList();
+//            while (resultSet.next() && rs.next()) {
+////                System.out.println("etudiant has rows");
+//
+//                matiereLbl.setText(resultSet.getString(1));
+//                CoeffLbl.setText(String.valueOf(resultSet.getInt(2)));
+//                ProfLbl.setText(resultSet.getString(3));
+//
+//                rs.getRow();
+//                String notes = String.valueOf(rs.getDouble("notes"));
+//                data.add(notes);
+//                Cntrol1.setText(data.get(0));
+//                Cntrol2.setText(data.get(1));
+//                Cntrol3.setText(data.get(2));
+//
+//                Double moyenne = ((Double.valueOf(Cntrol1.getText()) + Double.valueOf(Cntrol2.getText()) + Double.valueOf(Cntrol3.getText())) / 3);
+//                MyenneLbl.setText(String.valueOf(moyenne));
+//            }
 
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -312,60 +312,57 @@ public class Controller implements Initializable {
 
     @FXML
     public void selectedItem(ActionEvent event) {
-        Integer Id_Mat = Integer.valueOf(CB_Matiere.getSelectionModel().getSelectedIndex() + 1);
-        System.out.println(Id_Mat);
-        //todo
+        int id_mat = CB_Matiere.getSelectionModel().getSelectedIndex() + 1;
+        System.out.println(id_mat);
+        Connection connection = gestionnaire_de_connection.getConnection();
         try {
-            Connection connection = gestionnaire_de_connection.getConnection();
-            Statement statement = connection.createStatement();
-            String queryM = "select MATIERE.LBL_Matiere, MATIERE.Coeff," +
-                    " concat(PROFESSEUR.Nom, ' ' ,PROFESSEUR.Prenom ) as Nom_Professeur, NOTE.Valeur_Note\n" +
-                    "from ETUDIANT join groupe on ETUDIANT.groupe# = groupe.id_groupe\n" +
-                    "join ENSEIGNEMENT on GROUPE.id_groupe = ENSEIGNEMENT.groupe#\n" +
-                    "join MATIERE on ENSEIGNEMENT.matiere# = MATIERE.id_matiere\n" +
-                    "join PROFESSEUR on PROFESSEUR.Code_Pro_Nationnal = ENSEIGNEMENT.professeur#\n" +
-                    "join NOTE on MATIERE.id_matiere = NOTE.matiere#\n" +
-                    "where ETUDIANT.code_massar = '" + Gestionnaire_De_Connection.etudiant_connecte + "' and MATIERE.id_matiere = " + Id_Mat;
+            Statement sqlCommand = connection.createStatement();
+            ResultSet dataReader = sqlCommand.executeQuery("select MATIERE.LBL_Matiere as libelleMatiere, MATIERE.Coeff as Coeff," +
+                            " concat(PROFESSEUR.Nom, ' ' ,PROFESSEUR.Prenom ) as Nom_Professeur\n" +
+                            "from ETUDIANT join groupe on ETUDIANT.groupe# = groupe.id_groupe\n" +
+                            "join ENSEIGNEMENT on GROUPE.id_groupe = ENSEIGNEMENT.groupe#\n" +
+                            "join MATIERE on ENSEIGNEMENT.matiere# = MATIERE.id_matiere\n" +
+                            "join PROFESSEUR on PROFESSEUR.Code_Pro_Nationnal = ENSEIGNEMENT.professeur#\n" +
+                            "where ETUDIANT.code_massar = '" + Gestionnaire_De_Connection.etudiant_connecte + "'\n" +
+                            "and MATIERE.id_matiere = " + id_mat);
 
-            String queryNotesN = "select NOTE.Valeur_Note as notes\n" +
-                    "from ETUDIANT join groupe on ETUDIANT.groupe# = groupe.id_groupe\n" +
-                    "join ENSEIGNEMENT on GROUPE.id_groupe = ENSEIGNEMENT.groupe#\n" +
-                    "join MATIERE on ENSEIGNEMENT.matiere# = MATIERE.id_matiere\n" +
-                    "join PROFESSEUR on PROFESSEUR.Code_Pro_Nationnal = ENSEIGNEMENT.professeur#\n" +
-                    "join NOTE on MATIERE.id_matiere = NOTE.matiere#\n" +
-                    "where ETUDIANT.code_massar = ' " + Gestionnaire_De_Connection.etudiant_connecte + "' and MATIERE.id_matiere = " + Id_Mat;
-
-
-            ResultSet resultSet = statement.executeQuery(queryM);
-
-            Statement statementM = connection.createStatement();
-            ResultSet rs = statementM.executeQuery(queryNotesN);
             ObservableList<String> data = FXCollections.observableArrayList();
-            if (resultSet.next() && rs.next()) {
-//                System.out.println("etudiant has rows");
+            Statement statementNotes = connection.createStatement();
+            ResultSet resultSet = statementNotes.executeQuery(" select Valeur_Note from note where etudiant_ = '" + Gestionnaire_De_Connection.etudiant_connecte + "' and matiere# = " +  id_mat);
 
-                matiereLbl.setText(resultSet.getString(1));
-                CoeffLbl.setText(String.valueOf(resultSet.getInt(2)));
-                ProfLbl.setText(resultSet.getString(3));
+            while (dataReader.next() && resultSet.next()) {
+                String LBLMAtiere = dataReader.getString("libelleMatiere");
+                String Coeff = dataReader.getString("Coeff");
+                String Nom_Professeur = dataReader.getString("Nom_Professeur");
 
-                rs.getRow();
-                String notes = String.valueOf(rs.getDouble("notes"));
-                data.add(notes);
-                Cntrol1.setText(data.get(0));
-                Cntrol2.setText(data.get(1));
-                Cntrol3.setText(data.get(2));
+                matiereLbl.setText(LBLMAtiere);
+                CoeffLbl.setText(Coeff);
+                ProfLbl.setText(Nom_Professeur);
 
-                Double moyenne = ((Double.valueOf(Cntrol1.getText()) + Double.valueOf(Cntrol2.getText()) + Double.valueOf(Cntrol3.getText())) / 3);
-                MyenneLbl.setText(String.valueOf(moyenne));
-            } else {
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Informations Notes");
-                alert.setContentText("La matière selectionnée ne contient aucune information !! ");
-                Id_Mat = 1;
+                resultSet.getRow();
+                String note = String.valueOf(resultSet.getDouble("Valeur_Note"));
+                data.add(note);
+                System.out.println(note);
             }
+            if(!resultSet.next() && !dataReader.next()) {
+                matiereLbl.setText("");
+                CoeffLbl.setText("");
+                ProfLbl.setText("");
 
-        } catch (SQLException ex) {
-            ex.printStackTrace();
+                Cntrol1.setText("");
+                Cntrol2.setText("");
+                Cntrol3.setText("");
+                MyenneLbl.setText("");
+            }
+            Cntrol1.setText(data.get(0));
+            Cntrol2.setText(data.get(1));
+            Cntrol3.setText(data.get(2));
+
+            Double moyenne = ((Double.valueOf(Cntrol1.getText()) + Double.valueOf(Cntrol2.getText()) + Double.valueOf(Cntrol3.getText())) / 3);
+            MyenneLbl.setText(String.valueOf(moyenne));
+
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 
