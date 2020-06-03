@@ -315,22 +315,38 @@ public class Controller implements Initializable {
         Connection connection = gestionnaire_de_connection.getConnection();
         try {
             Statement sqlCommand = connection.createStatement();
-            ResultSet dataReader = sqlCommand.executeQuery
-                    (
-                            String.format
-                                    (
-                                            "select n.Valeur_Note, ma.LBL_Matiere, ma.Coeff\n" +
-                                                    "from note n inner join matiere ma on n.matiere# = ma.id_matiere \n" +
-                                                    "where n.etudiant_= '%s'\n" +
-                                                    "  and ma.id_matiere = %d",
-                                            gestionnaire_de_connection.etudiant_connecte,
-                                            id_mat
-                                    )
-                    );
+            ResultSet dataReader = sqlCommand.executeQuery("select MATIERE.LBL_Matiere as libelleMatiere, MATIERE.Coeff as Coeff," +
+                    " concat(PROFESSEUR.Nom, ' ' ,PROFESSEUR.Prenom ) as Nom_Professeur\n" +
+                    "from ETUDIANT join groupe on ETUDIANT.groupe# = groupe.id_groupe\n" +
+                    "join ENSEIGNEMENT on GROUPE.id_groupe = ENSEIGNEMENT.groupe#\n" +
+                    "join MATIERE on ENSEIGNEMENT.matiere# = MATIERE.id_matiere\n" +
+                    "join PROFESSEUR on PROFESSEUR.Code_Pro_Nationnal = ENSEIGNEMENT.professeur#\n" +
+                    "where ETUDIANT.code_massar = '" + Gestionnaire_De_Connection.etudiant_connecte + "'\n" +
+                    "and MATIERE.id_matiere = " + id_mat);
+
+            ObservableList<String> data = FXCollections.observableArrayList();
+            Statement statementNotes = connection.createStatement();
+            ResultSet resultSet = statementNotes.executeQuery(" select Valeur_Note from note where etudiant_ = '" + Gestionnaire_De_Connection.etudiant_connecte + "' and matiere# = " +  id_mat);
+
             if (dataReader.next()) {
-                matiereLbl.setText(dataReader.getString("LBL_Matiere"));
-                CoeffLbl.setText(dataReader.getString("Coeff"));
-                Cntrol1.setText(dataReader.getString("Valeur_Note"));
+                String LBLMAtiere = dataReader.getString("libelleMatiere");
+                String Coeff = dataReader.getString("Coeff");
+                String Nom_Professeur = dataReader.getString("Nom_Professeur");
+
+                matiereLbl.setText(LBLMAtiere);
+                CoeffLbl.setText(Coeff);
+                ProfLbl.setText(Nom_Professeur);
+
+            }
+            else{
+                matiereLbl.setText("");
+                CoeffLbl.setText("");
+                ProfLbl.setText("");
+
+                Cntrol1.setText("");
+                Cntrol2.setText("");
+                Cntrol3.setText("");
+                MyenneLbl.setText("");
             }
             while(resultSet.next()){
 //                resultSet.getRow();
@@ -344,25 +360,7 @@ public class Controller implements Initializable {
             Double moyenne = ((Double.valueOf(Cntrol1.getText()) + Double.valueOf(Cntrol2.getText()) + Double.valueOf(Cntrol3.getText())) / 3);
             MyenneLbl.setText(String.valueOf(moyenne));
 
-            if (dataReader.next())
-                Cntrol3.setText(dataReader.getString("Valeur_Note"));
 
-            MyenneLbl.setText
-                    (
-                            this.Calculer_moyenne
-                                    (
-                                            Double.valueOf(Cntrol1.getText()),
-                                            Double.valueOf(Cntrol2.getText()),
-                                            Double.valueOf(Cntrol3.getText())
-                                    )
-                    );
-            sqlCommand = connection.createStatement();
-            dataReader = sqlCommand.executeQuery("select CONCAT(prof.Nom , ' ' , prof.Prenom) as nomProf\n" +
-                    "from PROFESSEUR prof inner join ENSEIGNEMENT en on prof.Code_Pro_Nationnal = en.professeur#\n" +
-                    "\t\t\t\t\t inner join MATIERE ma on ma.id_matiere = en.matiere#\n" +
-                    "where ma.id_matiere = " + id_mat);
-            dataReader.next();
-            ProfLbl.setText(dataReader.getString("nomProf"));
         } catch (SQLException e) {
             e.printStackTrace();
         }
