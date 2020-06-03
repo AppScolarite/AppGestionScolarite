@@ -34,6 +34,9 @@ import java.util.Date;
 public class Controller implements Initializable {
 
     @FXML
+    public VBox VboxMenu;
+
+    @FXML
     private AnchorPane anchorPane;
     Stage stage;
 
@@ -67,6 +70,8 @@ public class Controller implements Initializable {
 
     //************* Panels ********************************
 
+    @FXML
+    private Pane panelAccueil;
 
     @FXML
     private Pane panelNotes;
@@ -366,59 +371,9 @@ public class Controller implements Initializable {
 
     @FXML
     public void statistiquePersonnel_Click(ActionEvent event) {
-        try {
-            int nbrFemme, nbrHomme;
-            nbrFemme = nbrHomme = 0;
-
-            Connection sqlConnection = gestionnaire_de_connection.getConnection();
-            Statement sqlCommand = sqlConnection.createStatement();
-            ResultSet dataReader = sqlCommand.executeQuery("select count(*) as nbrHomme\n" +
-                    "from etudiant \n" +
-                    "where sexe = 'Homme'");
-            if (dataReader.next())
-                nbrHomme = dataReader.getInt("nbrHomme");
-
-            sqlCommand = sqlConnection.createStatement();
-            dataReader = sqlCommand.executeQuery("select count(*) as nbrFemme\n" +
-                    "from etudiant etd \n" +
-                    "where etd.sexe = 'Femme'");
-            if (dataReader.next())
-                nbrFemme = dataReader.getInt("nbrFemme");
-            ObservableList<PieChart.Data> pieChartDataP = FXCollections.observableArrayList(
-                    new PieChart.Data("Femme", nbrFemme),
-                    new PieChart.Data("Homme", nbrHomme));
-            pieChartPersonnel.setData(pieChartDataP);
-//            this.ChangerCouleur(
-//                    pieChartDataP,
-//                    "#CB5ABD", "#0000FF"
-//            );
-            pieChartPersonnel.setTitle("Divirsité des genres");
-            pieChartPersonnel.setClockwise(true);
-            pieChartPersonnel.setLabelsVisible(true);
-            pieChartPersonnel.setLabelLineLength(50);
-            pieChartPersonnel.setStartAngle(180);
-
-            sqlCommand = sqlConnection.createStatement();
-            dataReader = sqlCommand.executeQuery("select grp.libelle_grp as Groupe , count(etd.code_massar) as nbrEffectif\n" +
-                    "from etudiant etd inner join groupe grp on etd.groupe# = grp.id_groupe\n" +
-                    "group by grp.libelle_grp");
-            String nomGroupe;
-            int nbrEffectif;
-            while (dataReader.next()) {
-                nomGroupe = dataReader.getString("Groupe");
-                nbrEffectif = dataReader.getInt("nbrEffectif");
-                XYChart.Series<String, Number> serie = new XYChart.Series<>();
-                serie.setName(nomGroupe);
-                serie.getData().add(new XYChart.Data<>("", nbrEffectif));
-                barChartPersonnel.getData().add(serie);
-            }
-
-            panelStatistiquesPersonnel.toFront();
-            btnClose.toFront();
-            btnMinimize.toFront();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        panelStatistiquesPersonnel.toFront();
+        btnClose.toFront();
+        btnMinimize.toFront();
     }
 
     @FXML
@@ -542,6 +497,73 @@ public class Controller implements Initializable {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    private void statistiquesPersonnel_Load() {
+        try {
+            int nbrFemme, nbrHomme;
+            nbrFemme = nbrHomme = 0;
+
+            Connection sqlConnection = gestionnaire_de_connection.getConnection();
+            Statement sqlCommand = sqlConnection.createStatement();
+            ResultSet dataReader = sqlCommand.executeQuery("select count(*) as nbrHomme\n" +
+                    "from etudiant \n" +
+                    "where sexe = 'Homme'");
+            if (dataReader.next())
+                nbrHomme = dataReader.getInt("nbrHomme");
+
+            sqlCommand = sqlConnection.createStatement();
+            dataReader = sqlCommand.executeQuery("select count(*) as nbrFemme\n" +
+                    "from etudiant etd \n" +
+                    "where etd.sexe = 'Femme'");
+            if (dataReader.next())
+                nbrFemme = dataReader.getInt("nbrFemme");
+            ObservableList<PieChart.Data> pieChartDataP = FXCollections.observableArrayList(
+                    new PieChart.Data("Femme", nbrFemme),
+                    new PieChart.Data("Homme", nbrHomme));
+            pieChartPersonnel.setData(pieChartDataP);
+            pieChartPersonnel.setTitle("Divérsité des genres");
+            pieChartPersonnel.setClockwise(true);
+            pieChartPersonnel.setLabelsVisible(true);
+            pieChartPersonnel.setLabelLineLength(50);
+            pieChartPersonnel.setStartAngle(180);
+
+            sqlCommand = sqlConnection.createStatement();
+            dataReader = sqlCommand.executeQuery("select grp.libelle_grp as Groupe , count(etd.code_massar) as nbrEffectif\n" +
+                    "from etudiant etd inner join groupe grp on etd.groupe# = grp.id_groupe\n" +
+                    "group by grp.libelle_grp");
+            String nomGroupe;
+            int nbrEffectif;
+            while (dataReader.next()) {
+                nomGroupe = dataReader.getString("Groupe");
+                nbrEffectif = dataReader.getInt("nbrEffectif");
+                XYChart.Series<String, Number> serie = new XYChart.Series<>();
+                serie.setName(nomGroupe);
+                serie.getData().add(new XYChart.Data<>("", nbrEffectif));
+                barChartPersonnel.getData().add(serie);
+            }
+            //*********** Dummy data (pour test & prototypage)
+            XYChart.Series<String, Number> serie = new XYChart.Series<>();
+            serie.setName("com 1");
+            serie.getData().add(new XYChart.Data<>("", 5));
+            barChartPersonnel.getData().add(serie);
+
+            serie = new XYChart.Series<>();
+            serie.setName("mtd 4");
+            serie.getData().add(new XYChart.Data<>("", 8));
+            barChartPersonnel.getData().add(serie);
+
+            //************************************************
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void btnAccueil_click() {
+        panelAccueil.toFront();
+        btnClose.toFront();
+        btnMinimize.toFront();
     }
 
     private void FillData() {
@@ -778,26 +800,30 @@ public class Controller implements Initializable {
         PanelGestionEtudiant_Load();
         statistiqueEtudiant_Load();
         PanelGestionNotes_Load();
+        statistiquesPersonnel_Load();
         panelNotes.toFront();
         //btnNotes_click();
         if (Gestionnaire_De_Connection.etudiant_connecte != null) {
+            VboxMenu.getChildren().remove(btnListes);
+            VboxMenu.getChildren().remove(btnStatistiques);
+            VboxMenu.getChildren().remove(btnGestion);
             btnStatistiquesetudiant.setVisible(true);
             btnNotes.setVisible(true);
-            panelNotes.toFront();
         } else if (Gestionnaire_De_Connection.prof_connecte != null) {
             btnListes.setVisible(true);
             panelNotesProf.toFront();
         } else {
+            VboxMenu.getChildren().remove(btnListes);
             btnGestion.setVisible(true);
             btnStatistiques.setVisible(true);
-            panelEtudiant.toFront();
         }
+        btnAccueil_click();
 
         //todo : just testing
-        System.out.println(Gestionnaire_De_Connection.etudiant_connecte);
-        System.out.println(Gestionnaire_De_Connection.personnel_connecte);
-        System.out.println(Gestionnaire_De_Connection.prof_connecte);
-        System.out.println(Gestionnaire_De_Connection.nom_connecte);
+//        System.out.println(Gestionnaire_De_Connection.etudiant_connecte);
+//        System.out.println(Gestionnaire_De_Connection.personnel_connecte);
+//        System.out.println(Gestionnaire_De_Connection.prof_connecte);
+//        System.out.println(Gestionnaire_De_Connection.nom_connecte);
 
         //todo : ne pas supprimer ce code hhhh
         //connection avec BD (MSSQL JDBC)
