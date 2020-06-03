@@ -249,7 +249,6 @@ public class Controller implements Initializable {
             ResultSet rss = stmMatiere.executeQuery("select * from matiere");
             ObservableList mat = FXCollections.observableArrayList();
             while (rss.next()) {
-                rss.getRow();
                 String matieres = rss.getString(2);
                 mat.add(matieres);
             }
@@ -313,7 +312,6 @@ public class Controller implements Initializable {
     @FXML
     public void selectedItem(ActionEvent event) {
         int id_mat = CB_Matiere.getSelectionModel().getSelectedIndex() + 1;
-        System.out.println(id_mat);
         Connection connection = gestionnaire_de_connection.getConnection();
         try {
             Statement sqlCommand = connection.createStatement();
@@ -360,8 +358,6 @@ public class Controller implements Initializable {
             Cntrol2.setText(data.get(1));
             Cntrol3.setText(data.get(2));
 
-            Double moyenne = ((Double.valueOf(Cntrol1.getText()) + Double.valueOf(Cntrol2.getText()) + Double.valueOf(Cntrol3.getText())) / 3);
-            MyenneLbl.setText(String.valueOf(moyenne));
 
         } catch (SQLException e) {
             e.printStackTrace();
