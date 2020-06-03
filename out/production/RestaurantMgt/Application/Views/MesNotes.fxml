@@ -1,38 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.chart.BarChart?>
-<?import javafx.scene.chart.CategoryAxis?>
-<?import javafx.scene.chart.NumberAxis?>
-<?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="676.0" prefWidth="1200.0" style="-fx-background-color: blue;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.Controllers.Controller">
 
-    <Pane fx:id="panelStatistiques" layoutX="289.0" layoutY="-4.0" prefHeight="680.0" prefWidth="922.0" style="-fx-background-color: WHITE;">
+    <Pane fx:id="panelNotes" layoutX="289.0" layoutY="-4.0" prefHeight="684.0" prefWidth="922.0" style="-fx-background-color: white;">
         <children>
-            <PieChart fx:id="pieChart" layoutX="508.0" layoutY="357.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="304.0" prefWidth="341.0" />
-            <BarChart fx:id="barChart" layoutX="440.0" layoutY="55.0" prefHeight="317.0" prefWidth="435.0">
-                <xAxis>
-                    <CategoryAxis side="BOTTOM" />
-                </xAxis>
-                <yAxis>
-                    <NumberAxis side="LEFT" />
-                </yAxis>
-            </BarChart>                <TableView layoutX="23.0" layoutY="106.0" prefHeight="545.0" prefWidth="365.0">
-            <columns>
-                <TableColumn prefWidth="189.0" text="Nom" />
-                <TableColumn prefWidth="88.0" text="Moyenne" />
-                <TableColumn prefWidth="87.0" text="Classement" />
-            </columns>
-        </TableView>
-            <Label layoutX="220.0" layoutY="14.0" prefHeight="34.0" prefWidth="124.0" text="Statistiques">
+            <Label layoutX="380.0" layoutY="28.0" text="Mes Notes" textFill="#6f6f6f">
                 <font>
-                    <Font size="22.0" />
+                    <Font size="29.0" />
+                </font>
+            </Label>
+            <ComboBox fx:id="CB_Matiere" layoutX="323.0" layoutY="97.0" onAction="#selectedItem" prefHeight="37.0" prefWidth="266.0" promptText="Matières" />
+            <Label layoutX="93.0" layoutY="234.0" prefHeight="27.0" prefWidth="86.0" style="-fx-font-weight: bold;" text="Matière" textFill="#2c2c2c">
+                <font>
+                    <Font size="18.0" />
+                </font>
+            </Label>
+            <Label layoutX="93.0" layoutY="299.0" prefHeight="27.0" prefWidth="111.0" style="-fx-font-weight: bold;" text="Coefficiant" textFill="#2c2c2c">
+                <font>
+                    <Font size="18.0" />
+                </font>
+            </Label>
+            <Label layoutX="93.0" layoutY="373.0" prefHeight="27.0" prefWidth="86.0" style="-fx-font-weight: bold;" text="Chez " textFill="#2c2c2c">
+                <font>
+                    <Font size="18.0" />
+                </font>
+            </Label>
+            <Label layoutX="559.0" layoutY="230.0" prefHeight="27.0" prefWidth="95.0" style="-fx-font-weight: bold;" text="Controle1" textFill="#2c2c2c">
+                <font>
+                    <Font size="18.0" />
+                </font>
+            </Label>
+            <Label layoutX="559.0" layoutY="295.0" prefHeight="27.0" prefWidth="111.0" style="-fx-font-weight: bold;" text="Controle 2" textFill="#2c2c2c">
+                <font>
+                    <Font size="18.0" />
+                </font>
+            </Label>
+            <Label layoutX="559.0" layoutY="369.0" prefHeight="27.0" prefWidth="111.0" style="-fx-font-weight: bold;" text="Controle 3" textFill="#2c2c2c">
+                <font>
+                    <Font size="18.0" />
+                </font>
+            </Label>
+            <Label fx:id="matiereLbl" layoutX="241.0" layoutY="232.0" prefHeight="27.0" prefWidth="228.0" textFill="#6f6f6f">
+                <font>
+                    <Font size="18.0" />
+                </font>
+            </Label>
+            <Label fx:id="CoeffLbl" layoutX="241.0" layoutY="297.0" prefHeight="27.0" prefWidth="86.0" textFill="#6f6f6f">
+                <font>
+                    <Font size="18.0" />
+                </font>
+            </Label>
+            <Label fx:id="ProfLbl" layoutX="241.0" layoutY="371.0" prefHeight="27.0" prefWidth="228.0" textFill="#6f6f6f">
+                <font>
+                    <Font size="18.0" />
+                </font>
+            </Label>
+            <Label fx:id="Cntrol1" layoutX="707.0" layoutY="228.0" prefHeight="27.0" prefWidth="86.0" textFill="#6f6f6f">
+                <font>
+                    <Font size="18.0" />
+                </font>
+            </Label>
+            <Label fx:id="Cntrol2" layoutX="707.0" layoutY="293.0" prefHeight="27.0" prefWidth="86.0" textFill="#6f6f6f">
+                <font>
+                    <Font size="18.0" />
+                </font>
+            </Label>
+            <Label fx:id="Cntrol3" layoutX="707.0" layoutY="367.0" prefHeight="27.0" prefWidth="86.0" textFill="#6f6f6f">
+                <font>
+                    <Font size="18.0" />
+                </font>
+            </Label>
+            <Label layoutX="361.0" layoutY="447.0" style="-fx-font-weight: bold bolboldd;" text="Moyenne Générale">
+                <font>
+                    <Font size="21.0" />
+                </font>
+            </Label>
+            <Label fx:id="MyenneLbl" alignment="CENTER" layoutX="413.0" layoutY="489.0" prefHeight="27.0" prefWidth="86.0" textAlignment="CENTER" textFill="#6f6f6f">
+                <font>
+                    <Font size="18.0" />
                 </font>
             </Label>
         </children>
