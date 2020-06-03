@@ -330,7 +330,7 @@ public class Controller implements Initializable {
             Statement statementNotes = connection.createStatement();
             ResultSet resultSet = statementNotes.executeQuery(" select Valeur_Note from note where etudiant_ = '" + Gestionnaire_De_Connection.etudiant_connecte + "' and matiere# = " +  id_mat);
 
-            while (dataReader.next() && resultSet.next()) {
+            if (dataReader.next()) {
                 String LBLMAtiere = dataReader.getString("libelleMatiere");
                 String Coeff = dataReader.getString("Coeff");
                 String Nom_Professeur = dataReader.getString("Nom_Professeur");
@@ -339,12 +339,8 @@ public class Controller implements Initializable {
                 CoeffLbl.setText(Coeff);
                 ProfLbl.setText(Nom_Professeur);
 
-                resultSet.getRow();
-                String note = String.valueOf(resultSet.getDouble("Valeur_Note"));
-                data.add(note);
-                System.out.println(note);
             }
-            if(!resultSet.next() && !dataReader.next()) {
+            else{
                 matiereLbl.setText("");
                 CoeffLbl.setText("");
                 ProfLbl.setText("");
@@ -353,6 +349,12 @@ public class Controller implements Initializable {
                 Cntrol2.setText("");
                 Cntrol3.setText("");
                 MyenneLbl.setText("");
+            }
+            while(resultSet.next()){
+//                resultSet.getRow();
+                String note = String.valueOf(resultSet.getDouble("Valeur_Note"));
+                data.add(note);
+                System.out.println(note);
             }
             Cntrol1.setText(data.get(0));
             Cntrol2.setText(data.get(1));
