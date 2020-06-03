@@ -327,17 +327,17 @@ public class Controller implements Initializable {
                                             id_mat
                                     )
                     );
-            dataReader.next();
-            matiereLbl.setText(dataReader.getString("LBL_Matiere"));
-            CoeffLbl.setText(dataReader.getString("Coeff"));
+            if (dataReader.next()) {
+                matiereLbl.setText(dataReader.getString("LBL_Matiere"));
+                CoeffLbl.setText(dataReader.getString("Coeff"));
+                Cntrol1.setText(dataReader.getString("Valeur_Note"));
+            }
 
-            Cntrol1.setText(dataReader.getString("Valeur_Note"));
+            if (dataReader.next())
+                Cntrol2.setText(dataReader.getString("Valeur_Note"));
 
-            dataReader.next();
-            Cntrol2.setText(dataReader.getString("Valeur_Note"));
-
-            dataReader.next();
-            Cntrol3.setText(dataReader.getString("Valeur_Note"));
+            if (dataReader.next())
+                Cntrol3.setText(dataReader.getString("Valeur_Note"));
 
             MyenneLbl.setText
                     (
@@ -348,29 +348,13 @@ public class Controller implements Initializable {
                                             Double.valueOf(Cntrol3.getText())
                                     )
                     );
-
-//            while (dataReader.next() && resultSet.next()) {
-//                String LBLMAtiere = dataReader.getString("libelleMatiere");
-//                String Coeff = dataReader.getString("Coeff");
-//                String Nom_Professeur = dataReader.getString("Nom_Professeur");
-//
-//
-//
-//                String note = String.valueOf(resultSet.getDouble("Valeur_Note"));
-//                data.add(note);
-//                System.out.println(note);
-//            }
-//
-//
-//            }
-//            Cntrol1.setText(data.get(0));
-//            Cntrol2.setText(data.get(1));
-//            Cntrol3.setText(data.get(2));
-//
-//            Double moyenne = ((Double.valueOf(Cntrol1.getText()) + Double.valueOf(Cntrol2.getText()) + Double.valueOf(Cntrol3.getText())) / 3);
-//            MyenneLbl.setText(String.valueOf(moyenne));
-
-
+            sqlCommand = connection.createStatement();
+            dataReader = sqlCommand.executeQuery("select CONCAT(prof.Nom , ' ' , prof.Prenom) as nomProf\n" +
+                    "from PROFESSEUR prof inner join ENSEIGNEMENT en on prof.Code_Pro_Nationnal = en.professeur#\n" +
+                    "\t\t\t\t\t inner join MATIERE ma on ma.id_matiere = en.matiere#\n" +
+                    "where ma.id_matiere = " + id_mat);
+            dataReader.next();
+            ProfLbl.setText(dataReader.getString("nomProf"));
         } catch (SQLException e) {
             e.printStackTrace();
         }

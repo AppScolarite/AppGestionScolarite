@@ -189,16 +189,18 @@ INSERT [dbo].[ETUDIANT] ([code_massar], [nom], [prenom], [date_naissance], [date
 INSERT [dbo].[ETUDIANT] ([code_massar], [nom], [prenom], [date_naissance], [date_inscription], [email], [telephone], [a_deja_redouble], [sexe], [adresse], [groupe#], [username], [mot_de_passe]) VALUES (N'H9971', N'Lina', N'Nhari', CAST(N'1996-06-09' AS Date), CAST(N'2020-06-01' AS Date), N'Lina@gmail.com', N'0598721634', 1, N'Femme', N'adresse7', 1, N'Lina', N'Lina123')
 
 INSERT [dbo].[PROFESSEUR] ([Code_Pro_Nationnal], [Cin], [Nom], [Prenom], [Date_Naissance], [Date_Commencement_Contrat], [Type_Contrat], [Email], [Telephone], [sexe], [Adresse], [Situation_Familliale], [username], [mot_de_passe]) VALUES (N'P1', N'F123', N'Ziane', N'Mohammed', CAST(N'1995-01-01' AS Date), CAST(N'2020-02-28' AS Date), N'CDI', N'ziane@gmail.com', N'0606060606', N'Homme', N'adresse1', N'Celibataire', N'ziane', N'ziane123')
+INSERT [dbo].[PROFESSEUR] ([Code_Pro_Nationnal], [Cin], [Nom], [Prenom], [Date_Naissance], [Date_Commencement_Contrat], [Type_Contrat], [Email], [Telephone], [sexe], [Adresse], [Situation_Familliale], [username], [mot_de_passe]) VALUES (N'P2', N'F198', N'Ihsan', N'Elsah', CAST(N'1995-01-01' AS Date), CAST(N'2020-02-28' AS Date), N'CDI', N'Ihsane@gmail.com', N'068745219', N'Femme', N'adresse2', N'Celibataire', N'Ihsane', N'Ihsane123')
 
 SET IDENTITY_INSERT [dbo].[MATIERE] ON 
 GO
 INSERT [dbo].[MATIERE] ([id_matiere], [LBL_Matiere], [Date_Ajout], [Coeff]) VALUES (1, N'Français', CAST(N'2020-05-28' AS Date), 5)
 GO
-INSERT [dbo].[MATIERE] ([id_matiere], [LBL_Matiere], [Date_Ajout], [Coeff]) VALUES (2, N'Asp.Net', CAST(N'2020-05-28' AS Date), 5)
+INSERT [dbo].[MATIERE] ([id_matiere], [LBL_Matiere], [Date_Ajout], [Coeff]) VALUES (2, N'Asp.Net', CAST(N'2020-05-28' AS Date), 9)
 GO
 SET IDENTITY_INSERT [dbo].[MATIERE] OFF
 
 INSERT [dbo].[ENSEIGNEMENT] ([professeur#], [groupe#], [matiere#]) VALUES (N'P1', 1, 1)
+INSERT [dbo].[ENSEIGNEMENT] ([professeur#], [groupe#], [matiere#]) VALUES (N'P2', 1, 2)
 
 INSERT [dbo].[NOTE] ([matiere#], [Valeur_Note], [etudiant_]) VALUES (1, 15, N'H1197')
 INSERT [dbo].[NOTE] ([matiere#], [Valeur_Note], [etudiant_]) VALUES (1, 9, N'H1197')
