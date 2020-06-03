@@ -25,7 +25,7 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="676.0" prefWidth="1212.0" style="-fx-background-color: blue;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.Controllers.Controller">
 <!-- <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="676.0" prefWidth="1212.0" style="-fx-background-color: blue;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.Controllers.Controller"> -->
     <children>
-        <VBox alignment="TOP_CENTER" prefHeight="676.0" prefWidth="290.0" style="-fx-background-color: blue;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <VBox fx:id="VboxMenu" alignment="TOP_CENTER" prefHeight="676.0" prefWidth="290.0" style="-fx-background-color: blue;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
                 <ImageView fx:id="imgUser" fitHeight="73.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -43,7 +43,7 @@
                         <Font name="Cambria Bold Italic" size="14.0" />
                     </font>
                 </Label>
-                <Button fx:id="btnAccueil" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="297.0" stylesheets="@../../resources/Styles/style.css" text="Accueil" visible="false">
+                <Button fx:id="btnAccueil" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="60.0" onAction="#btnAccueil_click" prefWidth="297.0" stylesheets="@../../resources/Styles/style.css" text="Accueil" visible="true">
                     <graphic>
                         <ImageView fitHeight="40.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -170,6 +170,237 @@
                 </ImageView>
             </graphic>
         </Button>
+        <Pane fx:id="panelStatistiques" layoutX="289.0" layoutY="-4.0" prefHeight="680.0" prefWidth="922.0" style="-fx-background-color: WHITE;">
+            <children>
+                <PieChart fx:id="pieChartEtudiant" layoutX="468.0" layoutY="308.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="353.0" prefWidth="435.0" />
+                <BarChart fx:id="barchartEtudiant" layoutX="440.0" layoutY="55.0" prefHeight="304.0" prefWidth="435.0">
+                    <xAxis>
+                        <CategoryAxis side="BOTTOM" />
+                    </xAxis>
+                    <yAxis>
+                        <NumberAxis side="LEFT" />
+                    </yAxis>
+                </BarChart>
+                <TableView fx:id="tblViewCLassement" layoutX="23.0" layoutY="106.0" prefHeight="545.0" prefWidth="365.0">
+                    <columns>
+                        <TableColumn prefWidth="165.60000610351562" text="Les étudiants">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="nom_complet_etudiant" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn prefWidth="93.5999755859375" text="Moyenne">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="moyenne_generale" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn prefWidth="104.20001220703125" text="Classement">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="classement" />
+                            </cellValueFactory>
+                        </TableColumn>
+                    </columns>
+
+
+                </TableView>
+                <Label layoutX="220.0" layoutY="14.0" prefHeight="34.0" prefWidth="124.0" text="Statistiques">
+                    <font>
+                        <Font size="22.0" />
+                    </font>
+                </Label>
+            </children>
+        </Pane>
+        <Pane fx:id="panelNotesProf" layoutX="289.0" layoutY="-4.0" prefHeight="684.0" prefWidth="922.0" style="-fx-background-color: white;">
+            <children>
+                <Label layoutX="329.0" layoutY="30.0" text="Gestion des notes" textFill="#6f6f6f" underline="true">
+                    <font>
+                        <Font name="Russo One" size="29.0" />
+                    </font>
+                </Label>
+                <TableView fx:id="tableView_GestionNotes" editable="true" layoutX="22.0" layoutY="161.0" prefHeight="509.0" prefWidth="881.0">
+                    <columns>
+                        <TableColumn fx:id="col_codeMassar" editable="false" prefWidth="152.79998779296875" resizable="false" text="Code Massar">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="code_massar" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn fx:id="col_nomComplet" editable="false" prefWidth="159.19998168945312" resizable="false" text="Nom Complet">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="nom_complet" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn fx:id="col_cntrl1" minWidth="5.60003662109375" prefWidth="111.20001220703125" resizable="false" text="Controle 1">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="control_1" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn fx:id="col_cntrl2" prefWidth="128.40008544921875" resizable="false" text="Controle 2">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="control_2" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn fx:id="col_cntrl3" prefWidth="128.7999267578125" resizable="false" text="Controle 3">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="control_3" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn fx:id="col_moyenne" editable="false" prefWidth="261.60009765625" resizable="false" text="Moyenne">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="moyenne" />
+                            </cellValueFactory>
+                        </TableColumn>
+                    </columns>
+                    <effect>
+                        <DropShadow />
+                    </effect>
+                </TableView>
+                <ComboBox fx:id="CB_grp_gestionNotes" layoutX="371.0" layoutY="103.0" onAction="#CB_grp_gestionNotes_selected" prefHeight="30.0" prefWidth="180.0" promptText="Groupes">
+                    <effect>
+                        <DropShadow />
+                    </effect>
+                </ComboBox>
+            </children>
+        </Pane>
+        <Pane fx:id="panelStatistiquesPersonnel" layoutX="289.0" layoutY="-4.0" prefHeight="680.0" prefWidth="922.0" style="-fx-background-color: WHITE;">
+            <children>
+                <PieChart fx:id="pieChartPersonnel" layoutX="479.0" layoutY="61.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="326.0" prefWidth="423.0" />
+                <BarChart fx:id="barChartPersonnel" layoutX="27.0" layoutY="95.0" prefHeight="317.0" prefWidth="435.0">
+                    <xAxis>
+                        <CategoryAxis side="BOTTOM" />
+                    </xAxis>
+                    <yAxis>
+                        <NumberAxis side="LEFT" />
+                    </yAxis>
+                </BarChart>
+                <Label layoutX="389.0" layoutY="14.0" prefHeight="37.0" prefWidth="194.0" text="Statistiques" textFill="#6f6f6f" underline="true">
+                    <font>
+                        <Font name="Russo One" size="29.0" />
+                    </font>
+                </Label>
+                <Label layoutX="47.0" layoutY="474.0" text="Nombre total des étudians :" textFill="#464646">
+                    <font>
+                        <Font name="System Italic" size="18.0" />
+                    </font>
+                </Label>
+                <Label layoutX="280.0" layoutY="476.0" text="23" underline="true">
+                    <font>
+                        <Font name="Montserrat-Regular" size="18.0" />
+                    </font>
+                </Label>
+                <Label layoutX="26.0" layoutY="517.0" text="Nombre total des professeurs :" textFill="#464646">
+                    <font>
+                        <Font name="System Italic" size="18.0" />
+                    </font>
+                </Label>
+                <Label layoutX="285.0" layoutY="519.0" text="6" underline="true">
+                    <font>
+                        <Font name="Montserrat-Regular" size="18.0" />
+                    </font>
+                </Label>
+                <Label layoutX="49.0" layoutY="560.0" text="Nombre total des groupes :" textFill="#464646">
+                    <font>
+                        <Font name="System Italic" size="18.0" />
+                    </font>
+                </Label>
+                <Label layoutX="287.0" layoutY="562.0" text="4" underline="true">
+                    <font>
+                        <Font name="Montserrat-Regular" size="18.0" />
+                    </font>
+                </Label>
+                <Label layoutX="496.0" layoutY="476.0" text="étudiants ayant leurs notes :" textFill="#464646">
+                    <font>
+                        <Font name="System Italic" size="18.0" />
+                    </font>
+                </Label>
+                <Label layoutX="728.0" layoutY="476.0" text="14" underline="true">
+                    <font>
+                        <Font name="Montserrat-Regular" size="18.0" />
+                    </font>
+                </Label>
+                <Label layoutX="451.0" layoutY="521.0" text="étudiants n'ayant pas leurs notes :" textFill="#464646">
+                    <font>
+                        <Font name="System Italic" size="18.0" />
+                    </font>
+                </Label>
+                <Label layoutX="736.0" layoutY="521.0" text="9" underline="true">
+                    <font>
+                        <Font name="Montserrat-Regular" size="18.0" />
+                    </font>
+                </Label>
+            </children>
+        </Pane>
+        <Pane fx:id="panelEtudiant" layoutX="289.0" layoutY="-4.0" prefHeight="684.0" prefWidth="922.0" style="-fx-background-color: #F0FFFF;">
+            <children>
+                <Label layoutX="307.0" layoutY="26.0" text="Gestion des étudians" textAlignment="CENTER" textFill="#6f6f6f" underline="true">
+                    <font>
+                        <Font name="Russo One" size="29.0" />
+                    </font>
+                </Label>
+                <TableView fx:id="tableView_GestionEtudiant" editable="true" layoutX="22.0" layoutY="161.0" prefHeight="509.0" prefWidth="881.0">
+                    <columns>
+                        <TableColumn editable="false" prefWidth="90.0" text="Code Massar">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="code_massar" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn fx:id="col_prenom" prefWidth="90.0" text="Prénom">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="prenom" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn fx:id="col_nom" prefWidth="96.00003051757812" text="Nom">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="nom" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn fx:id="col_date" prefWidth="127.199951171875" text="Date Inscription">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="date_inscription" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn fx:id="col_mail" prefWidth="143.199951171875" text="Email">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="email" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn fx:id="col_tlph" prefWidth="112.0" text="Telephone">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="telephone" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn fx:id="col_doublant" prefWidth="65.59991455078125" text="Doublant">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="a_deja_redouble" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn fx:id="col_adrs" prefWidth="151.2000732421875" text="Adresse">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="adresse" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn fx:id="col_sexe" prefWidth="99.9998779296875" text="Sexe">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="sexe" />
+                            </cellValueFactory>
+                        </TableColumn>
+                    </columns>
+                    <effect>
+                        <DropShadow />
+                    </effect>
+                    <contextMenu>
+                        <ContextMenu>
+                            <items>
+                                <MenuItem fx:id="supprimer" mnemonicParsing="false" onAction="#supprimer_click" text="Suprimer" />
+                            </items>
+                        </ContextMenu>
+                    </contextMenu>
+                </TableView>
+                <ComboBox fx:id="CB_grp_gestionEtudiant" layoutX="371.0" layoutY="114.0" onAction="#CB_grp_gestionEtudiant_selected" prefHeight="30.0" prefWidth="180.0" promptText="Groupes">
+                    <effect>
+                        <DropShadow />
+                    </effect>
+                </ComboBox>
+            </children>
+        </Pane>
         <Pane fx:id="panelNotes" layoutX="289.0" layoutY="-4.0" prefHeight="684.0" prefWidth="922.0" style="-fx-background-color: white;">
             <children>
                 <Label layoutX="380.0" layoutY="28.0" text="Mes Notes" textFill="#6f6f6f">
@@ -250,236 +481,29 @@
                 </Label>
             </children>
         </Pane>
-        <Pane fx:id="panelStatistiques" layoutX="289.0" layoutY="-4.0" prefHeight="680.0" prefWidth="922.0" style="-fx-background-color: WHITE;">
-            <children>
-                <PieChart fx:id="pieChartEtudiant" layoutX="468.0" layoutY="308.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="353.0" prefWidth="435.0" />
-                <BarChart fx:id="barchartEtudiant" layoutX="440.0" layoutY="55.0" prefHeight="304.0" prefWidth="435.0">
-                    <xAxis>
-                        <CategoryAxis side="BOTTOM" />
-                    </xAxis>
-                    <yAxis>
-                        <NumberAxis side="LEFT" />
-                    </yAxis>
-                </BarChart>
-                <TableView fx:id="tblViewCLassement" layoutX="23.0" layoutY="106.0" prefHeight="545.0" prefWidth="365.0">
-                    <columns>
-                        <TableColumn prefWidth="165.60000610351562" text="Les étudiants">
-                            <cellValueFactory>
-                                <PropertyValueFactory property="nom_complet_etudiant" />
-                            </cellValueFactory>
-                        </TableColumn>
-                        <TableColumn prefWidth="93.5999755859375" text="Moyenne">
-                            <cellValueFactory>
-                                <PropertyValueFactory property="moyenne_generale" />
-                            </cellValueFactory>
-                        </TableColumn>
-                        <TableColumn prefWidth="104.20001220703125" text="Classement">
-                            <cellValueFactory>
-                                <PropertyValueFactory property="classement" />
-                            </cellValueFactory>
-                        </TableColumn>
-                    </columns>
-
-
-                </TableView>
-                <Label layoutX="220.0" layoutY="14.0" prefHeight="34.0" prefWidth="124.0" text="Statistiques">
-                    <font>
-                        <Font size="22.0" />
-                    </font>
-                </Label>
-            </children>
-        </Pane>
-        <Pane fx:id="panelEtudiant" layoutX="289.0" layoutY="-4.0" prefHeight="684.0" prefWidth="922.0" style="-fx-background-color: #F0FFFF;">
-            <children>
-                <Label layoutX="307.0" layoutY="26.0" text="Gestion des étudians" textAlignment="CENTER" textFill="#6f6f6f" underline="true">
-                    <font>
-                        <Font name="Russo One" size="29.0" />
-                    </font>
-                </Label>
-                <TableView fx:id="tableView_GestionEtudiant" editable="true" layoutX="22.0" layoutY="161.0" prefHeight="509.0" prefWidth="881.0">
-                    <columns>
-                        <TableColumn editable="false" prefWidth="90.0" text="Code Massar">
-                            <cellValueFactory>
-                                <PropertyValueFactory property="code_massar" />
-                            </cellValueFactory>
-                        </TableColumn>
-                        <TableColumn fx:id="col_prenom" prefWidth="90.0" text="Prénom">
-                            <cellValueFactory>
-                                <PropertyValueFactory property="prenom" />
-                            </cellValueFactory>
-                        </TableColumn>
-                        <TableColumn fx:id="col_nom" prefWidth="96.00003051757812" text="Nom">
-                            <cellValueFactory>
-                                <PropertyValueFactory property="nom" />
-                            </cellValueFactory>
-                        </TableColumn>
-                        <TableColumn fx:id="col_date" prefWidth="127.199951171875" text="Date Inscription">
-                            <cellValueFactory>
-                                <PropertyValueFactory property="date_inscription" />
-                            </cellValueFactory>
-                        </TableColumn>
-                        <TableColumn fx:id="col_mail" prefWidth="143.199951171875" text="Email">
-                            <cellValueFactory>
-                                <PropertyValueFactory property="email" />
-                            </cellValueFactory>
-                        </TableColumn>
-                        <TableColumn fx:id="col_tlph" prefWidth="112.0" text="Telephone">
-                            <cellValueFactory>
-                                <PropertyValueFactory property="telephone" />
-                            </cellValueFactory>
-                        </TableColumn>
-                        <TableColumn fx:id="col_doublant" prefWidth="65.59991455078125" text="Doublant">
-                            <cellValueFactory>
-                                <PropertyValueFactory property="a_deja_redouble" />
-                            </cellValueFactory>
-                        </TableColumn>
-                        <TableColumn fx:id="col_adrs" prefWidth="151.2000732421875" text="Adresse">
-                            <cellValueFactory>
-                                <PropertyValueFactory property="adresse" />
-                            </cellValueFactory>
-                        </TableColumn>
-                        <TableColumn fx:id="col_sexe" prefWidth="99.9998779296875" text="Sexe">
-                            <cellValueFactory>
-                                <PropertyValueFactory property="sexe" />
-                            </cellValueFactory>
-                        </TableColumn>
-                    </columns>
-                    <effect>
-                        <DropShadow />
-                    </effect>
-                    <contextMenu>
-                        <ContextMenu>
-                            <items>
-                                <MenuItem fx:id="supprimer" mnemonicParsing="false" onAction="#supprimer_click" text="Suprimer" />
-                            </items>
-                        </ContextMenu>
-                    </contextMenu>
-                </TableView>
-                <ComboBox fx:id="CB_grp_gestionEtudiant" layoutX="371.0" layoutY="114.0" onAction="#CB_grp_gestionEtudiant_selected" prefHeight="30.0" prefWidth="180.0" promptText="Groupes">
-                    <effect>
-                        <DropShadow />
-                    </effect>
-                </ComboBox>
-            </children>
-        </Pane>
-        <Pane fx:id="panelNotesProf" layoutX="289.0" layoutY="-4.0" prefHeight="684.0" prefWidth="922.0" style="-fx-background-color: white;">
-            <children>
-                <Label layoutX="329.0" layoutY="30.0" text="Gestion des notes" textFill="#6f6f6f" underline="true">
-                    <font>
-                        <Font name="Russo One" size="29.0" />
-                    </font>
-                </Label>
-                <TableView fx:id="tableView_GestionNotes" editable="true" layoutX="22.0" layoutY="161.0" prefHeight="509.0" prefWidth="881.0">
-                    <columns>
-                        <TableColumn fx:id="col_codeMassar" editable="false" prefWidth="152.79998779296875" resizable="false" text="Code Massar">
-                            <cellValueFactory>
-                                <PropertyValueFactory property="code_massar" />
-                            </cellValueFactory>
-                        </TableColumn>
-                        <TableColumn fx:id="col_nomComplet" editable="false" prefWidth="159.19998168945312" resizable="false" text="Nom Complet">
-                            <cellValueFactory>
-                                <PropertyValueFactory property="nom_complet" />
-                            </cellValueFactory>
-                        </TableColumn>
-                        <TableColumn fx:id="col_cntrl1" minWidth="5.60003662109375" prefWidth="111.20001220703125" resizable="false" text="Controle 1">
-                            <cellValueFactory>
-                                <PropertyValueFactory property="control_1" />
-                            </cellValueFactory>
-                        </TableColumn>
-                        <TableColumn fx:id="col_cntrl2" minWidth="5.60003662109375" prefWidth="111.20001220703125" resizable="false" text="Controle 2">
-                            <cellValueFactory>
-                                <PropertyValueFactory property="control_2" />
-                            </cellValueFactory>
-                        </TableColumn>
-                        <TableColumn fx:id="col_cntrl3" minWidth="5.60003662109375" prefWidth="111.20001220703125" resizable="false" text="Controle 3">
-                            <cellValueFactory>
-                                <PropertyValueFactory property="control_3" />
-                            </cellValueFactory>
-                        </TableColumn>
-                        <TableColumn fx:id="col_moyenne" editable="false" prefWidth="261.60009765625" resizable="false" text="Moyenne">
-                            <cellValueFactory>
-                                <PropertyValueFactory property="moyenne" />
-                            </cellValueFactory>
-                        </TableColumn>
-                    </columns>
-                    <effect>
-                        <DropShadow />
-                    </effect>
-                </TableView>
-                <ComboBox fx:id="CB_grp_gestionNotes" layoutX="371.0" layoutY="103.0" onAction="#CB_grp_gestionNotes_selected" prefHeight="30.0" prefWidth="180.0" promptText="Groupes">
-                    <effect>
-                        <DropShadow />
-                    </effect>
-                </ComboBox>
-            </children>
-        </Pane>
-        <Pane fx:id="panelStatistiquesPersonnel" layoutX="289.0" layoutY="-4.0" prefHeight="680.0" prefWidth="922.0" style="-fx-background-color: WHITE;">
-            <children>
-                <PieChart fx:id="pieChartPersonnel" layoutX="479.0" layoutY="61.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="326.0" prefWidth="423.0" />
-                <BarChart fx:id="barChartPersonnel" layoutX="27.0" layoutY="95.0" prefHeight="317.0" prefWidth="435.0">
-                    <xAxis>
-                        <CategoryAxis side="BOTTOM" />
-                    </xAxis>
-                    <yAxis>
-                        <NumberAxis side="LEFT" />
-                    </yAxis>
-                </BarChart>
-                <Label layoutX="389.0" layoutY="14.0" prefHeight="37.0" prefWidth="194.0" text="Statistiques" textFill="#6f6f6f" underline="true">
-                    <font>
-                        <Font name="Russo One" size="29.0" />
-                    </font>
-                </Label>
-                <Label layoutX="47.0" layoutY="474.0" text="Nombre total des étudians :" textFill="#464646">
-                    <font>
-                        <Font name="System Italic" size="18.0" />
-                    </font>
-                </Label>
-                <Label layoutX="280.0" layoutY="476.0" text="15" underline="true">
-                    <font>
-                        <Font name="Montserrat-Regular" size="18.0" />
-                    </font>
-                </Label>
-                <Label layoutX="26.0" layoutY="517.0" text="Nombre total des professeurs :" textFill="#464646">
-                    <font>
-                        <Font name="System Italic" size="18.0" />
-                    </font>
-                </Label>
-                <Label layoutX="280.0" layoutY="519.0" text="15" underline="true">
-                    <font>
-                        <Font name="Montserrat-Regular" size="18.0" />
-                    </font>
-                </Label>
-                <Label layoutX="49.0" layoutY="560.0" text="Nombre total des groupes :" textFill="#464646">
-                    <font>
-                        <Font name="System Italic" size="18.0" />
-                    </font>
-                </Label>
-                <Label layoutX="285.0" layoutY="562.0" text="3" underline="true">
-                    <font>
-                        <Font name="Montserrat-Regular" size="18.0" />
-                    </font>
-                </Label>
-                <Label layoutX="496.0" layoutY="476.0" text="étudiants ayant leurs notes :" textFill="#464646">
-                    <font>
-                        <Font name="System Italic" size="18.0" />
-                    </font>
-                </Label>
-                <Label layoutX="734.0" layoutY="476.0" text="15" underline="true">
-                    <font>
-                        <Font name="Montserrat-Regular" size="18.0" />
-                    </font>
-                </Label>
-                <Label layoutX="451.0" layoutY="521.0" text="étudiants n'ayant pas leurs notes :" textFill="#464646">
-                    <font>
-                        <Font name="System Italic" size="18.0" />
-                    </font>
-                </Label>
-                <Label layoutX="736.0" layoutY="521.0" text="3" underline="true">
-                    <font>
-                        <Font name="Montserrat-Regular" size="18.0" />
-                    </font>
-                </Label>
-            </children>
+        <Pane fx:id="panelAccueil" layoutX="289.0" layoutY="-4.0" prefHeight="684.0" prefWidth="922.0" style="-fx-background-color: white;">
+         <children>
+            <ImageView fitHeight="304.0" fitWidth="423.0" layoutX="59.0" layoutY="359.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../resources/images/messages.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="290.0" fitWidth="411.0" layoutX="498.0" layoutY="178.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../resources/images/news.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="407.0" layoutY="34.0" text="Accueil" textFill="#6f6f6f" underline="true">
+               <font>
+                  <Font name="Russo One" size="29.0" />
+               </font>
+            </Label>
+            <Label layoutX="170.0" layoutY="133.0" prefHeight="43.0" prefWidth="608.0" text="Il n'y a actuellement aucune actualité dans la fil des &quot;news&quot; ." textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font name="Montserrat-Regular" size="20.0" />
+               </font>
+            </Label>
+         </children>
         </Pane>
 
     </children>
