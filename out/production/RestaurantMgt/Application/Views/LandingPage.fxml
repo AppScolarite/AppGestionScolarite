@@ -8,7 +8,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="649.0" prefWidth="919.0" style="-fx-hgap: 20px; -fx-background-color: White; -fx-background-radius: 30; -fx-border-radius: 30; -fx-border-width: 5px;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.Controllers.LandingController">
    <children>
       <ImageView fitHeight="225.0" fitWidth="315.0" layoutX="603.0" layoutY="410.0" pickOnBounds="true" preserveRatio="true">
@@ -26,7 +25,14 @@
             <Image url="@../../resources/images/temps.png" />
          </image>
       </ImageView>
-      <Button layoutX="431.0" layoutY="590.0" mnemonicParsing="false" text="rak tma" />
+      <Button fx:id="btnClose" alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="878.0" layoutY="7.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#btnClose_Click" prefHeight="25.0" prefWidth="29.0" style="-fx-background-color: transparent; -fx-padding: 0;" stylesheets="@../../resources/Styles/style.css">
+         <graphic>
+            <ImageView fitHeight="29.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+               <Image backgroundLoading="true" url="@../../resources/images/HboxIcons/close.png" />
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="startlogin" layoutX="399.0" layoutY="593.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#goTologin" prefHeight="33.0" prefWidth="121.0" stylesheets="@../../resources/Styles/LoginStyling.css" text="S'authentifier" />
       <Label layoutX="29.0" layoutY="77.0" prefHeight="138.0" prefWidth="577.0" text="Adaptée à la majorité des besoins de différent user.&#10;En étant étudiant, professeur ou méme administrateur/personnel de l'établissement !" textAlignment="CENTER" wrapText="true">
          <font>
             <Font name="Montserrat-Regular" size="20.0" />
@@ -42,11 +48,6 @@
             <Font name="Montserrat-Regular" size="20.0" />
          </font>
       </Label>
-      <ImageView fitHeight="26.0" fitWidth="27.0" layoutX="886.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../resources/images/HboxIcons/close.png" />
-         </image>
-      </ImageView>
    </children>
    <effect>
       <DropShadow />
