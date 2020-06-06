@@ -16,8 +16,8 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("Views/LandingPage.fxml"));
-//        Parent root = FXMLLoader.load(getClass().getResource("Views/Login.fxml"));
+//        Parent root = FXMLLoader.load(getClass().getResource("Views/LandingPage.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("Views/Login.fxml"));
 
         Scene scene = new Scene(root);
         scene.setFill(Color.valueOf("transparent"));

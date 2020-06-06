@@ -136,7 +136,7 @@ GO
 
 SET IDENTITY_INSERT [dbo].[PERSONNEL] ON 
 GO
-INSERT [dbo].[PERSONNEL] ([id_personnel], [nom_personnel], [prenom_personnel], [date_naissance_personnel], [photo_personnel], [email_personnel], [telephone_personnel], [sexe], [adresse], [username], [mot_de_passe]) VALUES (1, N'Hicham', N'Oussama', CAST(N'1997-01-01' AS Date), NULL, N'hichal@gmail.com', N'0612345768', N'Homme', N'adresse1', N'hicham', N'hicham123')
+INSERT [dbo].[PERSONNEL] ([id_personnel], [nom_personnel], [prenom_personnel], [date_naissance_personnel], [photo_personnel], [email_personnel], [telephone_personnel], [sexe], [adresse], [username], [mot_de_passe]) VALUES (1, N'Hicham', N'Oussama', CAST(N'1997-01-01' AS Date), NULL, N'hicham@gmail.com', N'0612345768', N'Homme', N'adresse1', N'hicham', N'hicham123')
 GO
 SET IDENTITY_INSERT [dbo].[PERSONNEL] OFF
 

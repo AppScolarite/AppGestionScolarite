@@ -4,6 +4,7 @@ import Application.Data.Gestionnaire_De_Connection;
 import Application.Main;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -96,7 +97,7 @@ public class LoginController implements Initializable {
             e.printStackTrace();
         }
 
-//        Test Pour Personnel
+
         String queryPersonnel = "  select id_personnel,concat(nom_personnel,' ',prenom_personnel) as NomPersonnel, username, mot_de_passe from personnel where username = ? and mot_de_passe = ?";
         try {
             PreparedStatement preparedStatementP = connection.prepareStatement(queryPersonnel);
@@ -149,7 +150,6 @@ public class LoginController implements Initializable {
                 stage.getIcons().add(new Image(getClass().getResourceAsStream("../../resources/images/LoginIcons/icons8_Google_Wallet_50px.png")));
                 stage.initStyle(StageStyle.UNDECORATED);
 
-
                 Stage stage2 = (Stage) btnSignup.getScene().getWindow();
                 stage2.close();
                 stage.show();
@@ -163,7 +163,6 @@ public class LoginController implements Initializable {
 
     @FXML
     public void Inscrire_Click() throws Exception {
-//
         URL url = new File("src/Application/Views/inscrire.fxml").toURI().toURL();
         Parent root = FXMLLoader.load(url);
         Stage stage = new Stage();
@@ -171,8 +170,6 @@ public class LoginController implements Initializable {
         stage.initStyle(StageStyle.UNDECORATED);
 
         stage.show();
-
-
     }
 
 

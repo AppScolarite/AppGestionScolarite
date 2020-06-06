@@ -17,13 +17,16 @@ import javafx.scene.chart.*;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.InputMethodEvent;
 import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+import java.io.File;
 import java.sql.*;
 
 import java.net.URL;
@@ -36,9 +39,7 @@ public class Controller implements Initializable {
     @FXML
     public VBox VboxMenu;
 
-    @FXML
-    private AnchorPane anchorPane;
-    Stage stage;
+    private Stage stage;
 
     //*********************statistiques du personnel*******
     @FXML
@@ -71,11 +72,34 @@ public class Controller implements Initializable {
     //************* Panels ********************************
 
     @FXML
+    private Pane panelNotes;
+
+    //*****************************************************
+
+    //**************** Accueil ****************************
+    @FXML
+    private ImageView img1_Accueil;
+
+    @FXML
+    private ImageView img2_Accueil;
+
+    @FXML
+    private Label labelinfo_Accueil;
+
+    @FXML
+    private VBox vbox_messagerie;
+
+    @FXML
     private Pane panelAccueil;
 
     @FXML
-    private Pane panelNotes;
+    private ScrollPane scroll;
 
+    @FXML
+    private Button btn_AjoutNews;
+
+    @FXML
+    private Button btn_refresh;
     //*****************************************************
 
     //**************** Gestion des étudiants **************
@@ -151,6 +175,8 @@ public class Controller implements Initializable {
     @FXML
     private ImageView imgUser;
     //*****************************************************
+
+    //**************** Mes notes **********************
     @FXML
     private Label matiereLbl;
 
@@ -162,15 +188,19 @@ public class Controller implements Initializable {
 
     @FXML
     private Label Cntrol1;
+
     @FXML
     private Label Cntrol2;
+
     @FXML
     private Label Cntrol3;
+
     @FXML
     private Label MyenneLbl;
 
     @FXML
     private ComboBox CB_Matiere;
+    //*****************************************************
 
     //******************** util ******************
     private Gestionnaire_De_Connection gestionnaire_de_connection = new Gestionnaire_De_Connection();
@@ -242,7 +272,6 @@ public class Controller implements Initializable {
 
     @FXML
     public void btnNotes_click() {
-        //todo
         try {
             Connection connection = gestionnaire_de_connection.getConnection();
             Statement stmMatiere = connection.createStatement();
@@ -253,47 +282,6 @@ public class Controller implements Initializable {
                 mat.add(matieres);
             }
             CB_Matiere.setItems(mat);
-//
-//            Statement statement = connection.createStatement();
-//            String query = "select MATIERE.LBL_Matiere, MATIERE.Coeff," +
-//                    " concat(PROFESSEUR.Nom, ' ' ,PROFESSEUR.Prenom ) as Nom_Professeur, NOTE.Valeur_Note\n" +
-//                    "from ETUDIANT join groupe on ETUDIANT.groupe# = groupe.id_groupe\n" +
-//                    "join ENSEIGNEMENT on GROUPE.id_groupe = ENSEIGNEMENT.groupe#\n" +
-//                    "join MATIERE on ENSEIGNEMENT.matiere# = MATIERE.id_matiere\n" +
-//                    "join PROFESSEUR on PROFESSEUR.Code_Pro_Nationnal = ENSEIGNEMENT.professeur#\n" +
-//                    "join NOTE on MATIERE.id_matiere = NOTE.matiere#\n" +
-//                    "where ETUDIANT.code_massar = 'H1'";
-//
-//            String queryNotes = "select NOTE.Valeur_Note as notes\n" +
-//                    "from ETUDIANT join groupe on ETUDIANT.groupe# = groupe.id_groupe\n" +
-//                    "join ENSEIGNEMENT on GROUPE.id_groupe = ENSEIGNEMENT.groupe#\n" +
-//                    "join MATIERE on ENSEIGNEMENT.matiere# = MATIERE.id_matiere\n" +
-//                    "join PROFESSEUR on PROFESSEUR.Code_Pro_Nationnal = ENSEIGNEMENT.professeur#\n" +
-//                    "join NOTE on MATIERE.id_matiere = NOTE.matiere#\n" +
-//                    "where ETUDIANT.code_massar = 'H1' ";
-//
-//            Statement statement1 = connection.createStatement();
-//            ResultSet resultSet = statement.executeQuery(query);
-//            ResultSet rs = statement1.executeQuery(queryNotes);
-//            ObservableList<String> data = FXCollections.observableArrayList();
-//            while (resultSet.next() && rs.next()) {
-////                System.out.println("etudiant has rows");
-//
-//                matiereLbl.setText(resultSet.getString(1));
-//                CoeffLbl.setText(String.valueOf(resultSet.getInt(2)));
-//                ProfLbl.setText(resultSet.getString(3));
-//
-//                rs.getRow();
-//                String notes = String.valueOf(rs.getDouble("notes"));
-//                data.add(notes);
-//                Cntrol1.setText(data.get(0));
-//                Cntrol2.setText(data.get(1));
-//                Cntrol3.setText(data.get(2));
-//
-//                Double moyenne = ((Double.valueOf(Cntrol1.getText()) + Double.valueOf(Cntrol2.getText()) + Double.valueOf(Cntrol3.getText())) / 3);
-//                MyenneLbl.setText(String.valueOf(moyenne));
-//            }
-
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -326,7 +314,7 @@ public class Controller implements Initializable {
 
             ObservableList<String> data = FXCollections.observableArrayList();
             Statement statementNotes = connection.createStatement();
-            ResultSet resultSet = statementNotes.executeQuery(" select Valeur_Note from note where etudiant_ = '" + Gestionnaire_De_Connection.etudiant_connecte + "' and matiere# = " +  id_mat);
+            ResultSet resultSet = statementNotes.executeQuery(" select Valeur_Note from note where etudiant_ = '" + Gestionnaire_De_Connection.etudiant_connecte + "' and matiere# = " + id_mat);
 
             if (dataReader.next()) {
                 String LBLMAtiere = dataReader.getString("libelleMatiere");
@@ -337,8 +325,7 @@ public class Controller implements Initializable {
                 CoeffLbl.setText(Coeff);
                 ProfLbl.setText(Nom_Professeur);
 
-            }
-            else{
+            } else {
                 matiereLbl.setText("");
                 CoeffLbl.setText("");
                 ProfLbl.setText("");
@@ -348,11 +335,9 @@ public class Controller implements Initializable {
                 Cntrol3.setText("");
                 MyenneLbl.setText("");
             }
-            while(resultSet.next()){
-//                resultSet.getRow();
+            while (resultSet.next()) {
                 String note = String.valueOf(resultSet.getDouble("Valeur_Note"));
                 data.add(note);
-                System.out.println(note);
             }
             Cntrol1.setText(data.get(0));
             Cntrol2.setText(data.get(1));
@@ -558,6 +543,7 @@ public class Controller implements Initializable {
 
     @FXML
     private void btnAccueil_click() {
+        Accueil_Load();
         panelAccueil.toFront();
         btnClose.toFront();
         btnMinimize.toFront();
@@ -790,6 +776,24 @@ public class Controller implements Initializable {
         return (new DecimalFormat("###.##")).format((note1 + note2 + note3) / 3);
     }
 
+    @FXML
+    private void btn_AjoutNews_click(ActionEvent e) {
+        try {
+            FXMLLoader loader = new FXMLLoader(new File("src/Application/Views/AjoutActualite.fxml").toURI().toURL());
+            Parent root = (Parent) loader.load();
+
+            Scene scene = new Scene(root);
+            scene.setFill(Color.valueOf("transparent"));
+
+            Stage stage = new Stage(StageStyle.TRANSPARENT);
+            stage.setTitle("Ajout d'actualités");
+            stage.setScene(scene);
+            stage.show();
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         Form_Load();
@@ -816,12 +820,6 @@ public class Controller implements Initializable {
         }
         btnAccueil_click();
 
-        //todo : just testing
-//        System.out.println(Gestionnaire_De_Connection.etudiant_connecte);
-//        System.out.println(Gestionnaire_De_Connection.personnel_connecte);
-//        System.out.println(Gestionnaire_De_Connection.prof_connecte);
-//        System.out.println(Gestionnaire_De_Connection.nom_connecte);
-
         //todo : ne pas supprimer ce code hhhh
         //connection avec BD (MSSQL JDBC)
 //        Gestionnaire_De_Connection connectionClass = new Gestionnaire_De_Connection();
@@ -841,6 +839,64 @@ public class Controller implements Initializable {
 //            e.printStackTrace();
 //        }
 
+    }
+
+    private void Accueil_Load() {
+        if (Gestionnaire_De_Connection.etudiant_connecte != null || Gestionnaire_De_Connection.prof_connecte != null) {
+            btn_AjoutNews.setVisible(false);
+            btn_refresh.setVisible(false);
+        }
+        vbox_messagerie.getChildren().clear();
+        vbox_messagerie.setSpacing(30);
+        Connection connection = gestionnaire_de_connection.getConnection();
+        try {
+            Statement sqlCommand = connection.createStatement();
+            ResultSet dataReader = sqlCommand.executeQuery
+                    (
+                            "select act.sujet, act.description_actualite, CONCAT(per.nom_personnel, ' ', per.prenom_personnel ) as nomComplet\n" +
+                                    "from ACTUALITE act inner join PERSONNEL per on act.ajoute_par_personnel# = per.id_personnel"
+                    );
+
+            while (dataReader.next()) {
+
+                labelinfo_Accueil.setVisible(false);
+                img1_Accueil.setVisible(false);
+                img2_Accueil.setVisible(false);
+                vbox_messagerie.setVisible(true);
+                scroll.setVisible(true);
+
+                TextArea actualite = new TextArea();
+                actualite.setText
+                        (
+                                "sujet : "
+                                        + dataReader.getString("sujet")
+                                        + "\n\n"
+                                        + dataReader.getString("description_actualite")
+                                        + "\n\n"
+                                        + "Par Mr/Mme : "
+                                        + dataReader.getString("nomComplet")
+                        );
+                actualite.setPrefHeight(150);
+                actualite.setMaxHeight(150);
+                actualite.setMinHeight(150);
+                actualite.setEffect(new DropShadow());
+                actualite.setEditable(false);
+                actualite.setStyle("-fx-font-size: 14");
+                actualite.setWrapText(true);
+                actualite.getStylesheets().add("resources/Styles/AccueilStyle.css");
+                actualite.getStyleClass().add("text-area");
+
+                vbox_messagerie.getChildren().add(actualite);
+                vbox_messagerie.setPrefHeight(vbox_messagerie.getPrefHeight() + 150);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void refresh_click(ActionEvent e) {
+        this.Accueil_Load();
     }
 
     @FXML

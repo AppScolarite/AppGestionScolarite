@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="352.0" prefWidth="600.0" style="-fx-hgap: 20px; -fx-background-color: White; -fx-background-radius: 30; -fx-border-radius: 30; -fx-border-width: 5px; -fx-border-color: #0075F3;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.Controllers.AjoutActualiteController">
+   <effect>
+      <DropShadow />
+   </effect>
+   <children>
+      <TextArea fx:id="txt_Description" layoutX="30.0" layoutY="100.0" onKeyPressed="#description_keyPressed" prefHeight="197.0" prefWidth="542.0" promptText="Description de l'actualité ..." text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus porro iste earum, sequi aliquid aut cumque voluptatem perspiciatis qui debitis.&#10;Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus porro iste earum, sequi " wrapText="true">
+         <font>
+            <Font name="Arial" size="17.0" />
+         </font></TextArea>
+      <TextField fx:id="txt_Sujet" layoutX="30.0" layoutY="63.0" prefHeight="26.0" prefWidth="253.0" promptText="Sujet">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></TextField>
+      <Label layoutX="216.0" layoutY="14.0" text="Nouvelle actualité." textFill="#6f6f6f" underline="true">
+         <font>
+            <Font name="Russo One" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="63.0" layoutY="298.0" text="caractéres" />
+      <Button fx:id="btn_send" layoutX="526.0" layoutY="307.0" mnemonicParsing="false" onAction="#btn_send_click" style="-fx-background-color: White;">
+         <graphic>
+            <ImageView fitHeight="31.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../resources/images/SideBarIcons/sendNews.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="btnCloseNews" alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="555.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#btnClose_Click" prefHeight="25.0" prefWidth="29.0" style="-fx-background-color: transparent; -fx-padding: 0;" stylesheets="@../../resources/Styles/style.css">
+         <graphic>
+            <ImageView fitHeight="29.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image backgroundLoading="true" url="@../../resources/images/HboxIcons/close.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Label fx:id="lbl_limit" layoutX="39.0" layoutY="298.0" text="250" textFill="#0075f3">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
