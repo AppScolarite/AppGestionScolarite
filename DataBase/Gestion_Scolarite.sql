@@ -118,6 +118,18 @@ create table NOTE
 	etudiant_ varchar(20),
 )
 
+create table ALERT_CONTROLE
+(
+	id_alert int identity primary key,
+	groupe# int foreign key references GROUPE,
+	date_control date,
+	heure_debut varchar(8),
+	heure_fin varchar(8),
+	statut varchar(10),
+	check(statut in ('Modifiable','Fixe')),
+	description_control varchar(250),
+)
+
 create TRIGGER ChECK_ETD 
 	ON NOTE
     INSTEAD OF INSERT

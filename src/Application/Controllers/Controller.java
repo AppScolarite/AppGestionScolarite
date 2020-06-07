@@ -54,6 +54,34 @@ public class Controller implements Initializable {
     public BarChart barChartPersonnel;
     //*****************************************************
 
+    //*************** Alert control/Exam ******************
+
+    @FXML
+    private ComboBox cb_groupesAlert;
+
+    @FXML
+    private DatePicker date_control;
+
+    @FXML
+    private RadioButton radio_modif;
+
+    @FXML
+    private RadioButton radio_fix;
+
+    @FXML
+    private TextField heureDebut_controle;
+
+    @FXML
+    private TextField heureFin_controle;
+
+    @FXML
+    private TextArea txt_description;
+
+    @FXML
+    private Pane panelAlert;
+
+    //*****************************************************
+
     //*********************statistiques de l'etudiant******
     @FXML
     private Pane panelStatistiques;
@@ -172,10 +200,14 @@ public class Controller implements Initializable {
     private Button btnMinimize;
 
     @FXML
+    private Button btnAlert;
+
+    @FXML
     private Label userLBL;
 
     @FXML
     private ImageView imgUser;
+
     //*****************************************************
 
     //**************** Mes notes **********************
@@ -818,23 +850,29 @@ public class Controller implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         Form_Load();
 
+        alertPanel_Load();
         PanelGestionEtudiant_Load();
         statistiqueEtudiant_Load();
         PanelGestionNotes_Load();
         statistiquesPersonnel_Load();
-        panelNotes.toFront();
-        //btnNotes_click();
+//        panelNotes.toFront();
+
         if (Gestionnaire_De_Connection.etudiant_connecte != null) {
             VboxMenu.getChildren().remove(btnListes);
             VboxMenu.getChildren().remove(btnStatistiques);
             VboxMenu.getChildren().remove(btnGestion);
+            VboxMenu.getChildren().remove(btnAlert);
             btnStatistiquesetudiant.setVisible(true);
             btnNotes.setVisible(true);
         } else if (Gestionnaire_De_Connection.prof_connecte != null) {
+            VboxMenu.getChildren().remove(btnStatistiques);
+            VboxMenu.getChildren().remove(btnGestion);
+            VboxMenu.getChildren().remove(btnStatistiquesetudiant);
             btnListes.setVisible(true);
-            panelNotesProf.toFront();
+            btnAlert.setVisible(true);
         } else {
             VboxMenu.getChildren().remove(btnListes);
+            VboxMenu.getChildren().remove(btnAlert);
             btnGestion.setVisible(true);
             btnStatistiques.setVisible(true);
         }
@@ -859,6 +897,48 @@ public class Controller implements Initializable {
 //            e.printStackTrace();
 //        }
 
+    }
+
+    @FXML
+    private void exam_soumis(ActionEvent e) {
+
+        String statut = radio_modif.isSelected() ? radio_modif.getText() : radio_fix.getText();
+        Connection connection = gestionnaire_de_connection.getConnection();
+        try {
+            Statement sqlCommand = connection.createStatement();
+            sqlCommand.execute
+                    (
+                            String.format
+                                    (
+                                            "INSERT INTO [dbo].[ALERT_CONTROLE]\n" +
+                                                    "           ([groupe#]\n" +
+                                                    "           ,[date_control]\n" +
+                                                    "           ,[heure_debut]\n" +
+                                                    "           ,[heure_fin]\n" +
+                                                    "           ,[statut]\n" +
+                                                    "           ,[description_control])\n" +
+                                                    "     VALUES\n" +
+                                                    "           (%d,CAST(N'%s' AS Date),'%s','%s','%s','%s')",
+                                            (cb_groupesAlert.getSelectionModel().getSelectedIndex() + 1),
+                                            date_control.getValue().toString(),
+                                            heureDebut_controle.getText(),
+                                            heureFin_controle.getText(),
+                                            statut,
+                                            txt_description.getText()
+                                    )
+                    );
+            cb_groupesAlert.getSelectionModel().clearSelection();
+            date_control.setValue(null);
+            heureDebut_controle.setText("");
+            heureFin_controle.setText("");
+            radio_modif.setSelected(false);
+            radio_fix.setSelected(false);
+            txt_description.setText("");
+
+        } catch (SQLException ex) {
+
+            ex.printStackTrace();
+        }
     }
 
     private void Accueil_Load() {
@@ -956,6 +1036,30 @@ public class Controller implements Initializable {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void btnAlert_click() {
+        panelAlert.toFront();
+        btnClose.toFront();
+        btnMinimize.toFront();
+    }
+
+    private void alertPanel_Load() {
+        try {
+            Connection connection = gestionnaire_de_connection.getConnection();
+            Statement stmGrp = connection.createStatement();
+            ResultSet reader = stmGrp.executeQuery("select * from GROUPE");
+            ObservableList groupes = FXCollections.observableArrayList();
+            while (reader.next()) {
+                String groupe = reader.getString("libelle_grp");
+                groupes.add("Groupe " + groupe);
+            }
+
+            cb_groupesAlert.setItems(groupes);
+        } catch (SQLException sqlE) {
+            sqlE.printStackTrace();
         }
     }
 

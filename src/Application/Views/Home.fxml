@@ -8,11 +8,15 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
@@ -130,6 +134,21 @@
                         <ImageView fitHeight="40.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="@../../resources/images/SideBarIcons/chart.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                    <padding>
+                        <Insets left="50.0" />
+                    </padding>
+                    <font>
+                        <Font name="Cambria Bold Italic" size="16.0" />
+                    </font>
+                </Button>
+                <Button fx:id="btnAlert" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#btnAlert_click" prefHeight="60.0" prefWidth="297.0" stylesheets="@../../resources/Styles/style.css" text="Control / Exam" visible="false">
+                    <graphic>
+                        <ImageView fitHeight="40.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../resources/images/SideBarIcons/alertMessage.png" />
                             </image>
                         </ImageView>
                     </graphic>
@@ -542,16 +561,73 @@
                         <DropShadow />
                     </effect>
                 </ComboBox>
-            <Button layoutX="555.0" layoutY="109.0" mnemonicParsing="false" onAction="#gestionGroupe_click" prefHeight="40.0" prefWidth="11.0">
-               <graphic>
-                  <ImageView fitHeight="28.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../resources/images/settings.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
+                <Button layoutX="555.0" layoutY="109.0" mnemonicParsing="false" onAction="#gestionGroupe_click" prefHeight="40.0" prefWidth="11.0">
+                    <graphic>
+                        <ImageView fitHeight="28.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../resources/images/settings.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
             </children>
+        </Pane>
+        <Pane fx:id="panelAlert" layoutX="289.0" layoutY="-4.0" prefHeight="684.0" prefWidth="922.0" style="-fx-background-color: #F0FFFF;">
+         <children>
+            <ComboBox fx:id="cb_groupesAlert" layoutX="369.0" layoutY="132.0" prefWidth="150.0" promptText="Groupe" />
+            <Label layoutX="122.0" layoutY="135.0" text="Rappeler les étudiants du groupe ">
+               <font>
+                  <Font name="Arial Bold Italic" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="315.0" layoutY="25.0" text="Alerter les étudians" textFill="#6f6f6f" underline="true">
+               <font>
+                  <Font name="Russo One" size="29.0" />
+               </font>
+            </Label>
+            <Label layoutX="536.0" layoutY="134.0" text="qu'il y aura un examen / controle , pour le ">
+               <font>
+                  <Font name="Arial Bold Italic" size="15.0" />
+               </font>
+            </Label>
+            <DatePicker fx:id="date_control" layoutX="52.0" layoutY="197.0" />
+            <Label layoutX="587.0" layoutY="201.0" text=", et que la date y demeurera">
+               <font>
+                  <Font name="Arial Bold Italic" size="15.0" />
+               </font>
+            </Label>
+            <RadioButton fx:id="radio_modif" layoutX="139.0" layoutY="257.0" mnemonicParsing="false" text="Modifiable" />
+            <RadioButton fx:id="radio_fix" layoutX="238.0" layoutY="257.0" mnemonicParsing="false" text="Fixe" />
+            <Label layoutX="127.0" layoutY="302.0" text="Plus de détail :">
+               <font>
+                  <Font name="Arial Bold Italic" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="290.0" layoutY="257.0" text=".">
+               <font>
+                  <Font name="Arial Bold Italic" size="15.0" />
+               </font>
+            </Label>
+            <TextArea fx:id="txt_description" layoutX="52.0" layoutY="325.0" prefHeight="217.0" prefWidth="790.0" />
+            <Button layoutX="756.0" layoutY="618.0" mnemonicParsing="false" onAction="#exam_soumis" text="Soumettre !" />
+            <Label layoutX="243.0" layoutY="201.0" text=", à partir de l'heure">
+               <font>
+                  <Font name="Arial Bold Italic" size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="heureDebut_controle" layoutX="387.0" layoutY="197.0" prefHeight="25.0" prefWidth="58.0" />
+            <Label layoutX="456.0" layoutY="200.0" text="jusqu'à">
+               <font>
+                  <Font name="Arial Bold Italic" size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="heureFin_controle" layoutX="518.0" layoutY="196.0" prefHeight="25.0" prefWidth="58.0" />
+            <Label layoutX="54.0" layoutY="257.0" text="cependant">
+               <font>
+                  <Font name="Arial Bold Italic" size="15.0" />
+               </font>
+            </Label>
+         </children>
         </Pane>
 
     </children>
