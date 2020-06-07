@@ -27,6 +27,8 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.File;
+import java.io.IOException;
+import java.net.MalformedURLException;
 import java.sql.*;
 
 import java.net.URL;
@@ -348,6 +350,24 @@ public class Controller implements Initializable {
 
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void gestionGroupe_click(ActionEvent e) {
+        try {
+            FXMLLoader loader = new FXMLLoader(new File("src/Application/Views/GestionGroupe.fxml").toURI().toURL());
+            Parent root = (Parent) loader.load();
+
+            Scene scene = new Scene(root);
+            scene.setFill(Color.valueOf("transparent"));
+
+            Stage stage = new Stage(StageStyle.TRANSPARENT);
+            stage.setTitle("Ajout d'actualités");
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            ex.printStackTrace();
         }
     }
 

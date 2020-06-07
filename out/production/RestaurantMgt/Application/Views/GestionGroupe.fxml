@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="451.0" prefWidth="788.0" style="-fx-hgap: 20px; -fx-background-color: White; -fx-background-radius: 30; -fx-border-radius: 30; -fx-border-width: 5px; -fx-border-color: #0075F3;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.Controllers.GestionGroupeController">
+    <effect>
+        <DropShadow />
+    </effect>
+    <children>
+
+        <Button fx:id="btnClose" alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="739.0" layoutY="14.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#btnClose_Click" prefHeight="25.0" prefWidth="29.0" style="-fx-background-color: transparent; -fx-padding: 0;" stylesheets="@../../resources/Styles/style.css">
+            <graphic>
+                <ImageView fitHeight="29.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image backgroundLoading="true" url="@../../resources/images/HboxIcons/close.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
+        <Label layoutX="251.0" layoutY="18.0" text="Gestion des groupes" textFill="#6f6f6f" underline="true">
+            <font>
+                <Font name="Russo One" size="29.0" />
+            </font>
+        </Label>
+        <Label layoutX="58.0" layoutY="104.0" text="En origine de la branche ">
+            <font>
+                <Font name="Arial Bold Italic" size="15.0" />
+            </font>
+        </Label>
+        <ComboBox layoutX="237.0" layoutY="99.0" prefWidth="150.0" promptText="Branche">
+            <effect>
+                <DropShadow />
+            </effect>
+        </ComboBox>
+        <Label layoutX="411.0" layoutY="103.0" text="en">
+            <font>
+                <Font name="Arial Bold Italic" size="15.0" />
+            </font>
+        </Label>
+        <ComboBox layoutX="441.0" layoutY="100.0" prefWidth="150.0" promptText="Niveau">
+            <effect>
+                <DropShadow />
+            </effect>
+        </ComboBox>
+        <Label layoutX="620.0" layoutY="103.0" text=", le groupe ">
+            <font>
+                <Font name="Arial Bold Italic" size="15.0" />
+            </font>
+        </Label>
+        <Label layoutX="29.0" layoutY="156.0" text="intitulé">
+            <font>
+                <Font name="Arial Bold Italic" size="15.0" />
+            </font>
+        </Label>
+        <TextField layoutX="89.0" layoutY="152.0" />
+        <Label layoutX="251.0" layoutY="156.0" text="est éligible à tous les étudiants (es) ayant une supérieure ou égale à">
+            <font>
+                <Font name="Arial Bold Italic" size="15.0" />
+            </font>
+        </Label>
+        <TextField disable="true" editable="false" layoutX="184.0" layoutY="199.0" />
+        <Label layoutX="29.0" layoutY="204.0" text="la moyenne générale ">
+            <font>
+                <Font name="Arial Bold Italic" size="15.0" />
+            </font>
+        </Label>
+        <Label layoutX="339.0" layoutY="203.0" text=".">
+            <font>
+                <Font name="Arial Bold Italic" size="15.0" />
+            </font>
+        </Label>
+        <Label layoutX="29.0" layoutY="277.0" text="Les matiéres  ">
+            <font>
+                <Font name="Arial Bold Italic" size="15.0" />
+            </font>
+        </Label>
+        <TextField disable="true" editable="false" layoutX="652.0" layoutY="272.0" prefHeight="26.0" prefWidth="101.0" />
+        <ComboBox fx:id="cb_branche" layoutX="127.0" layoutY="273.0" onAction="#cb_branche_selected" prefWidth="150.0" promptText="Matiéres">
+            <effect>
+                <DropShadow />
+            </effect>
+        </ComboBox>
+        <Label layoutX="300.0" layoutY="277.0" text="cités en dessous, y sont étudiées pour le groupe ">
+            <font>
+                <Font name="Arial Bold Italic" size="15.0" />
+            </font>
+        </Label>
+        <FlowPane fx:id="floawLayout_matiere" layoutX="34.0" layoutY="329.0" prefHeight="96.0" prefWidth="486.0">
+            <children>
+                <Label alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="18.0" prefWidth="118.0" style="-fx-background-color: dodgerblue; -fx-background-radius: 30; -fx-border-radius: 30;" text="Français" textAlignment="CENTER">
+                    <FlowPane.margin>
+                        <Insets />
+                    </FlowPane.margin>
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font>
+                </Label>
+            </children>
+            <padding>
+                <Insets left="10.0" right="10.0" top="10.0" />
+            </padding>
+        </FlowPane>
+      <ImageView fitHeight="26.0" fitWidth="18.0" layoutX="280.0" layoutY="278.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resources/images/add.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="26.0" fitWidth="18.0" layoutX="389.0" layoutY="102.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resources/images/add.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="26.0" fitWidth="18.0" layoutX="594.0" layoutY="103.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resources/images/add.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="542.0" layoutY="384.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="203.0" text="Nouveau Groupe !">
+         <graphic>
+            <ImageView fitHeight="29.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../resources/images/group.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
+
+    </children>
+</AnchorPane>
