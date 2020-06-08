@@ -41,6 +41,9 @@ public class GestionGroupeController implements Initializable {
     private ComboBox<String> cb_branche;
 
     @FXML
+    private Button btn_ajt;
+
+    @FXML
     private void btnClose_Click(ActionEvent e) {
         stage = (Stage) ((Button) e.getSource()).getScene().getWindow();
         stage.close();
@@ -122,5 +125,8 @@ public class GestionGroupeController implements Initializable {
 
     @FXML
     public void refresh_click(MouseEvent mouseEvent) {
+    }
+
+    public void Nouveau(ActionEvent actionEvent) {
     }
 }

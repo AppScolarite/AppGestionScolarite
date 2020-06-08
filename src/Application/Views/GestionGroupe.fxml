@@ -127,7 +127,7 @@
                 <Image url="@../../resources/images/add.png" />
             </image>
         </ImageView>
-        <Button layoutX="542.0" layoutY="384.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="203.0" text="Nouveau Groupe !">
+        <Button fx:id="btn_ajt" layoutX="542.0" layoutY="384.0" mnemonicParsing="false" onAction="#Nouveau" prefHeight="38.0" prefWidth="203.0" text="Nouveau Groupe !">
             <graphic>
                 <ImageView fitHeight="29.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                     <image>
