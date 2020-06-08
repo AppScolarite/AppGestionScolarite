@@ -374,16 +374,15 @@ public class Controller implements Initializable {
                 Cntrol3.setText("");
                 MyenneLbl.setText("");
             }
-            while (resultSet.next()) {
-                String note = String.valueOf(resultSet.getDouble("Valeur_Note"));
-                data.add(note);
+            if (resultSet.next()) {
+                Cntrol1.setText(resultSet.getString("Valeur_Note"));
+                resultSet.next();
+                Cntrol2.setText(resultSet.getString("Valeur_Note"));
+                resultSet.next();
+                Cntrol3.setText(resultSet.getString("Valeur_Note"));
+                Double moyenne = ((Double.valueOf(Cntrol1.getText()) + Double.valueOf(Cntrol2.getText()) + Double.valueOf(Cntrol3.getText())) / 3);
+                MyenneLbl.setText(String.valueOf(moyenne));
             }
-            Cntrol1.setText(data.get(0));
-            Cntrol2.setText(data.get(1));
-            Cntrol3.setText(data.get(2));
-            Double moyenne = ((Double.valueOf(Cntrol1.getText()) + Double.valueOf(Cntrol2.getText()) + Double.valueOf(Cntrol3.getText())) / 3);
-            MyenneLbl.setText(String.valueOf(moyenne));
-
 
         } catch (SQLException e) {
             e.printStackTrace();

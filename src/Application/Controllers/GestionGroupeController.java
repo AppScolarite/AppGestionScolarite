@@ -85,12 +85,24 @@ public class GestionGroupeController implements Initializable {
         try {
             FXMLLoader loader = new FXMLLoader(new File("src/Application/Views/GestionMatiere.fxml").toURI().toURL());
             Parent root = loader.load();
-
             Scene scene = new Scene(root);
             scene.setFill(Color.valueOf("transparent"));
-
             Stage stage = new Stage(StageStyle.TRANSPARENT);
-//            stage.setTitle("Ajout d'actualités");
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void btn_gestion_branche_click(MouseEvent e) {
+        try {
+            FXMLLoader loader = new FXMLLoader(new File("src/Application/Views/GestionBranche.fxml").toURI().toURL());
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            scene.setFill(Color.valueOf("transparent"));
+            Stage stage = new Stage(StageStyle.TRANSPARENT);
             stage.setScene(scene);
             stage.show();
         } catch (IOException ex) {
@@ -106,5 +118,9 @@ public class GestionGroupeController implements Initializable {
         cb_branche.getItems().add("c#");
         cb_branche.getItems().add("php");
 
+    }
+
+    @FXML
+    public void refresh_click(MouseEvent mouseEvent) {
     }
 }

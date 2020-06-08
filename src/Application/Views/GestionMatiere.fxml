@@ -12,71 +12,60 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="451.0" prefWidth="788.0"
-            style="-fx-hgap: 20px; -fx-background-color: White; -fx-background-radius: 30; -fx-border-radius: 30; -fx-border-width: 5px; -fx-border-color: #0075F3;"
-            xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="Application.Controllers.GestionMatiereController">
+<AnchorPane prefHeight="451.0" prefWidth="788.0" style="-fx-hgap: 20px; -fx-background-color: White; -fx-background-radius: 30; -fx-border-radius: 30; -fx-border-width: 5px; -fx-border-color: #0075F3;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.Controllers.GestionMatiereController">
     <effect>
-        <DropShadow/>
+        <DropShadow />
     </effect>
     <children>
-        <ImageView fitHeight="31.0" fitWidth="30.0" layoutX="744.0" layoutY="14.0" pickOnBounds="true"
-                   preserveRatio="true">
+        <ImageView fitHeight="31.0" fitWidth="30.0" layoutX="744.0" layoutY="14.0" onMouseClicked="#btnClose_clicked" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../resources/images/HboxIcons/close.png"/>
+                <Image url="@../../resources/images/HboxIcons/close.png" />
             </image>
         </ImageView>
         <TableView layoutX="325.0" layoutY="72.0" prefHeight="348.0" prefWidth="440.0">
             <columns>
-                <TableColumn prefWidth="140.7999267578125" text="Reférent matiére"/>
-                <TableColumn prefWidth="208.00003051757812" text="libellé "/>
-                <TableColumn prefWidth="92.0" text="Coefficient"/>
+                <TableColumn prefWidth="140.7999267578125" text="Reférent matiére" />
+                <TableColumn prefWidth="208.00003051757812" text="libellé " />
+                <TableColumn prefWidth="92.0" text="Coefficient" />
             </columns>
         </TableView>
-        <Line endX="32.999969482421875" endY="324.79998779296875" layoutX="251.0" layoutY="83.0"
-              startX="32.999969482421875" startY="5.600002288818359"/>
+        <Line endX="32.999969482421875" endY="324.79998779296875" layoutX="251.0" layoutY="83.0" startX="32.999969482421875" startY="5.600002288818359" />
         <Label layoutX="241.0" layoutY="10.0" text="Gestion des matiéres" textFill="#6f6f6f" underline="true">
             <font>
-                <Font name="Russo One" size="29.0"/>
+                <Font name="Russo One" size="29.0" />
             </font>
         </Label>
         <Label layoutX="44.0" layoutY="108.0" text="Libellé :">
             <font>
-                <Font name="Arial Bold Italic" size="13.0"/>
+                <Font name="Arial Bold Italic" size="13.0" />
             </font>
         </Label>
         <Label layoutX="31.0" layoutY="160.0" text="Coefficient :">
             <font>
-                <Font name="Arial Bold Italic" size="13.0"/>
+                <Font name="Arial Bold Italic" size="13.0" />
             </font>
         </Label>
-        <TextField layoutX="114.0" layoutY="105.0"/>
-        <TextField layoutX="114.0" layoutY="156.0" prefHeight="26.0" prefWidth="75.0"/>
-        <Button layoutX="106.0" layoutY="201.0" mnemonicParsing="false" text="Ajouter"/>
-        <Label layoutX="37.0" layoutY="355.0" prefHeight="38.0" prefWidth="245.0"
-               text="Les reférents des matiéres sont générés automatiquement dans le systeme . " textAlignment="CENTER"
-               wrapText="true">
+        <TextField fx:id="txt_matiere" layoutX="114.0" layoutY="105.0" />
+        <TextField fx:id="txt_coeff" layoutX="114.0" layoutY="156.0" prefHeight="26.0" prefWidth="75.0" />
+        <Button layoutX="106.0" layoutY="201.0" mnemonicParsing="false" onAction="#ajoutmatiere_clicked" text="Ajouter" />
+        <Label layoutX="37.0" layoutY="355.0" prefHeight="38.0" prefWidth="245.0" text="Les reférents des matiéres sont générés automatiquement dans le systeme . " textAlignment="CENTER" wrapText="true">
             <font>
-                <Font name="Arial" size="11.0"/>
+                <Font name="Arial" size="11.0" />
             </font>
         </Label>
-        <Label layoutX="53.0" layoutY="302.0" prefHeight="38.0" prefWidth="226.0"
-               text="Mettez à jour l'interface : gestion des groupes à votre retour .." textAlignment="CENTER"
-               wrapText="true">
+        <Label layoutX="53.0" layoutY="302.0" prefHeight="38.0" prefWidth="226.0" text="Mettez à jour l'interface : gestion des groupes à votre retour .." textAlignment="CENTER" wrapText="true">
             <font>
-                <Font name="Arial" size="11.0"/>
+                <Font name="Arial" size="11.0" />
             </font>
         </Label>
-        <ImageView fitHeight="26.0" fitWidth="30.0" layoutX="29.0" layoutY="302.0" pickOnBounds="true"
-                   preserveRatio="true">
+        <ImageView fitHeight="26.0" fitWidth="30.0" layoutX="29.0" layoutY="302.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../resources/images/info.png"/>
+                <Image url="@../../resources/images/info.png" />
             </image>
         </ImageView>
-        <ImageView fitHeight="26.0" fitWidth="30.0" layoutX="28.0" layoutY="358.0" pickOnBounds="true"
-                   preserveRatio="true">
+        <ImageView fitHeight="26.0" fitWidth="30.0" layoutX="28.0" layoutY="358.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../resources/images/info.png"/>
+                <Image url="@../../resources/images/info.png" />
             </image>
         </ImageView>
     </children>

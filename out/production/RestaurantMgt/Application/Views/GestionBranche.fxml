@@ -18,7 +18,7 @@
         <DropShadow />
     </effect>
     <children>
-        <ImageView fitHeight="31.0" fitWidth="30.0" layoutX="744.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="31.0" fitWidth="30.0" layoutX="744.0" layoutY="14.0" onMouseClicked="#btnClose_clicked" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../resources/images/HboxIcons/close.png" />
             </image>
@@ -46,9 +46,9 @@
                 <Font name="Arial Bold Italic" size="13.0" />
             </font>
         </Label>
-        <TextField layoutX="82.0" layoutY="105.0" promptText="branche" />
-        <TextField layoutX="82.0" layoutY="156.0" prefHeight="26.0" prefWidth="75.0" promptText="13.50" />
-        <Button layoutX="120.0" layoutY="361.0" mnemonicParsing="false" text="Ajouter" />
+        <TextField fx:id="txt_branche" layoutX="82.0" layoutY="105.0" promptText="branche" />
+        <TextField fx:id="txt_seuil" layoutX="82.0" layoutY="156.0" prefHeight="26.0" prefWidth="75.0" promptText="13.50" />
+        <Button layoutX="120.0" layoutY="361.0" mnemonicParsing="false" onAction="#btnAjouter_clicked" text="Ajouter" />
         <Label layoutX="37.0" layoutY="388.0" prefHeight="38.0" prefWidth="245.0" text="Les reférents des branches sont générés automatiquement dans le systeme . " textAlignment="CENTER" wrapText="true">
             <font>
                 <Font name="Arial" size="11.0" />
@@ -59,12 +59,12 @@
                 <Image url="@../../resources/images/info.png" />
             </image>
         </ImageView>
-      <Label layoutX="21.0" layoutY="210.0" text="Détail :">
-         <font>
-            <Font name="Arial Bold Italic" size="13.0" />
-         </font>
-      </Label>
-      <TextArea layoutX="79.0" layoutY="207.0" prefHeight="146.0" prefWidth="189.0" promptText="Description" />
+        <Label layoutX="21.0" layoutY="210.0" text="Détail :">
+            <font>
+                <Font name="Arial Bold Italic" size="13.0" />
+            </font>
+        </Label>
+        <TextArea fx:id="txt_description" layoutX="79.0" layoutY="207.0" prefHeight="146.0" prefWidth="189.0" promptText="Description" />
     </children>
 
 </AnchorPane>
