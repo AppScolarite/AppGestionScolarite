@@ -4,10 +4,14 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.event.EventType;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
@@ -18,7 +22,11 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
+import java.io.File;
+import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -67,11 +75,28 @@ public class GestionGroupeController implements Initializable {
     }
 
     @FXML
-    public void test_click(MouseEvent e) {
+    public void matiere_click(MouseEvent e) {
         cb_branche.getItems().add(((Label) e.getSource()).getText());
         this.floawLayout_matiere.getChildren().remove(e.getSource());
     }
 
+    @FXML
+    public void btn_gestion_matiere_click(MouseEvent e) {
+        try {
+            FXMLLoader loader = new FXMLLoader(new File("src/Application/Views/GestionMatiere.fxml").toURI().toURL());
+            Parent root = loader.load();
+
+            Scene scene = new Scene(root);
+            scene.setFill(Color.valueOf("transparent"));
+
+            Stage stage = new Stage(StageStyle.TRANSPARENT);
+//            stage.setTitle("Ajout d'actualités");
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

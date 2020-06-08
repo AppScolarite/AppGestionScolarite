@@ -88,7 +88,6 @@ public class LoginController implements Initializable {
                 stage.getIcons().add(new Image(getClass().getResourceAsStream("../../resources/images/LoginIcons/icons8_Google_Wallet_50px.png")));
                 stage.initStyle(StageStyle.UNDECORATED);
 
-
                 Stage stage2 = (Stage) btnSignup.getScene().getWindow();
                 stage2.close();
                 stage.show();
@@ -98,7 +97,7 @@ public class LoginController implements Initializable {
         }
 
 
-        String queryPersonnel = "  select id_personnel,concat(nom_personnel,' ',prenom_personnel) as NomPersonnel, username, mot_de_passe from personnel where username = ? and mot_de_passe = ?";
+        String queryPersonnel = "select id_personnel,concat(nom_personnel,' ',prenom_personnel) as NomPersonnel, username, mot_de_passe from personnel where username = ? and mot_de_passe = ?";
         try {
             PreparedStatement preparedStatementP = connection.prepareStatement(queryPersonnel);
             preparedStatementP.setString(1, username);

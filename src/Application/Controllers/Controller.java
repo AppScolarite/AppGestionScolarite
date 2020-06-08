@@ -23,6 +23,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.InputMethodEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -112,6 +114,9 @@ public class Controller implements Initializable {
 
     @FXML
     private ImageView img2_Accueil;
+
+    @FXML
+    private ImageView img3_Accueil;
 
     @FXML
     private Label labelinfo_Accueil;
@@ -924,7 +929,7 @@ public class Controller implements Initializable {
                                             heureDebut_controle.getText(),
                                             heureFin_controle.getText(),
                                             statut,
-                                            txt_description.getText()
+                                            "Par Mr/Mme " + Gestionnaire_De_Connection.nom_connecte + "\n" + txt_description.getText().replace("'", "''")
                                     )
                     );
             cb_groupesAlert.getSelectionModel().clearSelection();
@@ -949,6 +954,63 @@ public class Controller implements Initializable {
         vbox_messagerie.getChildren().clear();
         vbox_messagerie.setSpacing(30);
         Connection connection = gestionnaire_de_connection.getConnection();
+        if (Gestionnaire_De_Connection.etudiant_connecte != null) {
+            try {
+                Statement sqlCommand = connection.createStatement();
+                ResultSet dataReader = sqlCommand.executeQuery
+                        (
+                                String.format
+                                        (
+                                                "select alrt.* , grp.libelle_grp\n" +
+                                                        "from alert_controle alrt \n" +
+                                                        "inner join groupe grp on alrt.groupe# = grp.id_groupe\n" +
+                                                        "where grp.id_groupe = (" +
+                                                        "                    select grpp.id_groupe\n" +
+                                                        "                    from groupe grpp inner join etudiant etd on etd.groupe# = grpp.id_groupe\n" +
+                                                        "                    where etd.code_massar = '%s'\n" +
+                                                        "                     )",
+                                                Gestionnaire_De_Connection.etudiant_connecte
+                                        )
+                        );
+
+                while (dataReader.next()) {
+                    labelinfo_Accueil.setVisible(false);
+                    img1_Accueil.setVisible(false);
+                    img2_Accueil.setVisible(false);
+                    img3_Accueil.setVisible(true);
+                    vbox_messagerie.setVisible(true);
+                    scroll.setVisible(true);
+                    TextArea actualite = new TextArea();
+                    actualite.setText(
+                            String.format
+                                    (
+                                            "Pour les étudiants du groupe : %s ,Vous avez un controle le %s , à partir de %s jusqu'à %s , la date reste alors %s !\n" +
+                                                    "Plus d'information : %s",
+                                            dataReader.getString("libelle_grp"),
+                                            dataReader.getString("date_control"),
+                                            dataReader.getString("heure_debut"),
+                                            dataReader.getString("heure_fin"),
+                                            dataReader.getString("statut"),
+                                            dataReader.getString("description_control")
+                                    ));
+                    actualite.setPrefHeight(150);
+                    actualite.setMaxHeight(150);
+                    actualite.setMinHeight(150);
+                    actualite.setEffect(new DropShadow());
+                    actualite.setEditable(false);
+                    actualite.setFont(Font.font("Arial", FontWeight.BOLD, 14));
+
+                    actualite.setWrapText(true);
+                    actualite.getStylesheets().add("resources/Styles/AccueilStyle.css");
+                    actualite.getStyleClass().add("text-area");
+
+                    vbox_messagerie.getChildren().add(actualite);
+                    vbox_messagerie.setPrefHeight(vbox_messagerie.getPrefHeight() + 150);
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
         try {
             Statement sqlCommand = connection.createStatement();
             ResultSet dataReader = sqlCommand.executeQuery
@@ -981,7 +1043,8 @@ public class Controller implements Initializable {
                 actualite.setMinHeight(150);
                 actualite.setEffect(new DropShadow());
                 actualite.setEditable(false);
-                actualite.setStyle("-fx-font-size: 14");
+//                actualite.setStyle("-fx-font-size: 14");
+                actualite.setFont(Font.font("Arial", FontWeight.BOLD, 14));
                 actualite.setWrapText(true);
                 actualite.getStylesheets().add("resources/Styles/AccueilStyle.css");
                 actualite.getStyleClass().add("text-area");

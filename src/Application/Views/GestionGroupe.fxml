@@ -104,7 +104,7 @@
         </Label>
         <FlowPane fx:id="floawLayout_matiere" layoutX="34.0" layoutY="329.0" prefHeight="96.0" prefWidth="486.0">
             <children>
-                <Label alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#test_click" prefHeight="18.0" prefWidth="118.0" style="-fx-background-color: dodgerblue; -fx-background-radius: 30; -fx-border-radius: 30;" text="Français" textAlignment="CENTER">
+                <Label alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#matiere_click" prefHeight="18.0" prefWidth="118.0" style="-fx-background-color: dodgerblue; -fx-background-radius: 30; -fx-border-radius: 30;" text="Français" textAlignment="CENTER">
                     <FlowPane.margin>
                         <Insets />
                     </FlowPane.margin>
@@ -117,7 +117,7 @@
                 <Insets left="10.0" right="10.0" top="10.0" />
             </padding>
         </FlowPane>
-        <ImageView fitHeight="26.0" fitWidth="18.0" layoutX="280.0" layoutY="278.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="26.0" fitWidth="18.0" layoutX="280.0" layoutY="278.0" onMouseClicked="#btn_gestion_matiere_click" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../resources/images/add.png" />
             </image>
