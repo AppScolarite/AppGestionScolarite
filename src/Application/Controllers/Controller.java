@@ -275,7 +275,53 @@ public class Controller implements Initializable {
     @FXML
     private ComboBox CB_grp_gestionNotes;
 
+
+    //**************Gestion Prof********************
+    @FXML
+    private Button btnGestionProf;
+    @FXML
+    private Button ajouterProfBtn;
+    @FXML
+    private Pane addProfPanel;
+    @FXML
+    private Hyperlink HP_listProf;
+    @FXML
+    private Pane panelListerProf;
+    @FXML
+    private TableView TableViewProfs;
     //**********************************************
+
+
+
+
+    //**********************************************
+
+    //*********Noureddine Gestion Prof****************
+    @FXML
+    public void backGestionProf_click(){
+        addProfPanel.toFront();
+        btnMinimize.toFront();
+        btnClose.toFront();
+    }
+    @FXML
+    public void listProf_click(){
+        panelListerProf.toFront();
+        btnClose.toFront();
+        btnMinimize.toFront();
+
+    }
+    @FXML
+    public void gestionProf_click(){
+        addProfPanel.toFront();
+        btnClose.toFront();
+        btnMinimize.toFront();
+    }
+
+    @FXML
+    public void ajouterProf_click(){
+
+    }
+    //***********************************
 
     @FXML
     public void logOut_Click() throws Exception {
@@ -866,21 +912,24 @@ public class Controller implements Initializable {
             VboxMenu.getChildren().remove(btnStatistiques);
             VboxMenu.getChildren().remove(btnGestion);
             VboxMenu.getChildren().remove(btnAlert);
+            VboxMenu.getChildren().remove(btnGestionProf);
             btnStatistiquesetudiant.setVisible(true);
             btnNotes.setVisible(true);
         } else if (Gestionnaire_De_Connection.prof_connecte != null) {
             VboxMenu.getChildren().remove(btnStatistiques);
             VboxMenu.getChildren().remove(btnGestion);
             VboxMenu.getChildren().remove(btnStatistiquesetudiant);
+            VboxMenu.getChildren().remove(btnGestionProf);
             btnListes.setVisible(true);
             btnAlert.setVisible(true);
         } else {
             VboxMenu.getChildren().remove(btnListes);
             VboxMenu.getChildren().remove(btnAlert);
+            btnGestionProf.setVisible(true);
             btnGestion.setVisible(true);
             btnStatistiques.setVisible(true);
         }
-        btnAccueil_click();
+//        btnAccueil_click();
 
         //todo : ne pas supprimer ce code hhhh
         //connection avec BD (MSSQL JDBC)
