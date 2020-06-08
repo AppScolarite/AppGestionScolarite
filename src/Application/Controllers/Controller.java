@@ -292,33 +292,33 @@ public class Controller implements Initializable {
     //**********************************************
 
 
-
-
     //**********************************************
 
     //*********Noureddine Gestion Prof****************
     @FXML
-    public void backGestionProf_click(){
+    public void backGestionProf_click() {
         addProfPanel.toFront();
         btnMinimize.toFront();
         btnClose.toFront();
     }
+
     @FXML
-    public void listProf_click(){
+    public void listProf_click() {
         panelListerProf.toFront();
         btnClose.toFront();
         btnMinimize.toFront();
 
     }
+
     @FXML
-    public void gestionProf_click(){
+    public void gestionProf_click() {
         addProfPanel.toFront();
         btnClose.toFront();
         btnMinimize.toFront();
     }
 
     @FXML
-    public void ajouterProf_click(){
+    public void ajouterProf_click() {
 
     }
     //***********************************
@@ -929,7 +929,7 @@ public class Controller implements Initializable {
             btnGestion.setVisible(true);
             btnStatistiques.setVisible(true);
         }
-//        btnAccueil_click();
+        btnAccueil_click();
 
         //todo : ne pas supprimer ce code hhhh
         //connection avec BD (MSSQL JDBC)
