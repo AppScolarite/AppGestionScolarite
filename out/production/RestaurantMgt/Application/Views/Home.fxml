@@ -28,6 +28,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.control.ScrollPane?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="676.0" prefWidth="1212.0" style="-fx-background-color: blue;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.Controllers.Controller">
     <!-- <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="676.0" prefWidth="1212.0" style="-fx-background-color: blue;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.Controllers.Controller"> -->
     <children>
@@ -665,6 +666,58 @@
             <Button fx:id="Btn_Ajouter1" layoutX="724.0" layoutY="103.0" mnemonicParsing="false" onAction="#ajouterProf_click" prefHeight="30.0" prefWidth="83.0" text="Rechercher" />
          </children>
       </Pane>
+        <Pane fx:id="panelAccueil" layoutX="289.0" layoutY="-4.0" prefHeight="684.0" prefWidth="922.0" style="-fx-background-color: white;">
+            <children>
+                <ImageView fx:id="img1_Accueil" fitHeight="304.0" fitWidth="423.0" layoutX="59.0" layoutY="359.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../resources/images/messages.png" />
+                    </image>
+                </ImageView>
+                <ImageView fx:id="img2_Accueil" fitHeight="265.0" fitWidth="341.0" layoutX="515.0" layoutY="210.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../resources/images/news.png" />
+                    </image>
+                </ImageView>
+                <Label layoutX="407.0" layoutY="34.0" text="Accueil" textFill="#6f6f6f" underline="true">
+                    <font>
+                        <Font name="Russo One" size="29.0" />
+                    </font>
+                </Label>
+                <Label fx:id="labelinfo_Accueil" layoutX="170.0" layoutY="133.0" prefHeight="43.0" prefWidth="608.0" text="Il n'y a actuellement aucune actualité dans la fil des &quot;news&quot; ." textAlignment="CENTER" wrapText="true">
+                    <font>
+                        <Font name="Montserrat-Regular" size="20.0" />
+                    </font>
+                </Label>
+                <Button fx:id="btn_AjoutNews" layoutX="413.0" layoutY="97.0" mnemonicParsing="false" onAction="#btn_AjoutNews_click" prefHeight="36.0" prefWidth="95.0" stylesheets="@../../resources/Styles/LoginStyling.css" text="Actualités" underline="true">
+                    <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../resources/images/SideBarIcons/addNews.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <ScrollPane fx:id="scroll" hbarPolicy="NEVER" layoutX="21.0" layoutY="139.0" prefHeight="536.0" prefWidth="895.0" style="-fx-background-color: White;" visible="false">
+                    <content>
+                        <VBox fx:id="vbox_messagerie" alignment="TOP_CENTER" minHeight="2.0" prefHeight="291.0" prefWidth="882.0" style="-fx-background-color: White;" />
+                    </content>
+                </ScrollPane>
+                <Button fx:id="btn_refresh" layoutX="515.0" layoutY="96.0" mnemonicParsing="false" onAction="#refresh_click" prefHeight="38.0" prefWidth="36.0">
+                    <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../resources/images/refresh.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <ImageView fx:id="img3_Accueil" fitHeight="120.0" fitWidth="134.0" layoutX="581.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                    <image>
+                        <Image url="@../../resources/images/boiteLettre.png" />
+                    </image>
+                </ImageView>
+            </children>
+        </Pane>
 
     </children>
     <effect>
