@@ -342,8 +342,6 @@ public class Controller implements Initializable {
     //**********************************************
 
 
-
-
     //**********************************************
 
     //*********Noureddine Gestion Prof****************
@@ -374,11 +372,12 @@ public class Controller implements Initializable {
 
     }
     @FXML
-    public void backGestionProf_click(){
+    public void backGestionProf_click() {
         addProfPanel.toFront();
         btnMinimize.toFront();
         btnClose.toFront();
     }
+
     @FXML
     public void listProf_click() throws SQLException{
         panelListerProf.toFront();
@@ -393,8 +392,9 @@ public class Controller implements Initializable {
 
         TableViewProfs.setItems(Professeurs());
     }
+
     @FXML
-    public void gestionProf_click(){
+    public void gestionProf_click() {
         addProfPanel.toFront();
         btnClose.toFront();
         btnMinimize.toFront();
