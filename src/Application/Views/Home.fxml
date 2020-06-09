@@ -13,6 +13,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
@@ -28,7 +29,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<?import javafx.scene.control.ScrollPane?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="676.0" prefWidth="1212.0" style="-fx-background-color: blue;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.Controllers.Controller">
     <!-- <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="676.0" prefWidth="1212.0" style="-fx-background-color: blue;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.Controllers.Controller"> -->
     <children>
@@ -602,70 +602,6 @@
                 </Button>
             </children>
         </Pane>
-      <Pane fx:id="panelListerProf" layoutX="290.0" prefHeight="676.0" prefWidth="922.0" style="-fx-background-color: #fff;">
-         <children>
-            <Label layoutX="399.0" layoutY="36.0" text="La liste des professeurs">
-               <font>
-                  <Font size="21.0" />
-               </font>
-            </Label>
-            <Button layoutX="23.0" layoutY="621.0" mnemonicParsing="false" onAction="#backGestionProf_click" prefHeight="35.0" prefWidth="65.0" stylesheets="@../../resources/Styles/LoginStyling.css" text="Back">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Button>
-            <TableView fx:id="TableViewProfs" layoutX="13.0" layoutY="117.0" prefHeight="461.0" prefWidth="903.0">
-              <columns>
-                <TableColumn fx:id="col_codeProf" prefWidth="146.0" text="Code Prof" />
-                <TableColumn fx:id="col_CIN" prefWidth="90.33331298828125" text="CIN" />
-                  <TableColumn fx:id="col_NomComplet" prefWidth="182.0" text="Nom Complet" />
-                  <TableColumn fx:id="col_typeContrat" minWidth="0.0" prefWidth="142.33331298828125" text="Type contrat" />
-                  <TableColumn fx:id="col_matiere" prefWidth="158.3333740234375" text="Matière" />
-                  <TableColumn fx:id="col_groupe" prefWidth="186.6666259765625" text="Groupe" />
-              </columns>
-            </TableView>
-         </children>
-      </Pane>
-      <Pane fx:id="addProfPanel" layoutX="287.0" prefHeight="677.0" prefWidth="925.0" style="-fx-background-color: white;" stylesheets="@../../resources/Styles/LoginStyling.css">
-         <children>
-            <Label layoutX="351.0" layoutY="29.0" text="Gestion des professeurs">
-               <font>
-                  <Font size="27.0" />
-               </font>
-            </Label>
-            <TextField fx:id="txtCodeProf" layoutX="83.0" layoutY="193.0" prefHeight="38.0" prefWidth="181.0" promptText="Code Prof" />
-            <TextField fx:id="txtCIN" layoutX="355.0" layoutY="191.0" prefHeight="38.0" prefWidth="181.0" promptText="CIN" />
-            <TextField fx:id="txtNomProf" layoutX="85.0" layoutY="261.0" prefHeight="38.0" prefWidth="176.0" promptText="Nom Professeur" />
-            <TextField fx:id="txtEmail" layoutX="84.0" layoutY="329.0" prefHeight="38.0" prefWidth="176.0" promptText="Email" />
-            <TextField fx:id="txtTel" layoutX="353.0" layoutY="329.0" prefHeight="38.0" prefWidth="176.0" promptText="Téléphone" />
-            <TextField fx:id="txtAdresse" layoutX="85.0" layoutY="391.0" prefHeight="38.0" prefWidth="716.0" promptText="Adresse" />
-            <TextField fx:id="txtUsername" layoutX="92.0" layoutY="500.0" prefHeight="38.0" prefWidth="176.0" promptText="Username" />
-            <TextField fx:id="txtPassword" layoutX="357.0" layoutY="501.0" prefHeight="38.0" prefWidth="176.0" promptText="Password" />
-            <DatePicker fx:id="DP_naissance" layoutX="626.0" layoutY="191.0" prefHeight="38.0" prefWidth="176.0" promptText="Date naissance" />
-            <DatePicker fx:id="DP_commencement" layoutX="359.0" layoutY="261.0" prefHeight="38.0" prefWidth="176.0" promptText="Date commencement" />
-            <ComboBox fx:id="CB_contrat" layoutX="631.0" layoutY="263.0" prefHeight="38.0" prefWidth="171.0" promptText="Type contrat" />
-            <ComboBox fx:id="CB_Sexe" layoutX="630.0" layoutY="329.0" prefHeight="38.0" prefWidth="171.0" promptText="Sexe" />
-            <RadioButton fx:id="RB_Marie" layoutX="100.0" layoutY="450.0" mnemonicParsing="false" text="Marié">
-               <toggleGroup>
-                  <ToggleGroup fx:id="sexe" />
-               </toggleGroup>
-            </RadioButton>
-            <RadioButton fx:id="RB_Ccelib" layoutX="180.0" layoutY="451.0" mnemonicParsing="false" text="Célibataire" toggleGroup="$sexe" />
-            <RadioButton fx:id="RB_Div" layoutX="301.0" layoutY="452.0" mnemonicParsing="false" text="Divorcé" toggleGroup="$sexe" />
-            <Button fx:id="Btn_Ajouter" layoutX="715.0" layoutY="565.0" mnemonicParsing="false" onAction="#ajouterProf_click" prefHeight="44.0" prefWidth="128.0" text="Ajouter">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Button>
-            <Hyperlink layoutX="51.0" layoutY="615.0" onAction="#listProf_click" prefHeight="23.0" prefWidth="164.0" text="Liste des professeurs" underline="true">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Hyperlink>
-            <TextField fx:id="txtSearch" layoutX="527.0" layoutY="101.0" prefHeight="38.0" prefWidth="181.0" promptText="CIN" />
-            <Button fx:id="Btn_Ajouter1" layoutX="724.0" layoutY="103.0" mnemonicParsing="false" onAction="#ajouterProf_click" prefHeight="30.0" prefWidth="83.0" text="Rechercher" />
-         </children>
-      </Pane>
         <Pane fx:id="panelAccueil" layoutX="289.0" layoutY="-4.0" prefHeight="684.0" prefWidth="922.0" style="-fx-background-color: white;">
             <children>
                 <ImageView fx:id="img1_Accueil" fitHeight="304.0" fitWidth="423.0" layoutX="59.0" layoutY="359.0" pickOnBounds="true" preserveRatio="true">
@@ -718,6 +654,76 @@
                 </ImageView>
             </children>
         </Pane>
+      <Pane fx:id="addProfPanel" layoutX="287.0" prefHeight="677.0" prefWidth="925.0" style="-fx-background-color: white;" stylesheets="@../../resources/Styles/LoginStyling.css">
+         <children>
+            <Label layoutX="351.0" layoutY="29.0" text="Gestion des professeurs">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtCodeProf" layoutX="83.0" layoutY="193.0" prefHeight="38.0" prefWidth="181.0" promptText="Code Prof" />
+            <TextField fx:id="txtCIN" layoutX="355.0" layoutY="191.0" prefHeight="38.0" prefWidth="181.0" promptText="CIN" />
+            <TextField fx:id="txtNomProf" layoutX="85.0" layoutY="261.0" prefHeight="38.0" prefWidth="176.0" promptText="Nom Professeur" />
+            <TextField fx:id="txtEmail" layoutX="84.0" layoutY="329.0" prefHeight="38.0" prefWidth="176.0" promptText="Email" />
+            <TextField fx:id="txtTel" layoutX="353.0" layoutY="329.0" prefHeight="38.0" prefWidth="176.0" promptText="Téléphone" />
+            <TextField fx:id="txtAdresse" layoutX="85.0" layoutY="391.0" prefHeight="38.0" prefWidth="716.0" promptText="Adresse" />
+            <TextField fx:id="txtUsername" layoutX="409.0" layoutY="446.0" prefHeight="38.0" prefWidth="176.0" promptText="Username" />
+            <TextField fx:id="txtPassword" layoutX="674.0" layoutY="447.0" prefHeight="38.0" prefWidth="176.0" promptText="Password" />
+            <DatePicker fx:id="DP_naissance" layoutX="626.0" layoutY="191.0" prefHeight="38.0" prefWidth="176.0" promptText="Date naissance" />
+            <DatePicker fx:id="DP_commencement" layoutX="359.0" layoutY="261.0" prefHeight="38.0" prefWidth="176.0" promptText="Date commencement" />
+            <ComboBox fx:id="CB_contrat" layoutX="631.0" layoutY="263.0" prefHeight="38.0" prefWidth="171.0" promptText="Type contrat" />
+            <RadioButton fx:id="RB_Marie" layoutX="100.0" layoutY="450.0" mnemonicParsing="false" text="Marié(e)">
+               <toggleGroup>
+                  <ToggleGroup fx:id="sexe" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="RB_Ccelib" layoutX="180.0" layoutY="451.0" mnemonicParsing="false" text="Celibataire" toggleGroup="$sexe" />
+            <RadioButton fx:id="RB_Div" layoutX="301.0" layoutY="452.0" mnemonicParsing="false" text="divorcé(e)" toggleGroup="$sexe" />
+            <Button fx:id="Btn_Ajouter" layoutX="715.0" layoutY="565.0" mnemonicParsing="false" onAction="#ajouterProf_click" prefHeight="44.0" prefWidth="128.0" text="Ajouter">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <Hyperlink layoutX="51.0" layoutY="615.0" onAction="#listProf_click" prefHeight="23.0" prefWidth="164.0" text="Liste des professeurs" underline="true">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Hyperlink>
+            <TextField fx:id="txtSearch" layoutX="527.0" layoutY="101.0" prefHeight="38.0" prefWidth="181.0" promptText="CIN" />
+            <Button fx:id="Btn_Rechercher" layoutX="724.0" layoutY="103.0" mnemonicParsing="false" onAction="#chercherProf_click" prefHeight="30.0" prefWidth="83.0" text="Rechercher" />
+            <RadioButton fx:id="RB_Femme" layoutX="738.0" layoutY="331.0" mnemonicParsing="false" text="Femme">
+               <toggleGroup>
+                  <ToggleGroup fx:id="sexe1" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="RB_Homme" layoutX="648.0" layoutY="331.0" mnemonicParsing="false" text="Homme" toggleGroup="$sexe1" />
+            <ComboBox fx:id="CB_Matieres" layoutX="78.0" layoutY="493.0" prefHeight="38.0" prefWidth="171.0" promptText="Matieres" />
+         </children>
+      </Pane>
+      <Pane fx:id="panelListerProf" layoutX="290.0" prefHeight="676.0" prefWidth="922.0" style="-fx-background-color: #fff;">
+         <children>
+            <Label layoutX="399.0" layoutY="36.0" text="La liste des professeurs">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Label>
+            <Button layoutX="23.0" layoutY="621.0" mnemonicParsing="false" onAction="#backGestionProf_click" prefHeight="35.0" prefWidth="65.0" stylesheets="@../../resources/Styles/LoginStyling.css" text="Back">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <TableView fx:id="TableViewProfs" editable="true" layoutX="13.0" layoutY="117.0" prefHeight="461.0" prefWidth="903.0">
+              <columns>
+                <TableColumn fx:id="col_codeProf" editable="false" prefWidth="146.0" text="Code Prof" />
+                <TableColumn fx:id="col_CIN" editable="false" prefWidth="90.33331298828125" text="CIN" />
+                  <TableColumn fx:id="col_NomComplet" editable="false" prefWidth="182.0" text="Nom Complet" />
+                  <TableColumn fx:id="col_typeContrat" editable="false" minWidth="0.0" prefWidth="142.33331298828125" text="Type contrat" />
+                  <TableColumn fx:id="col_matiere" editable="true" prefWidth="158.3333740234375" text="Matière" />
+                  <TableColumn fx:id="col_groupe" editable="true" prefWidth="186.6666259765625" text="Groupe" />
+              </columns>
+            </TableView>
+         </children>
+      </Pane>
 
     </children>
     <effect>

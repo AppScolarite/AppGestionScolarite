@@ -4,6 +4,7 @@ import Application.Data.Gestionnaire_De_Connection;
 import Application.Models.ClassementViewModel;
 import Application.Models.GestionEtudiantsViewModel;
 import Application.Models.GestionNotesViewModel;
+import Application.Models.GestionProfViewModel;
 import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -28,6 +29,7 @@ import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+import javax.swing.plaf.nimbus.State;
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -35,6 +37,7 @@ import java.sql.*;
 
 import java.net.URL;
 import java.text.DecimalFormat;
+import java.time.LocalDate;
 import java.util.*;
 import java.util.Date;
 
@@ -288,7 +291,54 @@ public class Controller implements Initializable {
     @FXML
     private Pane panelListerProf;
     @FXML
-    private TableView TableViewProfs;
+    private TableView<GestionProfViewModel> TableViewProfs;
+    @FXML
+    private TableColumn<GestionProfViewModel, String> col_codeProf;
+    @FXML
+    private TableColumn<GestionProfViewModel, String> col_CIN;
+    @FXML
+    private TableColumn<GestionProfViewModel, String> col_NomComplet;
+    @FXML
+    private TableColumn<GestionProfViewModel, String> col_typeContrat;
+    @FXML
+    private TableColumn<GestionProfViewModel, String> col_matiere;
+    @FXML
+    private TableColumn<GestionProfViewModel, String> col_groupe;
+    @FXML
+    private TextField txtCodeProf;
+    @FXML
+    private TextField txtCIN;
+    @FXML
+    private TextField txtNomProf;
+    @FXML
+    private TextField txtEmail;
+    @FXML
+    private TextField txtTel;
+    @FXML
+    private TextField txtAdresse;
+    @FXML
+    private TextField txtUsername;
+    @FXML
+    private TextField txtPassword;
+    @FXML
+    private DatePicker DP_naissance;
+    @FXML
+    private DatePicker DP_commencement;
+    @FXML
+    private ComboBox CB_contrat;
+    @FXML
+    private RadioButton RB_Femme;
+    @FXML
+    private RadioButton RB_Homme;
+    @FXML
+    private RadioButton RB_Marie;
+    @FXML
+    private RadioButton RB_Ccelib;
+    @FXML
+    private RadioButton RB_Div;
+
+    @FXML
+    private TextField txtSearch;
     //**********************************************
 
 
@@ -297,6 +347,32 @@ public class Controller implements Initializable {
     //**********************************************
 
     //*********Noureddine Gestion Prof****************
+    ObservableList<GestionProfViewModel> Professeurs() throws SQLException{
+        Gestionnaire_De_Connection gestionnaire_de_connection = new Gestionnaire_De_Connection();
+        Connection connection = gestionnaire_de_connection.getConnection();
+        ObservableList<GestionProfViewModel> professeurs = FXCollections.observableArrayList();
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery("  select professeur.Code_Pro_Nationnal as codeProf,professeur.Cin as cin," +
+                " concat(professeur.Nom,' ',professeur.Prenom) as nomProf, \n" +
+                "  professeur.Type_Contrat as typeContrat, matiere.LBL_Matiere as nomMatiere, groupe.libelle_grp as nomGroupe \n" +
+                "  from PROFESSEUR join ENSEIGNEMENT on PROFESSEUR.Code_Pro_Nationnal = ENSEIGNEMENT.professeur#\n" +
+                "  join MATIERE on ENSEIGNEMENT.matiere# = MATIERE.id_matiere\n" +
+                "  join GROUPE on GROUPE.id_groupe = ENSEIGNEMENT.groupe#");
+        while(resultSet.next()){
+            professeurs.addAll(new GestionProfViewModel(
+                    resultSet.getString("codeProf"),
+                    resultSet.getString("cin"),
+                    resultSet.getString("nomProf"),
+                    resultSet.getString("typeContrat"),
+                    resultSet.getString("nomMatiere"),
+                    resultSet.getString("nomGroupe")
+            ));
+        }
+        return professeurs;
+    }
+    public void ListProf_Load(){
+
+    }
     @FXML
     public void backGestionProf_click(){
         addProfPanel.toFront();
@@ -304,11 +380,18 @@ public class Controller implements Initializable {
         btnClose.toFront();
     }
     @FXML
-    public void listProf_click(){
+    public void listProf_click() throws SQLException{
         panelListerProf.toFront();
         btnClose.toFront();
         btnMinimize.toFront();
+        col_codeProf.setCellValueFactory(new PropertyValueFactory<>("nomCodeProf"));
+        col_CIN.setCellValueFactory(new PropertyValueFactory<>("CIN"));
+        col_NomComplet.setCellValueFactory(new PropertyValueFactory<>("nomComplet"));
+        col_typeContrat.setCellValueFactory(new PropertyValueFactory<>("typeContrat"));
+        col_matiere.setCellValueFactory(new PropertyValueFactory<>("Matiere"));
+        col_groupe.setCellValueFactory(new PropertyValueFactory<>("Groupes"));
 
+        TableViewProfs.setItems(Professeurs());
     }
     @FXML
     public void gestionProf_click(){
@@ -319,7 +402,81 @@ public class Controller implements Initializable {
 
     @FXML
     public void ajouterProf_click(){
+        Gestionnaire_De_Connection gestionnaire_de_connection = new Gestionnaire_De_Connection();
+        Connection connection = gestionnaire_de_connection.getConnection();
+        try {
+            String Nomcomplet[] = txtNomProf.getText().split(" ");
+            String nomProf = Nomcomplet[0];
+            String PrenomProf = Nomcomplet[1];
 
+            PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO PROFESSEUR (Code_Pro_Nationnal, Cin, Nom, Prenom, Date_Naissance, Date_Commencement_Contrat, Type_Contrat, Email," +
+                    " Telephone, sexe, Adresse, Situation_Familliale, username, mot_de_passe) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+            preparedStatement.setString(1, txtCodeProf.getText());
+            preparedStatement.setString(2,txtCIN.getText());
+            preparedStatement.setString(3,nomProf);
+            preparedStatement.setString(4,PrenomProf);
+            preparedStatement.setDate(5,java.sql.Date.valueOf(DP_naissance.getValue()));
+            preparedStatement.setDate(6,java.sql.Date.valueOf(DP_commencement.getValue()));
+            if(CB_contrat.getSelectionModel().getSelectedIndex() + 1 == 1 ){
+                preparedStatement.setString(7,"CDD");
+            }
+            else preparedStatement.setString(7,"CDI");
+            preparedStatement.setString(8,txtEmail.getText());
+            preparedStatement.setString(9,txtTel.getText());
+            if(RB_Femme.isSelected()){
+                preparedStatement.setString(10,RB_Femme.getText());
+            }
+            if(RB_Homme.isSelected()) preparedStatement.setString(10,RB_Homme.getText());
+            preparedStatement.setString(11,txtAdresse.getText());
+            if(RB_Ccelib.isSelected()) preparedStatement.setString(12,RB_Ccelib.getText());
+            if(RB_Div.isSelected()) preparedStatement.setString(12,RB_Div.getText());
+            if(RB_Marie.isSelected()) preparedStatement.setString(12,RB_Marie.getText());
+            preparedStatement.setString(13,txtUsername.getText());
+            preparedStatement.setString(14,txtPassword.getText());
+
+            preparedStatement.executeUpdate();
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Ajout professeur");
+            alert.setHeaderText("Un Presseur ajouté");
+            alert.setContentText("Professeur a été bien ajouté !! ");
+            alert.showAndWait();
+        }catch (SQLException e){
+            e.getStackTrace();
+        }
+
+    }
+
+    @FXML
+    public void chercherProf_click(){
+        Gestionnaire_De_Connection getGestionnaire_de_connection = new Gestionnaire_De_Connection();
+        Connection connection = getGestionnaire_de_connection.getConnection();
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("  select * from professeur where Code_Pro_Nationnal ='" + txtSearch.getText() +  "'");
+            if (resultSet.next()) {
+                System.out.println("gggg");
+                txtCodeProf.setText(resultSet.getString("Code_Pro_Nationnal"));
+                txtCIN.setText(resultSet.getString("Cin"));
+                txtNomProf.setText(resultSet.getString("Nom") + " " + resultSet.getString("Prenom"));
+                DP_naissance.setValue(LocalDate.parse(resultSet.getString("Date_Naissance")));
+                DP_commencement.setValue(LocalDate.parse(resultSet.getString("Date_Commencement_Contrat")));
+                CB_contrat.setPromptText(resultSet.getString("Type_Contrat"));
+                txtEmail.setText(resultSet.getString("Email"));
+                txtTel.setText(resultSet.getString("Telephone"));
+                if (resultSet.getString("sexe") == "Homme") RB_Homme.setSelected(true);
+                else RB_Femme.setSelected(true);
+                txtAdresse.setText(resultSet.getString("Adresse"));
+                if (resultSet.getString("Situation_Familliale").equals("Celibataire")) RB_Ccelib.setSelected(true);
+                else if (resultSet.getString("Situation_Familliale").equals("divorcé(e)")) RB_Div.setSelected(true);
+                else if (resultSet.getString("Situation_Familliale").equals("Marié(e)")) RB_Marie.setSelected(true);
+                txtUsername.setText(resultSet.getString("username"));
+                txtPassword.setText(resultSet.getString("mot_de_passe"));
+            }
+
+        }catch (SQLException s){
+
+        }
     }
     //***********************************
 
@@ -923,13 +1080,15 @@ public class Controller implements Initializable {
             btnListes.setVisible(true);
             btnAlert.setVisible(true);
         } else {
+            ObservableList data = FXCollections.observableArrayList("CDD","CDI");
+            CB_contrat.setItems(data);
             VboxMenu.getChildren().remove(btnListes);
             VboxMenu.getChildren().remove(btnAlert);
             btnGestionProf.setVisible(true);
             btnGestion.setVisible(true);
             btnStatistiques.setVisible(true);
         }
-//        btnAccueil_click();
+        btnAccueil_click();
 
         //todo : ne pas supprimer ce code hhhh
         //connection avec BD (MSSQL JDBC)
