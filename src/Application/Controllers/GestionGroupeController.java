@@ -120,6 +120,7 @@ public class GestionGroupeController implements Initializable {
         cb_branche.getItems().add("ang");
         cb_branche.getItems().add("c#");
         cb_branche.getItems().add("php");
+        cb_branche.getItems().add("java");
 
     }
 
