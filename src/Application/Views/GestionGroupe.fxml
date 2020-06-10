@@ -39,7 +39,7 @@
                 <Font name="Arial Bold Italic" size="15.0" />
             </font>
         </Label>
-        <ComboBox layoutX="240.0" layoutY="99.0" prefWidth="150.0" promptText="Branche">
+        <ComboBox fx:id="cb_brc" layoutX="240.0" layoutY="99.0" onAction="#Br_Selected" prefWidth="150.0" promptText="Branche">
             <effect>
                 <DropShadow />
             </effect>
@@ -49,7 +49,7 @@
                 <Font name="Arial Bold Italic" size="15.0" />
             </font>
         </Label>
-        <ComboBox layoutX="449.0" layoutY="99.0" prefWidth="150.0" promptText="Niveau">
+        <ComboBox fx:id="cb_niveau" layoutX="449.0" layoutY="99.0" prefWidth="150.0" promptText="Niveau">
             <effect>
                 <DropShadow />
             </effect>
@@ -64,13 +64,13 @@
                 <Font name="Arial Bold Italic" size="15.0" />
             </font>
         </Label>
-        <TextField layoutX="89.0" layoutY="152.0" />
+        <TextField fx:id="titleGrp" layoutX="89.0" layoutY="152.0" />
         <Label layoutX="251.0" layoutY="156.0" text="est éligible à tous les étudiants (es) ayant une note supérieure ou ">
             <font>
                 <Font name="Arial Bold Italic" size="15.0" />
             </font>
         </Label>
-        <TextField disable="true" editable="false" layoutX="236.0" layoutY="199.0" />
+        <TextField fx:id="mg_txt" disable="true" editable="false" layoutX="236.0" layoutY="199.0" />
         <Label layoutX="29.0" layoutY="204.0" text="égale à la moyenne générale ">
             <font>
                 <Font name="Arial Bold Italic" size="15.0" />
@@ -86,7 +86,7 @@
                 <Font name="Arial Bold Italic" size="15.0" />
             </font>
         </Label>
-        <TextField disable="true" editable="false" layoutX="652.0" layoutY="272.0" prefHeight="26.0" prefWidth="101.0" />
+        <TextField fx:id="title" disable="true" editable="false" layoutX="652.0" layoutY="272.0" prefHeight="26.0" prefWidth="101.0" />
         <ComboBox fx:id="cb_branche" layoutX="127.0" layoutY="273.0" onAction="#cb_branche_selected" prefWidth="150.0" promptText="Matiéres">
             <items>
                 <FXCollections fx:factory="observableArrayList">

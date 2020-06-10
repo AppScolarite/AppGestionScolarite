@@ -14,7 +14,7 @@ public class Gestionnaire_De_Connection {
 
     public Connection getConnection() {
 
-        String nom_BD = "system_scolarite";
+        String nom_BD = "system_scolarit";
         String userName = "sa";
         String password = "@*9292";
 
