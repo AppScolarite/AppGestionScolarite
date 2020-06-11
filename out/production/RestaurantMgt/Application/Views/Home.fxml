@@ -702,7 +702,7 @@
         </Pane>
         <Pane fx:id="panelStatistiquesPersonnel" layoutX="289.0" layoutY="-4.0" prefHeight="680.0" prefWidth="922.0" style="-fx-background-color: WHITE;">
             <children>
-                <PieChart fx:id="pieChartPersonnel" layoutX="523.0" layoutY="61.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="256.0" prefWidth="379.0" />
+                <PieChart fx:id="pieChartPersonnel" layoutX="464.0" layoutY="80.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="281.0" prefWidth="443.0" />
                 <BarChart fx:id="barChartPersonnel" layoutX="27.0" layoutY="95.0" prefHeight="317.0" prefWidth="435.0">
                     <xAxis>
                         <CategoryAxis side="BOTTOM" />
@@ -766,14 +766,7 @@
                         <Font name="System Italic" size="14.0" />
                     </font>
                 </Label>
-            <PieChart fx:id="pieChartMoyenne" layoutX="372.0" layoutY="438.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="228.0" prefWidth="398.0" />
-            <RadioButton fx:id="RB_StaticProf" layoutX="166.0" layoutY="75.0" mnemonicParsing="false" text="Professeurs">
-               <toggleGroup>
-                  <ToggleGroup fx:id="statistiques" />
-               </toggleGroup>
-            </RadioButton>
-            <RadioButton fx:id="RB_StatisticGroupe" layoutX="318.0" layoutY="75.0" mnemonicParsing="false" text="Groupes" toggleGroup="$statistiques" />
-            <RadioButton fx:id="RB_StatisticMatiere" layoutX="442.0" layoutY="75.0" mnemonicParsing="false" text="Matieres" toggleGroup="$statistiques" />
+            <PieChart fx:id="pieChartMoyenne" layoutX="489.0" layoutY="376.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="252.0" prefWidth="401.0" />
             </children>
         </Pane>
 

@@ -1091,7 +1091,7 @@ public class Controller implements Initializable {
                     new PieChart.Data("Femme", nbrFemme),
                     new PieChart.Data("Homme", nbrHomme));
             pieChartPersonnel.setData(pieChartDataP);
-//            pieChartPersonnel.setTitle("Divérsité des genres");
+            pieChartPersonnel.setTitle("Divérsité des genres");
             pieChartPersonnel.setClockwise(true);
             pieChartPersonnel.setLabelsVisible(true);
             pieChartPersonnel.setLabelLineLength(50);
@@ -1125,7 +1125,7 @@ public class Controller implements Initializable {
                     new PieChart.Data("Moyenne >= 10", noteSup),
                     new PieChart.Data("Moyenne < 10", noteInf));
             pieChartMoyenne.setData(pieChartDataM);
-//            pieChartMoyenne.setTitle("Divérsité des moyennes");
+            pieChartMoyenne.setTitle("Divérsité des moyennes");
             pieChartMoyenne.setClockwise(true);
             pieChartMoyenne.setLabelsVisible(true);
             pieChartMoyenne.setLabelLineLength(50);
