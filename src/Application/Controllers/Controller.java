@@ -5,13 +5,15 @@ import Application.Models.ClassementViewModel;
 import Application.Models.GestionEtudiantsViewModel;
 import Application.Models.GestionNotesViewModel;
 import Application.Models.GestionProfViewModel;
-import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.*;
@@ -21,18 +23,17 @@ import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.InputMethodEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-import javax.swing.plaf.nimbus.State;
 import java.io.File;
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.sql.*;
 
 import java.net.URL;
@@ -283,7 +284,7 @@ public class Controller implements Initializable {
     @FXML
     private Button btnGestionProf;
     @FXML
-    private Button ajouterProfBtn;
+    private Button Btn_Ajouter;
     @FXML
     private Pane addProfPanel;
     @FXML
@@ -336,16 +337,159 @@ public class Controller implements Initializable {
     private RadioButton RB_Ccelib;
     @FXML
     private RadioButton RB_Div;
-
+    @FXML
+    private ComboBox CB_Matieres;
+    @FXML
+    private ComboBox CB_Groupes;
     @FXML
     private TextField txtSearch;
+    @FXML
+    private FlowPane floawLayout_groupe;
+    @FXML
+    private Button Btn_Rechercher;
+    @FXML
+    private MenuItem supprimerProf;
     //**********************************************
 
 
     //**********************************************
 
     //*********Noureddine Gestion Prof****************
-    ObservableList<GestionProfViewModel> Professeurs() throws SQLException{
+    @FXML
+    private void supprimerProf(){
+        GestionProfViewModel professeur = (GestionProfViewModel) TableViewProfs.getSelectionModel().getSelectedItem();
+        if (professeur == null) {
+            System.out.println("aucun etudiant a supprimer !");
+            return;
+        }
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Supression d'un étudiant !");
+        alert.setContentText("Etes vous totalement sur de vouloir supprimer l'étudiant <" + professeur.getNomCodeProf() + "-" + professeur.getNomComplet() + " " + professeur.getCIN() + "> ??\n");
+        alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
+        alert.setHeight(400);
+        Optional<ButtonType> reponse = alert.showAndWait();
+        if (reponse.get().equals(ButtonType.OK)) {
+            try {
+                Connection connection = gestionnaire_de_connection.getConnection();
+                Statement sqlCommand = connection.createStatement();
+                sqlCommand.execute
+                        (
+                                String.format
+                                        (
+                                                "delete from ENSEIGNEMENT where professeur# = '%s' ;" +
+                                                        "delete from PROFESSEUR where Code_Pro_Nationnal = '%s';",
+                                                professeur.getNomCodeProf(), professeur.getNomCodeProf()
+                                        )
+                        );
+                TableViewProfs.getItems().remove(TableViewProfs.getSelectionModel().getSelectedItem());
+                TableViewProfs.refresh();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    @FXML
+    public void Mode_Click(ActionEvent e) {
+        if (((ToggleButton) e.getSource()).isSelected()) {
+            for (int i = 0 ; i < floawLayout_groupe.getChildren().size() ; i++){
+                System.out.println(IdGrp.get(i));
+            }
+            System.out.println("mode desactivated");
+            Btn_Rechercher.setVisible(true);
+            txtSearch.setVisible(true);
+            Btn_Ajouter.setText("Modifier");
+        }else {
+            System.out.println("mode activated");
+            Btn_Rechercher.setVisible(false);
+            txtSearch.setVisible(false);
+            Btn_Ajouter.setText("Ajouter");
+        }
+    }
+
+    @FXML
+    public void groupe_click(MouseEvent e) {
+//        CB_Groupes.getItems().add(((Label) e.getSource()).getText());
+        this.floawLayout_groupe.getChildren().remove(e.getSource());
+        IdGrp.remove(e.getSource());
+    }
+
+    public List<Integer> IdGrp = new ArrayList<>();
+
+    @FXML
+    private void cb_groupe_selected() {
+//        if (!CB_Groupes.getItems().isEmpty()){
+
+        if (!CB_Groupes.getSelectionModel().getSelectedItem().equals("-Choisir-")) {
+            Label label = new Label();
+            label.setText(CB_Groupes.getSelectionModel().getSelectedItem().toString());
+            IdGrp.add(CB_Groupes.getSelectionModel().getSelectedIndex());
+            System.out.println(IdGrp);
+            label.setAlignment(Pos.CENTER);
+            label.setFont(Font.font("System", FontWeight.BOLD, 12));
+            label.setTextAlignment(TextAlignment.CENTER);
+            label.setPrefHeight(18.0);
+            label.setPrefWidth(label.getText().length() + 80);
+            CornerRadii radius = new CornerRadii(30);
+            label.setBackground(new Background(new BackgroundFill(Color.DODGERBLUE, radius, Insets.EMPTY)));
+            label.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent mouseEvent) {
+                    groupe_click(mouseEvent);
+                }
+            });
+            floawLayout_groupe.setHgap(10);
+            floawLayout_groupe.setVgap(10);
+            floawLayout_groupe.getChildren().add(label);
+
+//            CB_Groupes.setOnAction(null);
+//            CB_Groupes.getItems().remove(CB_Groupes.getSelectionModel().getSelectedItem().toString());
+//            CB_Groupes.getSelectionModel().selectFirst();
+//            CB_Groupes.setOnAction(new EventHandler<ActionEvent>() {
+//                @Override
+//                public void handle(ActionEvent actionEvent) {
+//                    cb_groupe_selected();
+//                }
+//            });
+        }
+
+//        }
+    }
+
+    public void BindComboGroupe() {
+        try {
+            Connection connection = gestionnaire_de_connection.getConnection();
+            Statement stmMatiere = connection.createStatement();
+            ResultSet rss = stmMatiere.executeQuery("select * from GROUPE");
+            ObservableList mat = FXCollections.observableArrayList();
+            mat.add("-Choisir-");
+            while (rss.next()) {
+                String matieres = rss.getString("libelle_grp");
+                mat.add(matieres);
+            }
+            CB_Groupes.setItems(mat);
+            CB_Groupes.getSelectionModel().selectFirst();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    public void BindComboMatiere() {
+        try {
+            Connection connection = gestionnaire_de_connection.getConnection();
+            Statement stmMatiere = connection.createStatement();
+            ResultSet rss = stmMatiere.executeQuery("select * from matiere");
+            ObservableList mat = FXCollections.observableArrayList();
+            while (rss.next()) {
+                String matieres = rss.getString(2);
+                mat.add(matieres);
+            }
+            CB_Matieres.setItems(mat);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    ObservableList<GestionProfViewModel> Professeurs() throws SQLException {
         Gestionnaire_De_Connection gestionnaire_de_connection = new Gestionnaire_De_Connection();
         Connection connection = gestionnaire_de_connection.getConnection();
         ObservableList<GestionProfViewModel> professeurs = FXCollections.observableArrayList();
@@ -356,7 +500,7 @@ public class Controller implements Initializable {
                 "  from PROFESSEUR join ENSEIGNEMENT on PROFESSEUR.Code_Pro_Nationnal = ENSEIGNEMENT.professeur#\n" +
                 "  join MATIERE on ENSEIGNEMENT.matiere# = MATIERE.id_matiere\n" +
                 "  join GROUPE on GROUPE.id_groupe = ENSEIGNEMENT.groupe#");
-        while(resultSet.next()){
+        while (resultSet.next()) {
             professeurs.addAll(new GestionProfViewModel(
                     resultSet.getString("codeProf"),
                     resultSet.getString("cin"),
@@ -368,9 +512,7 @@ public class Controller implements Initializable {
         }
         return professeurs;
     }
-    public void ListProf_Load(){
 
-    }
     @FXML
     public void backGestionProf_click() {
         addProfPanel.toFront();
@@ -378,8 +520,9 @@ public class Controller implements Initializable {
         btnClose.toFront();
     }
 
+
     @FXML
-    public void listProf_click() throws SQLException{
+    public void listProf_click() throws SQLException {
         panelListerProf.toFront();
         btnClose.toFront();
         btnMinimize.toFront();
@@ -389,71 +532,186 @@ public class Controller implements Initializable {
         col_typeContrat.setCellValueFactory(new PropertyValueFactory<>("typeContrat"));
         col_matiere.setCellValueFactory(new PropertyValueFactory<>("Matiere"));
         col_groupe.setCellValueFactory(new PropertyValueFactory<>("Groupes"));
-
+        col_groupe.setCellFactory(TextFieldTableCell.forTableColumn());
         TableViewProfs.setItems(Professeurs());
+        TableViewProfs.setEditable(true);
+
+//        col_matiere.setCellFactory(TextFieldTableCell.forTableColumn());
+//        col_matiere.setOnEditCommit(e ->
+//                this.Update_Prof("Matiere",
+//                        e.getNewValue(),
+//                        e.getTableView().getItems().get(e.getTablePosition().getRow()).getNomCodeProf()));
+//
+//        col_groupe.setCellFactory(TextFieldTableCell.forTableColumn());
+//        col_groupe.setOnEditCommit(e ->
+//                this.Update_Prof( "Groupes",
+//                        e.getNewValue(),
+//                        e.getTableView().getItems().get(e.getTablePosition().getRow()).getNomCodeProf())
+//                );
+
     }
+
+//        private void Update_Prof(String champs, String valeur, String id) {
+//        try {
+//            Connection connection = gestionnaire_de_connection.getConnection();
+//            Statement sqlCommand = connection.createStatement();
+//            sqlCommand.executeUpdate
+//                    (
+//                            String.format
+//                                    (
+//                                            "update PROFESSEUR set %s = '%s' where Code_Pro_Nationnal = '%s'",
+//                                            champs,
+//                                            valeur,
+//                                            id
+//                                    )
+//                    );
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
     @FXML
     public void gestionProf_click() {
+        BindComboMatiere();
+        BindComboGroupe();
         addProfPanel.toFront();
         btnClose.toFront();
         btnMinimize.toFront();
     }
 
     @FXML
-    public void ajouterProf_click(){
-        Gestionnaire_De_Connection gestionnaire_de_connection = new Gestionnaire_De_Connection();
-        Connection connection = gestionnaire_de_connection.getConnection();
-        try {
-            String Nomcomplet[] = txtNomProf.getText().split(" ");
-            String nomProf = Nomcomplet[0];
-            String PrenomProf = Nomcomplet[1];
+    public void ajouterProf_click() {
+            Gestionnaire_De_Connection gestionnaire_de_connection = new Gestionnaire_De_Connection();
+            Connection connection = gestionnaire_de_connection.getConnection();
+        if (Btn_Ajouter.getText().equals("Ajouter")) {
+            try {
+                String Nomcomplet[] = txtNomProf.getText().split(" ");
+                String nomProf = Nomcomplet[0];
+                String PrenomProf = Nomcomplet[1];
 
-            PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO PROFESSEUR (Code_Pro_Nationnal, Cin, Nom, Prenom, Date_Naissance, Date_Commencement_Contrat, Type_Contrat, Email," +
-                    " Telephone, sexe, Adresse, Situation_Familliale, username, mot_de_passe) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-            preparedStatement.setString(1, txtCodeProf.getText());
-            preparedStatement.setString(2,txtCIN.getText());
-            preparedStatement.setString(3,nomProf);
-            preparedStatement.setString(4,PrenomProf);
-            preparedStatement.setDate(5,java.sql.Date.valueOf(DP_naissance.getValue()));
-            preparedStatement.setDate(6,java.sql.Date.valueOf(DP_commencement.getValue()));
-            if(CB_contrat.getSelectionModel().getSelectedIndex() + 1 == 1 ){
-                preparedStatement.setString(7,"CDD");
-            }
-            else preparedStatement.setString(7,"CDI");
-            preparedStatement.setString(8,txtEmail.getText());
-            preparedStatement.setString(9,txtTel.getText());
-            if(RB_Femme.isSelected()){
-                preparedStatement.setString(10,RB_Femme.getText());
-            }
-            if(RB_Homme.isSelected()) preparedStatement.setString(10,RB_Homme.getText());
-            preparedStatement.setString(11,txtAdresse.getText());
-            if(RB_Ccelib.isSelected()) preparedStatement.setString(12,RB_Ccelib.getText());
-            if(RB_Div.isSelected()) preparedStatement.setString(12,RB_Div.getText());
-            if(RB_Marie.isSelected()) preparedStatement.setString(12,RB_Marie.getText());
-            preparedStatement.setString(13,txtUsername.getText());
-            preparedStatement.setString(14,txtPassword.getText());
+                PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO PROFESSEUR (Code_Pro_Nationnal, Cin, Nom, Prenom, Date_Naissance, Date_Commencement_Contrat, Type_Contrat, Email," +
+                        " Telephone, sexe, Adresse, Situation_Familliale, username, mot_de_passe) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+                preparedStatement.setString(1, txtCodeProf.getText());
+                preparedStatement.setString(2, txtCIN.getText());
+                preparedStatement.setString(3, nomProf);
+                preparedStatement.setString(4, PrenomProf);
+                preparedStatement.setDate(5, java.sql.Date.valueOf(DP_naissance.getValue()));
+                preparedStatement.setDate(6, java.sql.Date.valueOf(DP_commencement.getValue()));
+                if (CB_contrat.getSelectionModel().getSelectedIndex() + 1 == 1) {
+                    preparedStatement.setString(7, "CDD");
+                } else preparedStatement.setString(7, "CDI");
+                preparedStatement.setString(8, txtEmail.getText());
+                preparedStatement.setString(9, txtTel.getText());
+                if (RB_Femme.isSelected()) {
+                    preparedStatement.setString(10, RB_Femme.getText());
+                }
+                if (RB_Homme.isSelected()) preparedStatement.setString(10, RB_Homme.getText());
+                preparedStatement.setString(11, txtAdresse.getText());
+                if (RB_Ccelib.isSelected()) preparedStatement.setString(12, RB_Ccelib.getText());
+                if (RB_Div.isSelected()) preparedStatement.setString(12, RB_Div.getText());
+                if (RB_Marie.isSelected()) preparedStatement.setString(12, RB_Marie.getText());
+                preparedStatement.setString(13, txtUsername.getText());
+                preparedStatement.setString(14, txtPassword.getText());
 
-            preparedStatement.executeUpdate();
+                preparedStatement.executeUpdate();
+
+
+            } catch (SQLException e) {
+                e.getStackTrace();
+            }
+
+            try {
+                for(int i = 0 ; i < floawLayout_groupe.getChildren().size() ; i++ ){
+                    PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO ENSEIGNEMENT (professeur#,groupe#, matiere#) VALUES (?,?,?)");
+                    preparedStatement.setString(1, txtCodeProf.getText());
+                    preparedStatement.setInt(2, IdGrp.get(i));
+                    preparedStatement.setInt(3,CB_Matieres.getSelectionModel().getSelectedIndex() + 1);
+                    preparedStatement.executeUpdate();
+                }
+
+            } catch (SQLException e) {
+                e.getStackTrace();
+            }
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Ajout professeur");
             alert.setHeaderText("Un Presseur ajouté");
             alert.setContentText("Professeur a été bien ajouté !! ");
             alert.showAndWait();
-        }catch (SQLException e){
-            e.getStackTrace();
+        }
+        else if(Btn_Ajouter.getText().equals("Modifier")){
+            try {
+                String Nomcomplet[] = txtNomProf.getText().split(" ");
+                String nomProf = Nomcomplet[0];
+                String PrenomProf = Nomcomplet[1];
+
+                PreparedStatement preparedStatement = connection.prepareStatement("UPDATE PROFESSEUR SET Cin = ? , Nom = ? , Prenom = ?, Date_Naissance = ?, Date_Commencement_Contrat = ? ," +
+                                " Type_Contrat = ?, Email = ?, Telephone = ? , sexe = ?, Adresse = ?, Situation_Familliale = ?, username= ?, mot_de_passe= ? WHERE Code_Pro_Nationnal = ?");
+                preparedStatement.setString(1, txtCIN.getText());
+                preparedStatement.setString(2, nomProf);
+                preparedStatement.setString(3, PrenomProf);
+                preparedStatement.setDate(4, java.sql.Date.valueOf(DP_naissance.getValue()));
+                preparedStatement.setDate(5, java.sql.Date.valueOf(DP_commencement.getValue()));
+                if (CB_contrat.getSelectionModel().getSelectedIndex() + 1 == 1) {
+                    preparedStatement.setString(6, "CDD");
+                } else preparedStatement.setString(6, "CDI");
+                preparedStatement.setString(7, txtEmail.getText());
+                preparedStatement.setString(8, txtTel.getText());
+                if (RB_Femme.isSelected()) {
+                    preparedStatement.setString(9, RB_Femme.getText());
+                }else if (RB_Homme.isSelected()) preparedStatement.setString(9, RB_Homme.getText());
+                preparedStatement.setString(10, txtAdresse.getText());
+                if (RB_Ccelib.isSelected()) preparedStatement.setString(11, RB_Ccelib.getText());
+                if (RB_Div.isSelected()) preparedStatement.setString(11, RB_Div.getText());
+                if (RB_Marie.isSelected()) preparedStatement.setString(11, RB_Marie.getText());
+                preparedStatement.setString(12, txtUsername.getText());
+                preparedStatement.setString(13, txtPassword.getText());
+                preparedStatement.setString(14,txtCodeProf.getText());
+
+                preparedStatement.executeUpdate();
+
+
+            } catch (SQLException e) {
+                e.getStackTrace();
+            }
+            try {
+                for(int i = 0 ; i < floawLayout_groupe.getChildren().size() ; i++ ){
+                    PreparedStatement preparedStatement = connection.prepareStatement("UPDATE ENSEIGNEMENT set groupe# = ?, matiere# = ? where professeur# = ?");
+                    preparedStatement.setInt(1, IdGrp.get(i));
+                    preparedStatement.setInt(2,CB_Matieres.getSelectionModel().getSelectedIndex() + 1);
+                    preparedStatement.setString(3, txtCodeProf.getText());
+                    preparedStatement.executeUpdate();
+                }
+
+            } catch (SQLException e) {
+                e.getStackTrace();
+            }
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Modification professeur");
+            alert.setHeaderText("Un Presseur Modifier");
+            alert.setContentText("Professeur a été bien Modifier !! ");
+            alert.showAndWait();
         }
 
+//        try {
+//            PreparedStatement stm = connection.prepareStatement("INSERT INTO ENSEIGNEMENT (professeur#, groupe#, matiere#) values ('?',?,?)");
+//            stm.setString(1,txtCodeProf.getText());
+//            stm.setInt(2,CB);
+//
+//        }catch (SQLException e){
+//
+//        }
     }
 
     @FXML
-    public void chercherProf_click(){
+    public void chercherProf_click() {
+        Btn_Ajouter.setText("Modifier");
         Gestionnaire_De_Connection getGestionnaire_de_connection = new Gestionnaire_De_Connection();
         Connection connection = getGestionnaire_de_connection.getConnection();
         try {
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("  select * from professeur where Code_Pro_Nationnal ='" + txtSearch.getText() +  "'");
+            ResultSet resultSet = statement.executeQuery("  select * from professeur  where Code_Pro_Nationnal ='" + txtSearch.getText() + "'");
             if (resultSet.next()) {
                 System.out.println("gggg");
                 txtCodeProf.setText(resultSet.getString("Code_Pro_Nationnal"));
@@ -474,9 +732,52 @@ public class Controller implements Initializable {
                 txtPassword.setText(resultSet.getString("mot_de_passe"));
             }
 
-        }catch (SQLException s){
+            Statement groupeProfstm = connection.createStatement();
+            ResultSet groupeResultSet = groupeProfstm.executeQuery("  SELECT GROUPE.libelle_grp as libelleGroupe from GROUPE JOIN ENSEIGNEMENT on GROUPE.id_groupe = ENSEIGNEMENT.groupe# WHERE ENSEIGNEMENT.professeur# = '" + txtSearch.getText() + "'");
+            while (groupeResultSet.next()) {
+                System.out.println("gggggg");
+                floawLayout_groupe.getChildren().clear();
+                Label label = new Label();
+                label.setText(groupeResultSet.getString("libelleGroupe"));
+                label.setAlignment(Pos.CENTER);
+                IdGrp.add(CB_Groupes.getSelectionModel().getSelectedIndex());
+                label.setFont(Font.font("System", FontWeight.BOLD, 12));
+                label.setTextAlignment(TextAlignment.CENTER);
+                label.setPrefHeight(18.0);
+                label.setPrefWidth(label.getText().length() + 80);
+                CornerRadii radius = new CornerRadii(30);
+                label.setBackground(new Background(new BackgroundFill(Color.DODGERBLUE, radius, Insets.EMPTY)));
+                label.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent mouseEvent) {
+                        groupe_click(mouseEvent);
+                    }
+                });
+                floawLayout_groupe.setHgap(10);
+                floawLayout_groupe.setVgap(10);
+                floawLayout_groupe.getChildren().add(label);
+//                CB_Groupes.setOnAction(null);
+//                CB_Groupes.getItems().remove(label.getText());
+//                CB_Groupes.getSelectionModel().selectFirst();
+//                CB_Groupes.setOnAction(new EventHandler<ActionEvent>() {
+//                    @Override
+//                    public void handle(ActionEvent actionEvent) {
+//                        cb_groupe_selected();
+//                    }
+//                });
+            }
 
+            Statement matiereStm = connection.createStatement();
+            ResultSet matiResultSet = matiereStm.executeQuery("SELECT MATIERE.LBL_Matiere as lblMatiere FROM MATIERE JOIN ENSEIGNEMENT on  ENSEIGNEMENT.matiere# = MATIERE.id_matiere WHERE ENSEIGNEMENT.professeur# = '" + txtSearch.getText() + "'");
+            if (matiResultSet.next()) {
+                CB_Matieres.setPromptText(matiResultSet.getString("lblMatiere"));
+            }
+
+        } catch (SQLException s) {
+            s.getStackTrace();
         }
+//                ajouterProfBtn.setText("Modifier");
+
     }
     //***********************************
 
@@ -1056,7 +1357,6 @@ public class Controller implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         Form_Load();
-
         alertPanel_Load();
         PanelGestionEtudiant_Load();
         statistiqueEtudiant_Load();
@@ -1080,7 +1380,7 @@ public class Controller implements Initializable {
             btnListes.setVisible(true);
             btnAlert.setVisible(true);
         } else {
-            ObservableList data = FXCollections.observableArrayList("CDD","CDI");
+            ObservableList data = FXCollections.observableArrayList("CDD", "CDI");
             CB_contrat.setItems(data);
             VboxMenu.getChildren().remove(btnListes);
             VboxMenu.getChildren().remove(btnAlert);
