@@ -125,22 +125,24 @@ public class GestionGroupeController implements Initializable {
             ex.printStackTrace();
         }
     }
+
     @FXML
-     public void item_selected  (ActionEvent event) throws Exception {
+    public void item_selected(ActionEvent event) throws Exception {
 
     }
+
     @FXML
-    public  void Br_Selected(ActionEvent event) throws SQLException {
+    public void Br_Selected(ActionEvent event) throws SQLException {
 
         String lib_brc = cb_brc.getSelectionModel().getSelectedItem().toString();
         Connection cnx = dbConnection.getConnection();
         Statement stm = cnx.createStatement();
-        ResultSet rs= stm.executeQuery(
+        ResultSet rs = stm.executeQuery(
                 String.format(
-                        "select prerequis_note \n"+ "from BRANCHE \n" + "where libelle_branche='%s' \n",lib_brc
+                        "select prerequis_note \n" + "from BRANCHE \n" + "where libelle_branche='%s' \n", lib_brc
                 )
         );
-        if(rs.next()){
+        if (rs.next()) {
             String requis = rs.getString("prerequis_note");
             mg_txt.setText(requis);
         }
@@ -161,7 +163,9 @@ public class GestionGroupeController implements Initializable {
             ex.printStackTrace();
         }
     }
+
     Gestionnaire_De_Connection dbConnection = new Gestionnaire_De_Connection();
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -172,24 +176,28 @@ public class GestionGroupeController implements Initializable {
         cb_branche.getItems().add("java");
 
         try {
-            Connection con=(Connection) dbConnection.getConnection();
-            String sql="SELECT  libelle_branche FROM branche ";
-            ResultSet rs=con.createStatement().executeQuery(sql);
-            while(rs.next()) {Br_list.add(rs.getString("libelle_branche"));}
-            cb_brc.setItems(Br_list);}catch (Exception e) {
-            // TODO: handle exception
+            Connection con = (Connection) dbConnection.getConnection();
+            String sql = "SELECT  libelle_branche FROM branche ";
+            ResultSet rs = con.createStatement().executeQuery(sql);
+            while (rs.next()) {
+                Br_list.add(rs.getString("libelle_branche"));
             }
-
-        try {
-            Connection con=(Connection) dbConnection.getConnection();
-            String sql="SELECT  libelle_niveau FROM niveau ";
-            ResultSet rs=con.createStatement().executeQuery(sql);
-            while(rs.next()) {Nv_list.add(rs.getString("libelle_niveau"));}
-            cb_niveau.setItems(Nv_list);}catch (Exception e) {
+            cb_brc.setItems(Br_list);
+        } catch (Exception e) {
             // TODO: handle exception
         }
 
-
+        try {
+            Connection con = (Connection) dbConnection.getConnection();
+            String sql = "SELECT  libelle_niveau FROM niveau ";
+            ResultSet rs = con.createStatement().executeQuery(sql);
+            while (rs.next()) {
+                Nv_list.add(rs.getString("libelle_niveau"));
+            }
+            cb_niveau.setItems(Nv_list);
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
 
 
     }
@@ -201,12 +209,16 @@ public class GestionGroupeController implements Initializable {
     public void Nouveau(ActionEvent actionEvent) {
 
         Connection cnx = dbConnection.getConnection();
-       try{ Statement stm = cnx.createStatement();
-        int rs= stm.executeUpdate(
-                String.format(
-                        "INSERT INTO Groupe values (%d,%d,'%s')",(cb_brc.getSelectionModel().getSelectedIndex()+1),
-                        (cb_niveau.getSelectionModel().getSelectedIndex()+1),titleGrp.getText()
-                )
-        );}catch ( SQLException ex){ ex.printStackTrace();}
+        try {
+            Statement stm = cnx.createStatement();
+            int rs = stm.executeUpdate(
+                    String.format(
+                            "INSERT INTO Groupe values (%d,%d,'%s')", (cb_brc.getSelectionModel().getSelectedIndex() + 1),
+                            (cb_niveau.getSelectionModel().getSelectedIndex() + 1), titleGrp.getText()
+                    )
+            );
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
     }
 }
