@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Controllers/GestionGroupeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Controllers/GestionGroupeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RestaurantMgt/Application/Views/Home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RestaurantMgt/Application/Views/Home.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Controllers/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Controllers/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Views/Home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Views/Home.fxml" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -76,32 +78,124 @@
     <favorites_list name="JavaFxApplication" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Application/Controllers/Controller.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="25976">
-              <caret line="1574" column="61" selection-start-line="1574" selection-start-column="56" selection-end-line="1574" selection-end-column="61" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Application/Controllers/GestionGroupeController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="576">
-              <caret line="223" column="1" selection-start-line="223" selection-start-column="1" selection-end-line="223" selection-end-column="1" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.55912596">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/Application/Controllers/Controller.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="515">
+                  <caret line="1211" column="45" selection-start-line="1211" selection-start-column="45" selection-end-line="1211" selection-end-column="45" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                    <element signature="e#8311#10137#0" />
+                    <element signature="e#10142#11407#0" />
+                    <element signature="e#11413#11647#0" />
+                    <element signature="e#11706#13426#0" />
+                    <element signature="e#12915#12916#0" expanded="true" />
+                    <element signature="e#12979#12980#0" expanded="true" />
+                    <element signature="e#13432#14131#0" />
+                    <element signature="e#14137#14735#0" />
+                    <element signature="e#14741#16234#0" />
+                    <element signature="e#16240#16384#0" />
+                    <element signature="e#16391#17858#0" />
+                    <element signature="e#17860#17937#0" />
+                    <element signature="e#18682#18877#0" />
+                    <element signature="e#18883#25854#0" />
+                    <element signature="e#25860#30390#0" />
+                    <element signature="e#29291#29292#0" expanded="true" />
+                    <element signature="e#29363#29364#0" expanded="true" />
+                    <element signature="e#30438#30962#0" />
+                    <element signature="e#30968#31124#0" />
+                    <element signature="e#31130#31300#0" />
+                    <element signature="e#31306#31465#0" />
+                    <element signature="e#31471#32165#0" />
+                    <element signature="e#32171#32334#0" />
+                    <element signature="e#32340#35037#0" />
+                    <element signature="e#35043#35643#0" />
+                    <element signature="e#35835#36006#0" />
+                    <element signature="e#36012#42466#0" />
+                    <element signature="e#42472#44051#0" />
+                    <element signature="e#44056#45474#0" />
+                    <element signature="e#45479#47079#0" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Application/Controllers/LoginController.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="561">
+                  <caret line="64" column="58" selection-start-line="64" selection-start-column="58" selection-end-line="64" selection-end-column="58" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Application/Data/Gestionnaire_De_Connection.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="255">
+                  <caret line="16" column="41" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Application/Views/GestionGroupe.fxml">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="2006">
+                  <caret line="118" column="19" selection-start-line="104" selection-start-column="8" selection-end-line="118" selection-end-column="19" />
+                </state>
+              </provider>
+              <provider editor-type-id="JavaFX-Scene-Builder" />
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Application/Views/Home.fxml">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="10710">
+                  <caret line="630" column="22" selection-start-line="630" selection-start-column="22" selection-end-line="630" selection-end-column="22" />
+                </state>
+              </provider>
+              <provider editor-type-id="JavaFX-Scene-Builder" />
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Application/Controllers/Controller.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="5151">
+                  <caret line="343" column="38" selection-start-line="343" selection-start-column="38" selection-end-line="343" selection-end-column="38" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/Application/Views/Home.fxml">
+              <provider selected="true" editor-type-id="text-editor">
+                <state>
+                  <caret line="752" column="81" selection-start-line="752" selection-start-column="81" selection-end-line="752" selection-end-column="81" />
+                </state>
+              </provider>
+              <provider editor-type-id="JavaFX-Scene-Builder" />
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -193,11 +287,11 @@
         <option value="$PROJECT_DIR$/src/Application/Views/GestionBranche.fxml" />
         <option value="$PROJECT_DIR$/src/Application/Controllers/GestionBrancheController.java" />
         <option value="$PROJECT_DIR$/src/Application/Controllers/GestionMatiereController.java" />
+        <option value="$PROJECT_DIR$/src/Application/Views/GestionGroupe.fxml" />
+        <option value="$PROJECT_DIR$/src/Application/Controllers/GestionGroupeController.java" />
+        <option value="$PROJECT_DIR$/src/Application/Data/Gestionnaire_De_Connection.java" />
         <option value="$PROJECT_DIR$/src/Application/Views/Home.fxml" />
         <option value="$PROJECT_DIR$/src/Application/Controllers/Controller.java" />
-        <option value="$PROJECT_DIR$/src/Application/Views/GestionGroupe.fxml" />
-        <option value="$PROJECT_DIR$/src/Application/Data/Gestionnaire_De_Connection.java" />
-        <option value="$PROJECT_DIR$/src/Application/Controllers/GestionGroupeController.java" />
       </list>
     </option>
   </component>
@@ -225,7 +319,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -237,12 +330,6 @@
               <item name="AppGestionScolarite" type="b2602c69:ProjectViewProjectNode" />
               <item name="RestaurantMgt" type="47feb1d3:ProjectViewModuleNode" />
               <item name="AppGestionScolarite" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AppGestionScolarite" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RestaurantMgt" type="47feb1d3:ProjectViewModuleNode" />
-              <item name="AppGestionScolarite" type="462c0819:PsiDirectoryNode" />
-              <item name="DataBase" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="AppGestionScolarite" type="b2602c69:ProjectViewProjectNode" />
@@ -278,6 +365,7 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -345,18 +433,6 @@
       <option name="testName" />
       <method />
     </configuration>
-    <configuration default="true" type="TestNG">
-      <option name="TEST_OBJECT" value="CLASS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
       <Port>5050</Port>
@@ -396,6 +472,18 @@
       <option name="TEST_SEARCH_SCOPE">
         <value defaultName="moduleWithDependencies" />
       </option>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="TestNG">
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -447,13 +535,13 @@
       <workItem from="1591648707354" duration="227000" />
       <workItem from="1591648772905" duration="1245000" />
       <workItem from="1591825665184" duration="2135000" />
-      <workItem from="1591827967689" duration="5795000" />
-      <workItem from="1591906264630" duration="588000" />
+      <workItem from="1591827967689" duration="4858000" />
+      <workItem from="1591953563526" duration="1338000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="299176000" />
+    <option name="totallyTimeSpent" value="301153000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -467,7 +555,7 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.20308483" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" weight="0.20051414" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -477,7 +565,7 @@
       <window_info id="Learn" order="7" />
       <window_info anchor="bottom" id="Terminal" order="0" weight="0.32916668" />
       <window_info anchor="bottom" id="Message" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4986577" weight="0.19919246" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4986577" visible="true" weight="0.17083333" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.16997167" />
       <window_info anchor="bottom" id="Find" order="4" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
@@ -485,7 +573,7 @@
       <window_info anchor="bottom" id="Inspection" order="7" weight="0.4" />
       <window_info anchor="bottom" id="Application Servers" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5013423" side_tool="true" weight="0.3895184" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.16958277" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.16944444" />
       <window_info anchor="bottom" id="Problems" order="11" />
       <window_info anchor="bottom" id="Changes" order="12" />
       <window_info anchor="bottom" id="Version Control" order="13" />
@@ -667,16 +755,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/Controllers/LoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="95" column="28" selection-start-line="95" selection-start-column="28" selection-end-line="95" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Application/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -755,26 +833,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/Views/Home.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-456">
-          <caret line="708" column="74" selection-start-line="708" selection-start-column="74" selection-end-line="708" selection-end-column="74" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/DataBase/Capture2.PNG">
       <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/Data/Gestionnaire_De_Connection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="16" column="40" selection-start-line="16" selection-start-column="40" selection-end-line="16" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/DataBase/Gestion_Scolarite.sql">
       <provider selected="true" editor-type-id="text-editor">
@@ -782,33 +842,101 @@
           <caret line="1" column="21" selection-start-line="1" selection-start-column="21" selection-end-line="3" />
         </state>
       </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/Views/GestionGroupe.fxml">
+    <entry file="file://$PROJECT_DIR$/src/Application/Controllers/GestionGroupeController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="113" column="24" lean-forward="true" selection-start-line="113" selection-start-column="24" selection-end-line="113" selection-end-column="24" />
+        <state relative-caret-position="1105">
+          <caret line="93" column="29" selection-start-line="93" selection-start-column="29" selection-end-line="93" selection-end-column="29" />
+          <folding>
+            <element signature="method#Nouveau#0;class#GestionGroupeController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/Models/GestionProfViewModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="18" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="18" />
+          <folding>
+            <element signature="method#GestionProfViewModel#0;class#GestionProfViewModel#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/Controllers/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="64" column="58" selection-start-line="64" selection-start-column="58" selection-end-line="64" selection-end-column="58" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/Controllers/Controller.java">
+    <entry file="file://$PROJECT_DIR$/src/Application/Data/Gestionnaire_De_Connection.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25976">
-          <caret line="1574" column="61" selection-start-line="1574" selection-start-column="56" selection-end-line="1574" selection-end-column="61" />
+        <state relative-caret-position="255">
+          <caret line="16" column="41" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/Controllers/GestionGroupeController.java">
+    <entry file="file://$PROJECT_DIR$/src/Application/Views/GestionGroupe.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="576">
-          <caret line="223" column="1" selection-start-line="223" selection-start-column="1" selection-end-line="223" selection-end-column="1" />
+        <state relative-caret-position="2006">
+          <caret line="118" column="19" selection-start-line="104" selection-start-column="8" selection-end-line="118" selection-end-column="19" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/Views/Home.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="10710">
+          <caret line="630" column="22" selection-start-line="630" selection-start-column="22" selection-end-line="630" selection-end-column="22" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/Controllers/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="515">
+          <caret line="1211" column="45" selection-start-line="1211" selection-start-column="45" selection-end-line="1211" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3094#3095#0" expanded="true" />
-            <element signature="e#3155#3156#0" expanded="true" />
+            <element signature="e#8311#10137#0" />
+            <element signature="e#10142#11407#0" />
+            <element signature="e#11413#11647#0" />
+            <element signature="e#11706#13426#0" />
+            <element signature="e#12915#12916#0" expanded="true" />
+            <element signature="e#12979#12980#0" expanded="true" />
+            <element signature="e#13432#14131#0" />
+            <element signature="e#14137#14735#0" />
+            <element signature="e#14741#16234#0" />
+            <element signature="e#16240#16384#0" />
+            <element signature="e#16391#17858#0" />
+            <element signature="e#17860#17937#0" />
+            <element signature="e#18682#18877#0" />
+            <element signature="e#18883#25854#0" />
+            <element signature="e#25860#30390#0" />
+            <element signature="e#29291#29292#0" expanded="true" />
+            <element signature="e#29363#29364#0" expanded="true" />
+            <element signature="e#30438#30962#0" />
+            <element signature="e#30968#31124#0" />
+            <element signature="e#31130#31300#0" />
+            <element signature="e#31306#31465#0" />
+            <element signature="e#31471#32165#0" />
+            <element signature="e#32171#32334#0" />
+            <element signature="e#32340#35037#0" />
+            <element signature="e#35043#35643#0" />
+            <element signature="e#35835#36006#0" />
+            <element signature="e#36012#42466#0" />
+            <element signature="e#42472#44051#0" />
+            <element signature="e#44056#45474#0" />
+            <element signature="e#45479#47079#0" />
           </folding>
         </state>
       </provider>

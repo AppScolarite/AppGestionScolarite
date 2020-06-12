@@ -377,74 +377,6 @@
                 </ComboBox>
             </children>
         </Pane>
-        <Pane fx:id="panelStatistiquesPersonnel" layoutX="289.0" layoutY="-4.0" prefHeight="680.0" prefWidth="922.0" style="-fx-background-color: WHITE;">
-            <children>
-                <PieChart fx:id="pieChartPersonnel" layoutX="479.0" layoutY="61.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="326.0" prefWidth="423.0" />
-                <BarChart fx:id="barChartPersonnel" layoutX="27.0" layoutY="95.0" prefHeight="317.0" prefWidth="435.0">
-                    <xAxis>
-                        <CategoryAxis side="BOTTOM" />
-                    </xAxis>
-                    <yAxis>
-                        <NumberAxis side="LEFT" />
-                    </yAxis>
-                </BarChart>
-                <Label layoutX="389.0" layoutY="14.0" prefHeight="37.0" prefWidth="194.0" text="Statistiques" textFill="#6f6f6f" underline="true">
-                    <font>
-                        <Font name="Russo One" size="29.0" />
-                    </font>
-                </Label>
-                <Label layoutX="47.0" layoutY="474.0" text="Nombre total des étudians :" textFill="#464646">
-                    <font>
-                        <Font name="System Italic" size="18.0" />
-                    </font>
-                </Label>
-                <Label layoutX="280.0" layoutY="476.0" text="23" underline="true">
-                    <font>
-                        <Font name="Montserrat-Regular" size="18.0" />
-                    </font>
-                </Label>
-                <Label layoutX="26.0" layoutY="517.0" text="Nombre total des professeurs :" textFill="#464646">
-                    <font>
-                        <Font name="System Italic" size="18.0" />
-                    </font>
-                </Label>
-                <Label layoutX="285.0" layoutY="519.0" text="6" underline="true">
-                    <font>
-                        <Font name="Montserrat-Regular" size="18.0" />
-                    </font>
-                </Label>
-                <Label layoutX="49.0" layoutY="560.0" text="Nombre total des groupes :" textFill="#464646">
-                    <font>
-                        <Font name="System Italic" size="18.0" />
-                    </font>
-                </Label>
-                <Label layoutX="287.0" layoutY="562.0" text="4" underline="true">
-                    <font>
-                        <Font name="Montserrat-Regular" size="18.0" />
-                    </font>
-                </Label>
-                <Label layoutX="496.0" layoutY="476.0" text="étudiants ayant leurs notes :" textFill="#464646">
-                    <font>
-                        <Font name="System Italic" size="18.0" />
-                    </font>
-                </Label>
-                <Label layoutX="728.0" layoutY="476.0" text="14" underline="true">
-                    <font>
-                        <Font name="Montserrat-Regular" size="18.0" />
-                    </font>
-                </Label>
-                <Label layoutX="451.0" layoutY="521.0" text="étudiants n'ayant pas leurs notes :" textFill="#464646">
-                    <font>
-                        <Font name="System Italic" size="18.0" />
-                    </font>
-                </Label>
-                <Label layoutX="736.0" layoutY="521.0" text="9" underline="true">
-                    <font>
-                        <Font name="Montserrat-Regular" size="18.0" />
-                    </font>
-                </Label>
-            </children>
-        </Pane>
         <Pane fx:id="panelNotes" layoutX="289.0" layoutY="-4.0" prefHeight="679.0" prefWidth="922.0" style="-fx-background-color: white;">
             <children>
                 <Label layoutX="380.0" layoutY="28.0" text="Mes Notes" textFill="#6f6f6f">
@@ -709,10 +641,13 @@
                 <TextField fx:id="txtTel" layoutX="353.0" layoutY="329.0" prefHeight="38.0" prefWidth="176.0" promptText="Téléphone" />
                 <TextField fx:id="txtAdresse" layoutX="85.0" layoutY="391.0" prefHeight="38.0" prefWidth="716.0" promptText="Adresse" />
                 <TextField fx:id="txtUsername" layoutX="409.0" layoutY="446.0" prefHeight="38.0" prefWidth="176.0" promptText="Username" />
-                <TextField fx:id="txtPassword" layoutX="674.0" layoutY="447.0" prefHeight="38.0" prefWidth="176.0" promptText="Password" />
+                <TextField fx:id="txtPassword" layoutX="623.0" layoutY="446.0" prefHeight="38.0" prefWidth="176.0" promptText="Password" />
                 <DatePicker fx:id="DP_naissance" layoutX="626.0" layoutY="191.0" prefHeight="38.0" prefWidth="176.0" promptText="Date naissance" />
                 <DatePicker fx:id="DP_commencement" layoutX="359.0" layoutY="261.0" prefHeight="38.0" prefWidth="176.0" promptText="Date commencement" />
-                <ComboBox fx:id="CB_contrat" layoutX="631.0" layoutY="263.0" prefHeight="38.0" prefWidth="171.0" promptText="Type contrat" />
+                <ComboBox fx:id="CB_contrat" layoutX="631.0" layoutY="263.0" prefHeight="38.0" prefWidth="171.0" promptText="Type contrat">
+               <effect>
+                  <DropShadow color="LIGHTGRAY" />
+               </effect></ComboBox>
                 <RadioButton fx:id="RB_Marie" layoutX="100.0" layoutY="450.0" mnemonicParsing="false" text="Marié(e)">
                     <toggleGroup>
                         <ToggleGroup fx:id="sexe" />
@@ -720,25 +655,28 @@
                 </RadioButton>
                 <RadioButton fx:id="RB_Ccelib" layoutX="180.0" layoutY="451.0" mnemonicParsing="false" text="Celibataire" toggleGroup="$sexe" />
                 <RadioButton fx:id="RB_Div" layoutX="301.0" layoutY="452.0" mnemonicParsing="false" text="divorcé(e)" toggleGroup="$sexe" />
-                <Button fx:id="Btn_Ajouter" layoutX="715.0" layoutY="565.0" mnemonicParsing="false" onAction="#ajouterProf_click" prefHeight="44.0" prefWidth="128.0" text="Ajouter">
+                <Button fx:id="Btn_Ajouter" layoutX="705.0" layoutY="590.0" mnemonicParsing="false" onAction="#ajouterProf_click" prefHeight="44.0" prefWidth="128.0" text="Ajouter">
                     <font>
                         <Font size="20.0" />
                     </font>
                 </Button>
-                <Hyperlink layoutX="51.0" layoutY="615.0" onAction="#listProf_click" prefHeight="23.0" prefWidth="164.0" text="Liste des professeurs" underline="true">
+                <Hyperlink layoutX="51.0" layoutY="600.0" onAction="#listProf_click" prefHeight="23.0" prefWidth="164.0" text="Liste des professeurs" underline="true">
                     <font>
                         <Font size="16.0" />
                     </font>
                 </Hyperlink>
-                <TextField fx:id="txtSearch" visible="false" layoutX="527.0" layoutY="101.0" prefHeight="38.0" prefWidth="181.0" promptText="CIN" />
-                <Button fx:id="Btn_Rechercher" visible="false" layoutX="724.0" layoutY="103.0" mnemonicParsing="false" onAction="#chercherProf_click" prefHeight="30.0" prefWidth="83.0" text="Rechercher" />
+                <TextField fx:id="txtSearch" layoutX="527.0" layoutY="101.0" prefHeight="38.0" prefWidth="181.0" promptText="CIN" visible="false" />
+                <Button fx:id="Btn_Rechercher" layoutX="724.0" layoutY="103.0" mnemonicParsing="false" onAction="#chercherProf_click" prefHeight="30.0" prefWidth="83.0" text="Rechercher" visible="false" />
                 <RadioButton fx:id="RB_Femme" layoutX="738.0" layoutY="331.0" mnemonicParsing="false" text="Femme">
                     <toggleGroup>
                         <ToggleGroup fx:id="sexe1" />
                     </toggleGroup>
                 </RadioButton>
                 <RadioButton fx:id="RB_Homme" layoutX="648.0" layoutY="331.0" mnemonicParsing="false" text="Homme" toggleGroup="$sexe1" />
-                <ComboBox fx:id="CB_Matieres" layoutX="78.0" layoutY="493.0" prefHeight="38.0" prefWidth="171.0" promptText="Matieres" />
+                <ComboBox fx:id="CB_Matieres" layoutX="78.0" layoutY="493.0" prefHeight="38.0" prefWidth="171.0" promptText="Matieres">
+               <effect>
+                  <DropShadow color="LIGHTGRAY" />
+               </effect></ComboBox>
 
                 <ComboBox fx:id="CB_Groupes" layoutX="314.0" layoutY="494.0" onAction="#cb_groupe_selected" prefHeight="38.0" prefWidth="171.0">
                     <items>
@@ -747,7 +685,7 @@
                         </FXCollections>
                     </items>
                     <effect>
-                        <DropShadow />
+                        <DropShadow color="LIGHTGRAY" />
                     </effect>
                 </ComboBox>
                 <FlowPane fx:id="floawLayout_groupe" layoutX="256.0" layoutY="546.0" prefHeight="96.0" prefWidth="435.0">
@@ -765,7 +703,79 @@
                         <Insets left="10.0" right="10.0" top="10.0" />
                     </padding>
                 </FlowPane>
-            <ToggleButton layoutX="49.0" layoutY="108.0" mnemonicParsing="false" onAction="#Mode_Click" prefHeight="37.0" prefWidth="123.0" text="Mode Modification" />
+            <ToggleButton layoutX="49.0" layoutY="108.0" mnemonicParsing="false" onAction="#Mode_Click" prefHeight="37.0" prefWidth="123.0" text="Mode Modification">
+               <effect>
+                  <DropShadow color="LIGHTGRAY" />
+               </effect></ToggleButton>
+            </children>
+        </Pane>
+        <Pane fx:id="panelStatistiquesPersonnel" layoutX="289.0" layoutY="-4.0" prefHeight="680.0" prefWidth="922.0" style="-fx-background-color: WHITE;">
+            <children>
+                <PieChart fx:id="pieChartPersonnel" layoutX="478.0" layoutY="80.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="304.0" prefWidth="429.0" />
+                <BarChart fx:id="barChartPersonnel" layoutX="27.0" layoutY="95.0" prefHeight="317.0" prefWidth="435.0">
+                    <xAxis>
+                        <CategoryAxis side="BOTTOM" />
+                    </xAxis>
+                    <yAxis>
+                        <NumberAxis side="LEFT" />
+                    </yAxis>
+                </BarChart>
+                <Label layoutX="389.0" layoutY="14.0" prefHeight="37.0" prefWidth="194.0" text="Statistiques" textFill="#6f6f6f" underline="true">
+                    <font>
+                        <Font name="Russo One" size="29.0" />
+                    </font>
+                </Label>
+                <Label layoutX="47.0" layoutY="474.0" text="Nombre total des étudians :" textFill="#464646">
+                    <font>
+                        <Font name="System Italic" size="14.0" />
+                    </font>
+                </Label>
+                <Label fx:id="NbreEtudiant" layoutX="273.0" layoutY="474.0" text="23" underline="true">
+                    <font>
+                        <Font name="System Italic" size="14.0" />
+                    </font>
+                </Label>
+                <Label layoutX="46.0" layoutY="500.0" text="Nombre total des professeurs :" textFill="#464646">
+                    <font>
+                        <Font name="System Italic" size="14.0" />
+                    </font>
+                </Label>
+                <Label fx:id="nbreProf" layoutX="276.0" layoutY="497.0" text="6" underline="true">
+                    <font>
+                        <Font name="System Italic" size="14.0" />
+                    </font>
+                </Label>
+                <Label layoutX="46.0" layoutY="526.0" text="Nombre total des groupes :" textFill="#464646">
+                    <font>
+                        <Font name="System Italic" size="14.0" />
+                    </font>
+                </Label>
+                <Label fx:id="nbreGroupe" layoutX="276.0" layoutY="528.0" text="2" underline="true">
+                    <font>
+                        <Font name="System Italic" size="14.0" />
+                    </font>
+                </Label>
+                <Label layoutX="46.0" layoutY="553.0" text="étudiants ayant leurs notes :" textFill="#464646">
+                    <font>
+                        <Font name="System Italic" size="14.0" />
+                    </font>
+                </Label>
+                <Label fx:id="etumoySup" layoutX="272.0" layoutY="553.0" text="14" underline="true">
+                    <font>
+                        <Font name="System Italic" size="14.0" />
+                    </font>
+                </Label>
+                <Label layoutX="48.0" layoutY="579.0" text="étudiants n'ayant pas leurs notes :" textFill="#464646">
+                    <font>
+                        <Font name="System Italic" size="14.0" />
+                    </font>
+                </Label>
+                <Label fx:id="etuNoteInf" layoutX="275.0" layoutY="578.0" text="9" underline="true">
+                    <font>
+                        <Font name="System Italic" size="14.0" />
+                    </font>
+                </Label>
+            <PieChart fx:id="pieChartMoyenne" layoutX="402.0" layoutY="402.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="247.0" prefWidth="475.0" />
             </children>
         </Pane>
 

@@ -96,6 +96,9 @@ public class Controller implements Initializable {
     private PieChart pieChartEtudiant;
 
     @FXML
+    private PieChart pieChartMoyenne;
+
+    @FXML
     private BarChart barchartEtudiant;
 
     @FXML
@@ -338,6 +341,12 @@ public class Controller implements Initializable {
     @FXML
     private RadioButton RB_Div;
     @FXML
+    private RadioButton RB_StaticProf;
+    @FXML
+    private RadioButton RB_StatisticGroupe;
+    @FXML
+    private RadioButton RB_StatisticMatiere;
+    @FXML
     private ComboBox CB_Matieres;
     @FXML
     private ComboBox CB_Groupes;
@@ -349,11 +358,22 @@ public class Controller implements Initializable {
     private Button Btn_Rechercher;
     @FXML
     private MenuItem supprimerProf;
+    @FXML
+    private Label NbreEtudiant;
+    @FXML
+    private Label nbreProf;
+    @FXML
+    private Label nbreGroupe;
+    @FXML
+    private Label etumoySup;
+    @FXML
+    private Label etuNoteInf;
     //**********************************************
 
 
     //**********************************************
 
+    public Double moyenne;
     //*********Noureddine Gestion Prof****************
     @FXML
     private void supprimerProf(){
@@ -394,15 +414,31 @@ public class Controller implements Initializable {
             for (int i = 0 ; i < floawLayout_groupe.getChildren().size() ; i++){
                 System.out.println(IdGrp.get(i));
             }
-            System.out.println("mode desactivated");
+            System.out.println("mode activated");
             Btn_Rechercher.setVisible(true);
             txtSearch.setVisible(true);
             Btn_Ajouter.setText("Modifier");
         }else {
-            System.out.println("mode activated");
+            System.out.println("mode desactivated");
             Btn_Rechercher.setVisible(false);
             txtSearch.setVisible(false);
             Btn_Ajouter.setText("Ajouter");
+            txtCodeProf.clear();
+            txtCIN.clear();
+            txtNomProf.clear();
+            DP_naissance.setValue(null);
+            DP_commencement.setValue(null);
+            CB_Groupes.setPromptText("Contrat");
+            txtEmail.clear();
+            txtTel.clear();
+            RB_Homme.setSelected(true);
+            RB_Marie.setSelected(true);
+            txtUsername.clear();
+            txtPassword.clear();
+            CB_Matieres.setPromptText("Matieres");
+            CB_Groupes.setPromptText("Groupes");
+            floawLayout_groupe.getChildren().clear();
+            txtSearch.clear();
         }
     }
 
@@ -884,7 +920,7 @@ public class Controller implements Initializable {
                 Cntrol2.setText(resultSet.getString("Valeur_Note"));
                 resultSet.next();
                 Cntrol3.setText(resultSet.getString("Valeur_Note"));
-                Double moyenne = ((Double.valueOf(Cntrol1.getText()) + Double.valueOf(Cntrol2.getText()) + Double.valueOf(Cntrol3.getText())) / 3);
+                moyenne = ((Double.valueOf(Cntrol1.getText()) + Double.valueOf(Cntrol2.getText()) + Double.valueOf(Cntrol3.getText())) / 3);
                 MyenneLbl.setText(String.valueOf(moyenne));
             }
 
@@ -1041,7 +1077,8 @@ public class Controller implements Initializable {
         }
     }
 
-    private void statistiquesPersonnel_Load() {
+    //fill piechart
+    private void statistiqueGenres(){
         try {
             int nbrFemme, nbrHomme;
             nbrFemme = nbrHomme = 0;
@@ -1070,8 +1107,49 @@ public class Controller implements Initializable {
             pieChartPersonnel.setLabelLineLength(50);
             pieChartPersonnel.setStartAngle(180);
 
+            //************************************************
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+    }
+    private void statistiqueMoyenne(){
+        try {
+            int noteSup, noteInf;
+            noteSup = noteInf = 0;
+
+            Connection sqlConnection = gestionnaire_de_connection.getConnection();
+            Statement sqlCommand = sqlConnection.createStatement();
+            ResultSet dataReader = sqlCommand.executeQuery("SELECT count(*) as noteSup From note " +
+                    "where Valeur_Note >= 10");
+            if (dataReader.next())
+                noteSup = dataReader.getInt("noteSup");
+
             sqlCommand = sqlConnection.createStatement();
-            dataReader = sqlCommand.executeQuery("select grp.libelle_grp as Groupe , count(etd.code_massar) as nbrEffectif\n" +
+            dataReader = sqlCommand.executeQuery("SELECT count(*) as noteInf From note " +
+                    "where Valeur_Note < 10");
+            if (dataReader.next())
+                noteInf = dataReader.getInt("noteInf");
+            ObservableList<PieChart.Data> pieChartDataM = FXCollections.observableArrayList(
+                    new PieChart.Data("Moyenne >= 10", noteSup),
+                    new PieChart.Data("Moyenne < 10", noteInf));
+            pieChartMoyenne.setData(pieChartDataM);
+            pieChartMoyenne.setTitle("Divérsité des moyennes");
+            pieChartMoyenne.setClockwise(true);
+            pieChartMoyenne.setLabelsVisible(true);
+            pieChartMoyenne.setLabelLineLength(50);
+            pieChartMoyenne.setStartAngle(180);
+        } catch (SQLException s){
+            s.getStackTrace();
+        }
+
+    }
+    private void statistiquebarChart(){
+        try {
+            Connection sqlConnection = gestionnaire_de_connection.getConnection();
+            Statement sqlCommand = sqlConnection.createStatement();
+            ResultSet dataReader = sqlCommand.executeQuery("select grp.libelle_grp as Groupe , count(etd.code_massar) as nbrEffectif\n" +
                     "from etudiant etd inner join groupe grp on etd.groupe# = grp.id_groupe\n" +
                     "group by grp.libelle_grp");
             String nomGroupe;
@@ -1098,6 +1176,42 @@ public class Controller implements Initializable {
             //************************************************
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+
+    }
+
+    private void statistiquesPersonnel_Load() {
+        statistiqueGenres();
+        statistiquebarChart();
+        statistiqueMoyenne();
+        Connection connection = gestionnaire_de_connection.getConnection();
+        try {
+            //nbre total etudiant
+            Statement nbreStm = connection.createStatement();
+            ResultSet nbreResult = nbreStm.executeQuery("select count(*) as totalEtu from etudiant");
+            if(nbreResult.next()) NbreEtudiant.setText(String.valueOf(nbreResult.getInt("totalEtu")));
+
+            //nbre total prof
+            nbreStm = connection.createStatement();
+            nbreResult = nbreStm.executeQuery("select count(*) as totalProf from professeur ");
+            if (nbreResult.next()) nbreProf.setText(String.valueOf(nbreResult.getInt("totalProf")));
+
+            //nbre total groupe
+            nbreStm = connection.createStatement();
+            nbreResult = nbreStm.executeQuery("select count(*) as totalgroupe from groupe ");
+            if (nbreResult.next()) nbreGroupe.setText(String.valueOf(nbreResult.getInt("totalgroupe")));
+
+            //nbre total etudiant ayant leur moyenne
+            nbreStm = connection.createStatement();
+            nbreResult = nbreStm.executeQuery("select count(*) as totaletuMoySup from note where Valeur_Note >= 10 ");
+            if (nbreResult.next()) etumoySup.setText(String.valueOf(nbreResult.getInt("totaletuMoySup")));
+
+            //nbre total etudiant ayant pas leur moyenne
+            nbreStm = connection.createStatement();
+            nbreResult = nbreStm.executeQuery("select count(*) as totaletuMoyInf from note where Valeur_Note < 10 ");
+            if (nbreResult.next()) etuNoteInf.setText(String.valueOf(nbreResult.getInt("totaletuMoyInf")));
+        }catch (SQLException s){
+            s.getStackTrace();
         }
     }
 
