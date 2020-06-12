@@ -1,10 +1,7 @@
 package Application.Controllers;
 
 import Application.Data.Gestionnaire_De_Connection;
-import Application.Models.ClassementViewModel;
-import Application.Models.GestionEtudiantsViewModel;
-import Application.Models.GestionNotesViewModel;
-import Application.Models.GestionProfViewModel;
+import Application.Models.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -356,8 +353,8 @@ public class Controller implements Initializable {
     private FlowPane floawLayout_groupe;
     @FXML
     private Button Btn_Rechercher;
-    @FXML
-    private MenuItem supprimerProf;
+//    @FXML
+//    private MenuItem supprimerProf;
     @FXML
     private Label NbreEtudiant;
     @FXML
@@ -368,6 +365,9 @@ public class Controller implements Initializable {
     private Label etumoySup;
     @FXML
     private Label etuNoteInf;
+    @FXML
+
+
     //**********************************************
 
 
