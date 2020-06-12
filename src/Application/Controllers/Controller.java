@@ -358,6 +358,16 @@ public class Controller implements Initializable {
     private Button Btn_Rechercher;
     @FXML
     private MenuItem supprimerProf;
+    @FXML
+    private Label NbreEtudiant;
+    @FXML
+    private Label nbreProf;
+    @FXML
+    private Label nbreGroupe;
+    @FXML
+    private Label etumoySup;
+    @FXML
+    private Label etuNoteInf;
     //**********************************************
 
 
@@ -1174,6 +1184,35 @@ public class Controller implements Initializable {
         statistiqueGenres();
         statistiquebarChart();
         statistiqueMoyenne();
+        Connection connection = gestionnaire_de_connection.getConnection();
+        try {
+            //nbre total etudiant
+            Statement nbreStm = connection.createStatement();
+            ResultSet nbreResult = nbreStm.executeQuery("select count(*) as totalEtu from etudiant");
+            if(nbreResult.next()) NbreEtudiant.setText(String.valueOf(nbreResult.getInt("totalEtu")));
+
+            //nbre total prof
+            nbreStm = connection.createStatement();
+            nbreResult = nbreStm.executeQuery("select count(*) as totalProf from professeur ");
+            if (nbreResult.next()) nbreProf.setText(String.valueOf(nbreResult.getInt("totalProf")));
+
+            //nbre total groupe
+            nbreStm = connection.createStatement();
+            nbreResult = nbreStm.executeQuery("select count(*) as totalgroupe from groupe ");
+            if (nbreResult.next()) nbreGroupe.setText(String.valueOf(nbreResult.getInt("totalgroupe")));
+
+            //nbre total etudiant ayant leur moyenne
+            nbreStm = connection.createStatement();
+            nbreResult = nbreStm.executeQuery("select count(*) as totaletuMoySup from note where Valeur_Note >= 10 ");
+            if (nbreResult.next()) etumoySup.setText(String.valueOf(nbreResult.getInt("totaletuMoySup")));
+
+            //nbre total etudiant ayant pas leur moyenne
+            nbreStm = connection.createStatement();
+            nbreResult = nbreStm.executeQuery("select count(*) as totaletuMoyInf from note where Valeur_Note < 10 ");
+            if (nbreResult.next()) etuNoteInf.setText(String.valueOf(nbreResult.getInt("totaletuMoyInf")));
+        }catch (SQLException s){
+            s.getStackTrace();
+        }
     }
 
     @FXML
