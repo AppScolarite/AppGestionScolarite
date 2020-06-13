@@ -69,7 +69,7 @@
                         <Font name="Cambria Bold Italic" size="16.0" />
                     </font>
                 </Button>
-                <Button fx:id="btnProfil" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="297.0" stylesheets="@../../resources/Styles/style.css" text="Mon profil">
+                <Button fx:id="btnProfil_etd" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="297.0" stylesheets="@../../resources/Styles/style.css" text="Mon profil">
                     <graphic>
                         <ImageView fitHeight="40.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -226,67 +226,6 @@
                 </ImageView>
             </graphic>
         </Button>
-        <Pane fx:id="panelAlert" layoutX="289.0" layoutY="-4.0" prefHeight="680.0" prefWidth="922.0" style="-fx-background-color: #F0FFFF;">
-            <children>
-                <ComboBox fx:id="cb_groupesAlert" layoutX="369.0" layoutY="132.0" prefWidth="150.0" promptText="Groupe" />
-                <Label layoutX="122.0" layoutY="135.0" text="Rappeler les étudiants du groupe ">
-                    <font>
-                        <Font name="Arial Bold Italic" size="15.0" />
-                    </font>
-                </Label>
-                <Label layoutX="315.0" layoutY="25.0" text="Alerter les étudians" textFill="#6f6f6f" underline="true">
-                    <font>
-                        <Font name="Russo One" size="29.0" />
-                    </font>
-                </Label>
-                <Label layoutX="536.0" layoutY="134.0" text="qu'il y aura un examen / controle , pour le ">
-                    <font>
-                        <Font name="Arial Bold Italic" size="15.0" />
-                    </font>
-                </Label>
-                <DatePicker fx:id="date_control" layoutX="52.0" layoutY="197.0" />
-                <Label layoutX="587.0" layoutY="201.0" text=", et que la date y demeurera">
-                    <font>
-                        <Font name="Arial Bold Italic" size="15.0" />
-                    </font>
-                </Label>
-                <RadioButton fx:id="radio_modif" layoutX="139.0" layoutY="257.0" mnemonicParsing="false" text="Modifiable" />
-                <RadioButton fx:id="radio_fix" layoutX="238.0" layoutY="257.0" mnemonicParsing="false" text="Fixe" />
-                <Label layoutX="127.0" layoutY="302.0" text="Plus de détail :">
-                    <font>
-                        <Font name="Arial Bold Italic" size="15.0" />
-                    </font>
-                </Label>
-                <Label layoutX="290.0" layoutY="257.0" text=".">
-                    <font>
-                        <Font name="Arial Bold Italic" size="15.0" />
-                    </font>
-                </Label>
-                <TextArea fx:id="txt_description" layoutX="52.0" layoutY="325.0" prefHeight="217.0" prefWidth="790.0">
-                    <font>
-                        <Font name="Arial Bold Italic" size="15.0" />
-                    </font>
-                </TextArea>
-                <Button layoutX="756.0" layoutY="618.0" mnemonicParsing="false" onAction="#exam_soumis" text="Soumettre !" />
-                <Label layoutX="243.0" layoutY="201.0" text=", à partir de l'heure">
-                    <font>
-                        <Font name="Arial Bold Italic" size="15.0" />
-                    </font>
-                </Label>
-                <TextField fx:id="heureDebut_controle" layoutX="387.0" layoutY="197.0" prefHeight="25.0" prefWidth="58.0" />
-                <Label layoutX="456.0" layoutY="200.0" text="jusqu'à">
-                    <font>
-                        <Font name="Arial Bold Italic" size="15.0" />
-                    </font>
-                </Label>
-                <TextField fx:id="heureFin_controle" layoutX="518.0" layoutY="196.0" prefHeight="25.0" prefWidth="58.0" />
-                <Label layoutX="54.0" layoutY="257.0" text="cependant">
-                    <font>
-                        <Font name="Arial Bold Italic" size="15.0" />
-                    </font>
-                </Label>
-            </children>
-        </Pane>
         <Pane fx:id="panelStatistiques" layoutX="289.0" layoutY="-4.0" prefHeight="680.0" prefWidth="922.0" style="-fx-background-color: WHITE;">
             <children>
                 <PieChart fx:id="pieChartEtudiant" layoutX="468.0" layoutY="308.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="353.0" prefWidth="435.0" />
@@ -375,86 +314,6 @@
                         <DropShadow />
                     </effect>
                 </ComboBox>
-            </children>
-        </Pane>
-        <Pane fx:id="panelNotes" layoutX="289.0" layoutY="-4.0" prefHeight="679.0" prefWidth="922.0" style="-fx-background-color: white;">
-            <children>
-                <Label layoutX="380.0" layoutY="28.0" text="Mes Notes" textFill="#6f6f6f">
-                    <font>
-                        <Font size="29.0" />
-                    </font>
-                </Label>
-                <ComboBox fx:id="CB_Matiere" layoutX="323.0" layoutY="97.0" onAction="#selectedItem" prefHeight="37.0" prefWidth="266.0" promptText="Matières" />
-                <Label layoutX="93.0" layoutY="234.0" prefHeight="27.0" prefWidth="86.0" style="-fx-font-weight: bold;" text="Matière" textFill="#2c2c2c">
-                    <font>
-                        <Font size="18.0" />
-                    </font>
-                </Label>
-                <Label layoutX="93.0" layoutY="299.0" prefHeight="27.0" prefWidth="111.0" style="-fx-font-weight: bold;" text="Coefficiant" textFill="#2c2c2c">
-                    <font>
-                        <Font size="18.0" />
-                    </font>
-                </Label>
-                <Label layoutX="93.0" layoutY="373.0" prefHeight="27.0" prefWidth="86.0" style="-fx-font-weight: bold;" text="Chez " textFill="#2c2c2c">
-                    <font>
-                        <Font size="18.0" />
-                    </font>
-                </Label>
-                <Label layoutX="559.0" layoutY="230.0" prefHeight="27.0" prefWidth="95.0" style="-fx-font-weight: bold;" text="Controle1" textFill="#2c2c2c">
-                    <font>
-                        <Font size="18.0" />
-                    </font>
-                </Label>
-                <Label layoutX="559.0" layoutY="295.0" prefHeight="27.0" prefWidth="111.0" style="-fx-font-weight: bold;" text="Controle 2" textFill="#2c2c2c">
-                    <font>
-                        <Font size="18.0" />
-                    </font>
-                </Label>
-                <Label layoutX="559.0" layoutY="369.0" prefHeight="27.0" prefWidth="111.0" style="-fx-font-weight: bold;" text="Controle 3" textFill="#2c2c2c">
-                    <font>
-                        <Font size="18.0" />
-                    </font>
-                </Label>
-                <Label fx:id="matiereLbl" layoutX="241.0" layoutY="232.0" prefHeight="27.0" prefWidth="228.0" textFill="#6f6f6f">
-                    <font>
-                        <Font size="18.0" />
-                    </font>
-                </Label>
-                <Label fx:id="CoeffLbl" layoutX="241.0" layoutY="297.0" prefHeight="27.0" prefWidth="86.0" textFill="#6f6f6f">
-                    <font>
-                        <Font size="18.0" />
-                    </font>
-                </Label>
-                <Label fx:id="ProfLbl" layoutX="241.0" layoutY="371.0" prefHeight="27.0" prefWidth="228.0" textFill="#6f6f6f">
-                    <font>
-                        <Font size="18.0" />
-                    </font>
-                </Label>
-                <Label fx:id="Cntrol1" layoutX="707.0" layoutY="228.0" prefHeight="27.0" prefWidth="86.0" textFill="#6f6f6f">
-                    <font>
-                        <Font size="18.0" />
-                    </font>
-                </Label>
-                <Label fx:id="Cntrol2" layoutX="707.0" layoutY="293.0" prefHeight="27.0" prefWidth="86.0" textFill="#6f6f6f">
-                    <font>
-                        <Font size="18.0" />
-                    </font>
-                </Label>
-                <Label fx:id="Cntrol3" layoutX="707.0" layoutY="367.0" prefHeight="27.0" prefWidth="86.0" textFill="#6f6f6f">
-                    <font>
-                        <Font size="18.0" />
-                    </font>
-                </Label>
-                <Label layoutX="361.0" layoutY="447.0" style="-fx-font-weight: bold bolboldd;" text="Moyenne Générale">
-                    <font>
-                        <Font size="21.0" />
-                    </font>
-                </Label>
-                <Label fx:id="MyenneLbl" alignment="CENTER" layoutX="413.0" layoutY="489.0" prefHeight="27.0" prefWidth="86.0" textAlignment="CENTER" textFill="#6f6f6f">
-                    <font>
-                        <Font size="18.0" />
-                    </font>
-                </Label>
             </children>
         </Pane>
         <Pane fx:id="panelEtudiant" layoutX="289.0" layoutY="-4.0" prefHeight="680.0" prefWidth="922.0" style="-fx-background-color: #F0FFFF;">
@@ -709,6 +568,86 @@
                </effect></ToggleButton>
             </children>
         </Pane>
+        <Pane fx:id="panelNotes" layoutX="289.0" layoutY="-4.0" prefHeight="679.0" prefWidth="922.0" style="-fx-background-color: white;">
+            <children>
+                <Label layoutX="380.0" layoutY="28.0" text="Mes Notes" textFill="#6f6f6f">
+                    <font>
+                        <Font size="29.0" />
+                    </font>
+                </Label>
+                <ComboBox fx:id="CB_Matiere" layoutX="323.0" layoutY="97.0" onAction="#selectedItem" prefHeight="37.0" prefWidth="266.0" promptText="Matières" />
+                <Label layoutX="93.0" layoutY="234.0" prefHeight="27.0" prefWidth="86.0" style="-fx-font-weight: bold;" text="Matière" textFill="#2c2c2c">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <Label layoutX="93.0" layoutY="299.0" prefHeight="27.0" prefWidth="111.0" style="-fx-font-weight: bold;" text="Coefficiant" textFill="#2c2c2c">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <Label layoutX="93.0" layoutY="373.0" prefHeight="27.0" prefWidth="86.0" style="-fx-font-weight: bold;" text="Chez " textFill="#2c2c2c">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <Label layoutX="559.0" layoutY="230.0" prefHeight="27.0" prefWidth="95.0" style="-fx-font-weight: bold;" text="Controle1" textFill="#2c2c2c">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <Label layoutX="559.0" layoutY="295.0" prefHeight="27.0" prefWidth="111.0" style="-fx-font-weight: bold;" text="Controle 2" textFill="#2c2c2c">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <Label layoutX="559.0" layoutY="369.0" prefHeight="27.0" prefWidth="111.0" style="-fx-font-weight: bold;" text="Controle 3" textFill="#2c2c2c">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <Label fx:id="matiereLbl" layoutX="241.0" layoutY="232.0" prefHeight="27.0" prefWidth="228.0" textFill="#6f6f6f">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <Label fx:id="CoeffLbl" layoutX="241.0" layoutY="297.0" prefHeight="27.0" prefWidth="86.0" textFill="#6f6f6f">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <Label fx:id="ProfLbl" layoutX="241.0" layoutY="371.0" prefHeight="27.0" prefWidth="228.0" textFill="#6f6f6f">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <Label fx:id="Cntrol1" layoutX="707.0" layoutY="228.0" prefHeight="27.0" prefWidth="86.0" textFill="#6f6f6f">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <Label fx:id="Cntrol2" layoutX="707.0" layoutY="293.0" prefHeight="27.0" prefWidth="86.0" textFill="#6f6f6f">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <Label fx:id="Cntrol3" layoutX="707.0" layoutY="367.0" prefHeight="27.0" prefWidth="86.0" textFill="#6f6f6f">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <Label layoutX="361.0" layoutY="447.0" style="-fx-font-weight: bold bolboldd;" text="Moyenne Générale">
+                    <font>
+                        <Font size="21.0" />
+                    </font>
+                </Label>
+                <Label fx:id="MyenneLbl" alignment="CENTER" layoutX="413.0" layoutY="489.0" prefHeight="27.0" prefWidth="86.0" textAlignment="CENTER" textFill="#6f6f6f">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+            </children>
+        </Pane>
         <Pane fx:id="panelStatistiquesPersonnel" layoutX="289.0" layoutY="-4.0" prefHeight="680.0" prefWidth="922.0" style="-fx-background-color: WHITE;">
             <children>
                 <PieChart fx:id="pieChartPersonnel" layoutX="478.0" layoutY="80.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="304.0" prefWidth="429.0" />
@@ -776,6 +715,67 @@
                     </font>
                 </Label>
             <PieChart fx:id="pieChartMoyenne" layoutX="402.0" layoutY="402.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="247.0" prefWidth="475.0" />
+            </children>
+        </Pane>
+        <Pane fx:id="panelAlert" layoutX="289.0" layoutY="-4.0" prefHeight="680.0" prefWidth="922.0" style="-fx-background-color: #F0FFFF;">
+            <children>
+                <ComboBox fx:id="cb_groupesAlert" layoutX="369.0" layoutY="132.0" prefWidth="150.0" promptText="Groupe" />
+                <Label layoutX="122.0" layoutY="135.0" text="Rappeler les étudiants du groupe ">
+                    <font>
+                        <Font name="Arial Bold Italic" size="15.0" />
+                    </font>
+                </Label>
+                <Label layoutX="315.0" layoutY="25.0" text="Alerter les étudians" textFill="#6f6f6f" underline="true">
+                    <font>
+                        <Font name="Russo One" size="29.0" />
+                    </font>
+                </Label>
+                <Label layoutX="536.0" layoutY="134.0" text="qu'il y aura un examen / controle , pour le ">
+                    <font>
+                        <Font name="Arial Bold Italic" size="15.0" />
+                    </font>
+                </Label>
+                <DatePicker fx:id="date_control" layoutX="52.0" layoutY="197.0" />
+                <Label layoutX="587.0" layoutY="201.0" text=", et que la date y demeurera">
+                    <font>
+                        <Font name="Arial Bold Italic" size="15.0" />
+                    </font>
+                </Label>
+                <RadioButton fx:id="radio_modif" layoutX="139.0" layoutY="257.0" mnemonicParsing="false" text="Modifiable" />
+                <RadioButton fx:id="radio_fix" layoutX="238.0" layoutY="257.0" mnemonicParsing="false" text="Fixe" />
+                <Label layoutX="127.0" layoutY="302.0" text="Plus de détail :">
+                    <font>
+                        <Font name="Arial Bold Italic" size="15.0" />
+                    </font>
+                </Label>
+                <Label layoutX="290.0" layoutY="257.0" text=".">
+                    <font>
+                        <Font name="Arial Bold Italic" size="15.0" />
+                    </font>
+                </Label>
+                <TextArea fx:id="txt_description" layoutX="52.0" layoutY="325.0" prefHeight="217.0" prefWidth="790.0">
+                    <font>
+                        <Font name="Arial Bold Italic" size="15.0" />
+                    </font>
+                </TextArea>
+                <Button layoutX="756.0" layoutY="618.0" mnemonicParsing="false" onAction="#exam_soumis" text="Soumettre !" />
+                <Label layoutX="243.0" layoutY="201.0" text=", à partir de l'heure">
+                    <font>
+                        <Font name="Arial Bold Italic" size="15.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="heureDebut_controle" layoutX="387.0" layoutY="197.0" prefHeight="25.0" prefWidth="58.0" />
+                <Label layoutX="456.0" layoutY="200.0" text="jusqu'à">
+                    <font>
+                        <Font name="Arial Bold Italic" size="15.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="heureFin_controle" layoutX="518.0" layoutY="196.0" prefHeight="25.0" prefWidth="58.0" />
+                <Label layoutX="54.0" layoutY="257.0" text="cependant">
+                    <font>
+                        <Font name="Arial Bold Italic" size="15.0" />
+                    </font>
+                </Label>
             </children>
         </Pane>
 

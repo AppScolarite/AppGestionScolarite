@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Text?>
 
 
-<AnchorPane prefHeight="535.0" prefWidth="923.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.Controllers.ProfileController">
+<AnchorPane fx:id="PaneProfil" prefHeight="535.0" prefWidth="923.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.Controllers.ProfileController">
    <children>
       <Label layoutX="14.0" layoutY="14.0" text="Profile d'utilisateur:" textFill="#6f6f6f">
          <font>
