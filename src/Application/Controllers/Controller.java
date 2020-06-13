@@ -614,7 +614,7 @@ public class Controller implements Initializable {
         btnClose.toFront();
         btnMinimize.toFront();
     }
-
+//********************************************************************************************************************************//
     @FXML
     public void ajouterProf_click() {
             Gestionnaire_De_Connection gestionnaire_de_connection = new Gestionnaire_De_Connection();
@@ -739,7 +739,7 @@ public class Controller implements Initializable {
 //
 //        }
     }
-
+//*******************************************************************************************************************************************************//
     @FXML
     public void chercherProf_click() {
         Btn_Ajouter.setText("Modifier");
