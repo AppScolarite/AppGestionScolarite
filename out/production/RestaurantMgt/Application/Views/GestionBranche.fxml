@@ -13,6 +13,8 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.MenuItem?>
 <AnchorPane prefHeight="451.0" prefWidth="788.0" style="-fx-hgap: 20px; -fx-background-color: White; -fx-background-radius: 30; -fx-border-radius: 30; -fx-border-width: 5px; -fx-border-color: #0075F3;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.Controllers.GestionBrancheController">
     <effect>
         <DropShadow />
@@ -23,12 +25,19 @@
                 <Image url="@../../resources/images/HboxIcons/close.png" />
             </image>
         </ImageView>
-        <TableView layoutX="325.0" layoutY="72.0" prefHeight="348.0" prefWidth="440.0">
+        <TableView fx:id="brancheTableView" layoutX="325.0" layoutY="72.0" prefHeight="348.0" prefWidth="440.0">
             <columns>
-                <TableColumn prefWidth="128.79998779296875" text="Reférent branche" />
-                <TableColumn prefWidth="109.60000610351562" text="libellé " />
-                <TableColumn prefWidth="204.79998779296875" text="détail" />
+                <TableColumn fx:id="refbranche_col" prefWidth="128.79998779296875" text="Reférent branche" />
+                <TableColumn fx:id="libelle_col" prefWidth="109.60000610351562" text="libellé " />
+                <TableColumn fx:id="detail_col" prefWidth="204.79998779296875" text="détail" />
             </columns>
+            <contextMenu>
+                <ContextMenu>
+                    <items>
+                        <MenuItem fx:id="supprimerProf" mnemonicParsing="false" onAction="#supprimerBranche" text="Suprimer" />
+                    </items>
+                </ContextMenu>
+            </contextMenu>
         </TableView>
         <Line endX="32.999969482421875" endY="343.39996337890625" layoutX="262.0" layoutY="83.0" startX="32.999969482421875" startY="-9.400009155273438" />
         <Label layoutX="241.0" layoutY="10.0" text="Gestion des Branches" textFill="#6f6f6f" underline="true">

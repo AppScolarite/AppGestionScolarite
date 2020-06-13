@@ -12,6 +12,8 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.MenuItem?>
 <AnchorPane prefHeight="451.0" prefWidth="788.0" style="-fx-hgap: 20px; -fx-background-color: White; -fx-background-radius: 30; -fx-border-radius: 30; -fx-border-width: 5px; -fx-border-color: #0075F3;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.Controllers.GestionMatiereController">
     <effect>
         <DropShadow />
@@ -22,12 +24,19 @@
                 <Image url="@../../resources/images/HboxIcons/close.png" />
             </image>
         </ImageView>
-        <TableView layoutX="325.0" layoutY="72.0" prefHeight="348.0" prefWidth="440.0">
+        <TableView fx:id="matiereTableView" layoutX="325.0" layoutY="72.0" prefHeight="348.0" prefWidth="440.0">
             <columns>
-                <TableColumn prefWidth="140.7999267578125" text="Reférent matiére" />
-                <TableColumn prefWidth="208.00003051757812" text="libellé " />
-                <TableColumn prefWidth="92.0" text="Coefficient" />
+                <TableColumn fx:id="refMatiere_col" prefWidth="140.7999267578125" text="Reférent matiére" />
+                <TableColumn fx:id="libelleMati_col" prefWidth="208.00003051757812" text="libellé " />
+                <TableColumn fx:id="coeffMatiere_col" prefWidth="92.0" text="Coefficient" />
             </columns>
+            <contextMenu>
+                <ContextMenu>
+                    <items>
+                        <MenuItem  mnemonicParsing="false" onAction="#supprimerMatiere" text="Suprimer" />
+                    </items>
+                </ContextMenu>
+            </contextMenu>
         </TableView>
         <Line endX="32.999969482421875" endY="324.79998779296875" layoutX="251.0" layoutY="83.0" startX="32.999969482421875" startY="5.600002288818359" />
         <Label layoutX="241.0" layoutY="10.0" text="Gestion des matiéres" textFill="#6f6f6f" underline="true">

@@ -1,10 +1,7 @@
 package Application.Controllers;
 
 import Application.Data.Gestionnaire_De_Connection;
-import Application.Models.ClassementViewModel;
-import Application.Models.GestionEtudiantsViewModel;
-import Application.Models.GestionNotesViewModel;
-import Application.Models.GestionProfViewModel;
+import Application.Models.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -356,8 +353,8 @@ public class Controller implements Initializable {
     private FlowPane floawLayout_groupe;
     @FXML
     private Button Btn_Rechercher;
-    @FXML
-    private MenuItem supprimerProf;
+//    @FXML
+//    private MenuItem supprimerProf;
     @FXML
     private Label NbreEtudiant;
     @FXML
@@ -368,15 +365,19 @@ public class Controller implements Initializable {
     private Label etumoySup;
     @FXML
     private Label etuNoteInf;
+    @FXML
+
+
     //**********************************************
 
 
     //**********************************************
 
     public Double moyenne;
+
     //*********Noureddine Gestion Prof****************
     @FXML
-    private void supprimerProf(){
+    private void supprimerProf() {
         GestionProfViewModel professeur = (GestionProfViewModel) TableViewProfs.getSelectionModel().getSelectedItem();
         if (professeur == null) {
             System.out.println("aucun etudiant a supprimer !");
@@ -408,17 +409,18 @@ public class Controller implements Initializable {
             }
         }
     }
+
     @FXML
     public void Mode_Click(ActionEvent e) {
         if (((ToggleButton) e.getSource()).isSelected()) {
-            for (int i = 0 ; i < floawLayout_groupe.getChildren().size() ; i++){
+            for (int i = 0; i < floawLayout_groupe.getChildren().size(); i++) {
                 System.out.println(IdGrp.get(i));
             }
             System.out.println("mode activated");
             Btn_Rechercher.setVisible(true);
             txtSearch.setVisible(true);
             Btn_Ajouter.setText("Modifier");
-        }else {
+        } else {
             System.out.println("mode desactivated");
             Btn_Rechercher.setVisible(false);
             txtSearch.setVisible(false);
@@ -513,7 +515,7 @@ public class Controller implements Initializable {
         try {
             Connection connection = gestionnaire_de_connection.getConnection();
             Statement stmMatiere = connection.createStatement();
-            ResultSet rss = stmMatiere.executeQuery("select * from matiere");
+            ResultSet rss = stmMatiere.executeQuery("select * from matiere where id_matiere not in (select matiere# from ENSEIGNEMENT)");
             ObservableList mat = FXCollections.observableArrayList();
             while (rss.next()) {
                 String matieres = rss.getString(2);
@@ -617,8 +619,8 @@ public class Controller implements Initializable {
 //********************************************************************************************************************************//
     @FXML
     public void ajouterProf_click() {
-            Gestionnaire_De_Connection gestionnaire_de_connection = new Gestionnaire_De_Connection();
-            Connection connection = gestionnaire_de_connection.getConnection();
+        Gestionnaire_De_Connection gestionnaire_de_connection = new Gestionnaire_De_Connection();
+        Connection connection = gestionnaire_de_connection.getConnection();
         if (Btn_Ajouter.getText().equals("Ajouter")) {
             try {
                 String Nomcomplet[] = txtNomProf.getText().split(" ");
@@ -657,11 +659,11 @@ public class Controller implements Initializable {
             }
 
             try {
-                for(int i = 0 ; i < floawLayout_groupe.getChildren().size() ; i++ ){
+                for (int i = 0; i < floawLayout_groupe.getChildren().size(); i++) {
                     PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO ENSEIGNEMENT (professeur#,groupe#, matiere#) VALUES (?,?,?)");
                     preparedStatement.setString(1, txtCodeProf.getText());
                     preparedStatement.setInt(2, IdGrp.get(i));
-                    preparedStatement.setInt(3,CB_Matieres.getSelectionModel().getSelectedIndex() + 1);
+                    preparedStatement.setInt(3, CB_Matieres.getSelectionModel().getSelectedIndex() + 1);
                     preparedStatement.executeUpdate();
                 }
 
@@ -674,15 +676,14 @@ public class Controller implements Initializable {
             alert.setHeaderText("Un Presseur ajouté");
             alert.setContentText("Professeur a été bien ajouté !! ");
             alert.showAndWait();
-        }
-        else if(Btn_Ajouter.getText().equals("Modifier")){
+        } else if (Btn_Ajouter.getText().equals("Modifier")) {
             try {
                 String Nomcomplet[] = txtNomProf.getText().split(" ");
                 String nomProf = Nomcomplet[0];
                 String PrenomProf = Nomcomplet[1];
 
                 PreparedStatement preparedStatement = connection.prepareStatement("UPDATE PROFESSEUR SET Cin = ? , Nom = ? , Prenom = ?, Date_Naissance = ?, Date_Commencement_Contrat = ? ," +
-                                " Type_Contrat = ?, Email = ?, Telephone = ? , sexe = ?, Adresse = ?, Situation_Familliale = ?, username= ?, mot_de_passe= ? WHERE Code_Pro_Nationnal = ?");
+                        " Type_Contrat = ?, Email = ?, Telephone = ? , sexe = ?, Adresse = ?, Situation_Familliale = ?, username= ?, mot_de_passe= ? WHERE Code_Pro_Nationnal = ?");
                 preparedStatement.setString(1, txtCIN.getText());
                 preparedStatement.setString(2, nomProf);
                 preparedStatement.setString(3, PrenomProf);
@@ -695,14 +696,14 @@ public class Controller implements Initializable {
                 preparedStatement.setString(8, txtTel.getText());
                 if (RB_Femme.isSelected()) {
                     preparedStatement.setString(9, RB_Femme.getText());
-                }else if (RB_Homme.isSelected()) preparedStatement.setString(9, RB_Homme.getText());
+                } else if (RB_Homme.isSelected()) preparedStatement.setString(9, RB_Homme.getText());
                 preparedStatement.setString(10, txtAdresse.getText());
                 if (RB_Ccelib.isSelected()) preparedStatement.setString(11, RB_Ccelib.getText());
                 if (RB_Div.isSelected()) preparedStatement.setString(11, RB_Div.getText());
                 if (RB_Marie.isSelected()) preparedStatement.setString(11, RB_Marie.getText());
                 preparedStatement.setString(12, txtUsername.getText());
                 preparedStatement.setString(13, txtPassword.getText());
-                preparedStatement.setString(14,txtCodeProf.getText());
+                preparedStatement.setString(14, txtCodeProf.getText());
 
                 preparedStatement.executeUpdate();
 
@@ -711,10 +712,10 @@ public class Controller implements Initializable {
                 e.getStackTrace();
             }
             try {
-                for(int i = 0 ; i < floawLayout_groupe.getChildren().size() ; i++ ){
+                for (int i = 0; i < floawLayout_groupe.getChildren().size(); i++) {
                     PreparedStatement preparedStatement = connection.prepareStatement("UPDATE ENSEIGNEMENT set groupe# = ?, matiere# = ? where professeur# = ?");
                     preparedStatement.setInt(1, IdGrp.get(i));
-                    preparedStatement.setInt(2,CB_Matieres.getSelectionModel().getSelectedIndex() + 1);
+                    preparedStatement.setInt(2, CB_Matieres.getSelectionModel().getSelectedIndex() + 1);
                     preparedStatement.setString(3, txtCodeProf.getText());
                     preparedStatement.executeUpdate();
                 }
@@ -1078,7 +1079,7 @@ public class Controller implements Initializable {
     }
 
     //fill piechart
-    private void statistiqueGenres(){
+    private void statistiqueGenres() {
         try {
             int nbrFemme, nbrHomme;
             nbrFemme = nbrHomme = 0;
@@ -1114,7 +1115,8 @@ public class Controller implements Initializable {
 
 
     }
-    private void statistiqueMoyenne(){
+
+    private void statistiqueMoyenne() {
         try {
             int noteSup, noteInf;
             noteSup = noteInf = 0;
@@ -1140,12 +1142,13 @@ public class Controller implements Initializable {
             pieChartMoyenne.setLabelsVisible(true);
             pieChartMoyenne.setLabelLineLength(50);
             pieChartMoyenne.setStartAngle(180);
-        } catch (SQLException s){
+        } catch (SQLException s) {
             s.getStackTrace();
         }
 
     }
-    private void statistiquebarChart(){
+
+    private void statistiquebarChart() {
         try {
             Connection sqlConnection = gestionnaire_de_connection.getConnection();
             Statement sqlCommand = sqlConnection.createStatement();
@@ -1189,7 +1192,7 @@ public class Controller implements Initializable {
             //nbre total etudiant
             Statement nbreStm = connection.createStatement();
             ResultSet nbreResult = nbreStm.executeQuery("select count(*) as totalEtu from etudiant");
-            if(nbreResult.next()) NbreEtudiant.setText(String.valueOf(nbreResult.getInt("totalEtu")));
+            if (nbreResult.next()) NbreEtudiant.setText(String.valueOf(nbreResult.getInt("totalEtu")));
 
             //nbre total prof
             nbreStm = connection.createStatement();
@@ -1210,7 +1213,7 @@ public class Controller implements Initializable {
             nbreStm = connection.createStatement();
             nbreResult = nbreStm.executeQuery("select count(*) as totaletuMoyInf from note where Valeur_Note < 10 ");
             if (nbreResult.next()) etuNoteInf.setText(String.valueOf(nbreResult.getInt("totaletuMoyInf")));
-        }catch (SQLException s){
+        } catch (SQLException s) {
             s.getStackTrace();
         }
     }
@@ -1388,7 +1391,16 @@ public class Controller implements Initializable {
         try {
             Connection connection = gestionnaire_de_connection.getConnection();
             Statement sqlCommand = connection.createStatement();
-            ResultSet dataReader = sqlCommand.executeQuery("select * from GROUPE");
+            ResultSet dataReader = sqlCommand.executeQuery
+                    (
+                            String.format
+                                    (
+                                            "select grp.*\n" +
+                                                    "from groupe grp inner join enseignement en on grp.id_groupe = en.groupe#\n" +
+                                                    "where en.professeur# = '%s'",
+                                            Gestionnaire_De_Connection.prof_connecte
+                                    )
+                    );
             ObservableList groupes = FXCollections.observableArrayList();
             while (dataReader.next()) {
                 String groupe = dataReader.getString("libelle_grp");
@@ -1782,7 +1794,7 @@ public class Controller implements Initializable {
                                                 "select top 3 n.Valeur_Note \n" +
                                                         "from note n\n" +
                                                         "where n.etudiant_ = '%s'\n" +
-                                                        "and matiere# = (select en.matiere#\n" +
+                                                        "and matiere# = (select top 1 en.matiere#\n" +
                                                         "from professeur prof inner join ENSEIGNEMENT en on prof.Code_Pro_Nationnal = en.professeur#\n" +
                                                         "where prof.Code_Pro_Nationnal = '%s')",
                                                 code_massar,
@@ -1819,7 +1831,8 @@ public class Controller implements Initializable {
                     tableView_GestionNotes.getItems().add(etudiant);
                 }
             }
-        } catch (SQLException e) {
+        } catch (
+                SQLException e) {
             e.printStackTrace();
         }
     }
