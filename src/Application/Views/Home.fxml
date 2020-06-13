@@ -33,225 +33,329 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="676.0" prefWidth="1212.0" style="-fx-background-color: blue;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.Controllers.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="676.0"
+            prefWidth="1212.0" style="-fx-background-color: blue;" xmlns="http://javafx.com/javafx/11.0.1"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.Controllers.Controller">
     <!-- <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="676.0" prefWidth="1212.0" style="-fx-background-color: blue;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.Controllers.Controller"> -->
     <children>
-        <VBox fx:id="VboxMenu" alignment="TOP_CENTER" prefHeight="676.0" prefWidth="290.0" style="-fx-background-color: blue;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <VBox fx:id="VboxMenu" alignment="TOP_CENTER" prefHeight="676.0" prefWidth="290.0"
+              style="-fx-background-color: blue;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
                 <ImageView fx:id="imgUser" fitHeight="73.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../../resources/images/Personne.png" />
+                        <Image url="@../../resources/images/Personne.png"/>
                     </image>
                     <VBox.margin>
-                        <Insets bottom="10.0" top="50.0" />
+                        <Insets bottom="10.0" top="50.0"/>
                     </VBox.margin>
                 </ImageView>
                 <Label fx:id="userLBL" text="Nourredine Yaggoubi" textFill="#e7e5e5">
                     <VBox.margin>
-                        <Insets bottom="50.0" />
+                        <Insets bottom="50.0"/>
                     </VBox.margin>
                     <font>
-                        <Font name="Cambria Bold Italic" size="14.0" />
+                        <Font name="Cambria Bold Italic" size="14.0"/>
                     </font>
                 </Label>
-                <Button fx:id="btnAccueil" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#btnAccueil_click" prefHeight="60.0" prefWidth="297.0" stylesheets="@../../resources/Styles/style.css" text="Accueil" visible="true">
+                <Button fx:id="btnAccueil" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false"
+                        onAction="#btnAccueil_click" prefHeight="60.0" prefWidth="297.0"
+                        stylesheets="@../../resources/Styles/style.css" text="Accueil" visible="true">
                     <graphic>
                         <ImageView fitHeight="40.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../../resources/images/SideBarIcons/Accueil.png" />
+                                <Image url="@../../resources/images/SideBarIcons/Accueil.png"/>
                             </image>
                         </ImageView>
                     </graphic>
                     <padding>
-                        <Insets left="50.0" />
+                        <Insets left="50.0"/>
                     </padding>
                     <font>
-                        <Font name="Cambria Bold Italic" size="16.0" />
+                        <Font name="Cambria Bold Italic" size="16.0"/>
                     </font>
                 </Button>
                 <Button fx:id="btnProfil_etd" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="297.0" stylesheets="@../../resources/Styles/style.css" text="Mon profil">
                     <graphic>
                         <ImageView fitHeight="40.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../../resources/images/SideBarIcons/profil.png" />
+                                <Image url="@../../resources/images/SideBarIcons/profil.png"/>
                             </image>
                         </ImageView>
                     </graphic>
                     <padding>
-                        <Insets left="50.0" />
+                        <Insets left="50.0"/>
                     </padding>
                     <font>
-                        <Font name="Cambria Bold Italic" size="16.0" />
+                        <Font name="Cambria Bold Italic" size="16.0"/>
                     </font>
                 </Button>
-                <Button fx:id="btnGestionProf" alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="10.0" layoutY="260.0" mnemonicParsing="false" onAction="#gestionProf_click" prefHeight="60.0" prefWidth="297.0" stylesheets="@../../resources/Styles/style.css" text="Gestion professeur" visible="false">
+                <Button fx:id="btnGestionProf" alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="10.0"
+                        layoutY="260.0" mnemonicParsing="false" onAction="#gestionProf_click" prefHeight="60.0"
+                        prefWidth="297.0" stylesheets="@../../resources/Styles/style.css" text="Gestion professeur"
+                        visible="false">
                     <graphic>
                         <ImageView fitHeight="40.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../../resources/images/SideBarIcons/Etudiants.png" />
+                                <Image url="@../../resources/images/SideBarIcons/Etudiants.png"/>
                             </image>
                         </ImageView>
                     </graphic>
                     <padding>
-                        <Insets left="50.0" />
+                        <Insets left="50.0"/>
                     </padding>
                     <font>
-                        <Font name="Cambria Bold Italic" size="16.0" />
+                        <Font name="Cambria Bold Italic" size="16.0"/>
                     </font>
                 </Button>
-                <Button fx:id="btnListes" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#GestionNote_Click" prefHeight="60.0" prefWidth="297.0" stylesheets="@../../resources/Styles/style.css" text="Gerer Notes" textFill="#e7e5e5" visible="false">
+                <Button fx:id="btnListes" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false"
+                        onAction="#GestionNote_Click" prefHeight="60.0" prefWidth="297.0"
+                        stylesheets="@../../resources/Styles/style.css" text="Gerer Notes" textFill="#e7e5e5"
+                        visible="false">
                     <graphic>
                         <ImageView fitHeight="40.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../../resources/images/SideBarIcons/Listes.png" />
+                                <Image url="@../../resources/images/SideBarIcons/Listes.png"/>
                             </image>
                         </ImageView>
                     </graphic>
                     <opaqueInsets>
-                        <Insets />
+                        <Insets/>
                     </opaqueInsets>
                     <VBox.margin>
-                        <Insets />
+                        <Insets/>
                     </VBox.margin>
                     <padding>
-                        <Insets left="50.0" />
+                        <Insets left="50.0"/>
                     </padding>
                     <font>
-                        <Font name="Cambria Bold Italic" size="16.0" />
+                        <Font name="Cambria Bold Italic" size="16.0"/>
                     </font>
                 </Button>
-                <Button fx:id="btnStatistiques" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#statistiquePersonnel_Click" prefHeight="60.0" prefWidth="297.0" stylesheets="@../../resources/Styles/style.css" text="Statistiques " visible="false">
+                <Button fx:id="btnStatistiques" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false"
+                        onAction="#statistiquePersonnel_Click" prefHeight="60.0" prefWidth="297.0"
+                        stylesheets="@../../resources/Styles/style.css" text="Statistiques " visible="false">
                     <graphic>
                         <ImageView fitHeight="40.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../../resources/images/SideBarIcons/chart.png" />
+                                <Image url="@../../resources/images/SideBarIcons/chart.png"/>
                             </image>
                         </ImageView>
                     </graphic>
                     <padding>
-                        <Insets left="50.0" />
+                        <Insets left="50.0"/>
                     </padding>
                     <font>
-                        <Font name="Cambria Bold Italic" size="16.0" />
+                        <Font name="Cambria Bold Italic" size="16.0"/>
                     </font>
                 </Button>
-                <Button fx:id="btnGestion" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#panelGestionEtudiant_click" prefHeight="60.0" prefWidth="297.0" stylesheets="@../../resources/Styles/style.css" text="Gérer les étudiants" visible="false">
+                <Button fx:id="btnGestion" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false"
+                        onAction="#panelGestionEtudiant_click" prefHeight="60.0" prefWidth="297.0"
+                        stylesheets="@../../resources/Styles/style.css" text="Gérer les étudiants" visible="false">
                     <graphic>
                         <ImageView fitHeight="40.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../../resources/images/SideBarIcons/Etudiants.png" />
+                                <Image url="@../../resources/images/SideBarIcons/Etudiants.png"/>
                             </image>
                         </ImageView>
                     </graphic>
                     <padding>
-                        <Insets left="50.0" />
+                        <Insets left="50.0"/>
                     </padding>
                     <font>
-                        <Font name="Cambria Bold Italic" size="16.0" />
+                        <Font name="Cambria Bold Italic" size="16.0"/>
                     </font>
                 </Button>
-                <Button fx:id="btnStatistiquesetudiant" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#btnStatistiquesetudiant_click" prefHeight="60.0" prefWidth="297.0" stylesheets="@../../resources/Styles/style.css" text="Statistiques " visible="false">
+                <Button fx:id="btnStatistiquesetudiant" alignment="BASELINE_LEFT" graphicTextGap="22.0"
+                        mnemonicParsing="false" onAction="#btnStatistiquesetudiant_click" prefHeight="60.0"
+                        prefWidth="297.0" stylesheets="@../../resources/Styles/style.css" text="Statistiques "
+                        visible="false">
                     <graphic>
                         <ImageView fitHeight="40.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../../resources/images/SideBarIcons/chart.png" />
+                                <Image url="@../../resources/images/SideBarIcons/chart.png"/>
                             </image>
                         </ImageView>
                     </graphic>
                     <padding>
-                        <Insets left="50.0" />
+                        <Insets left="50.0"/>
                     </padding>
                     <font>
-                        <Font name="Cambria Bold Italic" size="16.0" />
+                        <Font name="Cambria Bold Italic" size="16.0"/>
                     </font>
                 </Button>
-                <Button fx:id="btnAlert" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#btnAlert_click" prefHeight="60.0" prefWidth="297.0" stylesheets="@../../resources/Styles/style.css" text="Control / Exam" visible="false">
+                <Button fx:id="btnAlert" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false"
+                        onAction="#btnAlert_click" prefHeight="60.0" prefWidth="297.0"
+                        stylesheets="@../../resources/Styles/style.css" text="Control / Exam" visible="false">
                     <graphic>
                         <ImageView fitHeight="40.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../../resources/images/SideBarIcons/alertMessage.png" />
+                                <Image url="@../../resources/images/SideBarIcons/alertMessage.png"/>
                             </image>
                         </ImageView>
                     </graphic>
                     <padding>
-                        <Insets left="50.0" />
+                        <Insets left="50.0"/>
                     </padding>
                     <font>
-                        <Font name="Cambria Bold Italic" size="16.0" />
+                        <Font name="Cambria Bold Italic" size="16.0"/>
                     </font>
                 </Button>
-                <Button fx:id="btnNotes" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#btnNotes_click" prefHeight="60.0" prefWidth="297.0" stylesheets="@../../resources/Styles/style.css" text="Mes notes" visible="false">
+                <Button fx:id="btnNotes" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false"
+                        onAction="#btnNotes_click" prefHeight="60.0" prefWidth="297.0"
+                        stylesheets="@../../resources/Styles/style.css" text="Mes notes" visible="false">
                     <graphic>
                         <ImageView fitHeight="40.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../../resources/images/SideBarIcons/Notes.png" />
+                                <Image url="@../../resources/images/SideBarIcons/Notes.png"/>
                             </image>
                         </ImageView>
                     </graphic>
                     <padding>
-                        <Insets left="50.0" />
+                        <Insets left="50.0"/>
                     </padding>
                     <font>
-                        <Font name="Cambria Bold Italic" size="16.0" />
+                        <Font name="Cambria Bold Italic" size="16.0"/>
                     </font>
                 </Button>
-                <Region VBox.vgrow="ALWAYS" />
-                <Button fx:id="btnLogOut" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#logOut_Click" prefHeight="42.0" prefWidth="259.0" stylesheets="@../../resources/Styles/style.css" text="Se déconnécter">
+                <Region VBox.vgrow="ALWAYS"/>
+                <Button fx:id="btnLogOut" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false"
+                        onAction="#logOut_Click" prefHeight="42.0" prefWidth="259.0"
+                        stylesheets="@../../resources/Styles/style.css" text="Se déconnécter">
                     <graphic>
                         <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../../resources/images/SideBarIcons/deconnecter.png" />
+                                <Image url="@../../resources/images/SideBarIcons/deconnecter.png"/>
                             </image>
                         </ImageView>
                     </graphic>
                     <padding>
-                        <Insets left="50.0" />
+                        <Insets left="50.0"/>
                     </padding>
                 </Button>
             </children>
         </VBox>
-        <Button fx:id="btnClose" alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="1168.0" layoutY="2.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#btnClose_Click" prefHeight="25.0" prefWidth="29.0" style="-fx-background-color: transparent; -fx-padding: 0;" stylesheets="@../../resources/Styles/style.css">
+        <Button fx:id="btnClose" alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="1168.0" layoutY="2.0"
+                maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+                mnemonicParsing="false" onAction="#btnClose_Click" prefHeight="25.0" prefWidth="29.0"
+                style="-fx-background-color: transparent; -fx-padding: 0;"
+                stylesheets="@../../resources/Styles/style.css">
             <graphic>
                 <ImageView fitHeight="29.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
-                    <Image backgroundLoading="true" url="@../../resources/images/HboxIcons/close.png" />
+                    <Image backgroundLoading="true" url="@../../resources/images/HboxIcons/close.png"/>
                 </ImageView>
             </graphic>
         </Button>
-        <Button fx:id="btnMinimize" alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="1133.0" layoutY="2.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#btnMinimize_Click" prefHeight="25.0" prefWidth="29.0" style="-fx-background-color: transparent; -fx-padding: 0;" stylesheets="@../../resources/Styles/style.css">
+        <Button fx:id="btnMinimize" alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="1133.0" layoutY="2.0"
+                maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+                mnemonicParsing="false" onAction="#btnMinimize_Click" prefHeight="25.0" prefWidth="29.0"
+                style="-fx-background-color: transparent; -fx-padding: 0;"
+                stylesheets="@../../resources/Styles/style.css">
             <graphic>
-                <ImageView fx:id="imgViewMinimize" fitHeight="29.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fx:id="imgViewMinimize" fitHeight="29.0" fitWidth="28.0" pickOnBounds="true"
+                           preserveRatio="true">
                     <image>
-                        <Image url="@../../resources/images/HboxIcons/minimize.png" />
+                        <Image url="@../../resources/images/HboxIcons/minimize.png"/>
                     </image>
                 </ImageView>
             </graphic>
         </Button>
-        <Pane fx:id="panelStatistiques" layoutX="289.0" layoutY="-4.0" prefHeight="680.0" prefWidth="922.0" style="-fx-background-color: WHITE;">
+        <Pane fx:id="panelAlert" layoutX="289.0" layoutY="-4.0" prefHeight="680.0" prefWidth="922.0"
+              style="-fx-background-color: #F0FFFF;">
             <children>
-                <PieChart fx:id="pieChartEtudiant" layoutX="468.0" layoutY="308.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="353.0" prefWidth="435.0" />
+                <ComboBox fx:id="cb_groupesAlert" layoutX="369.0" layoutY="132.0" prefWidth="150.0"
+                          promptText="Groupe"/>
+                <Label layoutX="122.0" layoutY="135.0" text="Rappeler les étudiants du groupe ">
+                    <font>
+                        <Font name="Arial Bold Italic" size="15.0"/>
+                    </font>
+                </Label>
+                <Label layoutX="315.0" layoutY="25.0" text="Alerter les étudians" textFill="#6f6f6f" underline="true">
+                    <font>
+                        <Font name="Russo One" size="29.0"/>
+                    </font>
+                </Label>
+                <Label layoutX="536.0" layoutY="134.0" text="qu'il y aura un examen / controle , pour le ">
+                    <font>
+                        <Font name="Arial Bold Italic" size="15.0"/>
+                    </font>
+                </Label>
+                <DatePicker fx:id="date_control" layoutX="52.0" layoutY="197.0"/>
+                <Label layoutX="587.0" layoutY="201.0" text=", et que la date y demeurera">
+                    <font>
+                        <Font name="Arial Bold Italic" size="15.0"/>
+                    </font>
+                </Label>
+                <RadioButton fx:id="radio_modif" layoutX="139.0" layoutY="257.0" mnemonicParsing="false"
+                             text="Modifiable"/>
+                <RadioButton fx:id="radio_fix" layoutX="238.0" layoutY="257.0" mnemonicParsing="false" text="Fixe"/>
+                <Label layoutX="127.0" layoutY="302.0" text="Plus de détail :">
+                    <font>
+                        <Font name="Arial Bold Italic" size="15.0"/>
+                    </font>
+                </Label>
+                <Label layoutX="290.0" layoutY="257.0" text=".">
+                    <font>
+                        <Font name="Arial Bold Italic" size="15.0"/>
+                    </font>
+                </Label>
+                <TextArea fx:id="txt_description" layoutX="52.0" layoutY="325.0" prefHeight="217.0" prefWidth="790.0">
+                    <font>
+                        <Font name="Arial Bold Italic" size="15.0"/>
+                    </font>
+                </TextArea>
+                <Button layoutX="756.0" layoutY="618.0" mnemonicParsing="false" onAction="#exam_soumis"
+                        text="Soumettre !"/>
+                <Label layoutX="243.0" layoutY="201.0" text=", à partir de l'heure">
+                    <font>
+                        <Font name="Arial Bold Italic" size="15.0"/>
+                    </font>
+                </Label>
+                <TextField fx:id="heureDebut_controle" layoutX="387.0" layoutY="197.0" prefHeight="25.0"
+                           prefWidth="58.0"/>
+                <Label layoutX="456.0" layoutY="200.0" text="jusqu'à">
+                    <font>
+                        <Font name="Arial Bold Italic" size="15.0"/>
+                    </font>
+                </Label>
+                <TextField fx:id="heureFin_controle" layoutX="518.0" layoutY="196.0" prefHeight="25.0"
+                           prefWidth="58.0"/>
+                <Label layoutX="54.0" layoutY="257.0" text="cependant">
+                    <font>
+                        <Font name="Arial Bold Italic" size="15.0"/>
+                    </font>
+                </Label>
+            </children>
+        </Pane>
+        <Pane fx:id="panelStatistiques" layoutX="289.0" layoutY="-4.0" prefHeight="680.0" prefWidth="922.0"
+              style="-fx-background-color: WHITE;">
+            <children>
+                <PieChart fx:id="pieChartEtudiant" layoutX="468.0" layoutY="308.0" maxHeight="-Infinity"
+                          maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="353.0"
+                          prefWidth="435.0"/>
                 <BarChart fx:id="barchartEtudiant" layoutX="440.0" layoutY="55.0" prefHeight="304.0" prefWidth="435.0">
                     <xAxis>
-                        <CategoryAxis side="BOTTOM" />
+                        <CategoryAxis side="BOTTOM"/>
                     </xAxis>
                     <yAxis>
-                        <NumberAxis side="LEFT" />
+                        <NumberAxis side="LEFT"/>
                     </yAxis>
                 </BarChart>
-                <TableView fx:id="tblViewCLassement" layoutX="23.0" layoutY="106.0" prefHeight="545.0" prefWidth="365.0">
+                <TableView fx:id="tblViewCLassement" layoutX="23.0" layoutY="106.0" prefHeight="545.0"
+                           prefWidth="365.0">
                     <columns>
                         <TableColumn prefWidth="165.60000610351562" text="Les étudiants">
                             <cellValueFactory>
-                                <PropertyValueFactory property="nom_complet_etudiant" />
+                                <PropertyValueFactory property="nom_complet_etudiant"/>
                             </cellValueFactory>
                         </TableColumn>
                         <TableColumn prefWidth="93.5999755859375" text="Moyenne">
                             <cellValueFactory>
-                                <PropertyValueFactory property="moyenne_generale" />
+                                <PropertyValueFactory property="moyenne_generale"/>
                             </cellValueFactory>
                         </TableColumn>
                         <TableColumn prefWidth="104.20001220703125" text="Classement">
                             <cellValueFactory>
-                                <PropertyValueFactory property="classement" />
+                                <PropertyValueFactory property="classement"/>
                             </cellValueFactory>
                         </TableColumn>
                     </columns>
@@ -260,294 +364,521 @@
                 </TableView>
                 <Label layoutX="220.0" layoutY="14.0" prefHeight="34.0" prefWidth="124.0" text="Statistiques">
                     <font>
-                        <Font size="22.0" />
+                        <Font size="22.0"/>
                     </font>
                 </Label>
             </children>
         </Pane>
-        <Pane fx:id="panelNotesProf" layoutX="289.0" layoutY="-4.0" prefHeight="680.0" prefWidth="922.0" style="-fx-background-color: white;">
+        <Pane fx:id="panelNotesProf" layoutX="289.0" layoutY="-4.0" prefHeight="680.0" prefWidth="922.0"
+              style="-fx-background-color: white;">
             <children>
                 <Label layoutX="329.0" layoutY="30.0" text="Gestion des notes" textFill="#6f6f6f" underline="true">
                     <font>
-                        <Font name="Russo One" size="29.0" />
+                        <Font name="Russo One" size="29.0"/>
                     </font>
                 </Label>
-                <TableView fx:id="tableView_GestionNotes" editable="true" layoutX="22.0" layoutY="161.0" prefHeight="509.0" prefWidth="881.0">
+                <TableView fx:id="tableView_GestionNotes" editable="true" layoutX="22.0" layoutY="161.0"
+                           prefHeight="509.0" prefWidth="881.0">
                     <columns>
-                        <TableColumn fx:id="col_codeMassar" editable="false" prefWidth="152.79998779296875" resizable="false" text="Code Massar">
+                        <TableColumn fx:id="col_codeMassar" editable="false" prefWidth="152.79998779296875"
+                                     resizable="false" text="Code Massar">
                             <cellValueFactory>
-                                <PropertyValueFactory property="code_massar" />
+                                <PropertyValueFactory property="code_massar"/>
                             </cellValueFactory>
                         </TableColumn>
-                        <TableColumn fx:id="col_nomComplet" editable="false" prefWidth="159.19998168945312" resizable="false" text="Nom Complet">
+                        <TableColumn fx:id="col_nomComplet" editable="false" prefWidth="159.19998168945312"
+                                     resizable="false" text="Nom Complet">
                             <cellValueFactory>
-                                <PropertyValueFactory property="nom_complet" />
+                                <PropertyValueFactory property="nom_complet"/>
                             </cellValueFactory>
                         </TableColumn>
-                        <TableColumn fx:id="col_cntrl1" minWidth="5.60003662109375" prefWidth="111.20001220703125" resizable="false" text="Controle 1">
+                        <TableColumn fx:id="col_cntrl1" minWidth="5.60003662109375" prefWidth="111.20001220703125"
+                                     resizable="false" text="Controle 1">
                             <cellValueFactory>
-                                <PropertyValueFactory property="control_1" />
+                                <PropertyValueFactory property="control_1"/>
                             </cellValueFactory>
                         </TableColumn>
-                        <TableColumn fx:id="col_cntrl2" prefWidth="128.40008544921875" resizable="false" text="Controle 2">
+                        <TableColumn fx:id="col_cntrl2" prefWidth="128.40008544921875" resizable="false"
+                                     text="Controle 2">
                             <cellValueFactory>
-                                <PropertyValueFactory property="control_2" />
+                                <PropertyValueFactory property="control_2"/>
                             </cellValueFactory>
                         </TableColumn>
-                        <TableColumn fx:id="col_cntrl3" prefWidth="128.7999267578125" resizable="false" text="Controle 3">
+                        <TableColumn fx:id="col_cntrl3" prefWidth="128.7999267578125" resizable="false"
+                                     text="Controle 3">
                             <cellValueFactory>
-                                <PropertyValueFactory property="control_3" />
+                                <PropertyValueFactory property="control_3"/>
                             </cellValueFactory>
                         </TableColumn>
-                        <TableColumn fx:id="col_moyenne" editable="false" prefWidth="261.60009765625" resizable="false" text="Moyenne">
+                        <TableColumn fx:id="col_moyenne" editable="false" prefWidth="261.60009765625" resizable="false"
+                                     text="Moyenne">
                             <cellValueFactory>
-                                <PropertyValueFactory property="moyenne" />
+                                <PropertyValueFactory property="moyenne"/>
                             </cellValueFactory>
                         </TableColumn>
                     </columns>
                     <effect>
-                        <DropShadow />
+                        <DropShadow/>
                     </effect>
                 </TableView>
-                <ComboBox fx:id="CB_grp_gestionNotes" layoutX="371.0" layoutY="103.0" onAction="#CB_grp_gestionNotes_selected" prefHeight="30.0" prefWidth="180.0" promptText="Groupes">
+                <ComboBox fx:id="CB_grp_gestionNotes" layoutX="371.0" layoutY="103.0"
+                          onAction="#CB_grp_gestionNotes_selected" prefHeight="30.0" prefWidth="180.0"
+                          promptText="Groupes">
                     <effect>
-                        <DropShadow />
+                        <DropShadow/>
                     </effect>
                 </ComboBox>
             </children>
         </Pane>
-        <Pane fx:id="panelEtudiant" layoutX="289.0" layoutY="-4.0" prefHeight="680.0" prefWidth="922.0" style="-fx-background-color: #F0FFFF;">
+        <Pane fx:id="panelNotes" layoutX="289.0" layoutY="-4.0" prefHeight="679.0" prefWidth="922.0"
+              style="-fx-background-color: white;">
             <children>
-                <Label layoutX="307.0" layoutY="26.0" text="Gestion des étudians" textAlignment="CENTER" textFill="#6f6f6f" underline="true">
+                <Label layoutX="380.0" layoutY="28.0" text="Mes Notes" textFill="#6f6f6f">
                     <font>
-                        <Font name="Russo One" size="29.0" />
+                        <Font size="29.0"/>
                     </font>
                 </Label>
-                <TableView fx:id="tableView_GestionEtudiant" editable="true" layoutX="22.0" layoutY="161.0" prefHeight="509.0" prefWidth="881.0">
+                <ComboBox fx:id="CB_Matiere" layoutX="323.0" layoutY="97.0" onAction="#selectedItem" prefHeight="37.0"
+                          prefWidth="266.0" promptText="Matières"/>
+                <Label layoutX="93.0" layoutY="234.0" prefHeight="27.0" prefWidth="86.0" style="-fx-font-weight: bold;"
+                       text="Matière" textFill="#2c2c2c">
+                    <font>
+                        <Font size="18.0"/>
+                    </font>
+                </Label>
+                <Label layoutX="93.0" layoutY="299.0" prefHeight="27.0" prefWidth="111.0" style="-fx-font-weight: bold;"
+                       text="Coefficiant" textFill="#2c2c2c">
+                    <font>
+                        <Font size="18.0"/>
+                    </font>
+                </Label>
+                <Label layoutX="93.0" layoutY="373.0" prefHeight="27.0" prefWidth="86.0" style="-fx-font-weight: bold;"
+                       text="Chez " textFill="#2c2c2c">
+                    <font>
+                        <Font size="18.0"/>
+                    </font>
+                </Label>
+                <Label layoutX="559.0" layoutY="230.0" prefHeight="27.0" prefWidth="95.0" style="-fx-font-weight: bold;"
+                       text="Controle1" textFill="#2c2c2c">
+                    <font>
+                        <Font size="18.0"/>
+                    </font>
+                </Label>
+                <Label layoutX="559.0" layoutY="295.0" prefHeight="27.0" prefWidth="111.0"
+                       style="-fx-font-weight: bold;" text="Controle 2" textFill="#2c2c2c">
+                    <font>
+                        <Font size="18.0"/>
+                    </font>
+                </Label>
+                <Label layoutX="559.0" layoutY="369.0" prefHeight="27.0" prefWidth="111.0"
+                       style="-fx-font-weight: bold;" text="Controle 3" textFill="#2c2c2c">
+                    <font>
+                        <Font size="18.0"/>
+                    </font>
+                </Label>
+                <Label fx:id="matiereLbl" layoutX="241.0" layoutY="232.0" prefHeight="27.0" prefWidth="228.0"
+                       textFill="#6f6f6f">
+                    <font>
+                        <Font size="18.0"/>
+                    </font>
+                </Label>
+                <Label fx:id="CoeffLbl" layoutX="241.0" layoutY="297.0" prefHeight="27.0" prefWidth="86.0"
+                       textFill="#6f6f6f">
+                    <font>
+                        <Font size="18.0"/>
+                    </font>
+                </Label>
+                <Label fx:id="ProfLbl" layoutX="241.0" layoutY="371.0" prefHeight="27.0" prefWidth="228.0"
+                       textFill="#6f6f6f">
+                    <font>
+                        <Font size="18.0"/>
+                    </font>
+                </Label>
+                <Label fx:id="Cntrol1" layoutX="707.0" layoutY="228.0" prefHeight="27.0" prefWidth="86.0"
+                       textFill="#6f6f6f">
+                    <font>
+                        <Font size="18.0"/>
+                    </font>
+                </Label>
+                <Label fx:id="Cntrol2" layoutX="707.0" layoutY="293.0" prefHeight="27.0" prefWidth="86.0"
+                       textFill="#6f6f6f">
+                    <font>
+                        <Font size="18.0"/>
+                    </font>
+                </Label>
+                <Label fx:id="Cntrol3" layoutX="707.0" layoutY="367.0" prefHeight="27.0" prefWidth="86.0"
+                       textFill="#6f6f6f">
+                    <font>
+                        <Font size="18.0"/>
+                    </font>
+                </Label>
+                <Label layoutX="361.0" layoutY="447.0" style="-fx-font-weight: bold bolboldd;" text="Moyenne Générale">
+                    <font>
+                        <Font size="21.0"/>
+                    </font>
+                </Label>
+                <Label fx:id="MyenneLbl" alignment="CENTER" layoutX="413.0" layoutY="489.0" prefHeight="27.0"
+                       prefWidth="86.0" textAlignment="CENTER" textFill="#6f6f6f">
+                    <font>
+                        <Font size="18.0"/>
+                    </font>
+                </Label>
+            </children>
+        </Pane>
+        <Pane fx:id="panelEtudiant" layoutX="289.0" layoutY="-4.0" prefHeight="680.0" prefWidth="922.0"
+              style="-fx-background-color: #F0FFFF;">
+            <children>
+                <Label layoutX="307.0" layoutY="26.0" text="Gestion des étudians" textAlignment="CENTER"
+                       textFill="#6f6f6f" underline="true">
+                    <font>
+                        <Font name="Russo One" size="29.0"/>
+                    </font>
+                </Label>
+                <TableView fx:id="tableView_GestionEtudiant" editable="true" layoutX="22.0" layoutY="161.0"
+                           prefHeight="509.0" prefWidth="881.0">
                     <columns>
                         <TableColumn editable="false" prefWidth="90.0" text="Code Massar">
                             <cellValueFactory>
-                                <PropertyValueFactory property="code_massar" />
+                                <PropertyValueFactory property="code_massar"/>
                             </cellValueFactory>
                         </TableColumn>
                         <TableColumn fx:id="col_prenom" prefWidth="90.0" text="Prénom">
                             <cellValueFactory>
-                                <PropertyValueFactory property="prenom" />
+                                <PropertyValueFactory property="prenom"/>
                             </cellValueFactory>
                         </TableColumn>
                         <TableColumn fx:id="col_nom" prefWidth="96.00003051757812" text="Nom">
                             <cellValueFactory>
-                                <PropertyValueFactory property="nom" />
+                                <PropertyValueFactory property="nom"/>
                             </cellValueFactory>
                         </TableColumn>
                         <TableColumn fx:id="col_date" prefWidth="127.199951171875" text="Date Inscription">
                             <cellValueFactory>
-                                <PropertyValueFactory property="date_inscription" />
+                                <PropertyValueFactory property="date_inscription"/>
                             </cellValueFactory>
                         </TableColumn>
                         <TableColumn fx:id="col_mail" prefWidth="143.199951171875" text="Email">
                             <cellValueFactory>
-                                <PropertyValueFactory property="email" />
+                                <PropertyValueFactory property="email"/>
                             </cellValueFactory>
                         </TableColumn>
                         <TableColumn fx:id="col_tlph" prefWidth="112.0" text="Telephone">
                             <cellValueFactory>
-                                <PropertyValueFactory property="telephone" />
+                                <PropertyValueFactory property="telephone"/>
                             </cellValueFactory>
                         </TableColumn>
                         <TableColumn fx:id="col_doublant" prefWidth="65.59991455078125" text="Doublant">
                             <cellValueFactory>
-                                <PropertyValueFactory property="a_deja_redouble" />
+                                <PropertyValueFactory property="a_deja_redouble"/>
                             </cellValueFactory>
                         </TableColumn>
                         <TableColumn fx:id="col_adrs" prefWidth="151.2000732421875" text="Adresse">
                             <cellValueFactory>
-                                <PropertyValueFactory property="adresse" />
+                                <PropertyValueFactory property="adresse"/>
                             </cellValueFactory>
                         </TableColumn>
                         <TableColumn fx:id="col_sexe" prefWidth="99.9998779296875" text="Sexe">
                             <cellValueFactory>
-                                <PropertyValueFactory property="sexe" />
+                                <PropertyValueFactory property="sexe"/>
                             </cellValueFactory>
                         </TableColumn>
                     </columns>
                     <effect>
-                        <DropShadow />
+                        <DropShadow/>
                     </effect>
                     <contextMenu>
                         <ContextMenu>
                             <items>
-                                <MenuItem fx:id="supprimer" mnemonicParsing="false" onAction="#supprimer_click" text="Suprimer" />
+                                <MenuItem fx:id="supprimer" mnemonicParsing="false" onAction="#supprimer_click"
+                                          text="Suprimer"/>
                             </items>
                         </ContextMenu>
                     </contextMenu>
                 </TableView>
-                <ComboBox fx:id="CB_grp_gestionEtudiant" layoutX="368.0" layoutY="114.0" onAction="#CB_grp_gestionEtudiant_selected" prefHeight="30.0" prefWidth="180.0" promptText="Groupes">
+                <ComboBox fx:id="CB_grp_gestionEtudiant" layoutX="368.0" layoutY="114.0"
+                          onAction="#CB_grp_gestionEtudiant_selected" prefHeight="30.0" prefWidth="180.0"
+                          promptText="Groupes">
                     <effect>
-                        <DropShadow />
+                        <DropShadow/>
                     </effect>
                 </ComboBox>
-                <Button layoutX="555.0" layoutY="109.0" mnemonicParsing="false" onAction="#gestionGroupe_click" prefHeight="40.0" prefWidth="11.0">
+                <Button layoutX="555.0" layoutY="109.0" mnemonicParsing="false" onAction="#gestionGroupe_click"
+                        prefHeight="40.0" prefWidth="11.0">
                     <graphic>
                         <ImageView fitHeight="28.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../../resources/images/settings.png" />
+                                <Image url="@../../resources/images/settings.png"/>
                             </image>
                         </ImageView>
                     </graphic>
                 </Button>
             </children>
         </Pane>
-        <Pane fx:id="panelListerProf" layoutX="290.0" prefHeight="676.0" prefWidth="922.0" style="-fx-background-color: #fff;">
+        <Pane fx:id="panelListerProf" layoutX="290.0" prefHeight="676.0" prefWidth="922.0"
+              style="-fx-background-color: #fff;">
             <children>
                 <Label layoutX="399.0" layoutY="36.0" text="La liste des professeurs">
                     <font>
-                        <Font size="21.0" />
+                        <Font size="21.0"/>
                     </font>
                 </Label>
-                <Button layoutX="23.0" layoutY="621.0" mnemonicParsing="false" onAction="#backGestionProf_click" prefHeight="35.0" prefWidth="65.0" stylesheets="@../../resources/Styles/LoginStyling.css" text="Back">
+                <Button layoutX="23.0" layoutY="621.0" mnemonicParsing="false" onAction="#backGestionProf_click"
+                        prefHeight="35.0" prefWidth="65.0" stylesheets="@../../resources/Styles/LoginStyling.css"
+                        text="Back">
                     <font>
-                        <Font size="16.0" />
+                        <Font size="16.0"/>
                     </font>
                 </Button>
-                <TableView fx:id="TableViewProfs" editable="true" layoutX="13.0" layoutY="117.0" prefHeight="461.0" prefWidth="903.0">
+                <TableView fx:id="TableViewProfs" editable="true" layoutX="13.0" layoutY="117.0" prefHeight="461.0"
+                           prefWidth="903.0">
                     <columns>
-                        <TableColumn fx:id="col_codeProf" editable="false" prefWidth="146.0" text="Code Prof" />
-                        <TableColumn fx:id="col_CIN" editable="false" prefWidth="90.33331298828125" text="CIN" />
-                        <TableColumn fx:id="col_NomComplet" editable="false" prefWidth="182.0" text="Nom Complet" />
-                        <TableColumn fx:id="col_typeContrat" editable="false" minWidth="0.0" prefWidth="142.33331298828125" text="Type contrat" />
-                        <TableColumn fx:id="col_matiere" editable="true" prefWidth="158.3333740234375" text="Matière" />
-                        <TableColumn fx:id="col_groupe" editable="true" prefWidth="186.6666259765625" text="Groupe" />
+                        <TableColumn fx:id="col_codeProf" editable="false" prefWidth="146.0" text="Code Prof"/>
+                        <TableColumn fx:id="col_CIN" editable="false" prefWidth="90.33331298828125" text="CIN"/>
+                        <TableColumn fx:id="col_NomComplet" editable="false" prefWidth="182.0" text="Nom Complet"/>
+                        <TableColumn fx:id="col_typeContrat" editable="false" minWidth="0.0"
+                                     prefWidth="142.33331298828125" text="Type contrat"/>
+                        <TableColumn fx:id="col_matiere" editable="true" prefWidth="158.3333740234375" text="Matière"/>
+                        <TableColumn fx:id="col_groupe" editable="true" prefWidth="186.6666259765625" text="Groupe"/>
                     </columns>
                     <effect>
-                        <DropShadow />
+                        <DropShadow/>
                     </effect>
                     <contextMenu>
                         <ContextMenu>
                             <items>
-                                <MenuItem fx:id="supprimerProf" mnemonicParsing="false" onAction="#supprimerProf" text="Suprimer" />
+                                <MenuItem fx:id="supprimerProf" mnemonicParsing="false" onAction="#supprimerProf"
+                                          text="Suprimer"/>
                             </items>
                         </ContextMenu>
                     </contextMenu>
                 </TableView>
             </children>
         </Pane>
-        <Pane fx:id="panelAccueil" layoutX="289.0" layoutY="-4.0" prefHeight="684.0" prefWidth="922.0" style="-fx-background-color: white;">
+        <Pane fx:id="panelAccueil" layoutX="289.0" layoutY="-4.0" prefHeight="684.0" prefWidth="922.0"
+              style="-fx-background-color: white;">
             <children>
-                <ImageView fx:id="img1_Accueil" fitHeight="304.0" fitWidth="423.0" layoutX="59.0" layoutY="359.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fx:id="img1_Accueil" fitHeight="304.0" fitWidth="423.0" layoutX="59.0" layoutY="359.0"
+                           pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../../resources/images/messages.png" />
+                        <Image url="@../../resources/images/messages.png"/>
                     </image>
                 </ImageView>
-                <ImageView fx:id="img2_Accueil" fitHeight="265.0" fitWidth="341.0" layoutX="515.0" layoutY="210.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fx:id="img2_Accueil" fitHeight="265.0" fitWidth="341.0" layoutX="515.0" layoutY="210.0"
+                           pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../../resources/images/news.png" />
+                        <Image url="@../../resources/images/news.png"/>
                     </image>
                 </ImageView>
                 <Label layoutX="407.0" layoutY="34.0" text="Accueil" textFill="#6f6f6f" underline="true">
                     <font>
-                        <Font name="Russo One" size="29.0" />
+                        <Font name="Russo One" size="29.0"/>
                     </font>
                 </Label>
-                <Label fx:id="labelinfo_Accueil" layoutX="170.0" layoutY="133.0" prefHeight="43.0" prefWidth="608.0" text="Il n'y a actuellement aucune actualité dans la fil des &quot;news&quot; ." textAlignment="CENTER" wrapText="true">
+                <Label fx:id="labelinfo_Accueil" layoutX="170.0" layoutY="133.0" prefHeight="43.0" prefWidth="608.0"
+                       text="Il n'y a actuellement aucune actualité dans la fil des &quot;news&quot; ."
+                       textAlignment="CENTER" wrapText="true">
                     <font>
-                        <Font name="Montserrat-Regular" size="20.0" />
+                        <Font name="Montserrat-Regular" size="20.0"/>
                     </font>
                 </Label>
-                <Button fx:id="btn_AjoutNews" layoutX="413.0" layoutY="97.0" mnemonicParsing="false" onAction="#btn_AjoutNews_click" prefHeight="36.0" prefWidth="95.0" stylesheets="@../../resources/Styles/LoginStyling.css" text="Actualités" underline="true">
+                <Button fx:id="btn_AjoutNews" layoutX="413.0" layoutY="97.0" mnemonicParsing="false"
+                        onAction="#btn_AjoutNews_click" prefHeight="36.0" prefWidth="95.0"
+                        stylesheets="@../../resources/Styles/LoginStyling.css" text="Actualités" underline="true">
                     <graphic>
 
                         <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                             <!--                  <ImageView fitHeight="23.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">-->
                             <image>
-                                <Image url="@../../resources/images/SideBarIcons/addNews.png" />
+                                <Image url="@../../resources/images/SideBarIcons/addNews.png"/>
                             </image>
                         </ImageView>
                     </graphic>
                 </Button>
-                <ScrollPane fx:id="scroll" hbarPolicy="NEVER" layoutX="21.0" layoutY="139.0" prefHeight="536.0" prefWidth="895.0" style="-fx-background-color: White;" visible="false">
+                <ScrollPane fx:id="scroll" hbarPolicy="NEVER" layoutX="21.0" layoutY="139.0" prefHeight="536.0"
+                            prefWidth="895.0" style="-fx-background-color: White;" visible="false">
                     <content>
-                        <VBox fx:id="vbox_messagerie" alignment="TOP_CENTER" minHeight="2.0" prefHeight="291.0" prefWidth="882.0" style="-fx-background-color: White;" />
+                        <VBox fx:id="vbox_messagerie" alignment="TOP_CENTER" minHeight="2.0" prefHeight="291.0"
+                              prefWidth="882.0" style="-fx-background-color: White;"/>
                     </content>
                 </ScrollPane>
-                <Button fx:id="btn_refresh" layoutX="515.0" layoutY="96.0" mnemonicParsing="false" onAction="#refresh_click" prefHeight="38.0" prefWidth="36.0">
+                <Button fx:id="btn_refresh" layoutX="515.0" layoutY="96.0" mnemonicParsing="false"
+                        onAction="#refresh_click" prefHeight="38.0" prefWidth="36.0">
                     <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../../resources/images/refresh.png" />
+                                <Image url="@../../resources/images/refresh.png"/>
                             </image>
                         </ImageView>
                     </graphic>
                 </Button>
-                <ImageView fx:id="img3_Accueil" fitHeight="120.0" fitWidth="134.0" layoutX="581.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                <ImageView fx:id="img3_Accueil" fitHeight="120.0" fitWidth="134.0" layoutX="581.0" layoutY="12.0"
+                           pickOnBounds="true" preserveRatio="true" visible="false">
                     <image>
-                        <Image url="@../../resources/images/boiteLettre.png" />
+                        <Image url="@../../resources/images/boiteLettre.png"/>
                     </image>
                 </ImageView>
             </children>
         </Pane>
-        <Pane fx:id="addProfPanel" layoutX="287.0" prefHeight="677.0" prefWidth="925.0" style="-fx-background-color: white;" stylesheets="@../../resources/Styles/LoginStyling.css">
+        <Pane fx:id="panelStatistiquesPersonnel" layoutX="289.0" layoutY="-4.0" prefHeight="680.0" prefWidth="922.0"
+              style="-fx-background-color: WHITE;">
+            <children>
+                <PieChart fx:id="pieChartPersonnel" layoutX="478.0" layoutY="80.0" maxHeight="-Infinity"
+                          minHeight="-Infinity" prefHeight="304.0" prefWidth="429.0"/>
+                <BarChart fx:id="barChartPersonnel" layoutX="27.0" layoutY="95.0" prefHeight="317.0" prefWidth="435.0">
+                    <xAxis>
+                        <CategoryAxis side="BOTTOM"/>
+                    </xAxis>
+                    <yAxis>
+                        <NumberAxis side="LEFT"/>
+                    </yAxis>
+                </BarChart>
+                <Label layoutX="389.0" layoutY="14.0" prefHeight="37.0" prefWidth="194.0" text="Statistiques"
+                       textFill="#6f6f6f" underline="true">
+                    <font>
+                        <Font name="Russo One" size="29.0"/>
+                    </font>
+                </Label>
+                <Label layoutX="47.0" layoutY="474.0" text="Nombre total des étudians :" textFill="#464646">
+                    <font>
+                        <Font name="System Italic" size="14.0"/>
+                    </font>
+                </Label>
+                <Label fx:id="NbreEtudiant" layoutX="273.0" layoutY="474.0" text="23" underline="true">
+                    <font>
+                        <Font name="System Italic" size="14.0"/>
+                    </font>
+                </Label>
+                <Label layoutX="46.0" layoutY="500.0" text="Nombre total des professeurs :" textFill="#464646">
+                    <font>
+                        <Font name="System Italic" size="14.0"/>
+                    </font>
+                </Label>
+                <Label fx:id="nbreProf" layoutX="276.0" layoutY="497.0" text="6" underline="true">
+                    <font>
+                        <Font name="System Italic" size="14.0"/>
+                    </font>
+                </Label>
+                <Label layoutX="46.0" layoutY="526.0" text="Nombre total des groupes :" textFill="#464646">
+                    <font>
+                        <Font name="System Italic" size="14.0"/>
+                    </font>
+                </Label>
+                <Label fx:id="nbreGroupe" layoutX="276.0" layoutY="528.0" text="2" underline="true">
+                    <font>
+                        <Font name="System Italic" size="14.0"/>
+                    </font>
+                </Label>
+                <Label layoutX="46.0" layoutY="553.0" text="étudiants ayant leurs notes :" textFill="#464646">
+                    <font>
+                        <Font name="System Italic" size="14.0"/>
+                    </font>
+                </Label>
+                <Label fx:id="etumoySup" layoutX="272.0" layoutY="553.0" text="14" underline="true">
+                    <font>
+                        <Font name="System Italic" size="14.0"/>
+                    </font>
+                </Label>
+                <Label layoutX="48.0" layoutY="579.0" text="étudiants n'ayant pas leurs notes :" textFill="#464646">
+                    <font>
+                        <Font name="System Italic" size="14.0"/>
+                    </font>
+                </Label>
+                <Label fx:id="etuNoteInf" layoutX="275.0" layoutY="578.0" text="9" underline="true">
+                    <font>
+                        <Font name="System Italic" size="14.0"/>
+                    </font>
+                </Label>
+                <PieChart fx:id="pieChartMoyenne" layoutX="402.0" layoutY="402.0" maxHeight="-Infinity"
+                          minHeight="-Infinity" prefHeight="247.0" prefWidth="475.0"/>
+            </children>
+        </Pane>
+        <Pane fx:id="addProfPanel" layoutX="287.0" prefHeight="677.0" prefWidth="925.0"
+              style="-fx-background-color: white;" stylesheets="@../../resources/Styles/LoginStyling.css">
             <children>
                 <Label layoutX="351.0" layoutY="29.0" text="Gestion des professeurs">
                     <font>
-                        <Font size="27.0" />
+                        <Font size="27.0"/>
                     </font>
                 </Label>
-                <TextField fx:id="txtCodeProf" layoutX="83.0" layoutY="193.0" prefHeight="38.0" prefWidth="181.0" promptText="Code Prof" />
-                <TextField fx:id="txtCIN" layoutX="355.0" layoutY="191.0" prefHeight="38.0" prefWidth="181.0" promptText="CIN" />
-                <TextField fx:id="txtNomProf" layoutX="85.0" layoutY="261.0" prefHeight="38.0" prefWidth="176.0" promptText="Nom Professeur" />
-                <TextField fx:id="txtEmail" layoutX="84.0" layoutY="329.0" prefHeight="38.0" prefWidth="176.0" promptText="Email" />
-                <TextField fx:id="txtTel" layoutX="353.0" layoutY="329.0" prefHeight="38.0" prefWidth="176.0" promptText="Téléphone" />
-                <TextField fx:id="txtAdresse" layoutX="85.0" layoutY="391.0" prefHeight="38.0" prefWidth="716.0" promptText="Adresse" />
-                <TextField fx:id="txtUsername" layoutX="409.0" layoutY="446.0" prefHeight="38.0" prefWidth="176.0" promptText="Username" />
-                <TextField fx:id="txtPassword" layoutX="623.0" layoutY="446.0" prefHeight="38.0" prefWidth="176.0" promptText="Password" />
-                <DatePicker fx:id="DP_naissance" layoutX="626.0" layoutY="191.0" prefHeight="38.0" prefWidth="176.0" promptText="Date naissance" />
-                <DatePicker fx:id="DP_commencement" layoutX="359.0" layoutY="261.0" prefHeight="38.0" prefWidth="176.0" promptText="Date commencement" />
-                <ComboBox fx:id="CB_contrat" layoutX="631.0" layoutY="263.0" prefHeight="38.0" prefWidth="171.0" promptText="Type contrat">
-               <effect>
-                  <DropShadow color="LIGHTGRAY" />
-               </effect></ComboBox>
+                <TextField fx:id="txtCodeProf" layoutX="83.0" layoutY="193.0" prefHeight="38.0" prefWidth="181.0"
+                           promptText="Code Prof"/>
+                <TextField fx:id="txtCIN" layoutX="355.0" layoutY="191.0" prefHeight="38.0" prefWidth="181.0"
+                           promptText="CIN"/>
+                <TextField fx:id="txtNomProf" layoutX="85.0" layoutY="261.0" prefHeight="38.0" prefWidth="176.0"
+                           promptText="Nom Professeur"/>
+                <TextField fx:id="txtEmail" layoutX="84.0" layoutY="329.0" prefHeight="38.0" prefWidth="176.0"
+                           promptText="Email"/>
+                <TextField fx:id="txtTel" layoutX="353.0" layoutY="329.0" prefHeight="38.0" prefWidth="176.0"
+                           promptText="Téléphone"/>
+                <TextField fx:id="txtAdresse" layoutX="85.0" layoutY="391.0" prefHeight="38.0" prefWidth="716.0"
+                           promptText="Adresse"/>
+                <TextField fx:id="txtUsername" layoutX="409.0" layoutY="446.0" prefHeight="38.0" prefWidth="176.0"
+                           promptText="Username"/>
+                <TextField fx:id="txtPassword" layoutX="623.0" layoutY="446.0" prefHeight="38.0" prefWidth="176.0"
+                           promptText="Password"/>
+                <DatePicker fx:id="DP_naissance" layoutX="626.0" layoutY="191.0" prefHeight="38.0" prefWidth="176.0"
+                            promptText="Date naissance"/>
+                <DatePicker fx:id="DP_commencement" layoutX="359.0" layoutY="261.0" prefHeight="38.0" prefWidth="176.0"
+                            promptText="Date commencement"/>
+                <ComboBox fx:id="CB_contrat" layoutX="631.0" layoutY="263.0" prefHeight="38.0" prefWidth="171.0"
+                          promptText="Type contrat">
+                    <effect>
+                        <DropShadow color="LIGHTGRAY"/>
+                    </effect>
+                </ComboBox>
                 <RadioButton fx:id="RB_Marie" layoutX="100.0" layoutY="450.0" mnemonicParsing="false" text="Marié(e)">
                     <toggleGroup>
-                        <ToggleGroup fx:id="sexe" />
+                        <ToggleGroup fx:id="sexe"/>
                     </toggleGroup>
                 </RadioButton>
-                <RadioButton fx:id="RB_Ccelib" layoutX="180.0" layoutY="451.0" mnemonicParsing="false" text="Celibataire" toggleGroup="$sexe" />
-                <RadioButton fx:id="RB_Div" layoutX="301.0" layoutY="452.0" mnemonicParsing="false" text="divorcé(e)" toggleGroup="$sexe" />
-                <Button fx:id="Btn_Ajouter" layoutX="705.0" layoutY="590.0" mnemonicParsing="false" onAction="#ajouterProf_click" prefHeight="44.0" prefWidth="128.0" text="Ajouter">
+                <RadioButton fx:id="RB_Ccelib" layoutX="180.0" layoutY="451.0" mnemonicParsing="false"
+                             text="Celibataire" toggleGroup="$sexe"/>
+                <RadioButton fx:id="RB_Div" layoutX="301.0" layoutY="452.0" mnemonicParsing="false" text="divorcé(e)"
+                             toggleGroup="$sexe"/>
+                <Button fx:id="Btn_Ajouter" layoutX="705.0" layoutY="590.0" mnemonicParsing="false"
+                        onAction="#ajouterProf_click" prefHeight="44.0" prefWidth="128.0" text="Ajouter">
                     <font>
-                        <Font size="20.0" />
+                        <Font size="20.0"/>
                     </font>
                 </Button>
-                <Hyperlink layoutX="51.0" layoutY="600.0" onAction="#listProf_click" prefHeight="23.0" prefWidth="164.0" text="Liste des professeurs" underline="true">
+                <Hyperlink layoutX="51.0" layoutY="600.0" onAction="#listProf_click" prefHeight="23.0" prefWidth="164.0"
+                           text="Liste des professeurs" underline="true">
                     <font>
-                        <Font size="16.0" />
+                        <Font size="16.0"/>
                     </font>
                 </Hyperlink>
-                <TextField fx:id="txtSearch" layoutX="527.0" layoutY="101.0" prefHeight="38.0" prefWidth="181.0" promptText="CIN" visible="false" />
-                <Button fx:id="Btn_Rechercher" layoutX="724.0" layoutY="103.0" mnemonicParsing="false" onAction="#chercherProf_click" prefHeight="30.0" prefWidth="83.0" text="Rechercher" visible="false" />
+                <TextField fx:id="txtSearch" layoutX="527.0" layoutY="101.0" prefHeight="38.0" prefWidth="181.0"
+                           promptText="CIN" visible="false"/>
+                <Button fx:id="Btn_Rechercher" layoutX="724.0" layoutY="103.0" mnemonicParsing="false"
+                        onAction="#chercherProf_click" prefHeight="30.0" prefWidth="83.0" text="Rechercher"
+                        visible="false"/>
                 <RadioButton fx:id="RB_Femme" layoutX="738.0" layoutY="331.0" mnemonicParsing="false" text="Femme">
                     <toggleGroup>
-                        <ToggleGroup fx:id="sexe1" />
+                        <ToggleGroup fx:id="sexe1"/>
                     </toggleGroup>
                 </RadioButton>
-                <RadioButton fx:id="RB_Homme" layoutX="648.0" layoutY="331.0" mnemonicParsing="false" text="Homme" toggleGroup="$sexe1" />
-                <ComboBox fx:id="CB_Matieres" layoutX="78.0" layoutY="493.0" prefHeight="38.0" prefWidth="171.0" promptText="Matieres">
-               <effect>
-                  <DropShadow color="LIGHTGRAY" />
-               </effect></ComboBox>
+                <RadioButton fx:id="RB_Homme" layoutX="648.0" layoutY="331.0" mnemonicParsing="false" text="Homme"
+                             toggleGroup="$sexe1"/>
+                <ComboBox fx:id="CB_Matieres" layoutX="78.0" layoutY="493.0" prefHeight="38.0" prefWidth="171.0"
+                          promptText="Matieres">
+                    <effect>
+                        <DropShadow color="LIGHTGRAY"/>
+                    </effect>
+                </ComboBox>
 
-                <ComboBox fx:id="CB_Groupes" layoutX="314.0" layoutY="494.0" onAction="#cb_groupe_selected" prefHeight="38.0" prefWidth="171.0">
+                <ComboBox fx:id="CB_Groupes" layoutX="314.0" layoutY="494.0" onAction="#cb_groupe_selected"
+                          prefHeight="38.0" prefWidth="171.0">
                     <items>
                         <FXCollections fx:factory="observableArrayList">
-                            <String fx:value="-Choisir-" />
+                            <String fx:value="-Choisir-"/>
                         </FXCollections>
                     </items>
                     <effect>
-                        <DropShadow color="LIGHTGRAY" />
+                        <DropShadow color="LIGHTGRAY"/>
                     </effect>
                 </ComboBox>
-                <FlowPane fx:id="floawLayout_groupe" layoutX="256.0" layoutY="546.0" prefHeight="96.0" prefWidth="435.0">
+                <FlowPane fx:id="floawLayout_groupe" layoutX="256.0" layoutY="546.0" prefHeight="96.0"
+                          prefWidth="435.0">
                     <children>
                         <!--                     <Label alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#matiere_click" prefHeight="18.0" prefWidth="118.0" style="-fx-background-color: dodgerblue; -fx-background-radius: 30; -fx-border-radius: 30;" text="Français" textAlignment="CENTER">-->
                         <!--                         <FlowPane.margin>-->
@@ -559,228 +890,21 @@
                         <!--                     </Label>-->
                     </children>
                     <padding>
-                        <Insets left="10.0" right="10.0" top="10.0" />
+                        <Insets left="10.0" right="10.0" top="10.0"/>
                     </padding>
                 </FlowPane>
-            <ToggleButton layoutX="49.0" layoutY="108.0" mnemonicParsing="false" onAction="#Mode_Click" prefHeight="37.0" prefWidth="123.0" text="Mode Modification">
-               <effect>
-                  <DropShadow color="LIGHTGRAY" />
-               </effect></ToggleButton>
-            </children>
-        </Pane>
-        <Pane fx:id="panelNotes" layoutX="289.0" layoutY="-4.0" prefHeight="679.0" prefWidth="922.0" style="-fx-background-color: white;">
-            <children>
-                <Label layoutX="380.0" layoutY="28.0" text="Mes Notes" textFill="#6f6f6f">
-                    <font>
-                        <Font size="29.0" />
-                    </font>
-                </Label>
-                <ComboBox fx:id="CB_Matiere" layoutX="323.0" layoutY="97.0" onAction="#selectedItem" prefHeight="37.0" prefWidth="266.0" promptText="Matières" />
-                <Label layoutX="93.0" layoutY="234.0" prefHeight="27.0" prefWidth="86.0" style="-fx-font-weight: bold;" text="Matière" textFill="#2c2c2c">
-                    <font>
-                        <Font size="18.0" />
-                    </font>
-                </Label>
-                <Label layoutX="93.0" layoutY="299.0" prefHeight="27.0" prefWidth="111.0" style="-fx-font-weight: bold;" text="Coefficiant" textFill="#2c2c2c">
-                    <font>
-                        <Font size="18.0" />
-                    </font>
-                </Label>
-                <Label layoutX="93.0" layoutY="373.0" prefHeight="27.0" prefWidth="86.0" style="-fx-font-weight: bold;" text="Chez " textFill="#2c2c2c">
-                    <font>
-                        <Font size="18.0" />
-                    </font>
-                </Label>
-                <Label layoutX="559.0" layoutY="230.0" prefHeight="27.0" prefWidth="95.0" style="-fx-font-weight: bold;" text="Controle1" textFill="#2c2c2c">
-                    <font>
-                        <Font size="18.0" />
-                    </font>
-                </Label>
-                <Label layoutX="559.0" layoutY="295.0" prefHeight="27.0" prefWidth="111.0" style="-fx-font-weight: bold;" text="Controle 2" textFill="#2c2c2c">
-                    <font>
-                        <Font size="18.0" />
-                    </font>
-                </Label>
-                <Label layoutX="559.0" layoutY="369.0" prefHeight="27.0" prefWidth="111.0" style="-fx-font-weight: bold;" text="Controle 3" textFill="#2c2c2c">
-                    <font>
-                        <Font size="18.0" />
-                    </font>
-                </Label>
-                <Label fx:id="matiereLbl" layoutX="241.0" layoutY="232.0" prefHeight="27.0" prefWidth="228.0" textFill="#6f6f6f">
-                    <font>
-                        <Font size="18.0" />
-                    </font>
-                </Label>
-                <Label fx:id="CoeffLbl" layoutX="241.0" layoutY="297.0" prefHeight="27.0" prefWidth="86.0" textFill="#6f6f6f">
-                    <font>
-                        <Font size="18.0" />
-                    </font>
-                </Label>
-                <Label fx:id="ProfLbl" layoutX="241.0" layoutY="371.0" prefHeight="27.0" prefWidth="228.0" textFill="#6f6f6f">
-                    <font>
-                        <Font size="18.0" />
-                    </font>
-                </Label>
-                <Label fx:id="Cntrol1" layoutX="707.0" layoutY="228.0" prefHeight="27.0" prefWidth="86.0" textFill="#6f6f6f">
-                    <font>
-                        <Font size="18.0" />
-                    </font>
-                </Label>
-                <Label fx:id="Cntrol2" layoutX="707.0" layoutY="293.0" prefHeight="27.0" prefWidth="86.0" textFill="#6f6f6f">
-                    <font>
-                        <Font size="18.0" />
-                    </font>
-                </Label>
-                <Label fx:id="Cntrol3" layoutX="707.0" layoutY="367.0" prefHeight="27.0" prefWidth="86.0" textFill="#6f6f6f">
-                    <font>
-                        <Font size="18.0" />
-                    </font>
-                </Label>
-                <Label layoutX="361.0" layoutY="447.0" style="-fx-font-weight: bold bolboldd;" text="Moyenne Générale">
-                    <font>
-                        <Font size="21.0" />
-                    </font>
-                </Label>
-                <Label fx:id="MyenneLbl" alignment="CENTER" layoutX="413.0" layoutY="489.0" prefHeight="27.0" prefWidth="86.0" textAlignment="CENTER" textFill="#6f6f6f">
-                    <font>
-                        <Font size="18.0" />
-                    </font>
-                </Label>
-            </children>
-        </Pane>
-        <Pane fx:id="panelStatistiquesPersonnel" layoutX="289.0" layoutY="-4.0" prefHeight="680.0" prefWidth="922.0" style="-fx-background-color: WHITE;">
-            <children>
-                <PieChart fx:id="pieChartPersonnel" layoutX="478.0" layoutY="80.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="304.0" prefWidth="429.0" />
-                <BarChart fx:id="barChartPersonnel" layoutX="27.0" layoutY="95.0" prefHeight="317.0" prefWidth="435.0">
-                    <xAxis>
-                        <CategoryAxis side="BOTTOM" />
-                    </xAxis>
-                    <yAxis>
-                        <NumberAxis side="LEFT" />
-                    </yAxis>
-                </BarChart>
-                <Label layoutX="389.0" layoutY="14.0" prefHeight="37.0" prefWidth="194.0" text="Statistiques" textFill="#6f6f6f" underline="true">
-                    <font>
-                        <Font name="Russo One" size="29.0" />
-                    </font>
-                </Label>
-                <Label layoutX="47.0" layoutY="474.0" text="Nombre total des étudians :" textFill="#464646">
-                    <font>
-                        <Font name="System Italic" size="14.0" />
-                    </font>
-                </Label>
-                <Label fx:id="NbreEtudiant" layoutX="273.0" layoutY="474.0" text="23" underline="true">
-                    <font>
-                        <Font name="System Italic" size="14.0" />
-                    </font>
-                </Label>
-                <Label layoutX="46.0" layoutY="500.0" text="Nombre total des professeurs :" textFill="#464646">
-                    <font>
-                        <Font name="System Italic" size="14.0" />
-                    </font>
-                </Label>
-                <Label fx:id="nbreProf" layoutX="276.0" layoutY="497.0" text="6" underline="true">
-                    <font>
-                        <Font name="System Italic" size="14.0" />
-                    </font>
-                </Label>
-                <Label layoutX="46.0" layoutY="526.0" text="Nombre total des groupes :" textFill="#464646">
-                    <font>
-                        <Font name="System Italic" size="14.0" />
-                    </font>
-                </Label>
-                <Label fx:id="nbreGroupe" layoutX="276.0" layoutY="528.0" text="2" underline="true">
-                    <font>
-                        <Font name="System Italic" size="14.0" />
-                    </font>
-                </Label>
-                <Label layoutX="46.0" layoutY="553.0" text="étudiants ayant leurs notes :" textFill="#464646">
-                    <font>
-                        <Font name="System Italic" size="14.0" />
-                    </font>
-                </Label>
-                <Label fx:id="etumoySup" layoutX="272.0" layoutY="553.0" text="14" underline="true">
-                    <font>
-                        <Font name="System Italic" size="14.0" />
-                    </font>
-                </Label>
-                <Label layoutX="48.0" layoutY="579.0" text="étudiants n'ayant pas leurs notes :" textFill="#464646">
-                    <font>
-                        <Font name="System Italic" size="14.0" />
-                    </font>
-                </Label>
-                <Label fx:id="etuNoteInf" layoutX="275.0" layoutY="578.0" text="9" underline="true">
-                    <font>
-                        <Font name="System Italic" size="14.0" />
-                    </font>
-                </Label>
-            <PieChart fx:id="pieChartMoyenne" layoutX="402.0" layoutY="402.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="247.0" prefWidth="475.0" />
-            </children>
-        </Pane>
-        <Pane fx:id="panelAlert" layoutX="289.0" layoutY="-4.0" prefHeight="680.0" prefWidth="922.0" style="-fx-background-color: #F0FFFF;">
-            <children>
-                <ComboBox fx:id="cb_groupesAlert" layoutX="369.0" layoutY="132.0" prefWidth="150.0" promptText="Groupe" />
-                <Label layoutX="122.0" layoutY="135.0" text="Rappeler les étudiants du groupe ">
-                    <font>
-                        <Font name="Arial Bold Italic" size="15.0" />
-                    </font>
-                </Label>
-                <Label layoutX="315.0" layoutY="25.0" text="Alerter les étudians" textFill="#6f6f6f" underline="true">
-                    <font>
-                        <Font name="Russo One" size="29.0" />
-                    </font>
-                </Label>
-                <Label layoutX="536.0" layoutY="134.0" text="qu'il y aura un examen / controle , pour le ">
-                    <font>
-                        <Font name="Arial Bold Italic" size="15.0" />
-                    </font>
-                </Label>
-                <DatePicker fx:id="date_control" layoutX="52.0" layoutY="197.0" />
-                <Label layoutX="587.0" layoutY="201.0" text=", et que la date y demeurera">
-                    <font>
-                        <Font name="Arial Bold Italic" size="15.0" />
-                    </font>
-                </Label>
-                <RadioButton fx:id="radio_modif" layoutX="139.0" layoutY="257.0" mnemonicParsing="false" text="Modifiable" />
-                <RadioButton fx:id="radio_fix" layoutX="238.0" layoutY="257.0" mnemonicParsing="false" text="Fixe" />
-                <Label layoutX="127.0" layoutY="302.0" text="Plus de détail :">
-                    <font>
-                        <Font name="Arial Bold Italic" size="15.0" />
-                    </font>
-                </Label>
-                <Label layoutX="290.0" layoutY="257.0" text=".">
-                    <font>
-                        <Font name="Arial Bold Italic" size="15.0" />
-                    </font>
-                </Label>
-                <TextArea fx:id="txt_description" layoutX="52.0" layoutY="325.0" prefHeight="217.0" prefWidth="790.0">
-                    <font>
-                        <Font name="Arial Bold Italic" size="15.0" />
-                    </font>
-                </TextArea>
-                <Button layoutX="756.0" layoutY="618.0" mnemonicParsing="false" onAction="#exam_soumis" text="Soumettre !" />
-                <Label layoutX="243.0" layoutY="201.0" text=", à partir de l'heure">
-                    <font>
-                        <Font name="Arial Bold Italic" size="15.0" />
-                    </font>
-                </Label>
-                <TextField fx:id="heureDebut_controle" layoutX="387.0" layoutY="197.0" prefHeight="25.0" prefWidth="58.0" />
-                <Label layoutX="456.0" layoutY="200.0" text="jusqu'à">
-                    <font>
-                        <Font name="Arial Bold Italic" size="15.0" />
-                    </font>
-                </Label>
-                <TextField fx:id="heureFin_controle" layoutX="518.0" layoutY="196.0" prefHeight="25.0" prefWidth="58.0" />
-                <Label layoutX="54.0" layoutY="257.0" text="cependant">
-                    <font>
-                        <Font name="Arial Bold Italic" size="15.0" />
-                    </font>
-                </Label>
+                <ToggleButton layoutX="49.0" layoutY="108.0" mnemonicParsing="false" onAction="#Mode_Click"
+                              prefHeight="37.0" prefWidth="123.0" text="Mode Modification">
+                    <effect>
+                        <DropShadow color="LIGHTGRAY"/>
+                    </effect>
+                </ToggleButton>
             </children>
         </Pane>
 
+
     </children>
     <effect>
-        <DropShadow color="#1b1eeb" />
+        <DropShadow color="#1b1eeb"/>
     </effect>
 </AnchorPane>
