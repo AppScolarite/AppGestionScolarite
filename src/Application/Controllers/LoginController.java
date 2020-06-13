@@ -49,6 +49,8 @@ public class LoginController implements Initializable {
     @FXML
     private Label wrongLbl;
 
+
+
     @FXML
     public void CLose_Login_CLick() {
         Stage stage = (Stage) btnClose.getScene().getWindow();

@@ -15,6 +15,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
@@ -45,7 +46,20 @@ public class GestionGroupeController implements Initializable {
     private FlowPane floawLayout_matiere;
 
     @FXML
+    private FlowPane floawLayout_prof;
+
+    @FXML
+    private ImageView id_refresh;
+
+    @FXML
     private ComboBox<String> cb_branche;
+    ObservableList<String> Mt_list = FXCollections.observableArrayList();
+
+    @FXML
+    private ComboBox<String> cb_prof;
+    ObservableList<String> Pr_list = FXCollections.observableArrayList();
+
+
 
     @FXML
     private ComboBox<String> cb_brc;
@@ -74,6 +88,7 @@ public class GestionGroupeController implements Initializable {
         stage = (Stage) ((Button) e.getSource()).getScene().getWindow();
         stage.close();
     }
+
 
     @FXML
     private void cb_branche_selected() {
@@ -134,10 +149,7 @@ public class GestionGroupeController implements Initializable {
         }
     }
 
-    @FXML
-    public void item_selected(ActionEvent event) throws Exception {
 
-    }
 
     @FXML
     public void Br_Selected(ActionEvent event) throws SQLException {
@@ -173,14 +185,21 @@ public class GestionGroupeController implements Initializable {
     }
 
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        cb_branche.getItems().add("fr");
-        cb_branche.getItems().add("ang");
-        cb_branche.getItems().add("c#");
-        cb_branche.getItems().add("php");
-        cb_branche.getItems().add("java");
+    @FXML
+    void actualiser(MouseEvent event) {
+
+        try {
+            Connection con = (Connection) dbConnection.getConnection();
+            String sql = "SELECT  LBL_Matiere FROM MATIERE ";
+            ResultSet rs = con.createStatement().executeQuery(sql);
+            while (rs.next()) {
+                Mt_list.add(rs.getString("LBL_Matiere"));
+            }
+            cb_branche.setItems(Mt_list);
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
 
         try {
             Connection con = (Connection) dbConnection.getConnection();
@@ -205,6 +224,63 @@ public class GestionGroupeController implements Initializable {
         } catch (Exception e) {
             // TODO: handle exception
         }
+
+
+    }
+
+
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        try {
+            Connection con = (Connection) dbConnection.getConnection();
+            String sql = "SELECT  LBL_Matiere FROM MATIERE ";
+            ResultSet rs = con.createStatement().executeQuery(sql);
+            while (rs.next()) {
+                Mt_list.add(rs.getString("LBL_Matiere"));
+            }
+            cb_branche.setItems(Mt_list);
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+
+        try {
+            Connection con = (Connection) dbConnection.getConnection();
+            String sql = "SELECT  libelle_branche FROM branche ";
+            ResultSet rs = con.createStatement().executeQuery(sql);
+            while (rs.next()) {
+                Br_list.add(rs.getString("libelle_branche"));
+            }
+            cb_brc.setItems(Br_list);
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+
+        try {
+            Connection con = (Connection) dbConnection.getConnection();
+            String sql = "SELECT  libelle_niveau FROM niveau ";
+            ResultSet rs = con.createStatement().executeQuery(sql);
+            while (rs.next()) {
+                Nv_list.add(rs.getString("libelle_niveau"));
+            }
+            cb_niveau.setItems(Nv_list);
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+
+        try {
+            Connection con = (Connection) dbConnection.getConnection();
+            String sql = "SELECT  Nom FROM PROFESSEUR ";
+            ResultSet rs = con.createStatement().executeQuery(sql);
+            while (rs.next()) {
+                Pr_list.add(rs.getString("Nom"));
+            }
+            cb_prof.setItems(Pr_list);
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+
 
 
     }

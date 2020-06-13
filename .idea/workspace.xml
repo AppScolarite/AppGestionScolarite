@@ -2,10 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/DataBase/Gestion_Scolarite.sql" beforeDir="false" afterPath="$PROJECT_DIR$/DataBase/Gestion_Scolarite.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Application/Models/GestionBrancheViewModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Application/Models/GestionMatiereViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RestaurantMgt/Application/Controllers/Controller$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RestaurantMgt/Application/Controllers/Controller$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RestaurantMgt/Application/Controllers/Controller$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RestaurantMgt/Application/Controllers/Controller$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RestaurantMgt/Application/Controllers/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RestaurantMgt/Application/Controllers/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RestaurantMgt/Application/Controllers/GestionBrancheController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RestaurantMgt/Application/Controllers/GestionBrancheController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RestaurantMgt/Application/Controllers/GestionGroupeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RestaurantMgt/Application/Controllers/GestionGroupeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RestaurantMgt/Application/Views/GestionBranche.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RestaurantMgt/Application/Views/GestionBranche.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Application/Controllers/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Controllers/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Controllers/GestionGroupeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Controllers/GestionGroupeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Views/Home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Views/Home.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Controllers/GestionBrancheController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Controllers/GestionBrancheController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Controllers/GestionMatiereController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Controllers/GestionMatiereController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Views/GestionBranche.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Views/GestionBranche.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Views/GestionMatiere.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Views/GestionMatiere.fxml" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -78,72 +88,211 @@
     <favorites_list name="JavaFxApplication" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Application/Controllers/Controller.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="473">
-              <caret line="692" column="62" lean-forward="true" selection-start-line="692" selection-start-column="62" selection-end-line="692" selection-end-column="62" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#12766#12767#0" expanded="true" />
-                <element signature="e#12830#12831#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Application/Controllers/GestionGroupeController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="234" column="45" selection-start-line="234" selection-start-column="45" selection-end-line="234" selection-end-column="45" />
-              <folding>
-                <element signature="e#2705#2706#0" expanded="true" />
-                <element signature="e#2769#2770#0" expanded="true" />
-                <element signature="e#3457#3458#0" expanded="true" />
-                <element signature="e#3518#3519#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Application/Views/Home.fxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="795" column="15" lean-forward="true" selection-start-line="795" selection-start-column="15" selection-end-line="795" selection-end-column="15" />
-              <folding>
-                <element signature="n#Pane#8;n#children#0;n#AnchorPane#0;n#!!top" />
-              </folding>
-            </state>
-          </provider>
-          <provider editor-type-id="JavaFX-Scene-Builder" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Application/Controllers/LoginController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="169">
-              <caret line="65" column="51" selection-start-line="65" selection-start-column="51" selection-end-line="65" selection-end-column="51" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Application/Views/AjoutActualite.fxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="48" column="15" lean-forward="true" selection-start-line="48" selection-start-column="15" selection-end-line="48" selection-end-column="15" />
-            </state>
-          </provider>
-          <provider editor-type-id="JavaFX-Scene-Builder" />
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.55912596">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Application/Controllers/Controller.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="263">
+                  <caret line="368" selection-start-line="368" selection-end-line="368" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                    <element signature="e#8510#10336#0" />
+                    <element signature="e#10341#11606#0" />
+                    <element signature="e#11612#11846#0" />
+                    <element signature="e#11905#13625#0" />
+                    <element signature="e#13631#14330#0" />
+                    <element signature="e#14336#14934#0" />
+                    <element signature="e#14940#16433#0" />
+                    <element signature="e#16439#16583#0" />
+                    <element signature="e#16590#18057#0" />
+                    <element signature="e#18059#18136#0" />
+                    <element signature="e#18881#19076#0" />
+                    <element signature="e#19082#26053#0" />
+                    <element signature="e#26050#30580#0" />
+                    <element signature="e#30628#31152#0" />
+                    <element signature="e#31158#31314#0" />
+                    <element signature="e#31320#31490#0" />
+                    <element signature="e#31496#31655#0" />
+                    <element signature="e#31661#32355#0" />
+                    <element signature="e#32361#32524#0" />
+                    <element signature="e#32530#35227#0" />
+                    <element signature="e#35233#35833#0" />
+                    <element signature="e#35839#36019#0" />
+                    <element signature="e#36025#36196#0" />
+                    <element signature="e#36202#42656#0" />
+                    <element signature="e#42662#44241#0" />
+                    <element signature="e#44246#45664#0" />
+                    <element signature="e#45669#47269#0" />
+                    <element signature="e#47275#49111#0" />
+                    <element signature="e#49117#49281#0" />
+                    <element signature="e#49287#50430#0" />
+                    <element signature="e#50436#50728#0" />
+                    <element signature="e#50734#52568#0" />
+                    <element signature="e#52574#55399#0" />
+                    <element signature="e#55405#56295#0" />
+                    <element signature="e#56301#57171#0" />
+                    <element signature="e#57177#60663#0" />
+                    <element signature="e#60669#60832#0" />
+                    <element signature="e#60838#61452#0" />
+                    <element signature="e#61458#63835#0" />
+                    <element signature="e#63841#66057#0" />
+                    <element signature="e#66063#72042#0" />
+                    <element signature="e#72142#74115#0" />
+                    <element signature="e#74121#74256#0" />
+                    <element signature="e#74262#74901#0" />
+                    <element signature="e#74907#78850#0" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Application/Views/GestionGroupe.fxml">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="390">
+                  <caret line="118" column="19" selection-start-line="104" selection-start-column="8" selection-end-line="118" selection-end-column="19" />
+                </state>
+              </provider>
+              <provider editor-type-id="JavaFX-Scene-Builder" />
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Application/Views/Home.fxml">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="390">
+                  <caret line="630" column="22" selection-start-line="630" selection-start-column="22" selection-end-line="630" selection-end-column="22" />
+                </state>
+              </provider>
+              <provider editor-type-id="JavaFX-Scene-Builder" />
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/Application/Controllers/GestionMatiereController.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="301">
+                  <caret line="106" column="79" selection-start-line="106" selection-start-column="79" selection-end-line="106" selection-end-column="79" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                    <element signature="method#btnClose_clicked#0;class#GestionMatiereController#0" />
+                    <element signature="method#Branches#0;class#GestionMatiereController#0" />
+                    <element signature="method#ajoutmatiere_clicked#0;class#GestionMatiereController#0" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Application/Models/GestionMatiereViewModel.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="85">
+                  <caret line="5" column="32" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="32" />
+                  <folding>
+                    <element signature="e#205#206#0" expanded="true" />
+                    <element signature="e#238#239#0" expanded="true" />
+                    <element signature="e#291#292#0" expanded="true" />
+                    <element signature="e#335#336#0" expanded="true" />
+                    <element signature="e#376#377#0" expanded="true" />
+                    <element signature="e#413#414#0" expanded="true" />
+                    <element signature="e#473#474#0" expanded="true" />
+                    <element signature="e#520#521#0" expanded="true" />
+                    <element signature="e#560#561#0" expanded="true" />
+                    <element signature="e#595#596#0" expanded="true" />
+                    <element signature="e#652#653#0" expanded="true" />
+                    <element signature="e#700#701#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Application/Controllers/Controller.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="76">
+                  <caret line="378" column="3" lean-forward="true" selection-start-line="378" selection-end-line="410" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                    <element signature="e#8510#10336#0" />
+                    <element signature="e#10341#11606#0" />
+                    <element signature="e#16598#16742#0" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Application/Models/GestionBrancheViewModel.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="85">
+                  <caret line="5" column="32" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="32" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/Application/Views/GestionMatiere.fxml">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="326">
+                  <caret line="35" column="86" selection-start-line="35" selection-start-column="86" selection-end-line="35" selection-end-column="86" />
+                </state>
+              </provider>
+              <provider editor-type-id="JavaFX-Scene-Builder" />
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Application/Controllers/GestionBrancheController.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="85">
+                  <caret line="57" column="4" selection-start-line="57" selection-start-column="4" selection-end-line="120" selection-end-column="5" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                    <element signature="method#btnClose_clicked#0;class#GestionBrancheController#0" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Application/Views/Home.fxml">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="113">
+                  <caret line="565" column="20" lean-forward="true" selection-start-line="565" selection-start-column="20" selection-end-line="571" selection-end-column="34" />
+                </state>
+              </provider>
+              <provider editor-type-id="JavaFX-Scene-Builder" />
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Application/Views/GestionBranche.fxml">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="359">
+                  <caret line="39" column="26" lean-forward="true" selection-start-line="33" selection-start-column="12" selection-end-line="39" selection-end-column="26" />
+                </state>
+              </provider>
+              <provider editor-type-id="JavaFX-Scene-Builder" />
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Application/Models/GestionEtudiantsViewModel.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1037">
+                  <caret line="93" column="16" selection-start-line="93" selection-start-column="16" selection-end-line="93" selection-end-column="16" />
+                  <folding>
+                    <element signature="e#2178#2179#0" expanded="true" />
+                    <element signature="e#2205#2206#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -157,6 +306,17 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
+      <find>actuali</find>
+      <find>soumi</find>
+      <find>replace</find>
+      <find>²</find>
+      <find>'H</find>
+      <find>actual</find>
+      <find>bold</find>
+      <find>actua</find>
+      <find>test</find>
+      <find>url</find>
+      <find>Close</find>
       <find>btnClose_clicked</find>
       <find>ajouter</find>
       <find>sqlcom</find>
@@ -176,17 +336,6 @@
       <find>#supprimerprof</find>
       <find>listerprof</find>
       <find>brancheTableView</find>
-      <find>cb_groupe_selected</find>
-      <find>gestionProf_click</find>
-      <find>mouse</find>
-      <find>over</find>
-      <find>groupe_click</find>
-      <find>MouseEvent</find>
-      <find>matiere_click</find>
-      <find>nou</find>
-      <find>gestion p</find>
-      <find>addp</find>
-      <find>ajouterProf_click</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -232,16 +381,14 @@
         <option value="$PROJECT_DIR$/src/Application/Controllers/LoginController.java" />
         <option value="$PROJECT_DIR$/src/resources/Styles/AccueilStyle.css" />
         <option value="$PROJECT_DIR$/src/Application/Views/GestionGroupe.fxml" />
-        <option value="$PROJECT_DIR$/src/Application/Data/Gestionnaire_De_Connection.java" />
+        <option value="$PROJECT_DIR$/src/Application/Views/Home.fxml" />
         <option value="$PROJECT_DIR$/src/Application/Models/GestionBrancheViewModel.java" />
+        <option value="$PROJECT_DIR$/src/Application/Controllers/Controller.java" />
         <option value="$PROJECT_DIR$/src/Application/Views/GestionBranche.fxml" />
         <option value="$PROJECT_DIR$/src/Application/Controllers/GestionBrancheController.java" />
         <option value="$PROJECT_DIR$/src/Application/Models/GestionMatiereViewModel.java" />
         <option value="$PROJECT_DIR$/src/Application/Views/GestionMatiere.fxml" />
         <option value="$PROJECT_DIR$/src/Application/Controllers/GestionMatiereController.java" />
-        <option value="$PROJECT_DIR$/src/Application/Controllers/GestionGroupeController.java" />
-        <option value="$PROJECT_DIR$/src/Application/Views/Home.fxml" />
-        <option value="$PROJECT_DIR$/src/Application/Controllers/Controller.java" />
       </list>
     </option>
   </component>
@@ -252,11 +399,11 @@
     </treeState>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-10" />
-    <option name="y" value="-10" />
-    <option name="width" value="979" />
-    <option name="height" value="1049" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="30" />
+    <option name="y" value="2" />
+    <option name="width" value="978" />
+    <option name="height" value="920" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -275,42 +422,56 @@
         <subPane>
           <expand>
             <path>
-              <item name="RestaurantMgtSampleUI-master" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AppGestionScolarite" type="b2602c69:ProjectViewProjectNode" />
               <item name="RestaurantMgt" type="47feb1d3:ProjectViewModuleNode" />
             </path>
             <path>
-              <item name="RestaurantMgtSampleUI-master" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AppGestionScolarite" type="b2602c69:ProjectViewProjectNode" />
               <item name="RestaurantMgt" type="47feb1d3:ProjectViewModuleNode" />
-              <item name="RestaurantMgtSampleUI-master" type="462c0819:PsiDirectoryNode" />
+              <item name="AppGestionScolarite" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="RestaurantMgtSampleUI-master" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AppGestionScolarite" type="b2602c69:ProjectViewProjectNode" />
               <item name="RestaurantMgt" type="47feb1d3:ProjectViewModuleNode" />
-              <item name="RestaurantMgtSampleUI-master" type="462c0819:PsiDirectoryNode" />
+              <item name="AppGestionScolarite" type="462c0819:PsiDirectoryNode" />
+              <item name="DataBase" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AppGestionScolarite" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RestaurantMgt" type="47feb1d3:ProjectViewModuleNode" />
+              <item name="AppGestionScolarite" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="RestaurantMgtSampleUI-master" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AppGestionScolarite" type="b2602c69:ProjectViewProjectNode" />
               <item name="RestaurantMgt" type="47feb1d3:ProjectViewModuleNode" />
-              <item name="RestaurantMgtSampleUI-master" type="462c0819:PsiDirectoryNode" />
+              <item name="AppGestionScolarite" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Application" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="RestaurantMgtSampleUI-master" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AppGestionScolarite" type="b2602c69:ProjectViewProjectNode" />
               <item name="RestaurantMgt" type="47feb1d3:ProjectViewModuleNode" />
-              <item name="RestaurantMgtSampleUI-master" type="462c0819:PsiDirectoryNode" />
+              <item name="AppGestionScolarite" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Application" type="462c0819:PsiDirectoryNode" />
               <item name="Controllers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="RestaurantMgtSampleUI-master" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AppGestionScolarite" type="b2602c69:ProjectViewProjectNode" />
               <item name="RestaurantMgt" type="47feb1d3:ProjectViewModuleNode" />
-              <item name="RestaurantMgtSampleUI-master" type="462c0819:PsiDirectoryNode" />
+              <item name="AppGestionScolarite" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Application" type="462c0819:PsiDirectoryNode" />
-              <item name="Views" type="462c0819:PsiDirectoryNode" />
+              <item name="Models" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AppGestionScolarite" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RestaurantMgt" type="47feb1d3:ProjectViewModuleNode" />
+              <item name="AppGestionScolarite" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Application" type="462c0819:PsiDirectoryNode" />
+              <item name="Data" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -333,12 +494,9 @@
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539694134488" />
     <property name="dynamic.classpath" value="false" />
     <property name="extract.method.default.visibility" value="private" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../AppGestionScolarite-master" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/resources" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -346,22 +504,23 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.JavaFX" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.language" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\pc\Desktop\RestaurantMgtSampleUI-master\src\Application\Views" />
-      <recent name="C:\Users\pc\Desktop\RestaurantMgtSampleUI-master\src\resources\Styles" />
-      <recent name="C:\Users\pc\Desktop\RestaurantMgtSampleUI-master\src\images\HboxIcons" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="Application.Controllers" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\lenovo\Documents\GitHub\AppGestionScolarite\src\resources" />
       <recent name="C:\Users\pc\Desktop\RestaurantMgtSampleUI-master\src\resources\images" />
       <recent name="C:\Users\pc\Desktop\RestaurantMgtSampleUI-master\src\resources\Styles" />
       <recent name="C:\Users\pc\Desktop\RestaurantMgtSampleUI-master\src\resources\images\LoginIcons" />
       <recent name="C:\Users\pc\Desktop\RestaurantMgtSampleUI-master\src\Application\Views" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="Application.Controllers" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\lenovo\Documents\GitHub\AppGestionScolarite\src\resources" />
+      <recent name="C:\Users\pc\Desktop\RestaurantMgtSampleUI-master\src\Application\Views" />
+      <recent name="C:\Users\pc\Desktop\RestaurantMgtSampleUI-master\src\resources\Styles" />
       <recent name="C:\Users\pc\Desktop\RestaurantMgtSampleUI-master\src\images\HboxIcons" />
     </key>
   </component>
@@ -385,6 +544,18 @@
       <option name="scope" value="ALL" />
       <option name="testName" />
       <method />
+    </configuration>
+    <configuration default="true" type="TestNG">
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
@@ -425,18 +596,6 @@
       <option name="TEST_SEARCH_SCOPE">
         <value defaultName="moduleWithDependencies" />
       </option>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="TestNG">
-      <option name="TEST_OBJECT" value="CLASS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <properties />
-      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -491,12 +650,11 @@
       <workItem from="1591827967689" duration="4858000" />
       <workItem from="1591953563526" duration="1338000" />
       <workItem from="1591992229434" duration="4598000" />
-      <workItem from="1592001265229" duration="10679000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="316430000" />
+    <option name="totallyTimeSpent" value="305751000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -508,10 +666,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.2" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.20051414" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -521,7 +679,7 @@
       <window_info id="Learn" order="7" />
       <window_info anchor="bottom" id="Terminal" order="0" weight="0.32916668" />
       <window_info anchor="bottom" id="Message" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4986577" visible="true" weight="0.16288953" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4986577" weight="0.30972221" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.16997167" />
       <window_info anchor="bottom" id="Find" order="4" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
@@ -529,7 +687,7 @@
       <window_info anchor="bottom" id="Inspection" order="7" weight="0.4" />
       <window_info anchor="bottom" id="Application Servers" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5013423" side_tool="true" weight="0.3895184" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.16944444" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.16823688" />
       <window_info anchor="bottom" id="Problems" order="11" />
       <window_info anchor="bottom" id="Changes" order="12" />
       <window_info anchor="bottom" id="Version Control" order="13" />
@@ -667,16 +825,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Application/Views/MesNotes.fxml" />
-    <entry file="file://$PROJECT_DIR$/src/Application/Controllers/LandingController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Application/Controllers/AjoutActualiteController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
@@ -712,27 +860,33 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Application/Views/Login.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="39" column="170" selection-start-line="39" selection-start-column="170" selection-end-line="39" selection-end-column="170" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/Views/LandingPage.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="45" column="143" selection-start-line="45" selection-start-column="143" selection-end-line="45" selection-end-column="143" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/Views/inscrire.fxml">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="218">
           <caret line="60" column="15" selection-start-line="60" selection-start-column="15" selection-end-line="60" selection-end-column="15" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/Views/AjoutActualite.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="46" column="20" selection-start-line="46" selection-start-column="20" selection-end-line="46" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/Views/GestionBranche.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="62" column="18" lean-forward="true" selection-start-line="62" selection-start-column="18" selection-end-line="62" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/Views/AjoutActualite.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="46" column="20" selection-start-line="46" selection-start-column="20" selection-end-line="46" selection-end-column="20" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/DataBase/Capture2.PNG">
       <provider selected="true" editor-type-id="images" />
@@ -743,7 +897,6 @@
           <caret line="1" column="21" selection-start-line="1" selection-start-column="21" selection-end-line="3" />
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Application/Models/GestionProfViewModel.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -765,14 +918,106 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/Models/gestionGroupeViewModel.java" />
-    <entry file="file://$PROJECT_DIR$/src/Application/Views/GestionMatiere.fxml">
+    <entry file="file://$PROJECT_DIR$/src/Application/Controllers/LoginController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="71">
-          <caret line="20" column="14" lean-forward="true" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
+        <state relative-caret-position="561">
+          <caret line="64" column="58" selection-start-line="64" selection-start-column="58" selection-end-line="64" selection-end-column="58" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/Models/GestionEtudiantsViewModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1037">
+          <caret line="93" column="16" selection-start-line="93" selection-start-column="16" selection-end-line="93" selection-end-column="16" />
+          <folding>
+            <element signature="e#2178#2179#0" expanded="true" />
+            <element signature="e#2205#2206#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/Controllers/GestionGroupeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="31">
+          <caret line="155" column="33" selection-start-line="155" selection-start-column="33" selection-end-line="155" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/Models/gestionGroupeViewModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="35" selection-start-line="2" selection-start-column="35" selection-end-line="2" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/Views/Home.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="630" column="22" selection-start-line="630" selection-start-column="22" selection-end-line="630" selection-end-column="22" />
         </state>
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/Controllers/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="263">
+          <caret line="368" selection-start-line="368" selection-end-line="368" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#8510#10336#0" />
+            <element signature="e#10341#11606#0" />
+            <element signature="e#11612#11846#0" />
+            <element signature="e#11905#13625#0" />
+            <element signature="e#13631#14330#0" />
+            <element signature="e#14336#14934#0" />
+            <element signature="e#14940#16433#0" />
+            <element signature="e#16439#16583#0" />
+            <element signature="e#16590#18057#0" />
+            <element signature="e#18059#18136#0" />
+            <element signature="e#18881#19076#0" />
+            <element signature="e#19082#26053#0" />
+            <element signature="e#26050#30580#0" />
+            <element signature="e#30628#31152#0" />
+            <element signature="e#31158#31314#0" />
+            <element signature="e#31320#31490#0" />
+            <element signature="e#31496#31655#0" />
+            <element signature="e#31661#32355#0" />
+            <element signature="e#32361#32524#0" />
+            <element signature="e#32530#35227#0" />
+            <element signature="e#35233#35833#0" />
+            <element signature="e#35839#36019#0" />
+            <element signature="e#36025#36196#0" />
+            <element signature="e#36202#42656#0" />
+            <element signature="e#42662#44241#0" />
+            <element signature="e#44246#45664#0" />
+            <element signature="e#45669#47269#0" />
+            <element signature="e#47275#49111#0" />
+            <element signature="e#49117#49281#0" />
+            <element signature="e#49287#50430#0" />
+            <element signature="e#50436#50728#0" />
+            <element signature="e#50734#52568#0" />
+            <element signature="e#52574#55399#0" />
+            <element signature="e#55405#56295#0" />
+            <element signature="e#56301#57171#0" />
+            <element signature="e#57177#60663#0" />
+            <element signature="e#60669#60832#0" />
+            <element signature="e#60838#61452#0" />
+            <element signature="e#61458#63835#0" />
+            <element signature="e#63841#66057#0" />
+            <element signature="e#66063#72042#0" />
+            <element signature="e#72142#74115#0" />
+            <element signature="e#74121#74256#0" />
+            <element signature="e#74262#74901#0" />
+            <element signature="e#74907#78850#0" />
+          </folding>
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Application/Controllers/GestionBrancheController.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -782,32 +1027,6 @@
             <element signature="imports" expanded="true" />
             <element signature="method#btnClose_clicked#0;class#GestionBrancheController#0" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/Views/GestionBranche.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="39" column="26" selection-start-line="33" selection-start-column="12" selection-end-line="39" selection-end-column="26" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/Models/GestionEtudiantsViewModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="624">
-          <caret line="93" column="16" selection-start-line="93" selection-start-column="16" selection-end-line="93" selection-end-column="16" />
-          <folding>
-            <element signature="e#2178#2179#0" expanded="true" />
-            <element signature="e#2205#2206#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/Models/GestionBrancheViewModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="32" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="32" />
         </state>
       </provider>
     </entry>
@@ -832,15 +1051,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/Controllers/GestionMatiereController.java">
+    <entry file="file://$PROJECT_DIR$/src/Application/Models/GestionBrancheViewModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="97" column="17" lean-forward="true" selection-start-line="97" selection-start-column="17" selection-end-line="97" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#btnClose_clicked#0;class#GestionMatiereController#0" />
-            <element signature="method#ajoutmatiere_clicked#0;class#GestionMatiereController#0" />
-          </folding>
+        <state relative-caret-position="85">
+          <caret line="5" column="32" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="32" />
         </state>
       </provider>
     </entry>
@@ -850,62 +1064,34 @@
           <caret line="118" column="19" selection-start-line="104" selection-start-column="8" selection-end-line="118" selection-end-column="19" />
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/Controllers/GestionGroupeController.java">
+    <entry file="file://$PROJECT_DIR$/src/Application/Views/GestionBranche.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="234" column="45" selection-start-line="234" selection-start-column="45" selection-end-line="234" selection-end-column="45" />
-          <folding>
-            <element signature="e#2705#2706#0" expanded="true" />
-            <element signature="e#2769#2770#0" expanded="true" />
-            <element signature="e#3457#3458#0" expanded="true" />
-            <element signature="e#3518#3519#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="359">
+          <caret line="39" column="26" lean-forward="true" selection-start-line="33" selection-start-column="12" selection-end-line="39" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/Views/AjoutActualite.fxml">
+    <entry file="file://$PROJECT_DIR$/src/Application/Views/GestionMatiere.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="48" column="15" lean-forward="true" selection-start-line="48" selection-start-column="15" selection-end-line="48" selection-end-column="15" />
+        <state relative-caret-position="326">
+          <caret line="35" column="86" selection-start-line="35" selection-start-column="86" selection-end-line="35" selection-end-column="86" />
         </state>
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/Views/Home.fxml">
+    <entry file="file://$PROJECT_DIR$/src/Application/Controllers/GestionMatiereController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="795" column="15" lean-forward="true" selection-start-line="795" selection-start-column="15" selection-end-line="795" selection-end-column="15" />
-          <folding>
-            <element signature="n#Pane#8;n#children#0;n#AnchorPane#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/Controllers/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="473">
-          <caret line="692" column="62" lean-forward="true" selection-start-line="692" selection-start-column="62" selection-end-line="692" selection-end-column="62" />
+        <state relative-caret-position="301">
+          <caret line="106" column="79" selection-start-line="106" selection-start-column="79" selection-end-line="106" selection-end-column="79" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#12766#12767#0" expanded="true" />
-            <element signature="e#12830#12831#0" expanded="true" />
+            <element signature="method#btnClose_clicked#0;class#GestionMatiereController#0" />
+            <element signature="method#Branches#0;class#GestionMatiereController#0" />
+            <element signature="method#ajoutmatiere_clicked#0;class#GestionMatiereController#0" />
           </folding>
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/Controllers/LoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="65" column="51" selection-start-line="65" selection-start-column="51" selection-end-line="65" selection-end-column="51" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
   </component>
   <component name="masterDetails">
