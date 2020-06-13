@@ -67,6 +67,8 @@ public class GestionGroupeController implements Initializable {
     @FXML
     private Button btn_ajt;
 
+    private Gestionnaire_De_Connection dbConnection = new Gestionnaire_De_Connection();
+
     @FXML
     private void btnClose_Click(ActionEvent e) {
         stage = (Stage) ((Button) e.getSource()).getScene().getWindow();
@@ -87,6 +89,12 @@ public class GestionGroupeController implements Initializable {
             label.setTextAlignment(TextAlignment.CENTER);
             label.setPrefHeight(18.0);
             label.setPrefWidth(label.getText().length() + 80);
+            label.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent mouseEvent) {
+                    matiere_click(mouseEvent);
+                }
+            });
             CornerRadii radius = new CornerRadii(30);
             label.setBackground(new Background(new BackgroundFill(Color.DODGERBLUE, radius, Insets.EMPTY)));
             floawLayout_matiere.setHgap(10);
@@ -164,7 +172,6 @@ public class GestionGroupeController implements Initializable {
         }
     }
 
-    Gestionnaire_De_Connection dbConnection = new Gestionnaire_De_Connection();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -207,16 +214,28 @@ public class GestionGroupeController implements Initializable {
     }
 
     public void Nouveau(ActionEvent actionEvent) {
-
-        Connection cnx = dbConnection.getConnection();
+        Connection conection = dbConnection.getConnection();
         try {
-            Statement stm = cnx.createStatement();
-            int rs = stm.executeUpdate(
-                    String.format(
-                            "INSERT INTO Groupe values (%d,%d,'%s')", (cb_brc.getSelectionModel().getSelectedIndex() + 1),
-                            (cb_niveau.getSelectionModel().getSelectedIndex() + 1), titleGrp.getText()
-                    )
-            );
+            Statement sqlCommand = conection.createStatement();
+            sqlCommand.execute
+                    (
+                            String.format
+                                    (
+                                            "INSERT INTO Groupe values (%d,%d,'%s')",
+                                            (cb_brc.getSelectionModel().getSelectedIndex() + 1),
+                                            (cb_niveau.getSelectionModel().getSelectedIndex() + 1),
+                                            titleGrp.getText()
+                                    )
+                    );
+            sqlCommand = conection.createStatement();
+            sqlCommand.execute
+                    (
+                            String.format
+                                    (
+                                            ""
+                                    )
+                    );
+
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
