@@ -459,88 +459,6 @@
                 </Label>
             </children>
         </Pane>
-        <Pane fx:id="panelEtudiant" layoutX="289.0" layoutY="-4.0" prefHeight="680.0" prefWidth="922.0" style="-fx-background-color: #F0FFFF;">
-            <children>
-                <Label layoutX="307.0" layoutY="26.0" text="Gestion des étudians" textAlignment="CENTER" textFill="#6f6f6f" underline="true">
-                    <font>
-                        <Font name="Russo One" size="29.0" />
-                    </font>
-                </Label>
-                <TableView fx:id="tableView_GestionEtudiant" editable="true" layoutX="22.0" layoutY="161.0" prefHeight="509.0" prefWidth="881.0">
-                    <columns>
-                        <TableColumn editable="false" prefWidth="90.0" text="Code Massar">
-                            <cellValueFactory>
-                                <PropertyValueFactory property="code_massar" />
-                            </cellValueFactory>
-                        </TableColumn>
-                        <TableColumn fx:id="col_prenom" prefWidth="90.0" text="Prénom">
-                            <cellValueFactory>
-                                <PropertyValueFactory property="prenom" />
-                            </cellValueFactory>
-                        </TableColumn>
-                        <TableColumn fx:id="col_nom" prefWidth="96.00003051757812" text="Nom">
-                            <cellValueFactory>
-                                <PropertyValueFactory property="nom" />
-                            </cellValueFactory>
-                        </TableColumn>
-                        <TableColumn fx:id="col_date" prefWidth="127.199951171875" text="Date Inscription">
-                            <cellValueFactory>
-                                <PropertyValueFactory property="date_inscription" />
-                            </cellValueFactory>
-                        </TableColumn>
-                        <TableColumn fx:id="col_mail" prefWidth="143.199951171875" text="Email">
-                            <cellValueFactory>
-                                <PropertyValueFactory property="email" />
-                            </cellValueFactory>
-                        </TableColumn>
-                        <TableColumn fx:id="col_tlph" prefWidth="112.0" text="Telephone">
-                            <cellValueFactory>
-                                <PropertyValueFactory property="telephone" />
-                            </cellValueFactory>
-                        </TableColumn>
-                        <TableColumn fx:id="col_doublant" prefWidth="65.59991455078125" text="Doublant">
-                            <cellValueFactory>
-                                <PropertyValueFactory property="a_deja_redouble" />
-                            </cellValueFactory>
-                        </TableColumn>
-                        <TableColumn fx:id="col_adrs" prefWidth="151.2000732421875" text="Adresse">
-                            <cellValueFactory>
-                                <PropertyValueFactory property="adresse" />
-                            </cellValueFactory>
-                        </TableColumn>
-                        <TableColumn fx:id="col_sexe" prefWidth="99.9998779296875" text="Sexe">
-                            <cellValueFactory>
-                                <PropertyValueFactory property="sexe" />
-                            </cellValueFactory>
-                        </TableColumn>
-                    </columns>
-                    <effect>
-                        <DropShadow />
-                    </effect>
-                    <contextMenu>
-                        <ContextMenu>
-                            <items>
-                                <MenuItem fx:id="supprimer" mnemonicParsing="false" onAction="#supprimer_click" text="Suprimer" />
-                            </items>
-                        </ContextMenu>
-                    </contextMenu>
-                </TableView>
-                <ComboBox fx:id="CB_grp_gestionEtudiant" layoutX="368.0" layoutY="114.0" onAction="#CB_grp_gestionEtudiant_selected" prefHeight="30.0" prefWidth="180.0" promptText="Groupes">
-                    <effect>
-                        <DropShadow />
-                    </effect>
-                </ComboBox>
-                <Button layoutX="555.0" layoutY="109.0" mnemonicParsing="false" onAction="#gestionGroupe_click" prefHeight="40.0" prefWidth="11.0">
-                    <graphic>
-                        <ImageView fitHeight="28.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../../resources/images/settings.png" />
-                            </image>
-                        </ImageView>
-                    </graphic>
-                </Button>
-            </children>
-        </Pane>
         <Pane fx:id="panelListerProf" layoutX="290.0" prefHeight="676.0" prefWidth="922.0" style="-fx-background-color: #fff;">
             <children>
                 <Label layoutX="399.0" layoutY="36.0" text="La liste des professeurs">
@@ -773,7 +691,7 @@
                 <PieChart fx:id="pieChartMoyenne" layoutX="402.0" layoutY="402.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="247.0" prefWidth="475.0" />
             </children>
         </Pane>
-        <Pane fx:id="addProfPanel" layoutX="287.0" prefHeight="677.0" prefWidth="925.0" style="-fx-background-color: white;" stylesheets="@../../resources/Styles/LoginStyling.css">
+<!--        <Pane fx:id="addProfPanel" layoutX="287.0" prefHeight="677.0" prefWidth="925.0" style="-fx-background-color: white;" stylesheets="@../../resources/Styles/LoginStyling.css">-->
         <Pane fx:id="panelEtudiant" layoutX="289.0" layoutY="-4.0" prefHeight="680.0" prefWidth="922.0" style="-fx-background-color: #F0FFFF;">
             <children>
                 <Label layoutX="307.0" layoutY="26.0" text="Gestion des étudians" textAlignment="CENTER" textFill="#6f6f6f" underline="true">
@@ -865,7 +783,7 @@
             <children>
                 <ImageView fitHeight="150.0" fitWidth="161.0" layoutX="6.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../../../../../../Downloads/profuser.png" />
+<!--                        <Image url="@../../../../../../Downloads/profuser.png" />-->
                     </image>
                 </ImageView>
                 <Label fx:id="complet_esg" layoutX="174.0" layoutY="68.0" prefHeight="27.0" prefWidth="161.0" text="Nom+Prenom" textFill="#6f6f6f">
