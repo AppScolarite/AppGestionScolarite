@@ -69,7 +69,7 @@
                         <Font name="Cambria Bold Italic" size="16.0" />
                     </font>
                 </Button>
-                <Button fx:id="btnProfil" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="297.0" stylesheets="@../../resources/Styles/style.css" text="Mon profil">
+                <Button fx:id="btnProfil_etd" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="297.0" stylesheets="@../../resources/Styles/style.css" text="Mon profil">
                     <graphic>
                         <ImageView fitHeight="40.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -457,88 +457,6 @@
                 </Label>
             </children>
         </Pane>
-        <Pane fx:id="panelEtudiant" layoutX="289.0" layoutY="-4.0" prefHeight="680.0" prefWidth="922.0" style="-fx-background-color: #F0FFFF;">
-            <children>
-                <Label layoutX="307.0" layoutY="26.0" text="Gestion des étudians" textAlignment="CENTER" textFill="#6f6f6f" underline="true">
-                    <font>
-                        <Font name="Russo One" size="29.0" />
-                    </font>
-                </Label>
-                <TableView fx:id="tableView_GestionEtudiant" editable="true" layoutX="22.0" layoutY="161.0" prefHeight="509.0" prefWidth="881.0">
-                    <columns>
-                        <TableColumn editable="false" prefWidth="90.0" text="Code Massar">
-                            <cellValueFactory>
-                                <PropertyValueFactory property="code_massar" />
-                            </cellValueFactory>
-                        </TableColumn>
-                        <TableColumn fx:id="col_prenom" prefWidth="90.0" text="Prénom">
-                            <cellValueFactory>
-                                <PropertyValueFactory property="prenom" />
-                            </cellValueFactory>
-                        </TableColumn>
-                        <TableColumn fx:id="col_nom" prefWidth="96.00003051757812" text="Nom">
-                            <cellValueFactory>
-                                <PropertyValueFactory property="nom" />
-                            </cellValueFactory>
-                        </TableColumn>
-                        <TableColumn fx:id="col_date" prefWidth="127.199951171875" text="Date Inscription">
-                            <cellValueFactory>
-                                <PropertyValueFactory property="date_inscription" />
-                            </cellValueFactory>
-                        </TableColumn>
-                        <TableColumn fx:id="col_mail" prefWidth="143.199951171875" text="Email">
-                            <cellValueFactory>
-                                <PropertyValueFactory property="email" />
-                            </cellValueFactory>
-                        </TableColumn>
-                        <TableColumn fx:id="col_tlph" prefWidth="112.0" text="Telephone">
-                            <cellValueFactory>
-                                <PropertyValueFactory property="telephone" />
-                            </cellValueFactory>
-                        </TableColumn>
-                        <TableColumn fx:id="col_doublant" prefWidth="65.59991455078125" text="Doublant">
-                            <cellValueFactory>
-                                <PropertyValueFactory property="a_deja_redouble" />
-                            </cellValueFactory>
-                        </TableColumn>
-                        <TableColumn fx:id="col_adrs" prefWidth="151.2000732421875" text="Adresse">
-                            <cellValueFactory>
-                                <PropertyValueFactory property="adresse" />
-                            </cellValueFactory>
-                        </TableColumn>
-                        <TableColumn fx:id="col_sexe" prefWidth="99.9998779296875" text="Sexe">
-                            <cellValueFactory>
-                                <PropertyValueFactory property="sexe" />
-                            </cellValueFactory>
-                        </TableColumn>
-                    </columns>
-                    <effect>
-                        <DropShadow />
-                    </effect>
-                    <contextMenu>
-                        <ContextMenu>
-                            <items>
-                                <MenuItem fx:id="supprimer" mnemonicParsing="false" onAction="#supprimer_click" text="Suprimer" />
-                            </items>
-                        </ContextMenu>
-                    </contextMenu>
-                </TableView>
-                <ComboBox fx:id="CB_grp_gestionEtudiant" layoutX="368.0" layoutY="114.0" onAction="#CB_grp_gestionEtudiant_selected" prefHeight="30.0" prefWidth="180.0" promptText="Groupes">
-                    <effect>
-                        <DropShadow />
-                    </effect>
-                </ComboBox>
-                <Button layoutX="555.0" layoutY="109.0" mnemonicParsing="false" onAction="#gestionGroupe_click" prefHeight="40.0" prefWidth="11.0">
-                    <graphic>
-                        <ImageView fitHeight="28.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../../resources/images/settings.png" />
-                            </image>
-                        </ImageView>
-                    </graphic>
-                </Button>
-            </children>
-        </Pane>
         <Pane fx:id="panelListerProf" layoutX="290.0" prefHeight="676.0" prefWidth="922.0" style="-fx-background-color: #fff;">
             <children>
                 <Label layoutX="399.0" layoutY="36.0" text="La liste des professeurs">
@@ -645,9 +563,10 @@
                 <DatePicker fx:id="DP_naissance" layoutX="626.0" layoutY="191.0" prefHeight="38.0" prefWidth="176.0" promptText="Date naissance" />
                 <DatePicker fx:id="DP_commencement" layoutX="359.0" layoutY="261.0" prefHeight="38.0" prefWidth="176.0" promptText="Date commencement" />
                 <ComboBox fx:id="CB_contrat" layoutX="631.0" layoutY="263.0" prefHeight="38.0" prefWidth="171.0" promptText="Type contrat">
-               <effect>
-                  <DropShadow color="LIGHTGRAY" />
-               </effect></ComboBox>
+                    <effect>
+                        <DropShadow color="LIGHTGRAY" />
+                    </effect>
+                </ComboBox>
                 <RadioButton fx:id="RB_Marie" layoutX="100.0" layoutY="450.0" mnemonicParsing="false" text="Marié(e)">
                     <toggleGroup>
                         <ToggleGroup fx:id="sexe" />
@@ -674,9 +593,10 @@
                 </RadioButton>
                 <RadioButton fx:id="RB_Homme" layoutX="648.0" layoutY="331.0" mnemonicParsing="false" text="Homme" toggleGroup="$sexe1" />
                 <ComboBox fx:id="CB_Matieres" layoutX="78.0" layoutY="493.0" prefHeight="38.0" prefWidth="171.0" promptText="Matieres">
-               <effect>
-                  <DropShadow color="LIGHTGRAY" />
-               </effect></ComboBox>
+                    <effect>
+                        <DropShadow color="LIGHTGRAY" />
+                    </effect>
+                </ComboBox>
 
                 <ComboBox fx:id="CB_Groupes" layoutX="314.0" layoutY="494.0" onAction="#cb_groupe_selected" prefHeight="38.0" prefWidth="171.0">
                     <items>
@@ -703,10 +623,11 @@
                         <Insets left="10.0" right="10.0" top="10.0" />
                     </padding>
                 </FlowPane>
-            <ToggleButton layoutX="49.0" layoutY="108.0" mnemonicParsing="false" onAction="#Mode_Click" prefHeight="37.0" prefWidth="123.0" text="Mode Modification">
-               <effect>
-                  <DropShadow color="LIGHTGRAY" />
-               </effect></ToggleButton>
+                <ToggleButton layoutX="49.0" layoutY="108.0" mnemonicParsing="false" onAction="#Mode_Click" prefHeight="37.0" prefWidth="123.0" text="Mode Modification">
+                    <effect>
+                        <DropShadow color="LIGHTGRAY" />
+                    </effect>
+                </ToggleButton>
             </children>
         </Pane>
         <Pane fx:id="panelStatistiquesPersonnel" layoutX="289.0" layoutY="-4.0" prefHeight="680.0" prefWidth="922.0" style="-fx-background-color: WHITE;">
@@ -775,9 +696,97 @@
                         <Font name="System Italic" size="14.0" />
                     </font>
                 </Label>
-            <PieChart fx:id="pieChartMoyenne" layoutX="402.0" layoutY="402.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="247.0" prefWidth="475.0" />
+                <PieChart fx:id="pieChartMoyenne" layoutX="402.0" layoutY="402.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="247.0" prefWidth="475.0" />
             </children>
         </Pane>
+        <Pane fx:id="panelEtudiant" layoutX="289.0" layoutY="-4.0" prefHeight="680.0" prefWidth="922.0" style="-fx-background-color: #F0FFFF;">
+            <children>
+                <Label layoutX="307.0" layoutY="26.0" text="Gestion des étudians" textAlignment="CENTER" textFill="#6f6f6f" underline="true">
+                    <font>
+                        <Font name="Russo One" size="29.0" />
+                    </font>
+                </Label>
+                <TableView fx:id="tableView_GestionEtudiant" editable="true" layoutX="22.0" layoutY="161.0" prefHeight="509.0" prefWidth="881.0">
+                    <columns>
+                        <TableColumn editable="false" prefWidth="90.0" text="Code Massar">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="code_massar" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn fx:id="col_prenom" prefWidth="90.0" text="Prénom">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="prenom" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn fx:id="col_nom" prefWidth="96.00003051757812" text="Nom">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="nom" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn fx:id="col_date" prefWidth="127.199951171875" text="Date Inscription">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="date_inscription" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn fx:id="col_mail" prefWidth="143.199951171875" text="Email">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="email" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn fx:id="col_tlph" prefWidth="112.0" text="Telephone">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="telephone" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn fx:id="col_doublant" prefWidth="65.59991455078125" text="Doublant">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="a_deja_redouble" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn fx:id="col_adrs" prefWidth="151.2000732421875" text="Adresse">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="adresse" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn fx:id="col_sexe" prefWidth="99.9998779296875" text="Sexe">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="sexe" />
+                            </cellValueFactory>
+                        </TableColumn>
+                    </columns>
+                    <effect>
+                        <DropShadow />
+                    </effect>
+                    <contextMenu>
+                        <ContextMenu>
+                            <items>
+                                <MenuItem fx:id="supprimer" mnemonicParsing="false" onAction="#supprimer_click" text="Suprimer" />
+                            </items>
+                        </ContextMenu>
+                    </contextMenu>
+                </TableView>
+                <ComboBox fx:id="CB_grp_gestionEtudiant" layoutX="368.0" layoutY="114.0" onAction="#CB_grp_gestionEtudiant_selected" prefHeight="30.0" prefWidth="180.0" promptText="Groupes">
+                    <effect>
+                        <DropShadow />
+                    </effect>
+                </ComboBox>
+                <Button layoutX="555.0" layoutY="109.0" mnemonicParsing="false" onAction="#gestionGroupe_click" prefHeight="40.0" prefWidth="11.0">
+                    <graphic>
+                        <ImageView fitHeight="28.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../resources/images/settings.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+            <ImageView fitHeight="126.0" fitWidth="163.0" layoutX="103.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" rotate="-12.0">
+               <image>
+                  <Image url="@../../resources/images/etudiantBook.png" />
+               </image>
+            </ImageView>
+            </children>
+        </Pane>
+
 
     </children>
     <effect>

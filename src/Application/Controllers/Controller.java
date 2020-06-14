@@ -353,7 +353,7 @@ public class Controller implements Initializable {
     private FlowPane floawLayout_groupe;
     @FXML
     private Button Btn_Rechercher;
-//    @FXML
+    //    @FXML
 //    private MenuItem supprimerProf;
     @FXML
     private Label NbreEtudiant;
@@ -568,7 +568,7 @@ public class Controller implements Initializable {
         btnClose.toFront();
         btnMinimize.toFront();
     }
-
+//********************************************************************************************************************************//
     @FXML
     public void ajouterProf_click() {
         Gestionnaire_De_Connection gestionnaire_de_connection = new Gestionnaire_De_Connection();
@@ -579,8 +579,11 @@ public class Controller implements Initializable {
                 String nomProf = Nomcomplet[0];
                 String PrenomProf = Nomcomplet[1];
 
-                PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO PROFESSEUR (Code_Pro_Nationnal, Cin, Nom, Prenom, Date_Naissance, Date_Commencement_Contrat, Type_Contrat, Email," +
-                        " Telephone, sexe, Adresse, Situation_Familliale, username, mot_de_passe) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+                PreparedStatement preparedStatement = connection.prepareStatement
+                        (
+                                "INSERT INTO PROFESSEUR (Code_Pro_Nationnal, Cin, Nom, Prenom, Date_Naissance, Date_Commencement_Contrat, Type_Contrat, Email," +
+                                        " Telephone, sexe, Adresse, Situation_Familliale, username, mot_de_passe) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)"
+                        );
                 preparedStatement.setString(1, txtCodeProf.getText());
                 preparedStatement.setString(2, txtCIN.getText());
                 preparedStatement.setString(3, nomProf);
@@ -612,11 +615,22 @@ public class Controller implements Initializable {
 
             try {
                 for (int i = 0; i < floawLayout_groupe.getChildren().size(); i++) {
+                    Statement sqlCommand = connection.createStatement();
+                    ResultSet reader = sqlCommand.executeQuery
+                            (
+                                    String.format
+                                            (
+                                                    "select ma.id_matiere from MATIERE ma where ma.LBL_Matiere = '%s'",
+                                                    CB_Matieres.getSelectionModel().getSelectedItem().toString()
+                                            )
+                            );
+                    System.out.println(CB_Matieres.getSelectionModel().getSelectedItem().toString());
                     PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO ENSEIGNEMENT (professeur#,groupe#, matiere#) VALUES (?,?,?)");
                     preparedStatement.setString(1, txtCodeProf.getText());
                     preparedStatement.setInt(2, IdGrp.get(i));
-                    preparedStatement.setInt(3, CB_Matieres.getSelectionModel().getSelectedIndex() + 1);
-                    preparedStatement.executeUpdate();
+                    reader.next();
+                    preparedStatement.setInt(3, reader.getInt("id_matiere"));
+                    preparedStatement.execute();
                 }
 
             } catch (SQLException e) {
@@ -624,9 +638,9 @@ public class Controller implements Initializable {
             }
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Ajout professeur");
-            alert.setHeaderText("Un Presseur ajouté");
-            alert.setContentText("Professeur a été bien ajouté !! ");
+            alert.setTitle("Saisie avec succées");
+            alert.setHeaderText("Un Professeur ajouté");
+            alert.setContentText("Professeur a bien été ajouté !! ");
             alert.showAndWait();
         } else if (Btn_Ajouter.getText().equals("Modifier")) {
             try {
@@ -683,7 +697,7 @@ public class Controller implements Initializable {
             alert.showAndWait();
         }
     }
-
+//*******************************************************************************************************************************************************//
     @FXML
     public void chercherProf_click() {
         Btn_Ajouter.setText("Modifier");
