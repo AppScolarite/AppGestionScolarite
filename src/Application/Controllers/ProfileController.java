@@ -11,11 +11,16 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 
 public class ProfileController implements Initializable {
-    //*******************Etudiant Pane ********//
+
+    @FXML
+    private AnchorPane PaneProfil;
+
+    //*******************Etudiant***************//
     @FXML
     private Pane Pane_etd;
 
@@ -99,7 +104,7 @@ public class ProfileController implements Initializable {
     @FXML
     private TextField adr_esg;
 
-    //*****************************************Administrateur***********//
+    //*************************Administrateur************************//
     @FXML
     private Pane Pane_pers;
 
