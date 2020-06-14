@@ -369,6 +369,27 @@ public class Controller implements Initializable {
     //**********************************************
 
 
+    //********************Profile Page *************
+    @FXML
+    private void Profile_click(){
+        try {
+            FXMLLoader loader = new FXMLLoader(new File("src/Application/Views/Profile.fxml").toURI().toURL());
+            Parent root = (Parent) loader.load();
+
+            Scene scene = new Scene(root);
+            scene.setFill(Color.valueOf("transparent"));
+
+            Stage stage = new Stage(StageStyle.TRANSPARENT);
+            stage.initStyle(StageStyle.UNDECORATED);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+
+    }
+
+
     //**********************************************
 
     public Double moyenne;
