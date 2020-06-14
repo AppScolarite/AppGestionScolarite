@@ -707,7 +707,6 @@ public class Controller implements Initializable {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("  select * from professeur  where Code_Pro_Nationnal ='" + txtSearch.getText() + "'");
             if (resultSet.next()) {
-                System.out.println("gggg");
                 txtCodeProf.setText(resultSet.getString("Code_Pro_Nationnal"));
                 txtCIN.setText(resultSet.getString("Cin"));
                 txtNomProf.setText(resultSet.getString("Nom") + " " + resultSet.getString("Prenom"));
@@ -716,8 +715,14 @@ public class Controller implements Initializable {
                 CB_contrat.setPromptText(resultSet.getString("Type_Contrat"));
                 txtEmail.setText(resultSet.getString("Email"));
                 txtTel.setText(resultSet.getString("Telephone"));
-                if (resultSet.getString("sexe") == "Homme") RB_Homme.setSelected(true);
-                else RB_Femme.setSelected(true);
+                if (resultSet.getString("sexe").equals("Homme")){
+                    RB_Homme.setSelected(true);
+                    RB_Femme.setSelected(false);
+                }
+                else {
+                    RB_Femme.setSelected(true);
+                    RB_Homme.setSelected(false);
+                }
                 txtAdresse.setText(resultSet.getString("Adresse"));
                 if (resultSet.getString("Situation_Familliale").equals("Celibataire")) RB_Ccelib.setSelected(true);
                 else if (resultSet.getString("Situation_Familliale").equals("divorcé(e)")) RB_Div.setSelected(true);
@@ -725,11 +730,27 @@ public class Controller implements Initializable {
                 txtUsername.setText(resultSet.getString("username"));
                 txtPassword.setText(resultSet.getString("mot_de_passe"));
             }
+            else {
+                txtCodeProf.clear();
+                txtCIN.clear();
+                txtNomProf.clear();
+                DP_naissance.setValue(null);
+                DP_commencement.setValue(null);
+                CB_Groupes.setPromptText("Contrat");
+                txtEmail.clear();
+                txtTel.clear();
+                RB_Homme.setSelected(true);
+                RB_Marie.setSelected(true);
+                txtUsername.clear();
+                txtPassword.clear();
+                CB_Matieres.setPromptText("Matieres");
+                CB_Groupes.setPromptText("Groupes");
+                floawLayout_groupe.getChildren().clear();
+            }
 
             Statement groupeProfstm = connection.createStatement();
             ResultSet groupeResultSet = groupeProfstm.executeQuery("  SELECT GROUPE.libelle_grp as libelleGroupe from GROUPE JOIN ENSEIGNEMENT on GROUPE.id_groupe = ENSEIGNEMENT.groupe# WHERE ENSEIGNEMENT.professeur# = '" + txtSearch.getText() + "'");
             while (groupeResultSet.next()) {
-                System.out.println("gggggg");
                 floawLayout_groupe.getChildren().clear();
                 Label label = new Label();
                 label.setText(groupeResultSet.getString("libelleGroupe"));

@@ -609,16 +609,6 @@
                     </effect>
                 </ComboBox>
                 <FlowPane fx:id="floawLayout_groupe" layoutX="256.0" layoutY="546.0" prefHeight="96.0" prefWidth="435.0">
-                    <children>
-                        <!--                     <Label alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#matiere_click" prefHeight="18.0" prefWidth="118.0" style="-fx-background-color: dodgerblue; -fx-background-radius: 30; -fx-border-radius: 30;" text="Français" textAlignment="CENTER">-->
-                        <!--                         <FlowPane.margin>-->
-                        <!--                             <Insets />-->
-                        <!--                         </FlowPane.margin>-->
-                        <!--                         <font>-->
-                        <!--                             <Font name="System Bold" size="12.0" />-->
-                        <!--                         </font>-->
-                        <!--                     </Label>-->
-                    </children>
                     <padding>
                         <Insets left="10.0" right="10.0" top="10.0" />
                     </padding>
