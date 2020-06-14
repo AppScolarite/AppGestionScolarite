@@ -25,6 +25,7 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -212,6 +213,10 @@ public class Controller implements Initializable {
     private Button btnAlert;
 
     @FXML
+    private Button btnProfil_etd;
+
+
+    @FXML
     private Label userLBL;
 
     @FXML
@@ -244,11 +249,124 @@ public class Controller implements Initializable {
     @FXML
     private ComboBox CB_Matiere;
     //*****************************************************
+    // *******************Profile*******************
+//*************************Administrateur************************//
+    @FXML
+    private Pane Pane_pers;
 
+    @FXML
+    private Label complet_esg1;
+
+    @FXML
+    private DatePicker date_naiss_admin;
+
+    @FXML
+    private Text txt_sexe_pers;
+
+    @FXML
+    private TextField user_txt_pers;
+
+    @FXML
+    private TextField pw_txt_pers;
+
+    @FXML
+    private TextField email_pers;
+
+    @FXML
+    private TextField tel_pers;
+
+    @FXML
+    private TextField adresse_pers;
+
+    //******************************************************
+    //*******************Etudiant***************//
+    @FXML
+    private Pane Pane_etd;
+
+    @FXML
+    private Label complet_etd;
+
+    @FXML
+    private Label cne_etd;
+
+    @FXML
+    private DatePicker date_naiss_etd;
+
+
+    @FXML
+    private DatePicker date_insc_etd;
+
+    @FXML
+    private TextField email_etd;
+
+    @FXML
+    private TextField tel_etd;
+
+    @FXML
+    private Text txt_sexe;
+
+    @FXML
+    private TextField adr_etd;
+
+    @FXML
+    private Text txt_groupe;
+
+    @FXML
+    private TextField user_txt;
+
+    @FXML
+    private TextField pw_txt;
+
+    @FXML
+    private CheckBox ck_redouble;
+
+
+    //**********************ENSEIGNANT**************************//
+    @FXML
+    private Pane Pane_ensg;
+    @FXML
+    private Label complet_esg;
+
+    @FXML
+    private Label cin_esg;
+
+    @FXML
+    private Label code_esg;
+
+    @FXML
+    private DatePicker date_naiss_esg;
+
+    @FXML
+    private DatePicker date_ctr_esg;
+
+    @FXML
+    private TextField email_esg;
+
+    @FXML
+    private TextField tel_esg;
+
+    @FXML
+    private Text type_contrat;
+
+    @FXML
+    private Text txt_sexe_esg;
+
+    @FXML
+    private TextField user_txt_esg;
+
+    @FXML
+    private TextField pw_txt_esg;
+
+    @FXML
+    private Text txt_situation;
+
+    @FXML
+    private TextField adr_esg;
     //******************** util ******************
     private Gestionnaire_De_Connection gestionnaire_de_connection = new Gestionnaire_De_Connection();
 
     //************************
+
 
     //***************** Gestion des notes *********
 
@@ -406,6 +524,108 @@ public class Controller implements Initializable {
                 TableViewProfs.refresh();
             } catch (SQLException e) {
                 e.printStackTrace();
+            }
+        }
+    }
+
+
+    @FXML
+    private void profil_show()  {
+//Si l'étudiant qui est connecté
+        System.out.println(Gestionnaire_De_Connection.etudiant_connecte);
+        if (Gestionnaire_De_Connection.etudiant_connecte != null) {
+            Pane_etd.toFront();
+            try {
+                Connection con = gestionnaire_de_connection.getConnection();
+                ResultSet rs = con.createStatement().executeQuery(
+                        String.format("select * from etudiant  where code_massar = '" + Gestionnaire_De_Connection.etudiant_connecte + "'")
+                );
+                if (rs.next()) {
+                    System.out.println("gdsgd");
+                    cne_etd.setText(rs.getString("code_massar"));
+                    complet_etd.setText(rs.getString("Nom") + " " + rs.getString("Prenom"));
+                    email_etd.setText(rs.getString("email"));
+                    tel_etd.setText(rs.getString("telephone"));
+                    pw_txt.setText(rs.getString("mot_de_passe"));
+                    user_txt.setText(rs.getString("username"));
+                    txt_sexe.setText(rs.getString("sexe"));
+                    adr_etd.setText(rs.getString("adresse"));
+                    date_naiss_etd.setValue(LocalDate.parse(rs.getString("date_naissance")));
+                    date_insc_etd.setValue(LocalDate.parse(rs.getString("date_inscription")));
+
+                    Integer red = rs.getInt("a_deja_redouble");
+                    if (red == 1) {
+                        ck_redouble.setSelected(true);
+                    } else {
+                        ck_redouble.setSelected(false);
+                    }
+
+//                    int id =  rs.getInt("groupe#");
+
+
+                   String sq = "SELECT g.libelle_grp as LibGrp FROM groupe g where g.id_groupe= " + rs.getInt("groupe#");
+                   ResultSet rd = con.createStatement().executeQuery(sq);
+                   if (rd.next()) {
+                       txt_groupe.setText(rd.getString("LibGrp"));
+                  }
+
+                }
+            } catch (Exception e) {
+                // TODO: handle exception
+            }
+        }
+        //Si l'enseignnat qui est connecté
+        if (Gestionnaire_De_Connection.prof_connecte != null) {
+            System.out.println(Gestionnaire_De_Connection.prof_connecte);
+            System.out.println(Gestionnaire_De_Connection.nom_connecte);
+            try {
+                Pane_ensg.toFront();
+                Connection con = gestionnaire_de_connection.getConnection();
+                String sql = "SELECT  * FROM PROFESSEUR where Code_Pro_Nationnal = '" + Gestionnaire_De_Connection.prof_connecte  + "'";
+                ResultSet rs = con.createStatement().executeQuery(sql);
+                if (rs.next()) {
+                    cin_esg.setText(rs.getString("Cin"));
+                    code_esg.setText(rs.getString("code_Pro_Nationnal"));
+                    complet_esg.setText(rs.getString("Nom") + " " + rs.getString("Prenom"));
+                    date_naiss_esg.setValue(LocalDate.parse(rs.getString("date_naissance")));
+                    date_ctr_esg.setValue(LocalDate.parse(rs.getString("Date_Commencement_Contrat")));
+                    type_contrat.setText(rs.getString("Type_Contrat"));
+                    email_esg.setText(rs.getString("email"));
+                    tel_esg.setText(rs.getString("telephone"));
+                    txt_sexe_esg.setText(rs.getString("sexe"));
+                    adr_esg.setText(rs.getString("adresse"));
+                    txt_situation.setText(rs.getString("Situation_Familliale"));
+                    user_txt_esg.setText(rs.getString("username"));
+                    pw_txt_esg.setText(rs.getString("mot_de_passe"));
+                }
+            } catch (Exception e) {
+                // TODO: handle exception
+            }
+            //
+
+
+        }
+        //Si le personnel qui est connecté
+        if (Gestionnaire_De_Connection.personnel_connecte != 0) {
+            System.out.println(Gestionnaire_De_Connection.personnel_connecte);
+            System.out.println(Gestionnaire_De_Connection.nom_connecte);
+            Pane_pers.toFront();
+            try {
+                Connection con = gestionnaire_de_connection.getConnection();
+                String sql = "SELECT  * FROM PERSONNEL WHERE id_personnel = " + Gestionnaire_De_Connection.personnel_connecte;
+                ResultSet rs = con.createStatement().executeQuery(sql);
+                if (rs.next()) {
+                    complet_esg1.setText(Gestionnaire_De_Connection.nom_connecte);
+                    date_naiss_admin.setValue(LocalDate.parse(rs.getString("date_naissance_personnel")));
+                    email_pers.setText(rs.getString("email_personnel"));
+                    tel_pers.setText(rs.getString("telephone_personnel"));
+                    txt_sexe_pers.setText(rs.getString("sexe"));
+                    adresse_pers.setText(rs.getString("adresse"));
+                    user_txt_pers.setText(rs.getString("username"));
+                    pw_txt_pers.setText(rs.getString("mot_de_passe"));
+                }
+            } catch (Exception e) {
+                // TODO: handle exception
             }
         }
     }
@@ -1512,6 +1732,7 @@ public class Controller implements Initializable {
             VboxMenu.getChildren().remove(btnGestionProf);
             btnStatistiquesetudiant.setVisible(true);
             btnNotes.setVisible(true);
+
         } else if (Gestionnaire_De_Connection.prof_connecte != null) {
             VboxMenu.getChildren().remove(btnStatistiques);
             VboxMenu.getChildren().remove(btnGestion);
