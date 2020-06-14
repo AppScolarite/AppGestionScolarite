@@ -2,20 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Application/Models/GestionBrancheViewModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Application/Models/GestionMatiereViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RestaurantMgt/Application/Controllers/Controller$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RestaurantMgt/Application/Controllers/Controller$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RestaurantMgt/Application/Controllers/Controller$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RestaurantMgt/Application/Controllers/Controller$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RestaurantMgt/Application/Controllers/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RestaurantMgt/Application/Controllers/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RestaurantMgt/Application/Controllers/GestionBrancheController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RestaurantMgt/Application/Controllers/GestionBrancheController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RestaurantMgt/Application/Controllers/GestionGroupeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RestaurantMgt/Application/Controllers/GestionGroupeController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RestaurantMgt/Application/Views/GestionBranche.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RestaurantMgt/Application/Views/GestionBranche.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Application/Controllers/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Controllers/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Controllers/GestionBrancheController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Controllers/GestionBrancheController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Controllers/GestionMatiereController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Controllers/GestionMatiereController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Views/GestionBranche.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Views/GestionBranche.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Views/GestionMatiere.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Views/GestionMatiere.fxml" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -91,71 +78,60 @@
     <splitter split-orientation="horizontal" split-proportion="0.55912596">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/Application/Controllers/Controller.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="263">
-                  <caret line="368" selection-start-line="368" selection-end-line="368" />
+                <state relative-caret-position="1605">
+                  <caret line="785" column="33" selection-start-line="785" selection-start-column="33" selection-end-line="785" selection-end-column="33" />
                   <folding>
                     <element signature="imports" expanded="true" />
-                    <element signature="e#8510#10336#0" />
-                    <element signature="e#10341#11606#0" />
-                    <element signature="e#11612#11846#0" />
-                    <element signature="e#11905#13625#0" />
-                    <element signature="e#13631#14330#0" />
-                    <element signature="e#14336#14934#0" />
-                    <element signature="e#14940#16433#0" />
-                    <element signature="e#16439#16583#0" />
-                    <element signature="e#16590#18057#0" />
-                    <element signature="e#18059#18136#0" />
-                    <element signature="e#18881#19076#0" />
-                    <element signature="e#19082#26053#0" />
-                    <element signature="e#26050#30580#0" />
-                    <element signature="e#30628#31152#0" />
-                    <element signature="e#31158#31314#0" />
-                    <element signature="e#31320#31490#0" />
-                    <element signature="e#31496#31655#0" />
-                    <element signature="e#31661#32355#0" />
-                    <element signature="e#32361#32524#0" />
-                    <element signature="e#32530#35227#0" />
-                    <element signature="e#35233#35833#0" />
-                    <element signature="e#35839#36019#0" />
-                    <element signature="e#36025#36196#0" />
-                    <element signature="e#36202#42656#0" />
-                    <element signature="e#42662#44241#0" />
-                    <element signature="e#44246#45664#0" />
-                    <element signature="e#45669#47269#0" />
-                    <element signature="e#47275#49111#0" />
-                    <element signature="e#49117#49281#0" />
-                    <element signature="e#49287#50430#0" />
-                    <element signature="e#50436#50728#0" />
-                    <element signature="e#50734#52568#0" />
-                    <element signature="e#52574#55399#0" />
-                    <element signature="e#55405#56295#0" />
-                    <element signature="e#56301#57171#0" />
-                    <element signature="e#57177#60663#0" />
-                    <element signature="e#60669#60832#0" />
-                    <element signature="e#60838#61452#0" />
-                    <element signature="e#61458#63835#0" />
-                    <element signature="e#63841#66057#0" />
-                    <element signature="e#66063#72042#0" />
-                    <element signature="e#72142#74115#0" />
-                    <element signature="e#74121#74256#0" />
-                    <element signature="e#74262#74901#0" />
-                    <element signature="e#74907#78850#0" />
+                    <element signature="e#8348#10175#0" />
+                    <element signature="e#10181#11446#0" />
+                    <element signature="e#11452#11686#0" />
+                    <element signature="e#11745#13465#0" />
+                    <element signature="e#13471#14170#0" />
+                    <element signature="e#14176#14834#0" />
+                    <element signature="e#14840#16333#0" />
+                    <element signature="e#16339#16483#0" />
+                    <element signature="e#16490#17957#0" />
+                    <element signature="e#18781#18976#0" />
+                    <element signature="e#18982#25933#0" />
+                    <element signature="e#25939#30469#0" />
+                    <element signature="e#30517#31041#0" />
+                    <element signature="e#31047#31203#0" />
+                    <element signature="e#31209#31379#0" />
+                    <element signature="e#31385#31544#0" />
+                    <element signature="e#31550#32244#0" />
+                    <element signature="e#32250#32413#0" />
+                    <element signature="e#32419#35116#0" />
+                    <element signature="e#35122#35722#0" />
+                    <element signature="e#35728#35908#0" />
+                    <element signature="e#35914#36085#0" />
+                    <element signature="e#36091#42545#0" />
+                    <element signature="e#42551#44131#0" />
+                    <element signature="e#44137#45557#0" />
+                    <element signature="e#45563#47164#0" />
+                    <element signature="e#47170#49009#0" />
+                    <element signature="e#49015#49179#0" />
+                    <element signature="e#49185#50328#0" />
+                    <element signature="e#50334#50626#0" />
+                    <element signature="e#50632#52466#0" />
+                    <element signature="e#52472#55297#0" />
+                    <element signature="e#55303#56193#0" />
+                    <element signature="e#56199#57069#0" />
+                    <element signature="e#57075#61061#0" />
+                    <element signature="e#61067#61230#0" />
+                    <element signature="e#61236#61850#0" />
+                    <element signature="e#61856#64233#0" />
+                    <element signature="e#64239#66455#0" />
+                    <element signature="e#66461#72440#0" />
+                    <element signature="e#72540#74513#0" />
+                    <element signature="e#74519#74654#0" />
+                    <element signature="e#74660#75299#0" />
+                    <element signature="e#75305#79271#0" />
                   </folding>
                 </state>
               </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/Application/Views/GestionGroupe.fxml">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="390">
-                  <caret line="118" column="19" selection-start-line="104" selection-start-column="8" selection-end-line="118" selection-end-column="19" />
-                </state>
-              </provider>
-              <provider editor-type-id="JavaFX-Scene-Builder" />
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
@@ -168,44 +144,6 @@
               <provider editor-type-id="JavaFX-Scene-Builder" />
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/Application/Controllers/GestionMatiereController.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="301">
-                  <caret line="106" column="79" selection-start-line="106" selection-start-column="79" selection-end-line="106" selection-end-column="79" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                    <element signature="method#btnClose_clicked#0;class#GestionMatiereController#0" />
-                    <element signature="method#Branches#0;class#GestionMatiereController#0" />
-                    <element signature="method#ajoutmatiere_clicked#0;class#GestionMatiereController#0" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/Application/Models/GestionMatiereViewModel.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="85">
-                  <caret line="5" column="32" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="32" />
-                  <folding>
-                    <element signature="e#205#206#0" expanded="true" />
-                    <element signature="e#238#239#0" expanded="true" />
-                    <element signature="e#291#292#0" expanded="true" />
-                    <element signature="e#335#336#0" expanded="true" />
-                    <element signature="e#376#377#0" expanded="true" />
-                    <element signature="e#413#414#0" expanded="true" />
-                    <element signature="e#473#474#0" expanded="true" />
-                    <element signature="e#520#521#0" expanded="true" />
-                    <element signature="e#560#561#0" expanded="true" />
-                    <element signature="e#595#596#0" expanded="true" />
-                    <element signature="e#652#653#0" expanded="true" />
-                    <element signature="e#700#701#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
         </leaf>
       </split-first>
       <split-second>
@@ -213,13 +151,10 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Application/Controllers/Controller.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="76">
-                  <caret line="378" column="3" lean-forward="true" selection-start-line="378" selection-end-line="410" />
+                <state relative-caret-position="5814">
+                  <caret line="377" column="3" selection-start-line="377" selection-start-column="3" selection-end-line="377" selection-end-column="3" />
                   <folding>
                     <element signature="imports" expanded="true" />
-                    <element signature="e#8510#10336#0" />
-                    <element signature="e#10341#11606#0" />
-                    <element signature="e#16598#16742#0" />
                   </folding>
                 </state>
               </provider>
@@ -247,7 +182,7 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Application/Controllers/GestionBrancheController.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="85">
+                <state relative-caret-position="612">
                   <caret line="57" column="4" selection-start-line="57" selection-start-column="4" selection-end-line="120" selection-end-column="5" />
                   <folding>
                     <element signature="imports" expanded="true" />
@@ -260,8 +195,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Application/Views/Home.fxml">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="113">
-                  <caret line="565" column="20" lean-forward="true" selection-start-line="565" selection-start-column="20" selection-end-line="571" selection-end-column="34" />
+                <state relative-caret-position="9605">
+                  <caret line="565" column="20" selection-start-line="565" selection-start-column="20" selection-end-line="571" selection-end-column="34" />
                 </state>
               </provider>
               <provider editor-type-id="JavaFX-Scene-Builder" />
@@ -270,8 +205,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Application/Views/GestionBranche.fxml">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="359">
-                  <caret line="39" column="26" lean-forward="true" selection-start-line="33" selection-start-column="12" selection-end-line="39" selection-end-column="26" />
+                <state relative-caret-position="663">
+                  <caret line="39" column="26" selection-start-line="33" selection-start-column="12" selection-end-line="39" selection-end-column="26" />
                 </state>
               </provider>
               <provider editor-type-id="JavaFX-Scene-Builder" />
@@ -280,7 +215,7 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Application/Models/GestionEtudiantsViewModel.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1037">
+                <state relative-caret-position="1020">
                   <caret line="93" column="16" selection-start-line="93" selection-start-column="16" selection-end-line="93" selection-end-column="16" />
                   <folding>
                     <element signature="e#2178#2179#0" expanded="true" />
@@ -385,12 +320,12 @@
         <option value="$PROJECT_DIR$/src/Application/Data/Gestionnaire_De_Connection.java" />
         <option value="$PROJECT_DIR$/src/Application/Views/Home.fxml" />
         <option value="$PROJECT_DIR$/src/Application/Models/GestionBrancheViewModel.java" />
-        <option value="$PROJECT_DIR$/src/Application/Controllers/Controller.java" />
         <option value="$PROJECT_DIR$/src/Application/Views/GestionBranche.fxml" />
         <option value="$PROJECT_DIR$/src/Application/Controllers/GestionBrancheController.java" />
         <option value="$PROJECT_DIR$/src/Application/Models/GestionMatiereViewModel.java" />
         <option value="$PROJECT_DIR$/src/Application/Views/GestionMatiere.fxml" />
         <option value="$PROJECT_DIR$/src/Application/Controllers/GestionMatiereController.java" />
+        <option value="$PROJECT_DIR$/src/Application/Controllers/Controller.java" />
       </list>
     </option>
   </component>
@@ -401,7 +336,7 @@
     </treeState>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-9" />
     <option name="y" value="-9" />
     <option name="width" value="978" />
@@ -645,11 +580,12 @@
       <workItem from="1591827967689" duration="4858000" />
       <workItem from="1591953563526" duration="1338000" />
       <workItem from="1591992229434" duration="4598000" />
+      <workItem from="1592043266261" duration="1018000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="305751000" />
+    <option name="totallyTimeSpent" value="306769000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -661,7 +597,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="7" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" weight="0.20051414" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -673,7 +610,7 @@
       <window_info id="Learn" order="7" />
       <window_info anchor="bottom" id="Terminal" order="0" weight="0.32916668" />
       <window_info anchor="bottom" id="Message" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4986577" weight="0.30972221" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4986577" visible="true" weight="0.30972221" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.16997167" />
       <window_info anchor="bottom" id="Find" order="4" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
@@ -936,17 +873,6 @@
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/Models/GestionEtudiantsViewModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1037">
-          <caret line="93" column="16" selection-start-line="93" selection-start-column="16" selection-end-line="93" selection-end-column="16" />
-          <folding>
-            <element signature="e#2178#2179#0" expanded="true" />
-            <element signature="e#2205#2206#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Application/Controllers/GestionGroupeController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="31">
@@ -957,86 +883,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/Models/gestionGroupeViewModel.java">
+    <entry file="file://$PROJECT_DIR$/src/Application/Models/gestionGroupeViewModel.java" />
+    <entry file="file://$PROJECT_DIR$/src/Application/Views/GestionGroupe.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="35" selection-start-line="2" selection-start-column="35" selection-end-line="2" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/Views/Home.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="630" column="22" selection-start-line="630" selection-start-column="22" selection-end-line="630" selection-end-column="22" />
+        <state relative-caret-position="2006">
+          <caret line="118" column="19" selection-start-line="104" selection-start-column="8" selection-end-line="118" selection-end-column="19" />
         </state>
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/Controllers/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="368" selection-start-line="368" selection-end-line="368" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#8510#10336#0" />
-            <element signature="e#10341#11606#0" />
-            <element signature="e#11612#11846#0" />
-            <element signature="e#11905#13625#0" />
-            <element signature="e#13631#14330#0" />
-            <element signature="e#14336#14934#0" />
-            <element signature="e#14940#16433#0" />
-            <element signature="e#16439#16583#0" />
-            <element signature="e#16590#18057#0" />
-            <element signature="e#18059#18136#0" />
-            <element signature="e#18881#19076#0" />
-            <element signature="e#19082#26053#0" />
-            <element signature="e#26050#30580#0" />
-            <element signature="e#30628#31152#0" />
-            <element signature="e#31158#31314#0" />
-            <element signature="e#31320#31490#0" />
-            <element signature="e#31496#31655#0" />
-            <element signature="e#31661#32355#0" />
-            <element signature="e#32361#32524#0" />
-            <element signature="e#32530#35227#0" />
-            <element signature="e#35233#35833#0" />
-            <element signature="e#35839#36019#0" />
-            <element signature="e#36025#36196#0" />
-            <element signature="e#36202#42656#0" />
-            <element signature="e#42662#44241#0" />
-            <element signature="e#44246#45664#0" />
-            <element signature="e#45669#47269#0" />
-            <element signature="e#47275#49111#0" />
-            <element signature="e#49117#49281#0" />
-            <element signature="e#49287#50430#0" />
-            <element signature="e#50436#50728#0" />
-            <element signature="e#50734#52568#0" />
-            <element signature="e#52574#55399#0" />
-            <element signature="e#55405#56295#0" />
-            <element signature="e#56301#57171#0" />
-            <element signature="e#57177#60663#0" />
-            <element signature="e#60669#60832#0" />
-            <element signature="e#60838#61452#0" />
-            <element signature="e#61458#63835#0" />
-            <element signature="e#63841#66057#0" />
-            <element signature="e#66063#72042#0" />
-            <element signature="e#72142#74115#0" />
-            <element signature="e#74121#74256#0" />
-            <element signature="e#74262#74901#0" />
-            <element signature="e#74907#78850#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/Controllers/GestionBrancheController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="57" column="4" selection-start-line="57" selection-start-column="4" selection-end-line="120" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#btnClose_clicked#0;class#GestionBrancheController#0" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Application/Models/GestionMatiereViewModel.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1066,21 +920,35 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/Views/GestionGroupe.fxml">
+    <entry file="file://$PROJECT_DIR$/src/Application/Controllers/GestionBrancheController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="118" column="19" selection-start-line="104" selection-start-column="8" selection-end-line="118" selection-end-column="19" />
+        <state relative-caret-position="612">
+          <caret line="57" column="4" selection-start-line="57" selection-start-column="4" selection-end-line="120" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#btnClose_clicked#0;class#GestionBrancheController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/Views/GestionBranche.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="39" column="26" selection-start-line="33" selection-start-column="12" selection-end-line="39" selection-end-column="26" />
         </state>
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/Views/GestionBranche.fxml">
+    <entry file="file://$PROJECT_DIR$/src/Application/Models/GestionEtudiantsViewModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="39" column="26" lean-forward="true" selection-start-line="33" selection-start-column="12" selection-end-line="39" selection-end-column="26" />
+        <state relative-caret-position="1020">
+          <caret line="93" column="16" selection-start-line="93" selection-start-column="16" selection-end-line="93" selection-end-column="16" />
+          <folding>
+            <element signature="e#2178#2179#0" expanded="true" />
+            <element signature="e#2205#2206#0" expanded="true" />
+          </folding>
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Application/Views/GestionMatiere.fxml">
       <provider selected="true" editor-type-id="text-editor">
@@ -1092,13 +960,78 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Application/Controllers/GestionMatiereController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="106" column="79" selection-start-line="106" selection-start-column="79" selection-end-line="106" selection-end-column="79" />
+        <state relative-caret-position="332">
+          <caret line="84" column="35" selection-start-line="84" selection-start-column="35" selection-end-line="84" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#btnClose_clicked#0;class#GestionMatiereController#0" />
-            <element signature="method#Branches#0;class#GestionMatiereController#0" />
+            <element signature="method#initialize#0;class#GestionMatiereController#0" />
+            <element signature="method#Matieres#0;class#GestionMatiereController#0" />
+            <element signature="method#listerMatiere#0;class#GestionMatiereController#0" />
+            <element signature="method#supprimerMatiere#0;class#GestionMatiereController#0" />
             <element signature="method#ajoutmatiere_clicked#0;class#GestionMatiereController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/Views/Home.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="630" column="22" selection-start-line="630" selection-start-column="22" selection-end-line="630" selection-end-column="22" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/Controllers/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1605">
+          <caret line="785" column="33" selection-start-line="785" selection-start-column="33" selection-end-line="785" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#8348#10175#0" />
+            <element signature="e#10181#11446#0" />
+            <element signature="e#11452#11686#0" />
+            <element signature="e#11745#13465#0" />
+            <element signature="e#13471#14170#0" />
+            <element signature="e#14176#14834#0" />
+            <element signature="e#14840#16333#0" />
+            <element signature="e#16339#16483#0" />
+            <element signature="e#16490#17957#0" />
+            <element signature="e#18781#18976#0" />
+            <element signature="e#18982#25933#0" />
+            <element signature="e#25939#30469#0" />
+            <element signature="e#30517#31041#0" />
+            <element signature="e#31047#31203#0" />
+            <element signature="e#31209#31379#0" />
+            <element signature="e#31385#31544#0" />
+            <element signature="e#31550#32244#0" />
+            <element signature="e#32250#32413#0" />
+            <element signature="e#32419#35116#0" />
+            <element signature="e#35122#35722#0" />
+            <element signature="e#35728#35908#0" />
+            <element signature="e#35914#36085#0" />
+            <element signature="e#36091#42545#0" />
+            <element signature="e#42551#44131#0" />
+            <element signature="e#44137#45557#0" />
+            <element signature="e#45563#47164#0" />
+            <element signature="e#47170#49009#0" />
+            <element signature="e#49015#49179#0" />
+            <element signature="e#49185#50328#0" />
+            <element signature="e#50334#50626#0" />
+            <element signature="e#50632#52466#0" />
+            <element signature="e#52472#55297#0" />
+            <element signature="e#55303#56193#0" />
+            <element signature="e#56199#57069#0" />
+            <element signature="e#57075#61061#0" />
+            <element signature="e#61067#61230#0" />
+            <element signature="e#61236#61850#0" />
+            <element signature="e#61856#64233#0" />
+            <element signature="e#64239#66455#0" />
+            <element signature="e#66461#72440#0" />
+            <element signature="e#72540#74513#0" />
+            <element signature="e#74519#74654#0" />
+            <element signature="e#74660#75299#0" />
+            <element signature="e#75305#79271#0" />
           </folding>
         </state>
       </provider>
