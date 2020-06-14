@@ -483,10 +483,29 @@ public class Controller implements Initializable {
     private Label etumoySup;
     @FXML
     private Label etuNoteInf;
-    @FXML
-
 
     //**********************************************
+
+
+    //********************Profile Page *************
+    @FXML
+    private void Profile_click(){
+        try {
+            FXMLLoader loader = new FXMLLoader(new File("src/Application/Views/Profile.fxml").toURI().toURL());
+            Parent root = (Parent) loader.load();
+
+            Scene scene = new Scene(root);
+            scene.setFill(Color.valueOf("transparent"));
+
+            Stage stage = new Stage(StageStyle.TRANSPARENT);
+            stage.initStyle(StageStyle.UNDECORATED);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+
+    }
 
 
     //**********************************************
@@ -666,7 +685,6 @@ public class Controller implements Initializable {
 
     @FXML
     public void groupe_click(MouseEvent e) {
-//        CB_Groupes.getItems().add(((Label) e.getSource()).getText());
         this.floawLayout_groupe.getChildren().remove(e.getSource());
         IdGrp.remove(e.getSource());
     }
@@ -675,8 +693,6 @@ public class Controller implements Initializable {
 
     @FXML
     private void cb_groupe_selected() {
-//        if (!CB_Groupes.getItems().isEmpty()){
-
         if (!CB_Groupes.getSelectionModel().getSelectedItem().equals("-Choisir-")) {
             Label label = new Label();
             label.setText(CB_Groupes.getSelectionModel().getSelectedItem().toString());
@@ -698,19 +714,8 @@ public class Controller implements Initializable {
             floawLayout_groupe.setHgap(10);
             floawLayout_groupe.setVgap(10);
             floawLayout_groupe.getChildren().add(label);
-
-//            CB_Groupes.setOnAction(null);
-//            CB_Groupes.getItems().remove(CB_Groupes.getSelectionModel().getSelectedItem().toString());
-//            CB_Groupes.getSelectionModel().selectFirst();
-//            CB_Groupes.setOnAction(new EventHandler<ActionEvent>() {
-//                @Override
-//                public void handle(ActionEvent actionEvent) {
-//                    cb_groupe_selected();
-//                }
-//            });
         }
 
-//        }
     }
 
     public void BindComboGroupe() {
@@ -794,39 +799,7 @@ public class Controller implements Initializable {
         TableViewProfs.setItems(Professeurs());
         TableViewProfs.setEditable(true);
 
-//        col_matiere.setCellFactory(TextFieldTableCell.forTableColumn());
-//        col_matiere.setOnEditCommit(e ->
-//                this.Update_Prof("Matiere",
-//                        e.getNewValue(),
-//                        e.getTableView().getItems().get(e.getTablePosition().getRow()).getNomCodeProf()));
-//
-//        col_groupe.setCellFactory(TextFieldTableCell.forTableColumn());
-//        col_groupe.setOnEditCommit(e ->
-//                this.Update_Prof( "Groupes",
-//                        e.getNewValue(),
-//                        e.getTableView().getItems().get(e.getTablePosition().getRow()).getNomCodeProf())
-//                );
-
     }
-
-//        private void Update_Prof(String champs, String valeur, String id) {
-//        try {
-//            Connection connection = gestionnaire_de_connection.getConnection();
-//            Statement sqlCommand = connection.createStatement();
-//            sqlCommand.executeUpdate
-//                    (
-//                            String.format
-//                                    (
-//                                            "update PROFESSEUR set %s = '%s' where Code_Pro_Nationnal = '%s'",
-//                                            champs,
-//                                            valeur,
-//                                            id
-//                                    )
-//                    );
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//    }
 
     @FXML
     public void gestionProf_click() {
@@ -964,15 +937,6 @@ public class Controller implements Initializable {
             alert.setContentText("Professeur a été bien Modifier !! ");
             alert.showAndWait();
         }
-
-//        try {
-//            PreparedStatement stm = connection.prepareStatement("INSERT INTO ENSEIGNEMENT (professeur#, groupe#, matiere#) values ('?',?,?)");
-//            stm.setString(1,txtCodeProf.getText());
-//            stm.setInt(2,CB);
-//
-//        }catch (SQLException e){
-//
-//        }
     }
 //*******************************************************************************************************************************************************//
     @FXML
@@ -984,7 +948,6 @@ public class Controller implements Initializable {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("  select * from professeur  where Code_Pro_Nationnal ='" + txtSearch.getText() + "'");
             if (resultSet.next()) {
-                System.out.println("gggg");
                 txtCodeProf.setText(resultSet.getString("Code_Pro_Nationnal"));
                 txtCIN.setText(resultSet.getString("Cin"));
                 txtNomProf.setText(resultSet.getString("Nom") + " " + resultSet.getString("Prenom"));
@@ -993,8 +956,14 @@ public class Controller implements Initializable {
                 CB_contrat.setPromptText(resultSet.getString("Type_Contrat"));
                 txtEmail.setText(resultSet.getString("Email"));
                 txtTel.setText(resultSet.getString("Telephone"));
-                if (resultSet.getString("sexe") == "Homme") RB_Homme.setSelected(true);
-                else RB_Femme.setSelected(true);
+                if (resultSet.getString("sexe").equals("Homme")){
+                    RB_Homme.setSelected(true);
+                    RB_Femme.setSelected(false);
+                }
+                else {
+                    RB_Femme.setSelected(true);
+                    RB_Homme.setSelected(false);
+                }
                 txtAdresse.setText(resultSet.getString("Adresse"));
                 if (resultSet.getString("Situation_Familliale").equals("Celibataire")) RB_Ccelib.setSelected(true);
                 else if (resultSet.getString("Situation_Familliale").equals("divorcé(e)")) RB_Div.setSelected(true);
@@ -1002,11 +971,27 @@ public class Controller implements Initializable {
                 txtUsername.setText(resultSet.getString("username"));
                 txtPassword.setText(resultSet.getString("mot_de_passe"));
             }
+            else {
+                txtCodeProf.clear();
+                txtCIN.clear();
+                txtNomProf.clear();
+                DP_naissance.setValue(null);
+                DP_commencement.setValue(null);
+                CB_Groupes.setPromptText("Contrat");
+                txtEmail.clear();
+                txtTel.clear();
+                RB_Homme.setSelected(true);
+                RB_Marie.setSelected(true);
+                txtUsername.clear();
+                txtPassword.clear();
+                CB_Matieres.setPromptText("Matieres");
+                CB_Groupes.setPromptText("Groupes");
+                floawLayout_groupe.getChildren().clear();
+            }
 
             Statement groupeProfstm = connection.createStatement();
             ResultSet groupeResultSet = groupeProfstm.executeQuery("  SELECT GROUPE.libelle_grp as libelleGroupe from GROUPE JOIN ENSEIGNEMENT on GROUPE.id_groupe = ENSEIGNEMENT.groupe# WHERE ENSEIGNEMENT.professeur# = '" + txtSearch.getText() + "'");
             while (groupeResultSet.next()) {
-                System.out.println("gggggg");
                 floawLayout_groupe.getChildren().clear();
                 Label label = new Label();
                 label.setText(groupeResultSet.getString("libelleGroupe"));
@@ -1027,15 +1012,6 @@ public class Controller implements Initializable {
                 floawLayout_groupe.setHgap(10);
                 floawLayout_groupe.setVgap(10);
                 floawLayout_groupe.getChildren().add(label);
-//                CB_Groupes.setOnAction(null);
-//                CB_Groupes.getItems().remove(label.getText());
-//                CB_Groupes.getSelectionModel().selectFirst();
-//                CB_Groupes.setOnAction(new EventHandler<ActionEvent>() {
-//                    @Override
-//                    public void handle(ActionEvent actionEvent) {
-//                        cb_groupe_selected();
-//                    }
-//                });
             }
 
             Statement matiereStm = connection.createStatement();
@@ -1047,8 +1023,6 @@ public class Controller implements Initializable {
         } catch (SQLException s) {
             s.getStackTrace();
         }
-//                ajouterProfBtn.setText("Modifier");
-
     }
     //***********************************
 
