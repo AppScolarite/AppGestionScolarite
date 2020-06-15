@@ -489,66 +489,6 @@ public class Controller implements Initializable {
 
     //********************Profile Page *************
     @FXML
-    private void Profile_click(){
-        try {
-            FXMLLoader loader = new FXMLLoader(new File("src/Application/Views/Profile.fxml").toURI().toURL());
-            Parent root = (Parent) loader.load();
-
-            Scene scene = new Scene(root);
-            scene.setFill(Color.valueOf("transparent"));
-
-            Stage stage = new Stage(StageStyle.TRANSPARENT);
-            stage.initStyle(StageStyle.UNDECORATED);
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-
-    }
-
-
-    //**********************************************
-
-    public Double moyenne;
-
-    //*********Noureddine Gestion Prof****************
-    @FXML
-    private void supprimerProf() {
-        GestionProfViewModel professeur = (GestionProfViewModel) TableViewProfs.getSelectionModel().getSelectedItem();
-        if (professeur == null) {
-            System.out.println("aucun etudiant a supprimer !");
-            return;
-        }
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Supression d'un étudiant !");
-        alert.setContentText("Etes vous totalement sur de vouloir supprimer l'étudiant <" + professeur.getNomCodeProf() + "-" + professeur.getNomComplet() + " " + professeur.getCIN() + "> ??\n");
-        alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
-        alert.setHeight(400);
-        Optional<ButtonType> reponse = alert.showAndWait();
-        if (reponse.get().equals(ButtonType.OK)) {
-            try {
-                Connection connection = gestionnaire_de_connection.getConnection();
-                Statement sqlCommand = connection.createStatement();
-                sqlCommand.execute
-                        (
-                                String.format
-                                        (
-                                                "delete from ENSEIGNEMENT where professeur# = '%s' ;" +
-                                                        "delete from PROFESSEUR where Code_Pro_Nationnal = '%s';",
-                                                professeur.getNomCodeProf(), professeur.getNomCodeProf()
-                                        )
-                        );
-                TableViewProfs.getItems().remove(TableViewProfs.getSelectionModel().getSelectedItem());
-                TableViewProfs.refresh();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-
-    @FXML
     private void profil_show()  {
 //Si l'étudiant qui est connecté
         System.out.println(Gestionnaire_De_Connection.etudiant_connecte);
@@ -582,11 +522,11 @@ public class Controller implements Initializable {
 //                    int id =  rs.getInt("groupe#");
 
 
-                   String sq = "SELECT g.libelle_grp as LibGrp FROM groupe g where g.id_groupe= " + rs.getInt("groupe#");
-                   ResultSet rd = con.createStatement().executeQuery(sq);
-                   if (rd.next()) {
-                       txt_groupe.setText(rd.getString("LibGrp"));
-                  }
+                    String sq = "SELECT g.libelle_grp as LibGrp FROM groupe g where g.id_groupe= " + rs.getInt("groupe#");
+                    ResultSet rd = con.createStatement().executeQuery(sq);
+                    if (rd.next()) {
+                        txt_groupe.setText(rd.getString("LibGrp"));
+                    }
 
                 }
             } catch (Exception e) {
@@ -648,6 +588,45 @@ public class Controller implements Initializable {
             }
         }
     }
+    //**********************************************
+
+    public Double moyenne;
+
+    //*********Noureddine Gestion Prof****************
+    @FXML
+    private void supprimerProf() {
+        GestionProfViewModel professeur = (GestionProfViewModel) TableViewProfs.getSelectionModel().getSelectedItem();
+        if (professeur == null) {
+            System.out.println("aucun etudiant a supprimer !");
+            return;
+        }
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Supression d'un étudiant !");
+        alert.setContentText("Etes vous totalement sur de vouloir supprimer l'étudiant <" + professeur.getNomCodeProf() + "-" + professeur.getNomComplet() + " " + professeur.getCIN() + "> ??\n");
+        alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
+        alert.setHeight(400);
+        Optional<ButtonType> reponse = alert.showAndWait();
+        if (reponse.get().equals(ButtonType.OK)) {
+            try {
+                Connection connection = gestionnaire_de_connection.getConnection();
+                Statement sqlCommand = connection.createStatement();
+                sqlCommand.execute
+                        (
+                                String.format
+                                        (
+                                                "delete from ENSEIGNEMENT where professeur# = '%s' ;" +
+                                                        "delete from PROFESSEUR where Code_Pro_Nationnal = '%s';",
+                                                professeur.getNomCodeProf(), professeur.getNomCodeProf()
+                                        )
+                        );
+                TableViewProfs.getItems().remove(TableViewProfs.getSelectionModel().getSelectedItem());
+                TableViewProfs.refresh();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
 
     @FXML
     public void Mode_Click(ActionEvent e) {

@@ -691,7 +691,7 @@
                 <PieChart fx:id="pieChartMoyenne" layoutX="402.0" layoutY="402.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="247.0" prefWidth="475.0" />
             </children>
         </Pane>
-        <Pane fx:id="addProfPanel" layoutX="287.0" prefHeight="677.0" prefWidth="925.0" style="-fx-background-color: white;" stylesheets="@../../resources/Styles/LoginStyling.css">
+<!--        <Pane fx:id="addProfPanel" layoutX="287.0" prefHeight="677.0" prefWidth="925.0" style="-fx-background-color: white;" stylesheets="@../../resources/Styles/LoginStyling.css">-->
         <Pane fx:id="panelEtudiant" layoutX="289.0" layoutY="-4.0" prefHeight="680.0" prefWidth="922.0" style="-fx-background-color: #F0FFFF;">
             <children>
                 <Label layoutX="307.0" layoutY="26.0" text="Gestion des étudians" textAlignment="CENTER" textFill="#6f6f6f" underline="true">
@@ -783,7 +783,7 @@
             <children>
                 <ImageView fitHeight="150.0" fitWidth="161.0" layoutX="6.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../../../../../../Downloads/profuser.png" />
+<!--                        <Image url="@../../../../../../Downloads/profuser.png" />-->
                     </image>
                 </ImageView>
                 <Label fx:id="complet_esg" layoutX="174.0" layoutY="68.0" prefHeight="27.0" prefWidth="161.0" text="Nom+Prenom" textFill="#6f6f6f">
