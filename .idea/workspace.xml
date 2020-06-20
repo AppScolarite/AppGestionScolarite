@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Application/Controllers/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Controllers/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Data/Gestionnaire_De_Connection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Data/Gestionnaire_De_Connection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Application/Views/Home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Views/Home.fxml" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
@@ -77,100 +79,57 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Application/Views/Home.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder" />
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="222">
-              <caret line="781" column="136" selection-start-line="781" selection-start-column="136" selection-end-line="781" selection-end-column="136" />
-              <folding>
-                <element signature="n#VBox#0;n#children#0;n#AnchorPane#0;n#!!top" />
-                <element signature="n#Button#0;n#children#0;n#AnchorPane#0;n#!!top" />
-                <element signature="n#Button#1;n#children#0;n#AnchorPane#0;n#!!top" />
-                <element signature="n#Pane#0;n#children#0;n#AnchorPane#0;n#!!top" />
-                <element signature="n#Pane#1;n#children#0;n#AnchorPane#0;n#!!top" />
-                <element signature="n#Pane#2;n#children#0;n#AnchorPane#0;n#!!top" />
-                <element signature="n#Pane#3;n#children#0;n#AnchorPane#0;n#!!top" />
-                <element signature="n#Pane#4;n#children#0;n#AnchorPane#0;n#!!top" />
-                <element signature="n#Pane#5;n#children#0;n#AnchorPane#0;n#!!top" />
-                <element signature="n#Pane#6;n#children#0;n#AnchorPane#0;n#!!top" />
-                <element signature="n#Pane#7;n#children#0;n#AnchorPane#0;n#!!top" />
-                <element signature="n#Pane#9;n#children#0;n#AnchorPane#0;n#!!top" />
-                <element signature="n#Pane#10;n#children#0;n#AnchorPane#0;n#!!top" />
-                <element signature="n#Pane#11;n#children#0;n#AnchorPane#0;n#!!top" />
-                <element signature="n#Pane#12;n#children#0;n#AnchorPane#0;n#!!top" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Application/Controllers/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="265">
-              <caret line="1060" column="54" selection-start-line="1060" selection-start-column="54" selection-end-line="1060" selection-end-column="54" />
+            <state relative-caret-position="197">
+              <caret line="2016" lean-forward="true" selection-start-line="2016" selection-end-line="2016" />
               <folding>
-                <element signature="e#10208#15480#0" />
-                <element signature="e#10928#12755#0" />
-                <element signature="e#17989#19254#0" />
-                <element signature="e#19260#19422#0" />
-                <element signature="e#19481#20684#0" />
-                <element signature="e#19865#19866#0" expanded="true" />
-                <element signature="e#19929#19930#0" expanded="true" />
-                <element signature="e#20690#21389#0" />
-                <element signature="e#21395#22053#0" />
-                <element signature="e#22059#23552#0" />
-                <element signature="e#23558#23702#0" />
-                <element signature="e#23709#24522#0" />
-                <element signature="e#24528#24723#0" />
-                <element signature="e#24724#32291#0" />
-                <element signature="e#32292#37251#0" />
-                <element signature="e#35878#35879#0" expanded="true" />
-                <element signature="e#35950#35951#0" expanded="true" />
-                <element signature="e#37299#37823#0" />
-                <element signature="e#37829#37985#0" />
-                <element signature="e#37991#38161#0" />
-                <element signature="e#38167#38326#0" />
-                <element signature="e#38332#39026#0" />
-                <element signature="e#39201#41898#0" />
-                <element signature="e#42873#49327#0" />
-                <element signature="e#49333#50913#0" />
-                <element signature="e#50919#52339#0" />
-                <element signature="e#52345#53946#0" />
-                <element signature="e#53952#55791#0" />
+                <element signature="e#20864#20865#0" expanded="true" />
+                <element signature="e#20928#20929#0" expanded="true" />
+                <element signature="e#36860#36861#0" expanded="true" />
+                <element signature="e#36932#36933#0" expanded="true" />
+                <element signature="e#53372#55211#0" />
+                <element signature="e#55217#55381#0" />
+                <element signature="e#55387#56530#0" />
+                <element signature="e#56536#56828#0" />
+                <element signature="e#56834#58668#0" />
+                <element signature="e#57692#58662#1" />
+                <element signature="e#58674#61499#0" />
+                <element signature="e#61505#62395#0" />
+                <element signature="e#62401#63271#0" />
+                <element signature="e#63277#67263#0" />
+                <element signature="e#67438#68052#0" />
+                <element signature="e#68058#70436#0" />
+                <element signature="e#70442#72658#0" />
+                <element signature="e#72664#78643#0" />
+                <element signature="e#78743#80716#0" />
+                <element signature="e#79504#80632#1" />
+                <element signature="e#81124#81259#0" />
+                <element signature="e#81265#81904#0" />
+                <element signature="e#81910#85878#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Application/Views/Profile.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder" />
+        <entry file="file://$PROJECT_DIR$/src/Application/Controllers/ProfileController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-63">
-              <caret line="49" column="17" selection-start-line="49" selection-start-column="17" selection-end-line="49" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Application/Views/GestionGroupe.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder" />
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1802">
-              <caret line="106" column="20" selection-start-line="106" selection-start-column="20" selection-end-line="113" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Application/Controllers/AjoutActualiteController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="38" column="48" selection-start-line="38" selection-start-column="48" selection-end-line="38" selection-end-column="48" />
+            <state relative-caret-position="2040">
+              <caret line="231" column="14" lean-forward="true" selection-start-line="231" selection-start-column="14" selection-end-line="231" selection-end-column="14" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Application/Controllers/GestionGroupeController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="277">
+              <caret line="254" column="37" lean-forward="true" selection-start-line="250" selection-start-column="27" selection-end-line="254" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -189,14 +148,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>actual</find>
-      <find>bold</find>
-      <find>actua</find>
-      <find>test</find>
-      <find>url</find>
-      <find>Close</find>
-      <find>btnClose_clicked</find>
-      <find>ajouter</find>
       <find>sqlcom</find>
       <find>refresh_click</find>
       <find>ajoutmatiere_clicked</find>
@@ -217,8 +168,16 @@
       <find>Refresh_</find>
       <find>btn_AjoutNews_click</find>
       <find>PaneProfil</find>
-      <find>profil</find>
       <find>btnProfil_etd</find>
+      <find>group</find>
+      <find>string.</find>
+      <find>string_format</find>
+      <find>MOdifier_ens</find>
+      <find>update</find>
+      <find>update Professeur</find>
+      <find>ini</find>
+      <find>update pro</find>
+      <find>profil</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -268,12 +227,12 @@
         <option value="$PROJECT_DIR$/src/Application/Models/GestionMatiereViewModel.java" />
         <option value="$PROJECT_DIR$/src/Application/Views/GestionMatiere.fxml" />
         <option value="$PROJECT_DIR$/src/Application/Controllers/GestionMatiereController.java" />
-        <option value="$PROJECT_DIR$/src/Application/Data/Gestionnaire_De_Connection.java" />
         <option value="$PROJECT_DIR$/src/Application/Controllers/ProfileController.java" />
         <option value="$PROJECT_DIR$/src/Application/Views/Profile.fxml" />
         <option value="$PROJECT_DIR$/src/Application/Controllers/AjoutActualiteController.java" />
         <option value="$PROJECT_DIR$/src/Application/Views/GestionGroupe.fxml" />
         <option value="$PROJECT_DIR$/src/Application/Views/Home.fxml" />
+        <option value="$PROJECT_DIR$/src/Application/Data/Gestionnaire_De_Connection.java" />
         <option value="$PROJECT_DIR$/src/Application/Controllers/Controller.java" />
       </list>
     </option>
@@ -285,7 +244,7 @@
     </treeState>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="30" />
     <option name="y" value="2" />
     <option name="width" value="978" />
@@ -302,7 +261,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -319,6 +277,18 @@
               <item name="AppGestionScolarite" type="b2602c69:ProjectViewProjectNode" />
               <item name="RestaurantMgt" type="47feb1d3:ProjectViewModuleNode" />
               <item name="AppGestionScolarite" type="462c0819:PsiDirectoryNode" />
+              <item name="DataBase" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AppGestionScolarite" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RestaurantMgt" type="47feb1d3:ProjectViewModuleNode" />
+              <item name="AppGestionScolarite" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AppGestionScolarite" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RestaurantMgt" type="47feb1d3:ProjectViewModuleNode" />
+              <item name="AppGestionScolarite" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -334,7 +304,7 @@
               <item name="AppGestionScolarite" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Application" type="462c0819:PsiDirectoryNode" />
-              <item name="Views" type="462c0819:PsiDirectoryNode" />
+              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="AppGestionScolarite" type="b2602c69:ProjectViewProjectNode" />
@@ -348,6 +318,7 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -378,21 +349,21 @@
     <property name="settings.editor.selected.configurable" value="configurable.group.language" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\lenovo\Documents\GitHub\AppGestionScolarite\src\resources" />
-      <recent name="C:\Users\pc\Desktop\RestaurantMgtSampleUI-master\src\Application\Views" />
-      <recent name="C:\Users\pc\Desktop\RestaurantMgtSampleUI-master\src\resources\Styles" />
-      <recent name="C:\Users\pc\Desktop\RestaurantMgtSampleUI-master\src\images\HboxIcons" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="Application.Controllers" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\lenovo\Documents\GitHub\AppGestionScolarite\src\resources" />
       <recent name="C:\Users\pc\Desktop\RestaurantMgtSampleUI-master\src\resources\images" />
       <recent name="C:\Users\pc\Desktop\RestaurantMgtSampleUI-master\src\resources\Styles" />
       <recent name="C:\Users\pc\Desktop\RestaurantMgtSampleUI-master\src\resources\images\LoginIcons" />
       <recent name="C:\Users\pc\Desktop\RestaurantMgtSampleUI-master\src\Application\Views" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="Application.Controllers" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\lenovo\Documents\GitHub\AppGestionScolarite\src\resources" />
+      <recent name="C:\Users\pc\Desktop\RestaurantMgtSampleUI-master\src\Application\Views" />
+      <recent name="C:\Users\pc\Desktop\RestaurantMgtSampleUI-master\src\resources\Styles" />
+      <recent name="C:\Users\pc\Desktop\RestaurantMgtSampleUI-master\src\images\HboxIcons" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -415,6 +386,18 @@
       <option name="scope" value="ALL" />
       <option name="testName" />
       <method />
+    </configuration>
+    <configuration default="true" type="TestNG">
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
@@ -455,18 +438,6 @@
       <option name="TEST_SEARCH_SCOPE">
         <value defaultName="moduleWithDependencies" />
       </option>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="TestNG">
-      <option name="TEST_OBJECT" value="CLASS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <properties />
-      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -525,11 +496,13 @@
       <workItem from="1592146191972" duration="475000" />
       <workItem from="1592146716403" duration="7598000" />
       <workItem from="1592176770472" duration="2412000" />
+      <workItem from="1592177134957" duration="707000" />
+      <workItem from="1592223253138" duration="22159000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="317156000" />
+    <option name="totallyTimeSpent" value="340022000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -543,7 +516,7 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" weight="0.098971725" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.18508998" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -553,7 +526,46 @@
       <window_info id="Learn" order="7" />
       <window_info anchor="bottom" id="Terminal" order="0" weight="0.32839838" />
       <window_info anchor="bottom" id="Message" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4986577" visible="true" weight="0.30972221" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4986577" visible="true" weight="0.047106326" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.16944444" />
+      <window_info anchor="bottom" id="Find" order="4" />
+      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32839838" />
+      <window_info anchor="bottom" id="Inspection" order="7" weight="0.4" />
+      <window_info anchor="bottom" id="Application Servers" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5013423" side_tool="true" weight="0.3895184" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.16689098" />
+      <window_info anchor="bottom" id="Problems" order="11" />
+      <window_info anchor="bottom" id="Changes" order="12" />
+      <window_info anchor="bottom" id="Version Control" order="13" />
+      <window_info anchor="bottom" id="Profiler" order="14" />
+      <window_info anchor="bottom" id="Docker" order="15" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="16" />
+      <window_info anchor="bottom" id="Thumbnails" order="17" weight="0.3286119" />
+      <window_info anchor="right" id="Capture Analysis" order="0" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" id="Palette&#9;" order="2" />
+      <window_info anchor="right" id="Theme Preview" order="3" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="4" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="5" weight="0.25" />
+      <window_info anchor="right" id="JetGradle" order="6" />
+      <window_info anchor="right" id="Maven Projects" order="7" />
+      <window_info anchor="right" id="Database" order="8" weight="0.32969153" />
+      <window_info anchor="right" id="Palette" order="9" />
+      <window_info anchor="right" id="Maven" order="10" weight="0.3295302" />
+    </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.18508998" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="UI Designer" order="3" />
+      <window_info id="Capture Tool" order="4" />
+      <window_info id="Image Layers" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info id="Learn" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="0" weight="0.32839838" />
+      <window_info anchor="bottom" id="Message" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4986577" visible="true" weight="0.30955586" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.16944444" />
       <window_info anchor="bottom" id="Find" order="4" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
@@ -580,45 +592,6 @@
       <window_info anchor="right" id="Database" order="8" weight="0.32969153" />
       <window_info anchor="right" id="Palette" order="9" />
       <window_info anchor="right" id="Maven" order="10" weight="0.3295302" />
-    </layout>
-    <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" weight="0.19597316" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Designer" order="2" />
-      <window_info id="UI Designer" order="3" />
-      <window_info id="Capture Tool" order="4" />
-      <window_info id="Image Layers" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info id="Learn" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="0" weight="0.32916668" />
-      <window_info anchor="bottom" id="Message" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4993573" visible="true" weight="0.22804533" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.17083333" />
-      <window_info anchor="bottom" id="Find" order="4" />
-      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Inspection" order="7" weight="0.4" />
-      <window_info anchor="bottom" id="Application Servers" order="8" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50064266" side_tool="true" weight="0.21805556" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.3472222" />
-      <window_info anchor="bottom" id="Problems" order="11" />
-      <window_info anchor="bottom" id="Changes" order="12" />
-      <window_info anchor="bottom" id="Version Control" order="13" />
-      <window_info anchor="bottom" id="Profiler" order="14" />
-      <window_info anchor="bottom" id="Docker" order="15" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" order="16" />
-      <window_info anchor="bottom" id="Thumbnails" order="17" weight="0.3286119" />
-      <window_info anchor="right" id="Capture Analysis" order="0" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" id="Palette&#9;" order="2" />
-      <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="4" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="5" weight="0.25" />
-      <window_info anchor="right" id="JetGradle" order="6" />
-      <window_info anchor="right" id="Maven Projects" order="7" />
-      <window_info anchor="right" id="Database" order="8" weight="0.32969153" />
-      <window_info anchor="right" id="Palette" order="9" />
-      <window_info anchor="right" id="Maven" order="10" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -736,9 +709,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DataBase/Capture2.PNG">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Application/Models/GestionProfViewModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -761,17 +731,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Application/Models/gestionGroupeViewModel.java" />
-    <entry file="file://$PROJECT_DIR$/src/Application/Controllers/GestionBrancheController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="57" column="4" selection-start-line="57" selection-start-column="4" selection-end-line="120" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#btnClose_clicked#0;class#GestionBrancheController#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Application/Models/GestionMatiereViewModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -800,13 +759,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/Views/GestionBranche.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="39" column="26" lean-forward="true" selection-start-line="33" selection-start-column="12" selection-end-line="39" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Application/Controllers/GestionMatiereController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="301">
@@ -820,50 +772,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/Controllers/ProfileController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="257" column="9" selection-start-line="164" selection-start-column="8" selection-end-line="257" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3516#5435#1" />
-            <element signature="e#5541#7021#1" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/Controllers/GestionGroupeController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-191">
-          <caret line="240" column="55" selection-start-line="240" selection-start-column="28" selection-end-line="240" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/Data/Gestionnaire_De_Connection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="10" column="38" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Application/Views/GestionMatiere.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="326">
           <caret line="35" column="86" selection-start-line="35" selection-start-column="86" selection-end-line="35" selection-end-column="86" />
         </state>
       </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Application/Views/Profile.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-63">
+        <state relative-caret-position="833">
           <caret line="49" column="17" selection-start-line="49" selection-start-column="17" selection-end-line="49" selection-end-column="17" />
         </state>
       </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/Views/GestionGroupe.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="636">
+          <caret line="106" column="20" selection-start-line="106" selection-start-column="20" selection-end-line="113" selection-end-column="28" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Application/Controllers/AjoutActualiteController.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -875,72 +806,99 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/Views/GestionGroupe.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
+    <entry file="file://$PROJECT_DIR$/DataBase/Gestion_Scolarite.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1802">
-          <caret line="106" column="20" selection-start-line="106" selection-start-column="20" selection-end-line="113" selection-end-column="28" />
-        </state>
+        <state relative-caret-position="-3213" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Application/Views/Home.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="781" column="136" selection-start-line="781" selection-start-column="136" selection-end-line="781" selection-end-column="136" />
+        <state relative-caret-position="136">
+          <caret line="1011" column="66" selection-start-line="1011" selection-start-column="61" selection-end-line="1011" selection-end-column="66" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/Data/Gestionnaire_De_Connection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="559">
+          <caret line="37" selection-start-line="37" selection-end-line="37" />
           <folding>
-            <element signature="n#VBox#0;n#children#0;n#AnchorPane#0;n#!!top" />
-            <element signature="n#Button#0;n#children#0;n#AnchorPane#0;n#!!top" />
-            <element signature="n#Button#1;n#children#0;n#AnchorPane#0;n#!!top" />
-            <element signature="n#Pane#0;n#children#0;n#AnchorPane#0;n#!!top" />
-            <element signature="n#Pane#1;n#children#0;n#AnchorPane#0;n#!!top" />
-            <element signature="n#Pane#2;n#children#0;n#AnchorPane#0;n#!!top" />
-            <element signature="n#Pane#3;n#children#0;n#AnchorPane#0;n#!!top" />
-            <element signature="n#Pane#4;n#children#0;n#AnchorPane#0;n#!!top" />
-            <element signature="n#Pane#5;n#children#0;n#AnchorPane#0;n#!!top" />
-            <element signature="n#Pane#6;n#children#0;n#AnchorPane#0;n#!!top" />
-            <element signature="n#Pane#7;n#children#0;n#AnchorPane#0;n#!!top" />
-            <element signature="n#Pane#9;n#children#0;n#AnchorPane#0;n#!!top" />
-            <element signature="n#Pane#10;n#children#0;n#AnchorPane#0;n#!!top" />
-            <element signature="n#Pane#11;n#children#0;n#AnchorPane#0;n#!!top" />
-            <element signature="n#Pane#12;n#children#0;n#AnchorPane#0;n#!!top" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/Views/GestionBranche.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="359">
+          <caret line="39" column="26" lean-forward="true" selection-start-line="33" selection-start-column="12" selection-end-line="39" selection-end-column="26" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/Controllers/GestionBrancheController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="89" column="20" selection-start-line="89" selection-start-column="20" selection-end-line="89" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#btnClose_clicked#0;class#GestionBrancheController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataBase/Capture2.PNG">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataBase/diagram Use Case.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/Controllers/GestionGroupeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="254" column="37" lean-forward="true" selection-start-line="250" selection-start-column="27" selection-end-line="254" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/Controllers/ProfileController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2040">
+          <caret line="231" column="14" lean-forward="true" selection-start-line="231" selection-start-column="14" selection-end-line="231" selection-end-column="14" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Application/Controllers/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
-          <caret line="1060" column="54" selection-start-line="1060" selection-start-column="54" selection-end-line="1060" selection-end-column="54" />
+        <state relative-caret-position="197">
+          <caret line="2016" lean-forward="true" selection-start-line="2016" selection-end-line="2016" />
           <folding>
-            <element signature="e#10208#15480#0" />
-            <element signature="e#10928#12755#0" />
-            <element signature="e#17989#19254#0" />
-            <element signature="e#19260#19422#0" />
-            <element signature="e#19481#20684#0" />
-            <element signature="e#19865#19866#0" expanded="true" />
-            <element signature="e#19929#19930#0" expanded="true" />
-            <element signature="e#20690#21389#0" />
-            <element signature="e#21395#22053#0" />
-            <element signature="e#22059#23552#0" />
-            <element signature="e#23558#23702#0" />
-            <element signature="e#23709#24522#0" />
-            <element signature="e#24528#24723#0" />
-            <element signature="e#24724#32291#0" />
-            <element signature="e#32292#37251#0" />
-            <element signature="e#35878#35879#0" expanded="true" />
-            <element signature="e#35950#35951#0" expanded="true" />
-            <element signature="e#37299#37823#0" />
-            <element signature="e#37829#37985#0" />
-            <element signature="e#37991#38161#0" />
-            <element signature="e#38167#38326#0" />
-            <element signature="e#38332#39026#0" />
-            <element signature="e#39201#41898#0" />
-            <element signature="e#42873#49327#0" />
-            <element signature="e#49333#50913#0" />
-            <element signature="e#50919#52339#0" />
-            <element signature="e#52345#53946#0" />
-            <element signature="e#53952#55791#0" />
+            <element signature="e#20864#20865#0" expanded="true" />
+            <element signature="e#20928#20929#0" expanded="true" />
+            <element signature="e#36860#36861#0" expanded="true" />
+            <element signature="e#36932#36933#0" expanded="true" />
+            <element signature="e#53372#55211#0" />
+            <element signature="e#55217#55381#0" />
+            <element signature="e#55387#56530#0" />
+            <element signature="e#56536#56828#0" />
+            <element signature="e#56834#58668#0" />
+            <element signature="e#57692#58662#1" />
+            <element signature="e#58674#61499#0" />
+            <element signature="e#61505#62395#0" />
+            <element signature="e#62401#63271#0" />
+            <element signature="e#63277#67263#0" />
+            <element signature="e#67438#68052#0" />
+            <element signature="e#68058#70436#0" />
+            <element signature="e#70442#72658#0" />
+            <element signature="e#72664#78643#0" />
+            <element signature="e#78743#80716#0" />
+            <element signature="e#79504#80632#1" />
+            <element signature="e#81124#81259#0" />
+            <element signature="e#81265#81904#0" />
+            <element signature="e#81910#85878#0" />
           </folding>
         </state>
       </provider>

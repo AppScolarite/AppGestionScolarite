@@ -2,6 +2,7 @@ package Application.Data;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.Statement;
 
 public class Gestionnaire_De_Connection {
 
@@ -33,4 +34,6 @@ public class Gestionnaire_De_Connection {
 
         return connection;
     }
+
+
 }
