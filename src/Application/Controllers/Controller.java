@@ -354,11 +354,18 @@ public class Controller implements Initializable {
 
     @FXML
     private ComboBox<String> combo_situation;
-    ObservableList<String> St_list = FXCollections.observableArrayList();
+    ObservableList<String> St_list = FXCollections.observableArrayList("Célibataire","Marié(e)","Divorcé(e)");
+
+
 
     @FXML
     private ComboBox<String> combo_contrat;
-    ObservableList<String> Ct_list = FXCollections.observableArrayList();
+    ObservableList<String> Ct_list = FXCollections.observableArrayList("CDD","CDI");
+
+
+
+
+
 
     @FXML
     private Text txt_sexe_esg;
@@ -378,12 +385,7 @@ public class Controller implements Initializable {
     private Gestionnaire_De_Connection gestionnaire_de_connection = new Gestionnaire_De_Connection();
 
     //************************
-
-
-
-
-
-    //***************** Gestion des notes *********
+   //***************** Gestion des notes *********
 
     @FXML
     private Pane panelNotesProf;
@@ -515,7 +517,6 @@ public class Controller implements Initializable {
                         String.format("select * from etudiant  where code_massar = '" + Gestionnaire_De_Connection.etudiant_connecte + "'")
                 );
                 if (rs.next()) {
-                    System.out.println("gdsgd");
                     cne_etd.setText(rs.getString("code_massar"));
                     complet_etd.setText(rs.getString("Nom") + " " + rs.getString("Prenom"));
                     email_etd.setText(rs.getString("email"));
@@ -552,8 +553,8 @@ public class Controller implements Initializable {
         if (Gestionnaire_De_Connection.prof_connecte != null) {
             System.out.println(Gestionnaire_De_Connection.prof_connecte);
             System.out.println(Gestionnaire_De_Connection.nom_connecte);
-
             try {
+
                 Pane_ensg.toFront();
                 Connection con = gestionnaire_de_connection.getConnection();
                 String sql = "SELECT  * FROM PROFESSEUR where Code_Pro_Nationnal = '" + Gestionnaire_De_Connection.prof_connecte + "'";
@@ -564,37 +565,39 @@ public class Controller implements Initializable {
                     complet_esg.setText(rs.getString("Nom") + " " + rs.getString("Prenom"));
                     date_naiss_esg.setValue(LocalDate.parse(rs.getString("date_naissance")));
                     date_ctr_esg.setValue(LocalDate.parse(rs.getString("Date_Commencement_Contrat")));
-
-
-                    String req = " select Type_Contrat from PROFESSEUR where Code_Pro_Nationnal = '" + Gestionnaire_De_Connection.prof_connecte + "'";
-                    ResultSet resultSet=con.createStatement().executeQuery(sql);
-                    while (rs.next()) {
-                        Ct_list.add(rs.getString("libelle_branche"));
-                    }
-                    combo_contrat.setItems(Ct_list);
-
                     email_esg.setText(rs.getString("email"));
                     tel_esg.setText(rs.getString("telephone"));
                     txt_sexe_esg.setText(rs.getString("sexe"));
                     adr_esg.setText(rs.getString("adresse"));
+                    user_txt_esg.setText(rs.getString("username"));
+                    pw_txt_esg.setText(rs.getString("mot_de_passe"));
 
-                    String re = " select Situation_Familliale from PROFESSEUR where Code_Pro_Nationnal = '" + Gestionnaire_De_Connection.prof_connecte + "'";
-                    ResultSet result=con.createStatement().executeQuery(sql);
-                    while (rs.next()) {
-                        St_list.add(rs.getString("libelle_branche"));
+
+                    Connection cn = gestionnaire_de_connection.getConnection();
+                    String re = "  select Situation_Familliale from PROFESSEUR where Code_Pro_Nationnal = '" + Gestionnaire_De_Connection.prof_connecte + "'";
+                    ResultSet result=cn.createStatement().executeQuery(re);
+                    if (result.next()) {
+                        combo_situation.setPromptText(result.getString("Situation_Familliale"));
+
                     }
                     combo_situation.setItems(St_list);
 
-                    user_txt_esg.setText(rs.getString("username"));
-                    pw_txt_esg.setText(rs.getString("mot_de_passe"));
+
+                    Connection conx = gestionnaire_de_connection.getConnection();
+                    String req = " select Type_Contrat from PROFESSEUR where Code_Pro_Nationnal = '" + Gestionnaire_De_Connection.prof_connecte + "'";
+                    ResultSet resultSet=conx.createStatement().executeQuery(req);
+                    if (resultSet.next()) {
+                        Ct_list.add(resultSet.getString("Type_Contrat"));
+                        combo_contrat.setPromptText(result.getString("Type_Contrat"));
+                    }
+                    combo_contrat.setItems(Ct_list);
+
+
                 }
             } catch (Exception e) {
                 // TODO: handle exception
             }
-            //
-
-
-        }
+          }
         //Si le personnel qui est connecté
         if (Gestionnaire_De_Connection.personnel_connecte != 0) {
             System.out.println(Gestionnaire_De_Connection.personnel_connecte);
@@ -1971,13 +1974,18 @@ public class Controller implements Initializable {
             preparedStatement.setDate(2, java.sql.Date.valueOf(date_ctr_esg.getValue()));
             preparedStatement.setString(3, email_esg.getText());
             preparedStatement.setString(4, tel_esg.getText());
-            preparedStatement.setString(5, txtEmail.getText());
-            preparedStatement.setString(6, txtTel.getText());
-            preparedStatement.setString(7, adr_esg.getText());
-            if (combo_contrat.getSelectionModel().getSelectedIndex() + 1 == 1) {
-                preparedStatement.setString(8, "CDD");
-            } else preparedStatement.setString(8, "CDI");
+            preparedStatement.setString(5, adr_esg.getText());
+            preparedStatement.setString(6, user_txt_esg.getText());
+            preparedStatement.setString(7, pw_txt_esg.getText());
+            preparedStatement.setString(8, combo_contrat.getSelectionModel().toString());
+            preparedStatement.setString(9, combo_situation.getSelectionModel().toString());
 
+
+            //if (combo_situation.getSelectionModel().getSelectedIndex() + 1 == 1) {
+               // preparedStatement.setString(9, "CDD");
+           // } else preparedStatement.setString(9, "CDI");
+
+            preparedStatement.setString(10, code_esg.getText());
 
             preparedStatement.executeUpdate();
             System.out.println("modifié");
@@ -1992,10 +2000,10 @@ public class Controller implements Initializable {
                 date_ctr_esg.setValue(LocalDate.parse(rs.getString("Date_Commencement_Contrat")));
 
 
-                String req = " select Type_Contrat from PROFESSEUR where Code_Pro_Nationnal = '" + Gestionnaire_De_Connection.prof_connecte + "'";
+                String req = " select Type_Contrat from PROFESSEUR";
                 ResultSet resultSet=cnx.createStatement().executeQuery(sql);
                 while (rs.next()) {
-                    Ct_list.add(rs.getString("libelle_branche"));
+                    Ct_list.add(rs.getString("Type_Contrat"));
                 }
                 combo_contrat.setItems(Ct_list);
 
@@ -2004,10 +2012,10 @@ public class Controller implements Initializable {
                 txt_sexe_esg.setText(rs.getString("sexe"));
                 adr_esg.setText(rs.getString("adresse"));
 
-                String re = " select Situation_Familliale from PROFESSEUR where Code_Pro_Nationnal = '" + Gestionnaire_De_Connection.prof_connecte + "'";
+                String re = " select Situation_Familliale from PROFESSEUR ";
                 ResultSet result=cnx.createStatement().executeQuery(sql);
                 while (rs.next()) {
-                    St_list.add(rs.getString("libelle_branche"));
+                    St_list.add(rs.getString("Situation_Familliale"));
                 }
                 combo_situation.setItems(St_list);
 
@@ -2029,7 +2037,7 @@ public class Controller implements Initializable {
             Statement stm = cnx.createStatement();
 
             PreparedStatement preparedStatement = cnx.prepareStatement("UPDATE Etudiant SET  date_naissance = ?, date_inscription = ? ," +
-                    " email = ?, telephone = ?, a_deja_redouble = ? , Adresse = ?, username= ?, mot_de_passe= ? WHERE code_massar = ?");
+                    " email = ?, telephone = ?, Adresse = ?, username= ?, mot_de_passe= ? ,a_deja_redouble=?  WHERE code_massar = ?");
             preparedStatement.setDate(1, java.sql.Date.valueOf(date_naiss_etd.getValue()));
             preparedStatement.setDate(2, java.sql.Date.valueOf(date_insc_etd.getValue()));
             preparedStatement.setString(3, email_etd.getText());
@@ -2037,6 +2045,10 @@ public class Controller implements Initializable {
             preparedStatement.setString(5, adr_etd.getText());
             preparedStatement.setString(6, user_txt.getText());
             preparedStatement.setString(7, pw_txt.getText());
+            if(ck_redouble.isSelected())
+            preparedStatement.setString(8, "True");
+            else  preparedStatement.setString(8, "False");
+            preparedStatement.setString(9, cne_etd.getText());
             preparedStatement.executeUpdate();
             System.out.println("modifié");
             // actualiser
@@ -2054,6 +2066,49 @@ public class Controller implements Initializable {
                 user_txt.setText(rs.getString("username"));
                 pw_txt.setText(rs.getString("mot_de_passe"));
             }
+        }
+    }
+
+    @FXML
+    void Modifier_Personnel(ActionEvent event) throws Exception
+    {
+        if (Gestionnaire_De_Connection.personnel_connecte != 0) {
+            int id=Gestionnaire_De_Connection.personnel_connecte;
+            Connection cnx = gestionnaire_de_connection.getConnection();
+            Statement stm = cnx.createStatement();
+
+            PreparedStatement preparedStatement = cnx.prepareStatement("UPDATE PERSONNEL SET  date_naissance_personnel = ?, email_personnel= ? ," +
+                    " telephone_personnel = ?,  Adresse = ?, username= ?, mot_de_passe= ?  WHERE id_personnel = ?");
+            preparedStatement.setDate(1, java.sql.Date.valueOf(date_naiss_admin.getValue()));
+            preparedStatement.setString(2, email_pers.getText());
+            preparedStatement.setString(3, tel_pers.getText());
+            preparedStatement.setString(4, adresse_pers.getText());
+            preparedStatement.setString(5, user_txt_pers.getText());
+            preparedStatement.setString(6, pw_txt_pers.getText());
+            preparedStatement.setInt(7,id );
+
+            preparedStatement.executeUpdate();
+            System.out.println("modifié");
+            //actualiser
+            String sql = "SELECT  * FROM PERSONNEL  where id_personnel= '" + Gestionnaire_De_Connection.personnel_connecte + "'";
+            ResultSet rs = cnx.createStatement().executeQuery(sql);
+            if (rs.next()) {
+
+                complet_esg1.setText(rs.getString("nom_personnel") + " " + rs.getString("prenom_personnel"));
+                date_naiss_admin.setValue(LocalDate.parse(rs.getString("date_naissance_personnel")));
+                email_pers.setText(rs.getString("email_personnel"));
+                tel_pers.setText(rs.getString("telephone_personnel"));
+                txt_sexe_pers.setText(rs.getString("sexe"));
+                adresse_pers.setText(rs.getString("adresse"));
+                user_txt_pers.setText(rs.getString("username"));
+                pw_txt_pers.setText(rs.getString("mot_de_passe"));
+            }
+
+
+
+
+
+
 
 
 
@@ -2065,10 +2120,10 @@ public class Controller implements Initializable {
 
 
 
-    }
 
-    @FXML
-    void Modifier_Personnel(ActionEvent event) {
+
+
+
 
 
     }

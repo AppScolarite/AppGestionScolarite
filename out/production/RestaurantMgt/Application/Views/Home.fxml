@@ -783,164 +783,6 @@
                 </ToggleButton>
             </children>
         </Pane>
-        <Pane fx:id="Pane_etd" layoutX="287.0" layoutY="1.0" prefHeight="672.0" prefWidth="928.0" style="-fx-background-color: white;">
-            <children>
-                <Label fx:id="complet_etd" layoutX="59.0" layoutY="40.0" prefHeight="40.0" prefWidth="391.0" text="Nom+Prenom" textFill="#6f6f6f">
-                    <font>
-                        <Font size="28.0" />
-                    </font>
-                </Label>
-                <Label fx:id="cne_etd" layoutX="72.0" layoutY="88.0" text="CNE" textFill="#6f6f6f">
-                    <font>
-                        <Font size="20.0" />
-                    </font>
-                </Label>
-                <DatePicker fx:id="date_naiss_etd" layoutX="171.0" layoutY="167.0" prefHeight="35.0" prefWidth="191.0" style="-fx-border-color: #24ACF2;" />
-                <Label layoutX="26.0" layoutY="172.0" text="Date de naissance :" textFill="#6f6f6f">
-                    <font>
-                        <Font size="16.0" />
-                    </font>
-                </Label>
-                <Pane layoutX="456.0" layoutY="139.0" prefHeight="342.0" prefWidth="3.0" style="-fx-background-color: #24ACF2;" />
-                <DatePicker fx:id="date_insc_etd" layoutX="171.0" layoutY="212.0" prefHeight="35.0" prefWidth="191.0" style="-fx-border-color: #24ACF2;" />
-                <Label layoutX="26.0" layoutY="217.0" text="Date d'inscription :" textFill="#6f6f6f">
-                    <font>
-                        <Font size="16.0" />
-                    </font>
-                </Label>
-                <TextField fx:id="email_etd" layoutX="171.0" layoutY="258.0" prefHeight="35.0" prefWidth="191.0" style="-fx-border-color: #24ACF2;" />
-                <TextField fx:id="tel_etd" layoutX="171.0" layoutY="310.0" prefHeight="35.0" prefWidth="191.0" style="-fx-border-color: #24ACF2;" />
-                <Label layoutX="54.0" layoutY="268.0" text="Email :" textFill="#6f6f6f">
-                    <font>
-                        <Font size="16.0" />
-                    </font>
-                </Label>
-                <Label layoutX="35.0" layoutY="315.0" text="Téléphone :" textFill="#6f6f6f">
-                    <font>
-                        <Font size="16.0" />
-                    </font>
-                </Label>
-                <Label layoutX="562.0" layoutY="171.0" text="Sexe :" textFill="#6f6f6f">
-                    <font>
-                        <Font size="16.0" />
-                    </font>
-                </Label>
-                <Text fx:id="txt_sexe" layoutX="718.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Homme">
-                    <font>
-                        <Font size="17.0" />
-                    </font>
-                </Text>
-                <Label layoutX="551.0" layoutY="279.0" textFill="#6f6f6f">
-                    <font>
-                        <Font size="16.0" />
-                    </font>
-                </Label>
-                <TextField fx:id="adr_etd" layoutX="171.0" layoutY="364.0" prefHeight="78.0" prefWidth="191.0" style="-fx-border-color: #24ACF2;" />
-                <Label layoutX="54.0" layoutY="386.0" text="Adresse :" textFill="#6f6f6f">
-                    <font>
-                        <Font size="16.0" />
-                    </font>
-                </Label>
-                <Label layoutX="552.0" layoutY="217.0" text="Groupe :" textFill="#6f6f6f">
-                    <font>
-                        <Font size="16.0" />
-                    </font>
-                </Label>
-                <Label fx:id="txt_group" layoutX="715.0" layoutY="217.0" text="Groupe1">
-                    <font>
-                        <Font size="17.0" />
-                    </font>
-                </Label>
-                <TextField fx:id="user_txt" layoutX="677.0" layoutY="263.0" prefHeight="35.0" prefWidth="191.0" style="-fx-border-color: #24ACF2;" />
-                <TextField fx:id="pw_txt" layoutX="677.0" layoutY="310.0" prefHeight="35.0" prefWidth="191.0" style="-fx-border-color: #24ACF2;" />
-                <Label layoutX="515.0" layoutY="268.0" text="Nom d'utilisateur  :" textFill="#6f6f6f">
-                    <font>
-                        <Font size="16.0" />
-                    </font>
-                </Label>
-                <Label layoutX="539.0" layoutY="315.0" text="Mot de passe :" textFill="#6f6f6f">
-                    <font>
-                        <Font size="16.0" />
-                    </font>
-                </Label>
-                <CheckBox fx:id="ck_redouble" layoutX="649.0" layoutY="389.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="161.0" text="Redoublant ">
-                    <font>
-                        <Font size="14.0" />
-                    </font>
-                </CheckBox>
-            <Button fx:id="modifier_etd" layoutX="424.0" layoutY="529.0" mnemonicParsing="false" onAction="#Modifier_Etudiant" prefHeight="46.0" prefWidth="106.0" style="-fx-border-radius: 0; -fx-background-color: #24ACF2;" text="Modifier" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </Button>
-            </children>
-        </Pane>
-        <Pane fx:id="Pane_pers" layoutX="286.0" layoutY="-2.0" prefHeight="683.0" prefWidth="930.0" style="-fx-background-color: white;">
-            <children>
-                <ImageView fitHeight="129.0" fitWidth="143.0" layoutX="21.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@../../resources/images/Personne.png" />
-                    </image>
-                </ImageView>
-                <Label fx:id="complet_esg1" layoutX="182.0" layoutY="78.0" prefHeight="27.0" prefWidth="161.0" text="Nom+Prenom" textFill="#6f6f6f">
-                    <font>
-                        <Font size="18.0" />
-                    </font>
-                </Label>
-                <DatePicker fx:id="date_naiss_admin" layoutX="214.0" layoutY="205.0" prefHeight="35.0" prefWidth="191.0" style="-fx-border-color: #24ACF2;" />
-                <Label layoutX="51.0" layoutY="210.0" text="Date de naissance :" textFill="#6f6f6f">
-                    <font>
-                        <Font size="16.0" />
-                    </font>
-                </Label>
-                <Pane layoutX="473.0" layoutY="144.0" prefHeight="342.0" prefWidth="3.0" style="-fx-background-color: #24ACF2;" />
-                <Label layoutX="545.0" layoutY="245.0" text="Sexe :" textFill="#6f6f6f">
-                    <font>
-                        <Font size="16.0" />
-                    </font>
-                </Label>
-                <Text fx:id="txt_sexe_pers" layoutX="733.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Homme">
-                    <font>
-                        <Font size="18.0" />
-                    </font>
-                </Text>
-                <TextField fx:id="user_txt_pers" layoutX="666.0" layoutY="316.0" prefHeight="35.0" prefWidth="191.0" style="-fx-border-color: #24ACF2;" />
-                <TextField fx:id="pw_txt_pers" layoutX="666.0" layoutY="379.0" prefHeight="35.0" prefWidth="191.0" style="-fx-border-color: #24ACF2;" />
-                <Label layoutX="505.0" layoutY="321.0" text="Nom d'utilisateur  :" textFill="#6f6f6f">
-                    <font>
-                        <Font size="16.0" />
-                    </font>
-                </Label>
-                <Label layoutX="528.0" layoutY="384.0" text="Mot de passe :" textFill="#6f6f6f">
-                    <font>
-                        <Font size="16.0" />
-                    </font>
-                </Label>
-                <TextField fx:id="email_pers" layoutX="214.0" layoutY="268.0" prefHeight="35.0" prefWidth="191.0" style="-fx-border-color: #24ACF2;" />
-                <TextField fx:id="tel_pers" layoutX="214.0" layoutY="328.0" prefHeight="35.0" prefWidth="191.0" style="-fx-border-color: #24ACF2;" />
-                <Label layoutX="96.0" layoutY="273.0" text="Email :" textFill="#6f6f6f">
-                    <font>
-                        <Font size="16.0" />
-                    </font>
-                </Label>
-                <Label layoutX="76.0" layoutY="333.0" text="Téléphone:" textFill="#6f6f6f">
-                    <font>
-                        <Font size="16.0" />
-                    </font>
-                </Label>
-                <TextField fx:id="adresse_pers" layoutX="214.0" layoutY="378.0" prefHeight="78.0" prefWidth="191.0" style="-fx-border-color: #24ACF2;" />
-                <Label layoutX="76.0" layoutY="396.0" text="Adresse :" textFill="#6f6f6f">
-                    <font>
-                        <Font size="16.0" />
-                    </font>
-                </Label>
-            <Button fx:id="modifier_pers" layoutX="423.0" layoutY="527.0" mnemonicParsing="false" onAction="#Modifier_Personnel" prefHeight="46.0" prefWidth="106.0" style="-fx-border-radius: 0; -fx-background-color: #24ACF2;" text="Modifier" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </Button>
-            </children>
-        </Pane>
         <Pane fx:id="Pane_ensg" layoutX="285.0" layoutY="-1.0" prefHeight="686.0" prefWidth="929.0" style="-fx-background-color: white;">
             <children>
                 <ImageView fitHeight="150.0" fitWidth="161.0" layoutX="6.0" pickOnBounds="true" preserveRatio="true">
@@ -1033,6 +875,164 @@
             </Button>
             <ComboBox fx:id="combo_situation" layoutX="656.0" layoutY="275.0" prefHeight="32.0" prefWidth="191.0" style="-fx-border-color: #24ACF2;" />
             <ComboBox fx:id="combo_contrat" layoutX="656.0" layoutY="178.0" prefHeight="32.0" prefWidth="191.0" style="-fx-border-color: #24ACF2;" />
+            </children>
+        </Pane>
+        <Pane fx:id="Pane_pers" layoutX="286.0" layoutY="-2.0" prefHeight="683.0" prefWidth="930.0" style="-fx-background-color: white;">
+            <children>
+                <ImageView fitHeight="129.0" fitWidth="143.0" layoutX="21.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../resources/images/Personne.png" />
+                    </image>
+                </ImageView>
+                <Label fx:id="complet_esg1" layoutX="182.0" layoutY="78.0" prefHeight="27.0" prefWidth="161.0" text="Nom+Prenom" textFill="#6f6f6f">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <DatePicker fx:id="date_naiss_admin" layoutX="214.0" layoutY="205.0" prefHeight="35.0" prefWidth="191.0" style="-fx-border-color: #24ACF2;" />
+                <Label layoutX="51.0" layoutY="210.0" text="Date de naissance :" textFill="#6f6f6f">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </Label>
+                <Pane layoutX="473.0" layoutY="144.0" prefHeight="342.0" prefWidth="3.0" style="-fx-background-color: #24ACF2;" />
+                <Label layoutX="545.0" layoutY="245.0" text="Sexe :" textFill="#6f6f6f">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </Label>
+                <Text fx:id="txt_sexe_pers" layoutX="733.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Homme">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Text>
+                <TextField fx:id="user_txt_pers" layoutX="666.0" layoutY="316.0" prefHeight="35.0" prefWidth="191.0" style="-fx-border-color: #24ACF2;" />
+                <TextField fx:id="pw_txt_pers" layoutX="666.0" layoutY="379.0" prefHeight="35.0" prefWidth="191.0" style="-fx-border-color: #24ACF2;" />
+                <Label layoutX="505.0" layoutY="321.0" text="Nom d'utilisateur  :" textFill="#6f6f6f">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </Label>
+                <Label layoutX="528.0" layoutY="384.0" text="Mot de passe :" textFill="#6f6f6f">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="email_pers" layoutX="214.0" layoutY="268.0" prefHeight="35.0" prefWidth="191.0" style="-fx-border-color: #24ACF2;" />
+                <TextField fx:id="tel_pers" layoutX="214.0" layoutY="328.0" prefHeight="35.0" prefWidth="191.0" style="-fx-border-color: #24ACF2;" />
+                <Label layoutX="96.0" layoutY="273.0" text="Email :" textFill="#6f6f6f">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </Label>
+                <Label layoutX="76.0" layoutY="333.0" text="Téléphone:" textFill="#6f6f6f">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="adresse_pers" layoutX="214.0" layoutY="378.0" prefHeight="78.0" prefWidth="191.0" style="-fx-border-color: #24ACF2;" />
+                <Label layoutX="76.0" layoutY="396.0" text="Adresse :" textFill="#6f6f6f">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </Label>
+            <Button fx:id="modifier_pers" layoutX="423.0" layoutY="527.0" mnemonicParsing="false" onAction="#Modifier_Personnel" prefHeight="46.0" prefWidth="106.0" style="-fx-border-radius: 0; -fx-background-color: #24ACF2;" text="Modifier" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            </children>
+        </Pane>
+        <Pane fx:id="Pane_etd" layoutX="287.0" layoutY="1.0" prefHeight="672.0" prefWidth="928.0" style="-fx-background-color: white;">
+            <children>
+                <Label fx:id="complet_etd" layoutX="59.0" layoutY="40.0" prefHeight="40.0" prefWidth="391.0" text="Nom+Prenom" textFill="#6f6f6f">
+                    <font>
+                        <Font size="28.0" />
+                    </font>
+                </Label>
+                <Label fx:id="cne_etd" layoutX="72.0" layoutY="88.0" text="CNE" textFill="#6f6f6f">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <DatePicker fx:id="date_naiss_etd" layoutX="171.0" layoutY="167.0" prefHeight="35.0" prefWidth="191.0" style="-fx-border-color: #24ACF2;" />
+                <Label layoutX="26.0" layoutY="172.0" text="Date de naissance :" textFill="#6f6f6f">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </Label>
+                <Pane layoutX="456.0" layoutY="139.0" prefHeight="342.0" prefWidth="3.0" style="-fx-background-color: #24ACF2;" />
+                <DatePicker fx:id="date_insc_etd" layoutX="171.0" layoutY="212.0" prefHeight="35.0" prefWidth="191.0" style="-fx-border-color: #24ACF2;" />
+                <Label layoutX="26.0" layoutY="217.0" text="Date d'inscription :" textFill="#6f6f6f">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="email_etd" layoutX="171.0" layoutY="258.0" prefHeight="35.0" prefWidth="191.0" style="-fx-border-color: #24ACF2;" />
+                <TextField fx:id="tel_etd" layoutX="171.0" layoutY="310.0" prefHeight="35.0" prefWidth="191.0" style="-fx-border-color: #24ACF2;" />
+                <Label layoutX="54.0" layoutY="268.0" text="Email :" textFill="#6f6f6f">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </Label>
+                <Label layoutX="35.0" layoutY="315.0" text="Téléphone :" textFill="#6f6f6f">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </Label>
+                <Label layoutX="562.0" layoutY="171.0" text="Sexe :" textFill="#6f6f6f">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </Label>
+                <Text fx:id="txt_sexe" layoutX="718.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Homme">
+                    <font>
+                        <Font size="17.0" />
+                    </font>
+                </Text>
+                <Label layoutX="551.0" layoutY="279.0" textFill="#6f6f6f">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="adr_etd" layoutX="171.0" layoutY="364.0" prefHeight="78.0" prefWidth="191.0" style="-fx-border-color: #24ACF2;" />
+                <Label layoutX="54.0" layoutY="386.0" text="Adresse :" textFill="#6f6f6f">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </Label>
+                <Label layoutX="552.0" layoutY="217.0" text="Groupe :" textFill="#6f6f6f">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </Label>
+                <Label fx:id="txt_group" layoutX="715.0" layoutY="217.0" text="Groupe1">
+                    <font>
+                        <Font size="17.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="user_txt" layoutX="677.0" layoutY="263.0" prefHeight="35.0" prefWidth="191.0" style="-fx-border-color: #24ACF2;" />
+                <TextField fx:id="pw_txt" layoutX="677.0" layoutY="310.0" prefHeight="35.0" prefWidth="191.0" style="-fx-border-color: #24ACF2;" />
+                <Label layoutX="515.0" layoutY="268.0" text="Nom d'utilisateur  :" textFill="#6f6f6f">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </Label>
+                <Label layoutX="539.0" layoutY="315.0" text="Mot de passe :" textFill="#6f6f6f">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </Label>
+                <CheckBox fx:id="ck_redouble" layoutX="649.0" layoutY="389.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="161.0" text="Redoublant ">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </CheckBox>
+            <Button fx:id="modifier_etd" layoutX="424.0" layoutY="529.0" mnemonicParsing="false" onAction="#Modifier_Etudiant" prefHeight="46.0" prefWidth="106.0" style="-fx-border-radius: 0; -fx-background-color: #24ACF2;" text="Modifier" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
             </children>
         </Pane>
 
