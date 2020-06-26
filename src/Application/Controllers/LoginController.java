@@ -13,8 +13,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -37,7 +40,7 @@ import java.util.logging.Logger;
 public class LoginController implements Initializable {
 
     @FXML
-    private Button btnClose;
+    private ImageView btnClose;
     @FXML
     private Button btnSignup;
     @FXML
@@ -50,9 +53,8 @@ public class LoginController implements Initializable {
     private Label wrongLbl;
 
 
-
     @FXML
-    public void CLose_Login_CLick() {
+    public void CLose_Login_CLick(MouseEvent e) {
         Stage stage = (Stage) btnClose.getScene().getWindow();
         stage.close();
     }
@@ -84,11 +86,17 @@ public class LoginController implements Initializable {
                 Gestionnaire_De_Connection.etudiant_connecte = Reader.getString("code_massar");
                 Gestionnaire_De_Connection.nom_connecte = Reader.getString("nomEtudiant");
                 URL url = new File("src/Application/Views/Home.fxml").toURI().toURL();
+
                 Parent root = FXMLLoader.load(url);
+                Scene scene = new Scene(root);
+                scene.setFill(Color.valueOf("transparent"));
+
                 Stage stage = new Stage();
-                stage.setScene(new Scene(root));
+                stage.initStyle(StageStyle.TRANSPARENT);
+                stage.setScene(scene);
+
                 stage.getIcons().add(new Image(getClass().getResourceAsStream("../../resources/images/LoginIcons/icons8_Google_Wallet_50px.png")));
-                stage.initStyle(StageStyle.UNDECORATED);
+//                stage.initStyle(StageStyle.UNDECORATED);
 
                 Stage stage2 = (Stage) btnSignup.getScene().getWindow();
                 stage2.close();
@@ -115,10 +123,14 @@ public class LoginController implements Initializable {
                 Gestionnaire_De_Connection.nom_connecte = resultSetP.getString("NomPersonnel");
                 URL url = new File("src/Application/Views/Home.fxml").toURI().toURL();
                 Parent root = FXMLLoader.load(url);
+                Scene scene = new Scene(root);
+                scene.setFill(Color.valueOf("transparent"));
+
                 Stage stage = new Stage();
-                stage.setScene(new Scene(root));
+                stage.initStyle(StageStyle.TRANSPARENT);
+                stage.setScene(scene);
                 stage.getIcons().add(new Image(getClass().getResourceAsStream("../../resources/images/LoginIcons/icons8_Google_Wallet_50px.png")));
-                stage.initStyle(StageStyle.UNDECORATED);
+//                stage.initStyle(StageStyle.UNDECORATED);
 
 
                 Stage stage2 = (Stage) btnSignup.getScene().getWindow();
@@ -146,10 +158,14 @@ public class LoginController implements Initializable {
                 Gestionnaire_De_Connection.nom_connecte = resultSetPr.getString("NomProf");
                 URL url = new File("src/Application/Views/Home.fxml").toURI().toURL();
                 Parent root = FXMLLoader.load(url);
+                Scene scene = new Scene(root);
+                scene.setFill(Color.valueOf("transparent"));
+
                 Stage stage = new Stage();
-                stage.setScene(new Scene(root));
+                stage.initStyle(StageStyle.TRANSPARENT);
+                stage.setScene(scene);
                 stage.getIcons().add(new Image(getClass().getResourceAsStream("../../resources/images/LoginIcons/icons8_Google_Wallet_50px.png")));
-                stage.initStyle(StageStyle.UNDECORATED);
+//                stage.initStyle(StageStyle.UNDECORATED);
 
                 Stage stage2 = (Stage) btnSignup.getScene().getWindow();
                 stage2.close();

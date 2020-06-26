@@ -1,0 +1,66 @@
+/*.text-field {*/
+/*    -fx-background-color: -fx-text-box-border, -fx-background;*/
+/*    -fx-background-insets: 0, 0 0 1 0;*/
+/*    -fx-background-radius: 0;*/
+/*    -fx-border-width: 0 0 1 0;*/
+/*}*/
+
+/*.text-field:focused {*/
+/*    -fx-background-color: -fx-focus-color, -fx-background;*/
+/*}*/
+
+.text-field {
+    /*-fx-border-color: grey;*/
+    -fx-border-width: 0 0 1 0;
+    -fx-background-color: transparent;
+    -fx-background-insets: 0, 0 0 1 0;
+
+}
+
+.text-field:focused {
+    -fx-background-color: -fx-focus-color, -fx-background;
+    -fx-border-color: #8560FF;
+}
+
+/***** text area ****/
+.text-area {
+    /*-fx-border-color: grey;*/
+    -fx-border-width: 0 0 1 0;
+    -fx-background-color: transparent;
+    -fx-background-insets: 0, 0 0 1 0;
+
+}
+
+.text-area:focused {
+    -fx-background-color: -fx-focus-color, -fx-background;
+    -fx-border-color: #8560FF;
+}
+
+/***** combo box ****/
+.combo-box {
+    /*-fx-border-color: grey;*/
+    -fx-border-width: 0 0 1 0;
+    -fx-background-color: transparent;
+    -fx-background-insets: 0, 0 0 1 0;
+
+}
+
+.combo-box:focused {
+    -fx-background-color: -fx-focus-color, -fx-background;
+    -fx-border-color: #8560FF;
+}
+
+/***** combo box ****/
+.my-date-picker {
+    /*-fx-border-color: grey;*/
+    -fx-border-width: 0 0 1 0;
+    -fx-background-color: transparent;
+    -fx-background-insets: 0, 0 0 1 0;
+
+}
+
+.my-date-picker:focused {
+    -fx-background-color: -fx-focus-color, -fx-background;
+    -fx-border-color: #8560FF;
+}
+

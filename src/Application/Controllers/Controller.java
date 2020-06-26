@@ -372,7 +372,7 @@ public class Controller implements Initializable {
     private TextField pw_txt_esg;
 
     @FXML
-    private TextField adr_esg;
+    private TextArea adr_esg;
 
     @FXML
     private Button modifier_esg;
@@ -502,6 +502,8 @@ public class Controller implements Initializable {
     //********************Profile Page *************
     @FXML
     private void profil_show() {
+        GererEffect(btnProfil_etd);
+
 //Si l'étudiant qui est connecté
         System.out.println(Gestionnaire_De_Connection.etudiant_connecte);
         if (Gestionnaire_De_Connection.etudiant_connecte != null) {
@@ -616,6 +618,8 @@ public class Controller implements Initializable {
                 // TODO: handle exception
             }
         }
+        btnClose.toFront();
+        btnMinimize.toFront();
     }
     //**********************************************
 
@@ -811,6 +815,7 @@ public class Controller implements Initializable {
 
     @FXML
     public void gestionProf_click() {
+        GererEffect(btnGestionProf);
         BindComboMatiere();
         BindComboGroupe();
         addProfPanel.toFront();
@@ -1061,6 +1066,7 @@ public class Controller implements Initializable {
 
     @FXML
     public void GestionNote_Click(ActionEvent event) {
+        GererEffect(btnListes);
         panelNotesProf.toFront();
         btnClose.toFront();
         btnMinimize.toFront();
@@ -1081,6 +1087,7 @@ public class Controller implements Initializable {
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
+        GererEffect(btnNotes);
         panelNotes.toFront();
         btnClose.toFront();
         btnMinimize.toFront();
@@ -1088,6 +1095,7 @@ public class Controller implements Initializable {
 
     @FXML
     public void panelGestionEtudiant_click(ActionEvent e) {
+        GererEffect(btnGestion);
         panelEtudiant.toFront();
         btnClose.toFront();
         btnMinimize.toFront();
@@ -1166,6 +1174,7 @@ public class Controller implements Initializable {
 
     @FXML
     public void statistiquePersonnel_Click(ActionEvent event) {
+        GererEffect(btnStatistiques);
         panelStatistiquesPersonnel.toFront();
         btnClose.toFront();
         btnMinimize.toFront();
@@ -1173,6 +1182,7 @@ public class Controller implements Initializable {
 
     @FXML
     private void btnStatistiquesetudiant_click(ActionEvent e) {
+        GererEffect(btnStatistiquesetudiant);
         panelStatistiques.toFront();
         btnClose.toFront();
         btnMinimize.toFront();
@@ -1434,9 +1444,24 @@ public class Controller implements Initializable {
         }
     }
 
+    private void GererEffect(Button buttonException) {
+        btnAccueil.setEffect(null);
+        btnProfil_etd.setEffect(null);
+        btnGestionProf.setEffect(null);
+        btnListes.setEffect(null);
+        btnStatistiques.setEffect(null);
+        btnGestion.setEffect(null);
+        btnStatistiquesetudiant.setEffect(null);
+        btnAlert.setEffect(null);
+        btnNotes.setEffect(null);
+
+        buttonException.setEffect(new DropShadow());
+    }
+
     @FXML
     private void btnAccueil_click() {
         Accueil_Load();
+        GererEffect(btnAccueil);
         panelAccueil.toFront();
         btnClose.toFront();
         btnMinimize.toFront();
@@ -1727,6 +1752,8 @@ public class Controller implements Initializable {
             CB_contrat.setItems(data);
             VboxMenu.getChildren().remove(btnListes);
             VboxMenu.getChildren().remove(btnAlert);
+            VboxMenu.getChildren().remove(btnGestion);
+            VboxMenu.getChildren().remove(btnStatistiquesetudiant);
             btnGestionProf.setVisible(true);
             btnGestion.setVisible(true);
             btnStatistiques.setVisible(true);
@@ -2081,6 +2108,7 @@ public class Controller implements Initializable {
 
     @FXML
     public void btnAlert_click() {
+        GererEffect(btnAlert);
         panelAlert.toFront();
         btnClose.toFront();
         btnMinimize.toFront();

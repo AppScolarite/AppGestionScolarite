@@ -11,57 +11,81 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="503.0" prefWidth="854.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.Controllers.LoginController">
+<AnchorPane id="AnchorPane" prefHeight="503.0" prefWidth="854.0" style="-fx-background-color: #fff;"
+            xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="Application.Controllers.LoginController">
     <children>
-        <AnchorPane prefHeight="503.0" prefWidth="382.0" style="-fx-background-color: #0C39FF;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <AnchorPane prefHeight="503.0" prefWidth="382.0" style="-fx-background-color: #8560FF;"
+                    AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
-                <ImageView fitHeight="315.0" fitWidth="392.0" layoutX="-1.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="315.0" fitWidth="392.0" layoutX="-1.0" layoutY="-1.0" pickOnBounds="true"
+                           preserveRatio="true">
                     <image>
-                        <Image url="@../../resources/images/co_working.png" />
+                        <Image url="@../../resources/images/co_working.png"/>
                     </image>
                 </ImageView>
-                <Label alignment="CENTER" layoutX="101.0" layoutY="306.0" prefHeight="23.0" prefWidth="204.0" text="Gestion de scolarité" textFill="WHITE" underline="true">
+                <Label alignment="CENTER" layoutX="101.0" layoutY="306.0" prefHeight="23.0" prefWidth="204.0"
+                       text="Gestion de scolarité" textFill="WHITE" underline="true">
                     <font>
-                        <Font name="Russo One" size="18.0" />
+                        <Font name="Russo One" size="18.0"/>
                     </font>
                 </Label>
-                <Label alignment="CENTER" layoutX="79.0" layoutY="380.0" prefHeight="34.0" prefWidth="238.0" text="Moyen rapide et souple facilitant plusieur fonctionalités scolaire !" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                <Label alignment="CENTER" layoutX="79.0" layoutY="380.0" prefHeight="34.0" prefWidth="238.0"
+                       text="Moyen rapide et souple facilitant plusieur fonctionalités scolaire !"
+                       textAlignment="CENTER" textFill="WHITE" wrapText="true">
                     <font>
-                        <Font name="Segoe UI" size="12.0" />
+                        <Font name="Segoe UI" size="12.0"/>
                     </font>
                 </Label>
             </children>
         </AnchorPane>
         <Pane layoutX="488.0" layoutY="100.0" AnchorPane.bottomAnchor="73.0" AnchorPane.topAnchor="100.0">
             <children>
-                <TextField fx:id="txtUsername" layoutX="8.0" layoutY="71.0" prefHeight="34.0" prefWidth="275.0" promptText="Pseudo" text="hicham" />
-                <PasswordField fx:id="txtPassword" layoutX="8.0" layoutY="132.0" prefHeight="34.0" prefWidth="275.0" promptText="Mot de passe" stylesheets="@../../resources/Styles/LoginStyling.css" text="hicham123" />
-                <Button fx:id="btnSignin" layoutX="75.0" layoutY="187.0" mnemonicParsing="false" onAction="#signIn_CLick" prefHeight="34.0" prefWidth="137.0" stylesheets="@../../resources/Styles/LoginStyling.css" text="Log in !" />
-                <Label fx:id="btnForgot" alignment="CENTER" layoutX="74.0" layoutY="227.0" prefHeight="15.0" prefWidth="137.0" text="Mot de passe oublié ??" textFill="#5383ff">
+                <TextField fx:id="txtUsername" layoutX="8.0" layoutY="71.0" prefHeight="34.0" prefWidth="275.0"
+                           promptText="Pseudo"/>
+                <PasswordField fx:id="txtPassword" layoutX="8.0" layoutY="132.0" prefHeight="34.0" prefWidth="275.0"
+                               promptText="Mot de passe" stylesheets="@../../resources/Styles/LoginStyling.css"/>
+                <Button fx:id="btnSignin" layoutX="75.0" layoutY="187.0" mnemonicParsing="false"
+                        onAction="#signIn_CLick" prefHeight="34.0" prefWidth="137.0"
+                        stylesheets="@../../resources/Styles/LoginStyling.css" text="Log in !"/>
+                <Label fx:id="btnForgot" alignment="CENTER" layoutX="74.0" layoutY="227.0" prefHeight="15.0"
+                       prefWidth="137.0" text="Mot de passe oublié ??" textFill="#5383ff">
                     <font>
-                        <Font name="Segoe UI" size="12.0" />
+                        <Font name="Segoe UI" size="12.0"/>
                     </font>
                 </Label>
-                <Button fx:id="btnSignup" layoutX="4.0" layoutY="296.0" mnemonicParsing="false" onAction="#Inscrire_Click" prefHeight="34.0" prefWidth="275.0" stylesheets="@../../resources/Styles/LoginStyling.css" text="S'inscrire" />
-                <Separator layoutY="270.0" prefHeight="7.0" prefWidth="275.0" />
-                <Label alignment="CENTER" layoutX="122.0" layoutY="262.0" prefHeight="23.0" prefWidth="31.0" style="-fx-background-color: #fff;" text="Ou" textFill="#5b5a5a">
+                <Button fx:id="btnSignup" layoutX="4.0" layoutY="296.0" mnemonicParsing="false"
+                        onAction="#Inscrire_Click" prefHeight="34.0" prefWidth="275.0"
+                        stylesheets="@../../resources/Styles/LoginStyling.css" text="S'inscrire"/>
+                <Separator layoutY="270.0" prefHeight="7.0" prefWidth="275.0"/>
+                <Label alignment="CENTER" layoutX="122.0" layoutY="262.0" prefHeight="23.0" prefWidth="31.0"
+                       style="-fx-background-color: #fff;" text="Ou" textFill="#5b5a5a">
                     <font>
-                        <Font name="Segoe UI" size="12.0" />
+                        <Font name="Segoe UI" size="12.0"/>
                     </font>
                 </Label>
-                <Label fx:id="lblErrors" alignment="CENTER" layoutX="8.0" layoutY="95.0" prefHeight="23.0" prefWidth="275.0" textFill="#ff6354">
+                <Label fx:id="lblErrors" alignment="CENTER" layoutX="8.0" layoutY="95.0" prefHeight="23.0"
+                       prefWidth="275.0" textFill="#ff6354">
                     <font>
-                        <Font name="Segoe UI" size="10.0" />
+                        <Font name="Segoe UI" size="10.0"/>
                     </font>
                 </Label>
-                <Label fx:id="wrongLbl" layoutX="54.0" layoutY="166.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="27.0" prefWidth="190.0" text="username/password incorrect" textFill="RED" visible="false" />
+                <Label fx:id="wrongLbl" layoutX="54.0" layoutY="166.0" maxHeight="-Infinity" maxWidth="-Infinity"
+                       minHeight="-Infinity" minWidth="-Infinity" prefHeight="27.0" prefWidth="190.0"
+                       text="username/password incorrect" textFill="RED" visible="false"/>
             </children>
         </Pane>
-        <ImageView fitHeight="63.0" fitWidth="77.0" layoutX="600.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="63.0" fitWidth="77.0" layoutX="600.0" layoutY="50.0" pickOnBounds="true"
+                   preserveRatio="true">
             <image>
-                <Image url="@../../resources/images/LoginIcons/icons8_XING_100px.png" />
+                <Image url="@../../resources/images/LoginIcons/icons8_XING_100px.png"/>
             </image>
         </ImageView>
-        <Button fx:id="btnClose" layoutX="828.0" mnemonicParsing="false" onAction="#CLose_Login_CLick" stylesheets="@../../resources/Styles/LoginStyling.css" text="X" />
+        <ImageView fx:id="btnClose" fitHeight="29.0" fitWidth="28.0" layoutX="826.0" layoutY="-1.0"
+                   onMouseClicked="#CLose_Login_CLick" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../resources/images/HboxIcons/closeSquare.png"/>
+            </image>
+        </ImageView>
     </children>
 </AnchorPane>
