@@ -507,7 +507,7 @@ public class Controller implements Initializable {
 //Si l'étudiant qui est connecté
         System.out.println(Gestionnaire_De_Connection.etudiant_connecte);
         if (Gestionnaire_De_Connection.etudiant_connecte != null) {
-            Pane_etd.toFront();
+            Pane_etd.toFront(); date_insc_etd.setDisable(true);
             try {
                 Connection con = gestionnaire_de_connection.getConnection();
                 ResultSet rs = con.createStatement().executeQuery(
@@ -553,6 +553,7 @@ public class Controller implements Initializable {
             try {
 
                 Pane_ensg.toFront();
+                date_ctr_esg.setDisable(true);
                 Connection con = gestionnaire_de_connection.getConnection();
                 String sql = "SELECT  * FROM PROFESSEUR where Code_Pro_Nationnal = '" + Gestionnaire_De_Connection.prof_connecte + "'";
                 ResultSet rs = con.createStatement().executeQuery(sql);
@@ -1988,24 +1989,24 @@ public class Controller implements Initializable {
             Statement stm = cnx.createStatement();
 
 
-            PreparedStatement preparedStatement = cnx.prepareStatement("UPDATE PROFESSEUR SET  Date_Naissance = ?, Date_Commencement_Contrat = ? ," +
+            PreparedStatement preparedStatement = cnx.prepareStatement("UPDATE PROFESSEUR SET  Date_Naissance = ?," +
                     "  Email = ?, Telephone = ? ,  Adresse = ?,  username= ?, mot_de_passe= ? , Type_Contrat=?, Situation_Familliale= ? WHERE Code_Pro_Nationnal = ?");
             preparedStatement.setDate(1, java.sql.Date.valueOf(date_naiss_esg.getValue()));
-            preparedStatement.setDate(2, java.sql.Date.valueOf(date_ctr_esg.getValue()));
-            preparedStatement.setString(3, email_esg.getText());
-            preparedStatement.setString(4, tel_esg.getText());
-            preparedStatement.setString(5, adr_esg.getText());
-            preparedStatement.setString(6, user_txt_esg.getText());
-            preparedStatement.setString(7, pw_txt_esg.getText());
-            preparedStatement.setString(8, combo_contrat.getSelectionModel().getSelectedItem().toString());
-            preparedStatement.setString(9, combo_situation.getSelectionModel().getSelectedItem().toString());
+            //preparedStatement.setDate(2, java.sql.Date.valueOf(date_ctr_esg.getValue()));
+            preparedStatement.setString(2, email_esg.getText());
+            preparedStatement.setString(3, tel_esg.getText());
+            preparedStatement.setString(4, adr_esg.getText());
+            preparedStatement.setString(5, user_txt_esg.getText());
+            preparedStatement.setString(6, pw_txt_esg.getText());
+            preparedStatement.setString(7, combo_contrat.getSelectionModel().getSelectedItem());
+            preparedStatement.setString(8, combo_situation.getSelectionModel().getSelectedItem());
 
 
             //if (combo_situation.getSelectionModel().getSelectedIndex() + 1 == 1) {
             // preparedStatement.setString(9, "CDD");
             // } else preparedStatement.setString(9, "CDI");
 
-            preparedStatement.setString(10, code_esg.getText());
+            preparedStatement.setString(9, code_esg.getText());
 
             preparedStatement.executeUpdate();
             System.out.println("modifié");
