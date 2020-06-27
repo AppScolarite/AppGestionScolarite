@@ -524,12 +524,12 @@ public class Controller implements Initializable {
                     adr_etd.setText(rs.getString("adresse"));
                     date_naiss_etd.setValue(LocalDate.parse(rs.getString("date_naissance")));
                     date_insc_etd.setValue(LocalDate.parse(rs.getString("date_inscription")));
-
+                    ck_redouble.setDisable(true);
                     Integer red = rs.getInt("a_deja_redouble");
                     if (red == 1) {
-                        ck_redouble.setSelected(true);
+                       ck_redouble.setSelected(true);
                     } else {
-                        ck_redouble.setSelected(false);
+                       ck_redouble.setSelected(false);
                     }
 
 //                    int id =  rs.getInt("groupe#");
@@ -2001,11 +2001,6 @@ public class Controller implements Initializable {
             preparedStatement.setString(7, combo_contrat.getSelectionModel().getSelectedItem());
             preparedStatement.setString(8, combo_situation.getSelectionModel().getSelectedItem());
 
-
-            //if (combo_situation.getSelectionModel().getSelectedIndex() + 1 == 1) {
-            // preparedStatement.setString(9, "CDD");
-            // } else preparedStatement.setString(9, "CDI");
-
             preparedStatement.setString(9, code_esg.getText());
 
             preparedStatement.executeUpdate();
@@ -2035,7 +2030,7 @@ public class Controller implements Initializable {
             Statement stm = cnx.createStatement();
 
             PreparedStatement preparedStatement = cnx.prepareStatement("UPDATE Etudiant SET  date_naissance = ?, date_inscription = ? ," +
-                    " email = ?, telephone = ?, Adresse = ?, username= ?, mot_de_passe= ? ,a_deja_redouble=?  WHERE code_massar = ?");
+                    " email = ?, telephone = ?, Adresse = ?, username= ?, mot_de_passe= ?   WHERE code_massar = ?");
             preparedStatement.setDate(1, java.sql.Date.valueOf(date_naiss_etd.getValue()));
             preparedStatement.setDate(2, java.sql.Date.valueOf(date_insc_etd.getValue()));
             preparedStatement.setString(3, email_etd.getText());
@@ -2043,10 +2038,10 @@ public class Controller implements Initializable {
             preparedStatement.setString(5, adr_etd.getText());
             preparedStatement.setString(6, user_txt.getText());
             preparedStatement.setString(7, pw_txt.getText());
-            if (ck_redouble.isSelected())
-                preparedStatement.setString(8, "True");
-            else preparedStatement.setString(8, "False");
-            preparedStatement.setString(9, cne_etd.getText());
+           // if (ck_redouble.isSelected())
+              //  preparedStatement.setString(8, "True");
+           // else preparedStatement.setString(8, "False");
+            preparedStatement.setString(8, cne_etd.getText());
             preparedStatement.executeUpdate();
             System.out.println("modifié");
             // actualiser
