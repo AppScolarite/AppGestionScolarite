@@ -310,7 +310,7 @@ public class Controller implements Initializable {
     private Text txt_sexe;
 
     @FXML
-    private TextField adr_etd;
+    private TextArea adr_etd;
 
     @FXML
     private Text txt_groupe;
@@ -1620,9 +1620,12 @@ public class Controller implements Initializable {
         try {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("SELECT * from Personnel WHERE nom_personnel = '" + Nom + "' and prenom_personnel = '" + Prenom + "'");
-            if (resultSet.next()) {
-                imgUser.setVisible(true);
-            } else imgUser.setVisible(false);
+//            if (resultSet.next()) {
+//                imgUser.setVisible(true);
+//            } else {
+//                imgUser.setVisible(true);
+//
+//            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -1739,6 +1742,7 @@ public class Controller implements Initializable {
             VboxMenu.getChildren().remove(btnGestionProf);
             btnStatistiquesetudiant.setVisible(true);
             btnNotes.setVisible(true);
+            imgUser.setImage(new Image(getClass().getResourceAsStream("..\\..\\resources\\images\\graduation.png")));
 
         } else if (Gestionnaire_De_Connection.prof_connecte != null) {
             VboxMenu.getChildren().remove(btnStatistiques);
@@ -1747,6 +1751,7 @@ public class Controller implements Initializable {
             VboxMenu.getChildren().remove(btnGestionProf);
             btnListes.setVisible(true);
             btnAlert.setVisible(true);
+            imgUser.setImage(new Image(getClass().getResourceAsStream("..\\..\\resources\\images\\prof.png")));
         } else {
             ObservableList data = FXCollections.observableArrayList("CDD", "CDI");
             CB_contrat.setItems(data);
