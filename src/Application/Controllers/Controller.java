@@ -505,7 +505,6 @@ public class Controller implements Initializable {
         GererEffect(btnProfil_etd);
 
 //Si l'étudiant qui est connecté
-        System.out.println(Gestionnaire_De_Connection.etudiant_connecte);
         if (Gestionnaire_De_Connection.etudiant_connecte != null) {
             Pane_etd.toFront();
             date_insc_etd.setDisable(true);
@@ -533,9 +532,6 @@ public class Controller implements Initializable {
                         ck_redouble.setSelected(false);
                     }
 
-//                    int id =  rs.getInt("groupe#");
-
-
                     String sq = "SELECT g.libelle_grp as LibGrp FROM groupe g where g.id_groupe= " + rs.getInt("groupe#");
                     ResultSet rd = con.createStatement().executeQuery(sq);
                     if (rd.next()) {
@@ -544,15 +540,12 @@ public class Controller implements Initializable {
 
                 }
             } catch (Exception e) {
-                // TODO: handle exception
+                e.printStackTrace();
             }
         }
         //Si l'enseignnat qui est connecté
         if (Gestionnaire_De_Connection.prof_connecte != null) {
-            System.out.println(Gestionnaire_De_Connection.prof_connecte);
-            System.out.println(Gestionnaire_De_Connection.nom_connecte);
             try {
-
                 Pane_ensg.toFront();
                 date_ctr_esg.setDisable(true);
                 Connection con = gestionnaire_de_connection.getConnection();
@@ -571,14 +564,11 @@ public class Controller implements Initializable {
                     user_txt_esg.setText(rs.getString("username"));
                     pw_txt_esg.setText(rs.getString("mot_de_passe"));
 
-
                     Connection cn = gestionnaire_de_connection.getConnection();
                     String re = "  select Situation_Familliale from PROFESSEUR where Code_Pro_Nationnal = '" + Gestionnaire_De_Connection.prof_connecte + "'";
                     ResultSet result = cn.createStatement().executeQuery(re);
-                    if (result.next()) {
+                    if (result.next())
                         combo_situation.setPromptText(result.getString("Situation_Familliale"));
-
-                    }
                     combo_situation.setItems(St_list);
 
 
@@ -587,20 +577,15 @@ public class Controller implements Initializable {
                     ResultSet resultSet = conx.createStatement().executeQuery(req);
                     if (resultSet.next())
                         combo_contrat.setPromptText(resultSet.getString("Type_Contrat"));
-
                     combo_contrat.setItems(Ct_list);
-
 
                 }
             } catch (Exception e) {
                 e.printStackTrace();
-                // TODO: handle exception
             }
         }
         //Si le personnel qui est connecté
         if (Gestionnaire_De_Connection.personnel_connecte != 0) {
-            System.out.println(Gestionnaire_De_Connection.personnel_connecte);
-            System.out.println(Gestionnaire_De_Connection.nom_connecte);
             Pane_pers.toFront();
             try {
                 Connection con = gestionnaire_de_connection.getConnection();
@@ -617,7 +602,7 @@ public class Controller implements Initializable {
                     pw_txt_pers.setText(rs.getString("mot_de_passe"));
                 }
             } catch (Exception e) {
-                // TODO: handle exception
+                e.printStackTrace();
             }
         }
         btnClose.toFront();
@@ -671,13 +656,11 @@ public class Controller implements Initializable {
             for (int i = 0; i < floawLayout_groupe.getChildren().size(); i++) {
                 System.out.println(IdGrp.get(i));
             }
-            System.out.println("mode activated");
             Btn_Rechercher.setVisible(true);
             txtSearch.setVisible(true);
             Btn_Ajouter.setText("Mettre à jour");
             iconBtnProf.setImage(new Image(getClass().getResourceAsStream("../../resources/images/refresh.png")));
         } else {
-            System.out.println("mode desactivated");
             Btn_Rechercher.setVisible(false);
             txtSearch.setVisible(false);
             Btn_Ajouter.setText("Nouveau Professeur");
@@ -712,6 +695,7 @@ public class Controller implements Initializable {
     @FXML
     private void cb_groupe_selected() {
         if (!CB_Groupes.getSelectionModel().getSelectedItem().equals("-Choisir-")) {
+            System.out.println(CB_Groupes.getSelectionModel().getSelectedItem());
             Label label = new Label();
             label.setText(CB_Groupes.getSelectionModel().getSelectedItem().toString());
             IdGrp.add(CB_Groupes.getSelectionModel().getSelectedIndex());
@@ -733,7 +717,6 @@ public class Controller implements Initializable {
             floawLayout_groupe.setVgap(10);
             floawLayout_groupe.getChildren().add(label);
         }
-
     }
 
     public void BindComboGroupe() {
@@ -1751,7 +1734,6 @@ public class Controller implements Initializable {
         statistiqueEtudiant_Load();
         PanelGestionNotes_Load();
         statistiquesPersonnel_Load();
-//        panelNotes.toFront();
 
         if (Gestionnaire_De_Connection.etudiant_connecte != null) {
             VboxMenu.getChildren().remove(btnListes);
@@ -1776,7 +1758,6 @@ public class Controller implements Initializable {
             CB_contrat.setItems(data);
             VboxMenu.getChildren().remove(btnListes);
             VboxMenu.getChildren().remove(btnAlert);
-            VboxMenu.getChildren().remove(btnGestion);
             VboxMenu.getChildren().remove(btnStatistiquesetudiant);
             btnGestionProf.setVisible(true);
             btnGestion.setVisible(true);
@@ -1900,6 +1881,9 @@ public class Controller implements Initializable {
                     actualite.setEffect(new DropShadow());
                     actualite.setEditable(false);
                     actualite.setFont(Font.font("Arial", FontWeight.BOLD, 14));
+                    DropShadow shadow = new DropShadow();
+                    shadow.setColor(Color.valueOf("#24ACF2"));
+                    actualite.setEffect(shadow);
 
                     actualite.setWrapText(true);
                     actualite.getStylesheets().add("resources/Styles/AccueilStyle.css");
@@ -2023,11 +2007,16 @@ public class Controller implements Initializable {
             preparedStatement.setString(6, pw_txt_esg.getText());
             preparedStatement.setString(7, combo_contrat.getSelectionModel().getSelectedItem());
             preparedStatement.setString(8, combo_situation.getSelectionModel().getSelectedItem());
-
             preparedStatement.setString(9, code_esg.getText());
 
             preparedStatement.executeUpdate();
-            System.out.println("modifié");
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Modifié avec succées");
+            alert.setHeaderText("Vos données sont bien à jour .");
+            alert.setContentText("Informations actualisées.");
+            alert.showAndWait();
+
             // actualiser
             String sql = "SELECT  * FROM PROFESSEUR where Code_Pro_Nationnal = '" + Gestionnaire_De_Connection.prof_connecte + "'";
             ResultSet rs = cnx.createStatement().executeQuery(sql);
@@ -2061,12 +2050,15 @@ public class Controller implements Initializable {
             preparedStatement.setString(5, adr_etd.getText());
             preparedStatement.setString(6, user_txt.getText());
             preparedStatement.setString(7, pw_txt.getText());
-            // if (ck_redouble.isSelected())
-            //  preparedStatement.setString(8, "True");
-            // else preparedStatement.setString(8, "False");
             preparedStatement.setString(8, cne_etd.getText());
             preparedStatement.executeUpdate();
-            System.out.println("modifié");
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Modifié avec succées");
+            alert.setHeaderText("Vos données sont bien à jour .");
+            alert.setContentText("Informations actualisées.");
+            alert.showAndWait();
+
             // actualiser
             String sql = "SELECT  * FROM Etudiant where code_massar = '" + Gestionnaire_De_Connection.prof_connecte + "'";
             ResultSet rs = cnx.createStatement().executeQuery(sql);
@@ -2103,7 +2095,13 @@ public class Controller implements Initializable {
             preparedStatement.setInt(7, id);
 
             preparedStatement.executeUpdate();
-            System.out.println("modifié");
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Modifié avec succées");
+            alert.setHeaderText("Vos données sont bien à jour .");
+            alert.setContentText("Informations actualisées.");
+            alert.showAndWait();
+
             //actualiser
             String sql = "SELECT  * FROM PERSONNEL  where id_personnel= '" + Gestionnaire_De_Connection.personnel_connecte + "'";
             ResultSet rs = cnx.createStatement().executeQuery(sql);
