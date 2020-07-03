@@ -276,7 +276,7 @@ public class Controller implements Initializable {
     private TextField tel_pers;
 
     @FXML
-    private TextField adresse_pers;
+    private TextArea adresse_pers;
 
 
     @FXML
@@ -507,7 +507,8 @@ public class Controller implements Initializable {
 //Si l'étudiant qui est connecté
         System.out.println(Gestionnaire_De_Connection.etudiant_connecte);
         if (Gestionnaire_De_Connection.etudiant_connecte != null) {
-            Pane_etd.toFront(); date_insc_etd.setDisable(true);
+            Pane_etd.toFront();
+            date_insc_etd.setDisable(true);
             try {
                 Connection con = gestionnaire_de_connection.getConnection();
                 ResultSet rs = con.createStatement().executeQuery(
@@ -527,9 +528,9 @@ public class Controller implements Initializable {
                     ck_redouble.setDisable(true);
                     Integer red = rs.getInt("a_deja_redouble");
                     if (red == 1) {
-                       ck_redouble.setSelected(true);
+                        ck_redouble.setSelected(true);
                     } else {
-                       ck_redouble.setSelected(false);
+                        ck_redouble.setSelected(false);
                     }
 
 //                    int id =  rs.getInt("groupe#");
@@ -661,6 +662,8 @@ public class Controller implements Initializable {
         }
     }
 
+    @FXML
+    private ImageView iconBtnProf;
 
     @FXML
     public void Mode_Click(ActionEvent e) {
@@ -671,12 +674,14 @@ public class Controller implements Initializable {
             System.out.println("mode activated");
             Btn_Rechercher.setVisible(true);
             txtSearch.setVisible(true);
-            Btn_Ajouter.setText("Modifier");
+            Btn_Ajouter.setText("Mettre à jour");
+            iconBtnProf.setImage(new Image(getClass().getResourceAsStream("../../resources/images/refresh.png")));
         } else {
             System.out.println("mode desactivated");
             Btn_Rechercher.setVisible(false);
             txtSearch.setVisible(false);
-            Btn_Ajouter.setText("Ajouter");
+            Btn_Ajouter.setText("Nouveau Professeur");
+            iconBtnProf.setImage(new Image(getClass().getResourceAsStream("../../resources/images/add.png")));
             txtCodeProf.clear();
             txtCIN.clear();
             txtNomProf.clear();
@@ -947,9 +952,9 @@ public class Controller implements Initializable {
             }
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Modification professeur");
-            alert.setHeaderText("Un Presseur Modifier");
-            alert.setContentText("Professeur a été bien Modifier !! ");
+            alert.setTitle("Information");
+            alert.setHeaderText("Mis à jour de données.");
+            alert.setContentText("Professeur a bien été Modifier !!");
             alert.showAndWait();
         }
     }
@@ -1224,8 +1229,8 @@ public class Controller implements Initializable {
             pieChartEtudiant.setData(pieChartData);
             pieChartEtudiant.setTitle("Mes notes");
             pieChartEtudiant.setClockwise(true);
-            pieChartEtudiant.setLabelsVisible(true);
-            pieChartEtudiant.setLabelLineLength(50);
+//            pieChartEtudiant.setLabelsVisible(true);
+//            pieChartEtudiant.setLabelLineLength(50);
             pieChartEtudiant.setStartAngle(180);
             this.ChangerCouleur(
                     pieChartData,
@@ -1329,11 +1334,15 @@ public class Controller implements Initializable {
                     new PieChart.Data("Femme", nbrFemme),
                     new PieChart.Data("Homme", nbrHomme));
             pieChartPersonnel.setData(pieChartDataP);
-            pieChartPersonnel.setTitle("Divérsité des genres");
+//            pieChartPersonnel.setTitle("Divérsité des genres");
             pieChartPersonnel.setClockwise(true);
-            pieChartPersonnel.setLabelsVisible(true);
-            pieChartPersonnel.setLabelLineLength(50);
+//            pieChartPersonnel.setLabelsVisible(true);
+//            pieChartPersonnel.setLabelLineLength(50);
             pieChartPersonnel.setStartAngle(180);
+            this.ChangerCouleur(
+                    pieChartDataP,
+                    "#CB5B5A", "#529EFF"
+            );
 
             //************************************************
         } catch (SQLException e) {
@@ -1364,15 +1373,24 @@ public class Controller implements Initializable {
                     new PieChart.Data("Moyenne >= 10", noteSup),
                     new PieChart.Data("Moyenne < 10", noteInf));
             pieChartMoyenne.setData(pieChartDataM);
-            pieChartMoyenne.setTitle("Divérsité des moyennes");
+//            pieChartMoyenne.setTitle("Divérsité des moyennes");
             pieChartMoyenne.setClockwise(true);
-            pieChartMoyenne.setLabelsVisible(true);
-            pieChartMoyenne.setLabelLineLength(50);
+//            pieChartMoyenne.setLabelsVisible(true);
+//            pieChartMoyenne.setLabelLineLength(50);
             pieChartMoyenne.setStartAngle(180);
         } catch (SQLException s) {
             s.getStackTrace();
         }
 
+    }
+
+    @FXML
+    private void Actualisation() {
+        //TODO : design button actualisation !
+        statistiqueMoyenne();
+        statistiqueGenres();
+        barChartPersonnel.getData().clear();
+        statistiquebarChart();
     }
 
     private void statistiquebarChart() {
@@ -2043,9 +2061,9 @@ public class Controller implements Initializable {
             preparedStatement.setString(5, adr_etd.getText());
             preparedStatement.setString(6, user_txt.getText());
             preparedStatement.setString(7, pw_txt.getText());
-           // if (ck_redouble.isSelected())
-              //  preparedStatement.setString(8, "True");
-           // else preparedStatement.setString(8, "False");
+            // if (ck_redouble.isSelected())
+            //  preparedStatement.setString(8, "True");
+            // else preparedStatement.setString(8, "False");
             preparedStatement.setString(8, cne_etd.getText());
             preparedStatement.executeUpdate();
             System.out.println("modifié");
