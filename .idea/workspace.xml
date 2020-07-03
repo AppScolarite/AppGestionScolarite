@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RestaurantMgt/Application/Controllers/Controller$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RestaurantMgt/Application/Controllers/Controller$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RestaurantMgt/Application/Controllers/Controller$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RestaurantMgt/Application/Controllers/Controller$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RestaurantMgt/Application/Controllers/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RestaurantMgt/Application/Controllers/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RestaurantMgt/Application/Views/Home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RestaurantMgt/Application/Views/Home.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RestaurantMgt/Application/Views/Login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RestaurantMgt/Application/Views/Login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Controllers/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Controllers/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Application/Views/Home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Views/Home.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Views/LandingPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Views/LandingPage.fxml" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -87,8 +79,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Application/Views/Home.fxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="1224" column="60" selection-start-line="1224" selection-start-column="60" selection-end-line="1224" selection-end-column="60" />
+            <state relative-caret-position="201">
+              <caret line="1453" column="28" selection-start-line="1453" selection-start-column="28" selection-end-line="1453" selection-end-column="28" />
             </state>
           </provider>
           <provider editor-type-id="JavaFX-Scene-Builder" />
@@ -240,11 +232,11 @@
         <option value="$PROJECT_DIR$/src/Application/Data/Gestionnaire_De_Connection.java" />
         <option value="$PROJECT_DIR$/src/resources/Styles/style.css" />
         <option value="$PROJECT_DIR$/src/resources/Styles/MaterialDesign.css" />
-        <option value="$PROJECT_DIR$/src/Application/Views/Home.fxml" />
         <option value="$PROJECT_DIR$/src/Application/Controllers/LoginController.java" />
         <option value="$PROJECT_DIR$/src/Application/Views/Login.fxml" />
         <option value="$PROJECT_DIR$/src/resources/Styles/ToggleButtonStyle.css" />
         <option value="$PROJECT_DIR$/src/Application/Controllers/Controller.java" />
+        <option value="$PROJECT_DIR$/src/Application/Views/Home.fxml" />
       </list>
     </option>
   </component>
@@ -523,7 +515,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="390823000" />
+    <option name="totallyTimeSpent" value="391149000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -960,8 +952,8 @@
     <entry file="file://$PROJECT_DIR$/src/Application/Views/Home.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="1224" column="60" selection-start-line="1224" selection-start-column="60" selection-end-line="1224" selection-end-column="60" />
+        <state relative-caret-position="201">
+          <caret line="1453" column="28" selection-start-line="1453" selection-start-column="28" selection-end-line="1453" selection-end-column="28" />
         </state>
       </provider>
     </entry>
