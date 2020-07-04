@@ -56,6 +56,9 @@ public class Controller implements Initializable {
 
     @FXML
     public BarChart barChartPersonnel;
+
+    @FXML
+    private PieChart pieChartNote;
     //*****************************************************
 
     //*************** Alert control/Exam ******************
@@ -665,22 +668,24 @@ public class Controller implements Initializable {
             txtSearch.setVisible(false);
             Btn_Ajouter.setText("Nouveau Professeur");
             iconBtnProf.setImage(new Image(getClass().getResourceAsStream("../../resources/images/add.png")));
-            txtCodeProf.clear();
-            txtCIN.clear();
             txtNomProf.clear();
-            DP_naissance.setValue(null);
             DP_commencement.setValue(null);
-            CB_Groupes.setPromptText("Contrat");
-            txtEmail.clear();
-            txtTel.clear();
-            RB_Homme.setSelected(true);
-            RB_Marie.setSelected(true);
-            txtUsername.clear();
-            txtPassword.clear();
+            DP_naissance.setValue(null);
             CB_Matieres.setPromptText("Matieres");
             CB_Groupes.setPromptText("Groupes");
             floawLayout_groupe.getChildren().clear();
             txtSearch.clear();
+            txtCodeProf.clear();
+            txtCIN.clear();
+            DP_naissance.setValue(LocalDate.now());
+            CB_contrat.setPromptText("-Contrat-");
+                txtEmail.clear();
+            txtTel.clear();
+            RB_Homme.setSelected(true);
+            txtAdresse.clear();
+            RB_Marie.setSelected(true);
+            txtUsername.clear();
+            txtPassword.clear();
         }
     }
 
@@ -817,7 +822,7 @@ public class Controller implements Initializable {
     public void ajouterProf_click() {
         Gestionnaire_De_Connection gestionnaire_de_connection = new Gestionnaire_De_Connection();
         Connection connection = gestionnaire_de_connection.getConnection();
-        if (Btn_Ajouter.getText().equals("Ajouter")) {
+        if (Btn_Ajouter.getText().equals("Nouveau Professeur")) {
             try {
                 String Nomcomplet[] = txtNomProf.getText().split(" ");
                 String nomProf = Nomcomplet[0];
@@ -886,6 +891,25 @@ public class Controller implements Initializable {
             alert.setHeaderText("Un Professeur ajouté");
             alert.setContentText("Professeur a bien été ajouté !! ");
             alert.showAndWait();
+            txtCodeProf.clear();
+            txtCIN.clear();
+            DP_naissance.setValue(null);
+            DP_commencement.setValue(null);
+            txtNomProf.clear();
+            CB_contrat.setPromptText("-Contrat-");
+            CB_Matieres.setPromptText("-Matières-");
+            CB_Groupes.setPromptText("-Groupes-");
+            txtEmail.clear();
+            txtTel.clear();
+            RB_Homme.setSelected(true);
+            txtAdresse.clear();
+            RB_Marie.setSelected(true);
+            txtUsername.clear();
+            txtPassword.clear();
+            floawLayout_groupe.getChildren().clear();
+
+
+
         } else if (Btn_Ajouter.getText().equals("Modifier")) {
             try {
                 String Nomcomplet[] = txtNomProf.getText().split(" ");
@@ -939,6 +963,23 @@ public class Controller implements Initializable {
             alert.setHeaderText("Mis à jour de données.");
             alert.setContentText("Professeur a bien été Modifier !!");
             alert.showAndWait();
+            txtNomProf.clear();
+            DP_commencement.setValue(null);
+            CB_Matieres.setPromptText("Matieres");
+            CB_Groupes.setPromptText("Groupes");
+            floawLayout_groupe.getChildren().clear();
+            txtSearch.clear();
+            txtCodeProf.clear();
+            txtCIN.clear();
+            DP_naissance.setValue(null);
+            CB_contrat.setPromptText("--Contrat--");
+            txtEmail.clear();
+            txtTel.clear();
+            RB_Homme.setSelected(true);
+            txtAdresse.clear();
+            RB_Marie.setSelected(true);
+            txtUsername.clear();
+            txtPassword.clear();
         }
     }
 
@@ -968,6 +1009,9 @@ public class Controller implements Initializable {
                     RB_Homme.setSelected(false);
                 }
                 txtAdresse.setText(resultSet.getString("Adresse"));
+                RB_Ccelib.setSelected(false);
+                RB_Div.setSelected(false);
+                RB_Marie.setSelected(false);
                 if (resultSet.getString("Situation_Familliale").equals("Celibataire")) RB_Ccelib.setSelected(true);
                 else if (resultSet.getString("Situation_Familliale").equals("divorcé(e)")) RB_Div.setSelected(true);
                 else if (resultSet.getString("Situation_Familliale").equals("Marié(e)")) RB_Marie.setSelected(true);
@@ -977,9 +1021,11 @@ public class Controller implements Initializable {
                 txtCodeProf.clear();
                 txtCIN.clear();
                 txtNomProf.clear();
+                txtAdresse.clear();
                 DP_naissance.setValue(null);
                 DP_commencement.setValue(null);
-                CB_Groupes.setPromptText("Contrat");
+                CB_Groupes.setPromptText("-Groupes-");
+                CB_contrat.setPromptText("-Contrat-");
                 txtEmail.clear();
                 txtTel.clear();
                 RB_Homme.setSelected(true);
@@ -994,6 +1040,7 @@ public class Controller implements Initializable {
             Statement groupeProfstm = connection.createStatement();
             ResultSet groupeResultSet = groupeProfstm.executeQuery("  SELECT GROUPE.libelle_grp as libelleGroupe from GROUPE JOIN ENSEIGNEMENT on GROUPE.id_groupe = ENSEIGNEMENT.groupe# WHERE ENSEIGNEMENT.professeur# = '" + txtSearch.getText() + "'");
             while (groupeResultSet.next()) {
+                CB_Groupes.setPromptText(groupeResultSet.getString("libelleGroupe"));
                 floawLayout_groupe.getChildren().clear();
                 Label label = new Label();
                 label.setText(groupeResultSet.getString("libelleGroupe"));
@@ -1335,6 +1382,44 @@ public class Controller implements Initializable {
 
     }
 
+    private void statistiqueNoteMoyenne(){
+        try {
+            int etudiautSup, etudiautInf ;
+            etudiautSup = etudiautInf = 0;
+            Connection connection = gestionnaire_de_connection.getConnection();
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("select distinct count(etudiant.code_massar) as nombreEtudiant from etudiant where etudiant.code_massar not in ( select etudiant_ from note ) ");
+            if(resultSet.next())
+            {
+                System.out.println(etudiautInf);
+                etudiautInf = resultSet.getInt("nombreEtudiant");
+            }
+            statement = connection.createStatement();
+            resultSet = statement.executeQuery("select distinct count(etudiant_) from note");
+            if(resultSet.next()){
+
+                etudiautSup = resultSet.getInt(0);
+                System.out.println(etudiautSup);
+            }
+
+            ObservableList<PieChart.Data> pieChartDataEtu = FXCollections.observableArrayList(
+                    new PieChart.Data("Etudiant ayant note > = 10", etudiautSup),
+                    new PieChart.Data("Etudiant ayant note < 10", etudiautInf));
+
+            pieChartNote.setData(pieChartDataEtu);
+//            pieChartNote.setClockwise(true);
+//            pieChartNote.setStartAngle(180);
+            this.ChangerCouleur(
+                    pieChartDataEtu,
+                    "green", "red"
+            );
+
+
+        }catch (SQLException s){
+            s.getStackTrace();
+        }
+    }
+
     private void statistiqueMoyenne() {
         try {
             int noteSup, noteInf;
@@ -1372,6 +1457,7 @@ public class Controller implements Initializable {
         //TODO : design button actualisation !
         statistiqueMoyenne();
         statistiqueGenres();
+        statistiqueNoteMoyenne();
         barChartPersonnel.getData().clear();
         statistiquebarChart();
     }
@@ -1415,6 +1501,7 @@ public class Controller implements Initializable {
         statistiqueGenres();
         statistiquebarChart();
         statistiqueMoyenne();
+        statistiqueNoteMoyenne();
         Connection connection = gestionnaire_de_connection.getConnection();
         try {
             //nbre total etudiant
@@ -1732,8 +1819,8 @@ public class Controller implements Initializable {
         alertPanel_Load();
         PanelGestionEtudiant_Load();
         statistiqueEtudiant_Load();
-        PanelGestionNotes_Load();
         statistiquesPersonnel_Load();
+        PanelGestionNotes_Load();
 
         if (Gestionnaire_De_Connection.etudiant_connecte != null) {
             VboxMenu.getChildren().remove(btnListes);
@@ -1785,6 +1872,7 @@ public class Controller implements Initializable {
 //        }
 
     }
+
 
     @FXML
     private void exam_soumis(ActionEvent e) {

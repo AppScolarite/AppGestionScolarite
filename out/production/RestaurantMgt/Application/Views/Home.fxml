@@ -991,152 +991,6 @@
                 </Label>
             </children>
         </Pane>
-        <Pane fx:id="panelStatistiquesPersonnel" layoutX="289.0" layoutY="-4.0" prefHeight="680.0" prefWidth="922.0" style="-fx-background-color: WHITE;">
-            <children>
-                <PieChart fx:id="pieChartPersonnel" labelsVisible="false" layoutX="491.0" layoutY="383.0" legendVisible="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="142.0" prefWidth="411.0" />
-                <BarChart fx:id="barChartPersonnel" layoutX="26.0" layoutY="224.0" prefHeight="317.0" prefWidth="435.0">
-                    <xAxis>
-                        <CategoryAxis side="BOTTOM" />
-                    </xAxis>
-                    <yAxis>
-                        <NumberAxis side="LEFT" />
-                    </yAxis>
-                </BarChart>
-                <Label layoutX="389.0" layoutY="14.0" prefHeight="37.0" prefWidth="194.0" text="Statistiques" textFill="#6f6f6f" underline="true">
-                    <font>
-                        <Font name="Russo One" size="29.0" />
-                    </font>
-                </Label>
-                <Label layoutX="193.0" layoutY="578.0" text="étudiants ayant leurs notes :" textFill="#464646">
-                    <font>
-                        <Font name="System Italic" size="14.0" />
-                    </font>
-                </Label>
-                <Label fx:id="etumoySup" layoutX="380.0" layoutY="578.0" text="14" underline="true">
-                    <font>
-                        <Font name="System Bold Italic" size="14.0" />
-                    </font>
-                </Label>
-                <Label layoutX="157.0" layoutY="604.0" text="étudiants n'ayant pas leurs notes :" textFill="#464646">
-                    <font>
-                        <Font name="System Italic" size="14.0" />
-                    </font>
-                </Label>
-                <Label fx:id="etuNoteInf" layoutX="390.0" layoutY="603.0" text="9" underline="true">
-                    <font>
-                        <Font name="System Bold Italic" size="14.0" />
-                    </font>
-                </Label>
-                <PieChart fx:id="pieChartMoyenne" labelsVisible="false" layoutX="493.0" layoutY="237.0" legendVisible="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="142.0" prefWidth="411.0" />
-                <Pane layoutX="71.0" layoutY="79.0" prefHeight="105.0" prefWidth="214.0" style="-fx-background-color: #F3612D; -fx-border-radius: 10px; -fx-background-radius: 10px;">
-                    <children>
-                        <Label layoutX="13.0" layoutY="7.0" text="Nombre total des étudians :" textFill="WHITE">
-                            <font>
-                                <Font name="System Italic" size="14.0" />
-                            </font>
-                        </Label>
-                        <Label fx:id="NbreEtudiant" layoutX="152.0" layoutY="40.0" text="23" textFill="WHITE" underline="true">
-                            <font>
-                                <Font name="System Bold Italic" size="25.0" />
-                            </font>
-                        </Label>
-                        <ImageView fitHeight="39.0" fitWidth="40.0" layoutX="13.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../../resources/images/SideBarIcons/EtudiantsBlanc.png" />
-                            </image>
-                        </ImageView>
-                    </children>
-                    <effect>
-                        <DropShadow color="#f3612d" radius="15.9575" width="44.83" />
-                    </effect>
-                </Pane>
-                <Pane layoutX="348.0" layoutY="79.0" prefHeight="105.0" prefWidth="214.0" style="-fx-background-color: #529EFF; -fx-border-radius: 10px; -fx-background-radius: 10px;">
-                    <children>
-                        <Label layoutX="13.0" layoutY="7.0" text="Nombre total des professeurs :" textFill="WHITE">
-                            <font>
-                                <Font name="System Italic" size="14.0" />
-                            </font>
-                        </Label>
-                        <Label fx:id="nbreProf" layoutX="152.0" layoutY="40.0" text="23" textFill="WHITE" underline="true">
-                            <font>
-                                <Font name="System Bold Italic" size="25.0" />
-                            </font>
-                        </Label>
-                        <ImageView fitHeight="39.0" fitWidth="40.0" layoutX="13.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../../resources/images/SideBarIcons/professor.png" />
-                            </image>
-                        </ImageView>
-                    </children>
-                    <effect>
-                        <DropShadow color="#529eff" height="32.92" radius="18.9375" width="44.83" />
-                    </effect>
-                </Pane>
-                <Pane layoutX="629.0" layoutY="79.0" prefHeight="105.0" prefWidth="214.0" style="-fx-background-color: #4B46FE; -fx-border-radius: 10px; -fx-background-radius: 10px;">
-                    <children>
-                        <Label layoutX="13.0" layoutY="7.0" text="Nombre total des groupes :" textFill="WHITE">
-                            <font>
-                                <Font name="System Italic" size="14.0" />
-                            </font>
-                        </Label>
-                        <Label fx:id="nbreGroupe" layoutX="152.0" layoutY="40.0" text="23" textFill="WHITE" underline="true">
-                            <font>
-                                <Font name="System Bold Italic" size="25.0" />
-                            </font>
-                        </Label>
-                        <ImageView fitHeight="39.0" fitWidth="40.0" layoutX="13.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../../resources/images/SideBarIcons/groups.png" />
-                            </image>
-                        </ImageView>
-                    </children>
-                    <effect>
-                        <DropShadow color="#4b46fe" height="32.92" radius="18.9375" width="44.83" />
-                    </effect>
-                </Pane>
-                <Label layoutX="482.0" layoutY="245.0" text="Moyennes &amp; Notes" textFill="#464646" underline="true">
-                    <font>
-                        <Font name="Arial Black" size="14.0" />
-                    </font>
-                </Label>
-                <Label layoutX="482.0" layoutY="390.0" text="Répartition des sexes" textFill="#464646" underline="true">
-                    <font>
-                        <Font name="Arial Black" size="14.0" />
-                    </font>
-                </Label>
-                <PieChart labelsVisible="false" layoutX="491.0" layoutY="529.0" legendVisible="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="142.0" prefWidth="411.0" />
-                <Label layoutX="482.0" layoutY="531.0" text="Titre rak tma" textFill="#464646" underline="true">
-                    <font>
-                        <Font name="Arial Black" size="14.0" />
-                    </font>
-                </Label>
-                <Pane layoutX="494.0" layoutY="289.0" prefHeight="17.0" prefWidth="16.0" style="-fx-background-color: #EAA029; -fx-border-radius: 5px; -fx-background-radius: 5px;" />
-                <Label layoutX="515.0" layoutY="288.0" text="Négatives" textFill="#464646">
-                    <font>
-                        <Font name="System Italic" size="14.0" />
-                    </font>
-                </Label>
-                <Pane layoutX="494.0" layoutY="315.0" prefHeight="17.0" prefWidth="16.0" style="-fx-background-color: #DB5A2A; -fx-border-radius: 5px; -fx-background-radius: 5px;" />
-                <Label layoutX="515.0" layoutY="314.0" text="Positives" textFill="#464646">
-                    <font>
-                        <Font name="System Italic" size="14.0" />
-                    </font>
-                </Label>
-                <Pane layoutX="497.0" layoutY="428.0" prefHeight="17.0" prefWidth="16.0" style="-fx-background-color: #5398EC; -fx-border-radius: 5px; -fx-background-radius: 5px;" />
-                <Label layoutX="518.0" layoutY="427.0" text="Homme" textFill="#464646">
-                    <font>
-                        <Font name="System Italic" size="14.0" />
-                    </font>
-                </Label>
-                <Pane layoutX="497.0" layoutY="454.0" prefHeight="17.0" prefWidth="16.0" style="-fx-background-color: #BB5656; -fx-border-radius: 5px; -fx-background-radius: 5px;" />
-                <Label layoutX="518.0" layoutY="453.0" text="Femme" textFill="#464646">
-                    <font>
-                        <Font name="System Italic" size="14.0" />
-                    </font>
-                </Label>
-                <Button layoutX="105.0" layoutY="540.0" mnemonicParsing="false" onAction="#Actualisation" text="Clicki tchof si7r" />
-            </children>
-        </Pane>
         <Pane fx:id="Pane_pers" layoutX="289.0" layoutY="-4.0" prefHeight="680.0" prefWidth="922.0" style="-fx-background-color: white;">
             <children>
                 <ImageView fitHeight="129.0" fitWidth="143.0" layoutX="34.0" layoutY="61.0" pickOnBounds="true" preserveRatio="true">
@@ -1284,6 +1138,165 @@
                         </ImageView>
                     </graphic>
                 </Button>
+            </children>
+        </Pane>
+        <Pane fx:id="panelStatistiquesPersonnel" layoutX="289.0" layoutY="-4.0" prefHeight="680.0" prefWidth="922.0" style="-fx-background-color: WHITE;">
+            <children>
+                <PieChart fx:id="pieChartPersonnel" labelsVisible="false" layoutX="491.0" layoutY="383.0" legendVisible="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="142.0" prefWidth="411.0" />
+                <BarChart fx:id="barChartPersonnel" layoutX="26.0" layoutY="224.0" prefHeight="317.0" prefWidth="435.0">
+                    <xAxis>
+                        <CategoryAxis side="BOTTOM" />
+                    </xAxis>
+                    <yAxis>
+                        <NumberAxis side="LEFT" />
+                    </yAxis>
+                </BarChart>
+                <Label layoutX="389.0" layoutY="14.0" prefHeight="37.0" prefWidth="194.0" text="Statistiques" textFill="#6f6f6f" underline="true">
+                    <font>
+                        <Font name="Russo One" size="29.0" />
+                    </font>
+                </Label>
+                <Label layoutX="193.0" layoutY="578.0" text="étudiants ayant leurs notes :" textFill="#464646">
+                    <font>
+                        <Font name="System Italic" size="14.0" />
+                    </font>
+                </Label>
+                <Label fx:id="etumoySup" layoutX="380.0" layoutY="578.0" text="14" underline="true">
+                    <font>
+                        <Font name="System Bold Italic" size="14.0" />
+                    </font>
+                </Label>
+                <Label layoutX="157.0" layoutY="604.0" text="étudiants n'ayant pas leurs notes :" textFill="#464646">
+                    <font>
+                        <Font name="System Italic" size="14.0" />
+                    </font>
+                </Label>
+                <Label fx:id="etuNoteInf" layoutX="390.0" layoutY="603.0" text="9" underline="true">
+                    <font>
+                        <Font name="System Bold Italic" size="14.0" />
+                    </font>
+                </Label>
+                <PieChart fx:id="pieChartMoyenne" labelsVisible="false" layoutX="493.0" layoutY="237.0" legendVisible="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="142.0" prefWidth="411.0" />
+                <Pane layoutX="71.0" layoutY="79.0" prefHeight="105.0" prefWidth="214.0" style="-fx-background-color: #F3612D; -fx-border-radius: 10px; -fx-background-radius: 10px;">
+                    <children>
+                        <Label layoutX="13.0" layoutY="7.0" text="Nombre total des étudians :" textFill="WHITE">
+                            <font>
+                                <Font name="System Italic" size="14.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="NbreEtudiant" layoutX="152.0" layoutY="40.0" text="23" textFill="WHITE" underline="true">
+                            <font>
+                                <Font name="System Bold Italic" size="25.0" />
+                            </font>
+                        </Label>
+                        <ImageView fitHeight="39.0" fitWidth="40.0" layoutX="13.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../resources/images/SideBarIcons/EtudiantsBlanc.png" />
+                            </image>
+                        </ImageView>
+                    </children>
+                    <effect>
+                        <DropShadow color="#f3612d" radius="15.9575" width="44.83" />
+                    </effect>
+                </Pane>
+                <Pane layoutX="348.0" layoutY="79.0" prefHeight="105.0" prefWidth="214.0" style="-fx-background-color: #529EFF; -fx-border-radius: 10px; -fx-background-radius: 10px;">
+                    <children>
+                        <Label layoutX="13.0" layoutY="7.0" text="Nombre total des professeurs :" textFill="WHITE">
+                            <font>
+                                <Font name="System Italic" size="14.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="nbreProf" layoutX="152.0" layoutY="40.0" text="23" textFill="WHITE" underline="true">
+                            <font>
+                                <Font name="System Bold Italic" size="25.0" />
+                            </font>
+                        </Label>
+                        <ImageView fitHeight="39.0" fitWidth="40.0" layoutX="13.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../resources/images/SideBarIcons/professor.png" />
+                            </image>
+                        </ImageView>
+                    </children>
+                    <effect>
+                        <DropShadow color="#529eff" height="32.92" radius="18.9375" width="44.83" />
+                    </effect>
+                </Pane>
+                <Pane layoutX="629.0" layoutY="79.0" prefHeight="105.0" prefWidth="214.0" style="-fx-background-color: #4B46FE; -fx-border-radius: 10px; -fx-background-radius: 10px;">
+                    <children>
+                        <Label layoutX="13.0" layoutY="7.0" text="Nombre total des groupes :" textFill="WHITE">
+                            <font>
+                                <Font name="System Italic" size="14.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="nbreGroupe" layoutX="152.0" layoutY="40.0" text="23" textFill="WHITE" underline="true">
+                            <font>
+                                <Font name="System Bold Italic" size="25.0" />
+                            </font>
+                        </Label>
+                        <ImageView fitHeight="39.0" fitWidth="40.0" layoutX="13.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../resources/images/SideBarIcons/groups.png" />
+                            </image>
+                        </ImageView>
+                    </children>
+                    <effect>
+                        <DropShadow color="#4b46fe" height="32.92" radius="18.9375" width="44.83" />
+                    </effect>
+                </Pane>
+                <Label layoutX="482.0" layoutY="245.0" text="Moyennes &amp; Notes" textFill="#464646" underline="true">
+                    <font>
+                        <Font name="Arial Black" size="14.0" />
+                    </font>
+                </Label>
+                <Label layoutX="482.0" layoutY="390.0" text="Répartition des sexes" textFill="#464646" underline="true">
+                    <font>
+                        <Font name="Arial Black" size="14.0" />
+                    </font>
+                </Label>
+<!--                <PieChart labelsVisible="false" layoutX="491.0" layoutY="529.0" legendVisible="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="142.0" prefWidth="411.0" />-->
+                <Label layoutX="482.0" layoutY="531.0" text="Etudiant ayant moyenne &gt; 10 " textFill="#464646" underline="true">
+                    <font>
+                        <Font name="Arial Black" size="14.0" />
+                    </font>
+                </Label>
+                <PieChart fx:id="pieChartNote" labelsVisible="false" layoutX="449.0" layoutY="420.0" legendVisible="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="142.0" prefWidth="411.0" />
+                <Pane layoutX="494.0" layoutY="289.0" prefHeight="17.0" prefWidth="16.0" style="-fx-background-color: #EAA029; -fx-border-radius: 5px; -fx-background-radius: 5px;" />
+                <Label layoutX="515.0" layoutY="288.0" text="Négatives" textFill="#464646">
+                    <font>
+                        <Font name="System Italic" size="14.0" />
+                    </font>
+                </Label>
+                <Pane layoutX="494.0" layoutY="315.0" prefHeight="17.0" prefWidth="16.0" style="-fx-background-color: #DB5A2A; -fx-border-radius: 5px; -fx-background-radius: 5px;" />
+                <Label layoutX="515.0" layoutY="314.0" text="Positives" textFill="#464646">
+                    <font>
+                        <Font name="System Italic" size="14.0" />
+                    </font>
+                </Label>
+                <Pane layoutX="497.0" layoutY="428.0" prefHeight="17.0" prefWidth="16.0" style="-fx-background-color: #5398EC; -fx-border-radius: 5px; -fx-background-radius: 5px;" />
+                <Label layoutX="518.0" layoutY="427.0" text="Homme" textFill="#464646">
+                    <font>
+                        <Font name="System Italic" size="14.0" />
+                    </font>
+                </Label>
+                <Pane layoutX="497.0" layoutY="454.0" prefHeight="17.0" prefWidth="16.0" style="-fx-background-color: #BB5656; -fx-border-radius: 5px; -fx-background-radius: 5px;" />
+                <Label layoutX="518.0" layoutY="453.0" text="Femme" textFill="#464646">
+                    <font>
+                        <Font name="System Italic" size="14.0" />
+                    </font>
+                </Label>
+                <Button layoutX="105.0" layoutY="540.0" mnemonicParsing="false" onAction="#Actualisation" text="Clicki tchof si7r" />
+            <Pane layoutX="497.0" layoutY="581.0" prefHeight="17.0" prefWidth="16.0" style="-fx-background-color: green; -fx-border-radius: 5px; -fx-background-radius: 5px;" />
+            <Label layoutX="518.0" layoutY="580.0" text="&gt; 10" textFill="#464646">
+               <font>
+                  <Font name="System Italic" size="14.0" />
+               </font>
+            </Label>
+            <Pane layoutX="497.0" layoutY="607.0" prefHeight="17.0" prefWidth="16.0" style="-fx-background-color: red; -fx-border-radius: 5px; -fx-background-radius: 5px;" />
+            <Label layoutX="518.0" layoutY="606.0" text="&lt; 10" textFill="#464646">
+               <font>
+                  <Font name="System Italic" size="14.0" />
+               </font>
+            </Label>
             </children>
         </Pane>
 
