@@ -1,6 +1,10 @@
 .text-area {
     -fx-background-color: transparent;
+    -fx-border-color: #24ACF2;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
 }
+
 /*.text-area .scroll-pane .viewport{*/
 /*    -fx-background-color: transparent;*/
 /*}*/

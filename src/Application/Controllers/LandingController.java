@@ -29,17 +29,12 @@ import java.util.ResourceBundle;
 public class LandingController implements Initializable {
 
     @FXML
-    private Button startlogin;
-
-    private double ii = 0.1;
+    private Button btnClose;
 
     @FXML
     private ProgressBar progressBar;
 
     public void goTologin() throws Exception {
-        startlogin.setVisible(false);
-        progressBar.setVisible(true);
-
         URL url = new File("src/Application/Views/Login.fxml").toURI().toURL();
         Parent root = FXMLLoader.load(url);
         Stage stage = new Stage();
@@ -52,7 +47,7 @@ public class LandingController implements Initializable {
 
     @FXML
     public void btnClose_Click() {
-        Stage stage = (Stage) startlogin.getScene().getWindow();
+        Stage stage = (Stage) btnClose.getScene().getWindow();
         stage.close();
     }
 
@@ -72,7 +67,5 @@ public class LandingController implements Initializable {
                 }, new KeyValue(progressBar.progressProperty(), 1))
         );
         timeline.play();
-        timeline.setOnFinished(actionEvent -> System.out.println("finish"));
-
     }
 }

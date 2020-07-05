@@ -56,6 +56,9 @@ public class Controller implements Initializable {
 
     @FXML
     public BarChart barChartPersonnel;
+
+    @FXML
+    private PieChart pieChartNote;
     //*****************************************************
 
     //*************** Alert control/Exam ******************
@@ -505,7 +508,6 @@ public class Controller implements Initializable {
         GererEffect(btnProfil_etd);
 
 //Si l'étudiant qui est connecté
-        System.out.println(Gestionnaire_De_Connection.etudiant_connecte);
         if (Gestionnaire_De_Connection.etudiant_connecte != null) {
             Pane_etd.toFront();
             date_insc_etd.setDisable(true);
@@ -533,9 +535,6 @@ public class Controller implements Initializable {
                         ck_redouble.setSelected(false);
                     }
 
-//                    int id =  rs.getInt("groupe#");
-
-
                     String sq = "SELECT g.libelle_grp as LibGrp FROM groupe g where g.id_groupe= " + rs.getInt("groupe#");
                     ResultSet rd = con.createStatement().executeQuery(sq);
                     if (rd.next()) {
@@ -544,15 +543,12 @@ public class Controller implements Initializable {
 
                 }
             } catch (Exception e) {
-                // TODO: handle exception
+                e.printStackTrace();
             }
         }
         //Si l'enseignnat qui est connecté
         if (Gestionnaire_De_Connection.prof_connecte != null) {
-            System.out.println(Gestionnaire_De_Connection.prof_connecte);
-            System.out.println(Gestionnaire_De_Connection.nom_connecte);
             try {
-
                 Pane_ensg.toFront();
                 date_ctr_esg.setDisable(true);
                 Connection con = gestionnaire_de_connection.getConnection();
@@ -571,14 +567,11 @@ public class Controller implements Initializable {
                     user_txt_esg.setText(rs.getString("username"));
                     pw_txt_esg.setText(rs.getString("mot_de_passe"));
 
-
                     Connection cn = gestionnaire_de_connection.getConnection();
                     String re = "  select Situation_Familliale from PROFESSEUR where Code_Pro_Nationnal = '" + Gestionnaire_De_Connection.prof_connecte + "'";
                     ResultSet result = cn.createStatement().executeQuery(re);
-                    if (result.next()) {
+                    if (result.next())
                         combo_situation.setPromptText(result.getString("Situation_Familliale"));
-
-                    }
                     combo_situation.setItems(St_list);
 
 
@@ -587,20 +580,15 @@ public class Controller implements Initializable {
                     ResultSet resultSet = conx.createStatement().executeQuery(req);
                     if (resultSet.next())
                         combo_contrat.setPromptText(resultSet.getString("Type_Contrat"));
-
                     combo_contrat.setItems(Ct_list);
-
 
                 }
             } catch (Exception e) {
                 e.printStackTrace();
-                // TODO: handle exception
             }
         }
         //Si le personnel qui est connecté
         if (Gestionnaire_De_Connection.personnel_connecte != 0) {
-            System.out.println(Gestionnaire_De_Connection.personnel_connecte);
-            System.out.println(Gestionnaire_De_Connection.nom_connecte);
             Pane_pers.toFront();
             try {
                 Connection con = gestionnaire_de_connection.getConnection();
@@ -617,7 +605,7 @@ public class Controller implements Initializable {
                     pw_txt_pers.setText(rs.getString("mot_de_passe"));
                 }
             } catch (Exception e) {
-                // TODO: handle exception
+                e.printStackTrace();
             }
         }
         btnClose.toFront();
@@ -671,33 +659,33 @@ public class Controller implements Initializable {
             for (int i = 0; i < floawLayout_groupe.getChildren().size(); i++) {
                 System.out.println(IdGrp.get(i));
             }
-            System.out.println("mode activated");
             Btn_Rechercher.setVisible(true);
             txtSearch.setVisible(true);
             Btn_Ajouter.setText("Mettre à jour");
             iconBtnProf.setImage(new Image(getClass().getResourceAsStream("../../resources/images/refresh.png")));
         } else {
-            System.out.println("mode desactivated");
             Btn_Rechercher.setVisible(false);
             txtSearch.setVisible(false);
             Btn_Ajouter.setText("Nouveau Professeur");
             iconBtnProf.setImage(new Image(getClass().getResourceAsStream("../../resources/images/add.png")));
-            txtCodeProf.clear();
-            txtCIN.clear();
             txtNomProf.clear();
-            DP_naissance.setValue(null);
             DP_commencement.setValue(null);
-            CB_Groupes.setPromptText("Contrat");
-            txtEmail.clear();
-            txtTel.clear();
-            RB_Homme.setSelected(true);
-            RB_Marie.setSelected(true);
-            txtUsername.clear();
-            txtPassword.clear();
+            DP_naissance.setValue(null);
             CB_Matieres.setPromptText("Matieres");
             CB_Groupes.setPromptText("Groupes");
             floawLayout_groupe.getChildren().clear();
             txtSearch.clear();
+            txtCodeProf.clear();
+            txtCIN.clear();
+            DP_naissance.setValue(LocalDate.now());
+            CB_contrat.setPromptText("-Contrat-");
+                txtEmail.clear();
+            txtTel.clear();
+            RB_Homme.setSelected(true);
+            txtAdresse.clear();
+            RB_Marie.setSelected(true);
+            txtUsername.clear();
+            txtPassword.clear();
         }
     }
 
@@ -712,6 +700,7 @@ public class Controller implements Initializable {
     @FXML
     private void cb_groupe_selected() {
         if (!CB_Groupes.getSelectionModel().getSelectedItem().equals("-Choisir-")) {
+            System.out.println(CB_Groupes.getSelectionModel().getSelectedItem());
             Label label = new Label();
             label.setText(CB_Groupes.getSelectionModel().getSelectedItem().toString());
             IdGrp.add(CB_Groupes.getSelectionModel().getSelectedIndex());
@@ -733,7 +722,6 @@ public class Controller implements Initializable {
             floawLayout_groupe.setVgap(10);
             floawLayout_groupe.getChildren().add(label);
         }
-
     }
 
     public void BindComboGroupe() {
@@ -834,7 +822,7 @@ public class Controller implements Initializable {
     public void ajouterProf_click() {
         Gestionnaire_De_Connection gestionnaire_de_connection = new Gestionnaire_De_Connection();
         Connection connection = gestionnaire_de_connection.getConnection();
-        if (Btn_Ajouter.getText().equals("Ajouter")) {
+        if (Btn_Ajouter.getText().equals("Nouveau Professeur")) {
             try {
                 String Nomcomplet[] = txtNomProf.getText().split(" ");
                 String nomProf = Nomcomplet[0];
@@ -903,6 +891,25 @@ public class Controller implements Initializable {
             alert.setHeaderText("Un Professeur ajouté");
             alert.setContentText("Professeur a bien été ajouté !! ");
             alert.showAndWait();
+            txtCodeProf.clear();
+            txtCIN.clear();
+            DP_naissance.setValue(null);
+            DP_commencement.setValue(null);
+            txtNomProf.clear();
+            CB_contrat.setPromptText("-Contrat-");
+            CB_Matieres.setPromptText("-Matières-");
+            CB_Groupes.setPromptText("-Groupes-");
+            txtEmail.clear();
+            txtTel.clear();
+            RB_Homme.setSelected(true);
+            txtAdresse.clear();
+            RB_Marie.setSelected(true);
+            txtUsername.clear();
+            txtPassword.clear();
+            floawLayout_groupe.getChildren().clear();
+
+
+
         } else if (Btn_Ajouter.getText().equals("Modifier")) {
             try {
                 String Nomcomplet[] = txtNomProf.getText().split(" ");
@@ -956,6 +963,23 @@ public class Controller implements Initializable {
             alert.setHeaderText("Mis à jour de données.");
             alert.setContentText("Professeur a bien été Modifier !!");
             alert.showAndWait();
+            txtNomProf.clear();
+            DP_commencement.setValue(null);
+            CB_Matieres.setPromptText("Matieres");
+            CB_Groupes.setPromptText("Groupes");
+            floawLayout_groupe.getChildren().clear();
+            txtSearch.clear();
+            txtCodeProf.clear();
+            txtCIN.clear();
+            DP_naissance.setValue(null);
+            CB_contrat.setPromptText("--Contrat--");
+            txtEmail.clear();
+            txtTel.clear();
+            RB_Homme.setSelected(true);
+            txtAdresse.clear();
+            RB_Marie.setSelected(true);
+            txtUsername.clear();
+            txtPassword.clear();
         }
     }
 
@@ -985,6 +1009,9 @@ public class Controller implements Initializable {
                     RB_Homme.setSelected(false);
                 }
                 txtAdresse.setText(resultSet.getString("Adresse"));
+                RB_Ccelib.setSelected(false);
+                RB_Div.setSelected(false);
+                RB_Marie.setSelected(false);
                 if (resultSet.getString("Situation_Familliale").equals("Celibataire")) RB_Ccelib.setSelected(true);
                 else if (resultSet.getString("Situation_Familliale").equals("divorcé(e)")) RB_Div.setSelected(true);
                 else if (resultSet.getString("Situation_Familliale").equals("Marié(e)")) RB_Marie.setSelected(true);
@@ -994,9 +1021,11 @@ public class Controller implements Initializable {
                 txtCodeProf.clear();
                 txtCIN.clear();
                 txtNomProf.clear();
+                txtAdresse.clear();
                 DP_naissance.setValue(null);
                 DP_commencement.setValue(null);
-                CB_Groupes.setPromptText("Contrat");
+                CB_Groupes.setPromptText("-Groupes-");
+                CB_contrat.setPromptText("-Contrat-");
                 txtEmail.clear();
                 txtTel.clear();
                 RB_Homme.setSelected(true);
@@ -1011,6 +1040,7 @@ public class Controller implements Initializable {
             Statement groupeProfstm = connection.createStatement();
             ResultSet groupeResultSet = groupeProfstm.executeQuery("  SELECT GROUPE.libelle_grp as libelleGroupe from GROUPE JOIN ENSEIGNEMENT on GROUPE.id_groupe = ENSEIGNEMENT.groupe# WHERE ENSEIGNEMENT.professeur# = '" + txtSearch.getText() + "'");
             while (groupeResultSet.next()) {
+                CB_Groupes.setPromptText(groupeResultSet.getString("libelleGroupe"));
                 floawLayout_groupe.getChildren().clear();
                 Label label = new Label();
                 label.setText(groupeResultSet.getString("libelleGroupe"));
@@ -1352,6 +1382,44 @@ public class Controller implements Initializable {
 
     }
 
+    private void statistiqueNoteMoyenne(){
+        try {
+            int etudiautSup, etudiautInf ;
+            etudiautSup = etudiautInf = 0;
+            Connection connection = gestionnaire_de_connection.getConnection();
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("select distinct count(etudiant.code_massar) as nombreEtudiant from etudiant where etudiant.code_massar not in ( select etudiant_ from note ) ");
+            if(resultSet.next())
+            {
+                System.out.println(etudiautInf);
+                etudiautInf = resultSet.getInt("nombreEtudiant");
+            }
+            statement = connection.createStatement();
+            resultSet = statement.executeQuery("select distinct count(etudiant_) from note");
+            if(resultSet.next()){
+
+                etudiautSup = resultSet.getInt(0);
+                System.out.println(etudiautSup);
+            }
+
+            ObservableList<PieChart.Data> pieChartDataEtu = FXCollections.observableArrayList(
+                    new PieChart.Data("Etudiant ayant note > = 10", etudiautSup),
+                    new PieChart.Data("Etudiant ayant note < 10", etudiautInf));
+
+            pieChartNote.setData(pieChartDataEtu);
+//            pieChartNote.setClockwise(true);
+//            pieChartNote.setStartAngle(180);
+            this.ChangerCouleur(
+                    pieChartDataEtu,
+                    "green", "red"
+            );
+
+
+        }catch (SQLException s){
+            s.getStackTrace();
+        }
+    }
+
     private void statistiqueMoyenne() {
         try {
             int noteSup, noteInf;
@@ -1389,6 +1457,7 @@ public class Controller implements Initializable {
         //TODO : design button actualisation !
         statistiqueMoyenne();
         statistiqueGenres();
+        statistiqueNoteMoyenne();
         barChartPersonnel.getData().clear();
         statistiquebarChart();
     }
@@ -1432,6 +1501,7 @@ public class Controller implements Initializable {
         statistiqueGenres();
         statistiquebarChart();
         statistiqueMoyenne();
+        statistiqueNoteMoyenne();
         Connection connection = gestionnaire_de_connection.getConnection();
         try {
             //nbre total etudiant
@@ -1749,9 +1819,8 @@ public class Controller implements Initializable {
         alertPanel_Load();
         PanelGestionEtudiant_Load();
         statistiqueEtudiant_Load();
-        PanelGestionNotes_Load();
         statistiquesPersonnel_Load();
-//        panelNotes.toFront();
+        PanelGestionNotes_Load();
 
         if (Gestionnaire_De_Connection.etudiant_connecte != null) {
             VboxMenu.getChildren().remove(btnListes);
@@ -1776,7 +1845,6 @@ public class Controller implements Initializable {
             CB_contrat.setItems(data);
             VboxMenu.getChildren().remove(btnListes);
             VboxMenu.getChildren().remove(btnAlert);
-            VboxMenu.getChildren().remove(btnGestion);
             VboxMenu.getChildren().remove(btnStatistiquesetudiant);
             btnGestionProf.setVisible(true);
             btnGestion.setVisible(true);
@@ -1804,6 +1872,7 @@ public class Controller implements Initializable {
 //        }
 
     }
+
 
     @FXML
     private void exam_soumis(ActionEvent e) {
@@ -1900,6 +1969,9 @@ public class Controller implements Initializable {
                     actualite.setEffect(new DropShadow());
                     actualite.setEditable(false);
                     actualite.setFont(Font.font("Arial", FontWeight.BOLD, 14));
+                    DropShadow shadow = new DropShadow();
+                    shadow.setColor(Color.valueOf("#24ACF2"));
+                    actualite.setEffect(shadow);
 
                     actualite.setWrapText(true);
                     actualite.getStylesheets().add("resources/Styles/AccueilStyle.css");
@@ -2023,11 +2095,16 @@ public class Controller implements Initializable {
             preparedStatement.setString(6, pw_txt_esg.getText());
             preparedStatement.setString(7, combo_contrat.getSelectionModel().getSelectedItem());
             preparedStatement.setString(8, combo_situation.getSelectionModel().getSelectedItem());
-
             preparedStatement.setString(9, code_esg.getText());
 
             preparedStatement.executeUpdate();
-            System.out.println("modifié");
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Modifié avec succées");
+            alert.setHeaderText("Vos données sont bien à jour .");
+            alert.setContentText("Informations actualisées.");
+            alert.showAndWait();
+
             // actualiser
             String sql = "SELECT  * FROM PROFESSEUR where Code_Pro_Nationnal = '" + Gestionnaire_De_Connection.prof_connecte + "'";
             ResultSet rs = cnx.createStatement().executeQuery(sql);
@@ -2061,12 +2138,15 @@ public class Controller implements Initializable {
             preparedStatement.setString(5, adr_etd.getText());
             preparedStatement.setString(6, user_txt.getText());
             preparedStatement.setString(7, pw_txt.getText());
-            // if (ck_redouble.isSelected())
-            //  preparedStatement.setString(8, "True");
-            // else preparedStatement.setString(8, "False");
             preparedStatement.setString(8, cne_etd.getText());
             preparedStatement.executeUpdate();
-            System.out.println("modifié");
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Modifié avec succées");
+            alert.setHeaderText("Vos données sont bien à jour .");
+            alert.setContentText("Informations actualisées.");
+            alert.showAndWait();
+
             // actualiser
             String sql = "SELECT  * FROM Etudiant where code_massar = '" + Gestionnaire_De_Connection.prof_connecte + "'";
             ResultSet rs = cnx.createStatement().executeQuery(sql);
@@ -2103,7 +2183,13 @@ public class Controller implements Initializable {
             preparedStatement.setInt(7, id);
 
             preparedStatement.executeUpdate();
-            System.out.println("modifié");
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Modifié avec succées");
+            alert.setHeaderText("Vos données sont bien à jour .");
+            alert.setContentText("Informations actualisées.");
+            alert.showAndWait();
+
             //actualiser
             String sql = "SELECT  * FROM PERSONNEL  where id_personnel= '" + Gestionnaire_De_Connection.personnel_connecte + "'";
             ResultSet rs = cnx.createStatement().executeQuery(sql);
