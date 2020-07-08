@@ -1384,38 +1384,30 @@ public class Controller implements Initializable {
 
     private void statistiqueNoteMoyenne(){
         try {
-            int etudiautSup, etudiautInf ;
+            int etudiautSup, etudiautInf;
             etudiautSup = etudiautInf = 0;
-            Connection connection = gestionnaire_de_connection.getConnection();
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("select distinct count(etudiant.code_massar) as nombreEtudiant from etudiant where etudiant.code_massar not in ( select etudiant_ from note ) ");
-            if(resultSet.next())
-            {
-                System.out.println(etudiautInf);
-                etudiautInf = resultSet.getInt("nombreEtudiant");
-            }
-            statement = connection.createStatement();
-            resultSet = statement.executeQuery("select distinct count(etudiant_) from note");
-            if(resultSet.next()){
 
-                etudiautSup = resultSet.getInt(0);
-                System.out.println(etudiautSup);
-            }
+            Connection sqlConnection = gestionnaire_de_connection.getConnection();
+            Statement sqlCommand = sqlConnection.createStatement();
+            ResultSet dataReader = sqlCommand.executeQuery("select distinct count(etudiant_) as etudiantNote from note");
+            if (dataReader.next())
+                etudiautSup = dataReader.getInt("etudiantNote");
 
-            ObservableList<PieChart.Data> pieChartDataEtu = FXCollections.observableArrayList(
+            sqlCommand = sqlConnection.createStatement();
+            dataReader = sqlCommand.executeQuery("select distinct count(etudiant.code_massar) as etudiantPasNote from etudiant where etudiant.code_massar not in ( select etudiant_ from note )");
+            if (dataReader.next())
+                etudiautInf = dataReader.getInt("etudiantPasNote");
+            ObservableList<PieChart.Data> pieChartDataE = FXCollections.observableArrayList(
                     new PieChart.Data("Etudiant ayant note > = 10", etudiautSup),
                     new PieChart.Data("Etudiant ayant note < 10", etudiautInf));
-
-            pieChartNote.setData(pieChartDataEtu);
-//            pieChartNote.setClockwise(true);
-//            pieChartNote.setStartAngle(180);
+            pieChartNote.setData(pieChartDataE);
+            pieChartNote.setClockwise(true);
+            pieChartNote.setStartAngle(180);
             this.ChangerCouleur(
-                    pieChartDataEtu,
-                    "green", "red"
+                    pieChartDataE,
+                    "#00cc00", "#ff4d4d"
             );
-
-
-        }catch (SQLException s){
+        } catch (SQLException s) {
             s.getStackTrace();
         }
     }
@@ -1519,15 +1511,15 @@ public class Controller implements Initializable {
             nbreResult = nbreStm.executeQuery("select count(*) as totalgroupe from groupe ");
             if (nbreResult.next()) nbreGroupe.setText(String.valueOf(nbreResult.getInt("totalgroupe")));
 
-            //nbre total etudiant ayant leur moyenne
-            nbreStm = connection.createStatement();
-            nbreResult = nbreStm.executeQuery("select count(*) as totaletuMoySup from note where Valeur_Note >= 10 ");
-            if (nbreResult.next()) etumoySup.setText(String.valueOf(nbreResult.getInt("totaletuMoySup")));
-
-            //nbre total etudiant ayant pas leur moyenne
-            nbreStm = connection.createStatement();
-            nbreResult = nbreStm.executeQuery("select count(*) as totaletuMoyInf from note where Valeur_Note < 10 ");
-            if (nbreResult.next()) etuNoteInf.setText(String.valueOf(nbreResult.getInt("totaletuMoyInf")));
+//            //nbre total etudiant ayant leur moyenne
+//            nbreStm = connection.createStatement();
+//            nbreResult = nbreStm.executeQuery("select count(*) as totaletuMoySup from note where Valeur_Note >= 10 ");
+//            if (nbreResult.next()) etumoySup.setText(String.valueOf(nbreResult.getInt("totaletuMoySup")));
+//
+//            //nbre total etudiant ayant pas leur moyenne
+//            nbreStm = connection.createStatement();
+//            nbreResult = nbreStm.executeQuery("select count(*) as totaletuMoyInf from note where Valeur_Note < 10 ");
+//            if (nbreResult.next()) etuNoteInf.setText(String.valueOf(nbreResult.getInt("totaletuMoyInf")));
         } catch (SQLException s) {
             s.getStackTrace();
         }
