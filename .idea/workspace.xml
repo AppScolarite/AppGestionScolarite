@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documents/Presentation.pptx" beforeDir="false" afterPath="$PROJECT_DIR$/Documents/Presentation.pptx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Documents/Rapport.pptx" beforeDir="false" afterPath="$PROJECT_DIR$/Documents/Rapport.pptx" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
@@ -80,12 +78,12 @@
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Application/Views/Home.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder" />
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="18003">
               <caret line="1059" column="29" selection-start-line="1059" selection-start-column="29" selection-end-line="1059" selection-end-column="29" />
             </state>
           </provider>
+          <provider editor-type-id="JavaFX-Scene-Builder" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -103,12 +101,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Application/Controllers/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="872">
+            <state relative-caret-position="661">
               <caret line="1470" column="44" selection-start-line="1470" selection-start-column="44" selection-end-line="1470" selection-end-column="44" />
-              <folding>
-                <element signature="e#84821#84822#0" expanded="true" />
-                <element signature="e#84856#84857#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -459,11 +453,12 @@
       <workItem from="1593112447473" duration="16574000" />
       <workItem from="1593262804323" duration="494000" />
       <workItem from="1593871544293" duration="8495000" />
+      <workItem from="1594496372237" duration="179000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="419725000" />
+    <option name="totallyTimeSpent" value="419904000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -477,7 +472,7 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.19601542" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.19858612" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -855,24 +850,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/Controllers/LoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1564">
-          <caret line="126" column="41" selection-start-line="126" selection-start-column="41" selection-end-line="126" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/Views/Home.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18003">
-          <caret line="1059" column="29" selection-start-line="1059" selection-start-column="29" selection-end-line="1059" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk-11.0.7/lib/src.zip!/java.base/java/time/LocalDate.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="646">
@@ -894,14 +871,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/Views/Home.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18003">
+          <caret line="1059" column="29" selection-start-line="1059" selection-start-column="29" selection-end-line="1059" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/Controllers/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1564">
+          <caret line="126" column="41" selection-start-line="126" selection-start-column="41" selection-end-line="126" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Application/Controllers/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="872">
+        <state relative-caret-position="661">
           <caret line="1470" column="44" selection-start-line="1470" selection-start-column="44" selection-end-line="1470" selection-end-column="44" />
-          <folding>
-            <element signature="e#84821#84822#0" expanded="true" />
-            <element signature="e#84856#84857#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
