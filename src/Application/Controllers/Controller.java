@@ -625,7 +625,7 @@ public class Controller implements Initializable {
         }
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Supression d'un étudiant !");
-        alert.setContentText("Etes vous totalement sur de vouloir supprimer l'étudiant <" + professeur.getNomCodeProf() + "-" + professeur.getNomComplet() + " " + professeur.getCIN() + "> ??\n");
+        alert.setContentText("Etes vous totalement sur de vouloir supprimer l'enseignant <" + professeur.getNomCodeProf() + "-" + professeur.getNomComplet() + " " + professeur.getCIN() + "> ??\n");
         alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
         alert.setHeight(400);
         Optional<ButtonType> reponse = alert.showAndWait();
