@@ -7,7 +7,7 @@ Voici les méthodologie d'analyse et de conception qu'on a engagée :
 -UML  
 -Merise
 
-Voici les outils qui ont été utilisés afin de créer le projet de A à Z . 
+Voici les outils qui ont été utilisés afin de créer le projet de A à Z .  
 -S.G.B.D : Microsoft SQL Server V2018, T-Sql  
 -Cadriciel de l'application : JAVA Fx  
 -Langage de programmation : JAVA 11  
